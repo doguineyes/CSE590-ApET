@@ -233,7 +233,7 @@ def main():
     assert torch.isfinite(coefficients).all()
 
     print()
-    print("ApET behavioral smoke test PASSED")
+    print("ApET behavioral smoke test PASSED!")
 
 
 if __name__ == "__main__":

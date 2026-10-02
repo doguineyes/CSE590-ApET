@@ -111,7 +111,7 @@ def main():
     print("Mean reconstruction error:", errors.mean().item())
     print("Max reconstruction error:", errors.max().item())
     print()
-    print("ApET core CPU smoke test PASSED")
+    print("ApET core CPU smoke test PASSED!")
 
 
 if __name__ == "__main__":
