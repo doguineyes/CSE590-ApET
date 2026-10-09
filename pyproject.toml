@@ -1,0 +1,32 @@
+[project]
+name = "cse590-apet-runtime"
+version = "0.1.0"
+description = "Candidate Linux runtime for ApET research on Kaggle and Google Cloud"
+requires-python = "==3.11.14"
+dependencies = [
+    "torch==2.9.0",
+    "torchvision==0.24.0",
+    "transformers==4.48.2",
+    "accelerate>=1,<2",
+    "datasets>=3,<5",
+    "numpy>=1.26,<3",
+    "pillow>=10,<13",
+    "safetensors>=0.4,<1",
+    "sentencepiece>=0.2,<0.3",
+]
+
+[tool.uv]
+# This defines an environment, not an install of the legacy model directories.
+package = false
+required-version = "==0.9.5"
+environments = ["sys_platform == 'linux' and platform_machine == 'x86_64'"]
+required-environments = ["sys_platform == 'linux' and platform_machine == 'x86_64'"]
+
+[tool.uv.sources]
+torch = { index = "pytorch-cu128" }
+torchvision = { index = "pytorch-cu128" }
+
+[[tool.uv.index]]
+name = "pytorch-cu128"
+url = "https://download.pytorch.org/whl/cu128"
+explicit = true

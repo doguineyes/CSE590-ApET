@@ -9,6 +9,11 @@ TL;DR ApET introduces an attention-free, approximation-error guided token compre
 
 
 ## 🔧 Environment Setup
+
+For the new isolated Linux research runtime and a fresh Kaggle smoke test, see
+[research/KAGGLE_RUNTIME.md](research/KAGGLE_RUNTIME.md). Its `pyproject.toml`
+and `uv.lock` define a candidate modern environment; compatibility with the
+legacy model integrations is not implied. The original authors' setup follows.
 We build and test our codebase with Python 3.10.18, PyTorch 2.1.2, and CUDA 12.1. Adapt the PyTorch and CUDA versions to your local environment as needed.
 
 You can use the following command to install the required packages:
