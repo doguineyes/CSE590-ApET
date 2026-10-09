@@ -138,6 +138,15 @@ class AdapterTests(unittest.TestCase):
                           len(model.multi_modal_projector._forward_hooks)), hooks_before)
         with torch.inference_mode():
             torch.testing.assert_close(model(**inputs).logits, baseline, rtol=0, atol=0)
+            # Arrange an immediate EOS, then check that the benchmark's minimum
+            # overrides that stop while ordinary accuracy generation still ends.
+            from scripts.llava_runtime import generation_options
+
+            model.generation_config.eos_token_id = int(baseline[0, -1].argmax().item())
+            short = model.generate(**inputs, **generation_options(4))
+            fixed = model.generate(**inputs, **generation_options(4, 4))
+            self.assertEqual(short.shape[1] - ids.shape[1], 1)
+            self.assertEqual(fixed.shape[1] - ids.shape[1], 4)
 
 
 if __name__ == "__main__":

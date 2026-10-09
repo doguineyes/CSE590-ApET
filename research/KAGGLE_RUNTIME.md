@@ -433,6 +433,92 @@ with zipfile.ZipFile(archive, "w", compression=zipfile.ZIP_DEFLATED) as bundle:
 print(archive)
 ```
 
+## Fixed-output timing benchmark
+
+After the full 288-token accuracy run, use `scripts/benchmark_apet.py` to measure
+the same images at 576, 288, and 96 visual tokens with exactly 32 and 128
+generated tokens. This answers how compression's timing benefit changes when
+decoding occupies more of the request. There are no dependency changes.
+
+Commit/push the benchmark update and pull it in the current notebook. Run the
+tiny-model regression test first: it deliberately makes ordinary generation
+stop after one EOS token, then requires four tokens with the benchmark's length
+control. It downloads no model and checks the new generation behavior:
+
+```python
+import subprocess
+from pathlib import Path
+
+repo = Path("/kaggle/working/CSE590-ApET")
+python = str(repo / ".venv/bin/python")
+subprocess.run(["git", "pull", "--ff-only"], cwd=repo, check=True)
+subprocess.run(
+    [python, "research/tests/test_apet_extraction.py", "AdapterTests", "--require-cuda", "-v"],
+    cwd=repo, check=True,
+)
+```
+
+Run the full 288-token comparison using the cell in the preceding section if
+it has not already completed. Preserve the full baseline JSON and JSONL in
+`/kaggle/working/mmstar-full`; the 24-image baseline cannot be used for that run.
+Then start the fixed-output benchmark:
+
+```python
+import json
+
+output = Path("/kaggle/working/mmstar-full/apet-fixed-output.json")
+output.parent.mkdir(exist_ok=True)
+subprocess.run(
+    [python, "scripts/benchmark_apet.py",
+     "--per-category", "2", "--repeats", "3", "--seed", "590",
+     "--visual-tokens", "576", "288", "96",
+     "--output-tokens", "32", "128", "--basis-tokens", "10",
+     "--output", str(output)],
+    cwd=repo, check=True,
+)
+result = json.loads(output.read_text())
+print(result["status"])
+print(json.dumps(result["summary"], indent=2))
+```
+
+The defaults select 12 balanced images (two from each category), three repeats,
+three visual budgets, and two output lengths: **216 measured requests**, plus
+six unscored warmups. The model is loaded once and keeps the same device map
+for every condition. Every image/length/repeat forms a paired block; blocks are
+shuffled with the fixed seed, and the first visual budget rotates between blocks
+to reduce ordering effects. The per-image FPS seed stays constant across
+repetitions. One-time original-feature parity runs during compression warmup.
+
+`min_new_tokens` equals `max_new_tokens`; early EOS is suppressed until the
+requested length, and each request must actually produce that token count.
+The original MMStar prompt is retained to control the prefill workload. Forced
+continuations can be repetitive or meaningless, so the benchmark records **no
+accuracy score**. Its length controls are never applied to `eval_mmstar.py`.
+See the [pinned Transformers generation parameters](https://huggingface.co/docs/transformers/v4.48.2/en/main_classes/text_generation).
+
+Each output-length group contains latency summaries, total generation time,
+peak allocated GPU memory, effective token throughput, and a paired timing ratio
+against the 576-token baseline. Throughput includes vision and prefill; it is
+not an isolated decode rate. Generation timing synchronizes all GPUs and includes
+compression/diagnostic overhead, but excludes CPU preprocessing, result decoding,
+statistics, and file writes. This benchmark does not separately measure prefill,
+time to first token, concurrent requests, or training.
+
+Completed requests are flushed to `apet-fixed-output.jsonl`, and a JSON progress
+checkpoint is saved every six requests. The remaining-time estimate is rough
+because the order mixes 32- and 128-token outputs. Caught interruption saves an
+`interrupted` report; forced termination can leave `running` status. Partial
+summaries report how many trials have matching baseline measurements, and only
+those pairs contribute to the timing ratio. Require `passed` and all 216
+requests for the completed default benchmark. Reruns replace these two files;
+choose another output filename to retain another run.
+
+For a shorter pilot, use `--per-category 1 --repeats 1`: 36 measured requests.
+Use the progress estimates and remaining GPU quota to decide whether to start
+the default run before the session deadline. The ZIP cell above includes the
+new benchmark JSON and JSONL automatically. Preserve them before ending the
+session.
+
 ## Running later scripts
 
 Always launch project scripts through the project Python:

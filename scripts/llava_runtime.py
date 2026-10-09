@@ -34,7 +34,18 @@ def load_llava(model_path, report):
     return model, processor
 
 
-def generate_answer(model, processor, image, question, max_new_tokens, adapter=None, compression_seed=590):
+def generation_options(max_new_tokens, min_new_tokens=None):
+    if max_new_tokens < 1 or (min_new_tokens is not None and not 0 <= min_new_tokens <= max_new_tokens):
+        raise ValueError("Require max_new_tokens > 0 and 0 <= min_new_tokens <= max_new_tokens")
+    options = {"max_new_tokens": max_new_tokens, "do_sample": False, "use_cache": True}
+    if min_new_tokens is not None:
+        options["min_new_tokens"] = min_new_tokens
+    return options
+
+
+def generate_answer(model, processor, image, question, max_new_tokens, adapter=None,
+                    compression_seed=590, min_new_tokens=None):
+    options = generation_options(max_new_tokens, min_new_tokens)
     import torch
 
     prompt = f"USER: <image>\n{question} ASSISTANT:"
@@ -53,8 +64,7 @@ def generate_answer(model, processor, image, question, max_new_tokens, adapter=N
         torch.cuda.synchronize(i)
     started = time.perf_counter()
     with torch.inference_mode():
-        generated = model.generate(**inputs, max_new_tokens=max_new_tokens,
-                                   do_sample=False, use_cache=True)
+        generated = model.generate(**inputs, **options)
     for i in range(torch.cuda.device_count()):
         torch.cuda.synchronize(i)
     elapsed = time.perf_counter() - started
