@@ -333,6 +333,106 @@ are not edited. FPS/merging and generation statistics add diagnostic overhead;
 the 24-sample result establishes behavior and a paired comparison, not a paper
 accuracy or speedup claim.
 
+## Full MMStar workload and runtime comparison
+
+After the 24-image identity and original-feature gates pass, run all 1,500 MMStar
+images with the baseline and input-stage ApET. The pinned dataset has six
+categories with 250 images each, so `--per-category 250` selects every row.
+Keep the current runtime, checkpoint, prompt, strict parser, 16-token limit,
+batch size one, and seed unchanged. Full coverage still uses our diagnostic
+scoring; it is not the official MMStar evaluation protocol.
+
+Push the evaluator's timing/progress update first, then run this cell in the
+existing T4 ×2 notebook. Model and dataset downloads are reused from `/tmp`.
+The two subprocesses run sequentially and stop on failure:
+
+```python
+import json
+import subprocess
+from pathlib import Path
+
+repo = Path("/kaggle/working/CSE590-ApET")
+subprocess.run(["git", "pull", "--ff-only"], cwd=repo, check=True)
+output_dir = Path("/kaggle/working/mmstar-full")
+output_dir.mkdir(exist_ok=True)
+baseline = output_dir / "mmstar-baseline-1500.json"
+common = [str(repo / ".venv/bin/python"), "scripts/eval_mmstar.py",
+          "--cache-dir", "/tmp/apet-hf-cache",
+          "--dataset-cache", "/tmp/apet-mmstar-cache",
+          "--per-category", "250", "--seed", "590",
+          "--max-new-tokens", "16", "--log-every", "50"]
+
+for name, extra in [
+    ("mmstar-baseline-1500.json", []),
+    ("mmstar-apet-input-96-1500.json",
+     ["--apet", "--keep-tokens", "96", "--basis-tokens", "10",
+      "--compare-to", str(baseline)]),
+]:
+    output = output_dir / name
+    subprocess.run(common + extra + ["--output", str(output)], cwd=repo, check=True)
+    result = json.loads(output.read_text())
+    print(name, "status:", result["status"])
+    print(json.dumps({"summary": result["summary"], "timing": result["timing"]}, indent=2))
+    if "comparison" in result:
+        print(json.dumps(result["comparison"], indent=2))
+```
+
+There is no bootstrap, dependency reinstall, or kernel restart for this update.
+Allow time to finish and download outputs before ending the session; the
+24-image median is only a rough planning guide. Every 50 completed answers the
+runner prints elapsed time and a rough remaining-time estimate. Image sizes,
+question lengths, answer lengths, and later categories can change that estimate.
+It also checkpoints an atomic JSON progress report; every prediction row is
+flushed immediately. A normal Ctrl-C caught by the subprocess saves an
+`interrupted` report. A forcibly killed process may leave `running` status and a
+checkpoint lagging behind the JSONL file. Only `passed` reports are complete and
+eligible for paired comparison. Rerunning replaces the outputs; there is no
+automatic resume. Use a new output directory to preserve another run.
+
+New summary fields include total/mean/median/p95/max generation latency,
+generated-token counts, and the highest peak allocated memory on each GPU.
+Timing fields separate preparation, model loading, unscored warmup, scored
+evaluation wall time, and total script wall time. Generation latency includes
+vision encoding, compression when enabled, LLM prefill and cached decode, with
+all GPUs synchronized; it excludes CPU processing and report writes. Scored
+wall time includes CPU processing and logging. These are single-request workload
+measurements; they do not measure concurrent serving capacity. Allocated memory
+does not include all driver/caching overhead and is not Kaggle output disk use.
+
+The paired comparison also records generation-time totals, answer-token counts,
+and whether hardware/device placement matched. An observed timing ratio can
+reflect different answer lengths as well as compression. A later controlled
+benchmark should fix output length and repeat measurements before claiming a
+general speedup. Keep unparsed raw answers for review: `A: explanatory text`
+remains incorrect under the same strict parser as the 24-image run. Do not
+change that rule for only one side of a comparison.
+
+If both full runs finish with time to spare, run 288-token input compression
+against the **same full baseline** for another accuracy/runtime tradeoff point:
+
+```python
+subprocess.run(
+    common + ["--apet", "--keep-tokens", "288", "--basis-tokens", "10",
+              "--compare-to", str(baseline),
+              "--output", str(output_dir / "mmstar-apet-input-288-1500.json")],
+    cwd=repo, check=True,
+)
+```
+
+Preserve all JSON and JSONL files, including raw predictions. This optional cell
+packages the results together as a small download in Kaggle's Output pane:
+
+```python
+import zipfile
+
+archive = Path("/kaggle/working/mmstar-full-results.zip")
+with zipfile.ZipFile(archive, "w", compression=zipfile.ZIP_DEFLATED) as bundle:
+    for path in sorted(output_dir.iterdir()):
+        if path.suffix in {".json", ".jsonl"}:
+            bundle.write(path, arcname=path.name)
+print(archive)
+```
+
 ## Running later scripts
 
 Always launch project scripts through the project Python:

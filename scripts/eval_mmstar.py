@@ -1,9 +1,10 @@
-"""Small reproducible MMStar baseline using the validated HF LLaVA runtime."""
+"""Reproducible MMStar evaluation using the validated HF LLaVA runtime."""
 
 import argparse
 import hashlib
 import importlib.metadata
 import json
+import math
 import os
 import random
 import re
@@ -11,6 +12,7 @@ import shutil
 import statistics
 import subprocess
 import sys
+import time
 from contextlib import nullcontext
 from collections import Counter, defaultdict
 from datetime import datetime, timezone
@@ -78,15 +80,52 @@ def summarize(predictions):
     categories = defaultdict(list)
     for row in predictions:
         categories[row["category"]].append(row["correct"])
-    return {
+    latencies = sorted(row["generation_seconds"] for row in predictions)
+    summary = {
         "evaluated": total, "correct": correct,
         "accuracy": correct / total if total else None,
         "unparsed": sum(row["prediction"] is None for row in predictions),
         "per_category": {key: {"evaluated": len(values), "correct": sum(values),
                                 "accuracy": sum(values) / len(values)}
                          for key, values in sorted(categories.items())},
-        "median_generation_seconds": statistics.median(
-            row["generation_seconds"] for row in predictions) if total else None,
+        "median_generation_seconds": statistics.median(latencies) if total else None,
+        "total_generation_seconds": round(sum(latencies), 3),
+        "mean_generation_seconds": statistics.mean(latencies) if total else None,
+        # Nearest-rank percentile; meaningful even for small diagnostic subsets.
+        "p95_generation_seconds": latencies[math.ceil(0.95 * total) - 1] if total else None,
+        "max_generation_seconds": latencies[-1] if total else None,
+    }
+    if total and all("generated_tokens" in row for row in predictions):
+        tokens = [row["generated_tokens"] for row in predictions]
+        summary["total_generated_tokens"] = sum(tokens)
+        summary["mean_generated_tokens"] = statistics.mean(tokens)
+        summary["median_generated_tokens"] = statistics.median(tokens)
+        summary["max_generated_tokens"] = max(tokens)
+    peak_memory = {}
+    for row in predictions:
+        for device, gib in row.get("peak_allocated_gib", {}).items():
+            peak_memory[device] = max(peak_memory.get(device, 0), gib)
+    summary["peak_allocated_gib"] = peak_memory
+    return summary
+
+
+def save_report(path, report):
+    """Replace the JSON atomically; prediction rows are flushed independently."""
+    temporary = path.with_name(path.name + ".tmp")
+    temporary.write_text(json.dumps(report, indent=2) + "\n")
+    temporary.replace(path)
+
+
+def update_progress(report, predictions, selected_count, started):
+    elapsed = time.perf_counter() - started
+    completed = len(predictions)
+    report["summary"] = summarize(predictions)
+    report["timing"]["scored_wall_seconds"] = round(elapsed, 3)
+    report["progress"] = {
+        "completed": completed, "selected": selected_count,
+        "estimated_remaining_seconds": round(elapsed / completed * (selected_count - completed), 1)
+        if completed else None,
+        "note": "Rough estimate from completed samples; later categories and answer lengths can differ.",
     }
 
 
@@ -94,6 +133,12 @@ def run(args, report):
     from smoke_llava import checkpoint
     from llava_runtime import generate_answer, load_llava
 
+    preparation_started = time.perf_counter()
+    report["timing"] = {
+        "note": "Generation timings synchronize all GPUs and include vision, compression, LLM prefill "
+                "and variable-length decode. They exclude CPU image processing and file writes. "
+                "Scored wall time includes those operations; it excludes model loading and warmup.",
+    }
     # Budget zero reuses existing weights and refuses to download a missing model.
     args.preflight_only = False
     args.download_budget_gib = 0
@@ -130,7 +175,7 @@ def run(args, report):
         "do_sample": False, "precision": "float16", "batch_size": 1,
         "scoring": "Conservative single-letter parsing; unparsed answers count as incorrect.",
         "warmup": "One unscored generation of up to 2 tokens on the first selected image.",
-        "note": "Subset diagnostic, not an official MMStar score or speed benchmark.",
+        "note": "Diagnostic scoring, not an official MMStar score or fixed-work speed benchmark.",
     }
     report["compression"] = {
         "enabled": args.apet, "stage": "vision input only" if args.apet else "none",
@@ -150,8 +195,19 @@ def run(args, report):
     # Catch image decoding problems on CPU before loading the 7B model.
     validate_images(dataset, selected)
     report["dataset"]["validated_images"] = len(selected)
+    report["timing"]["preparation_seconds"] = round(time.perf_counter() - preparation_started, 3)
     print(f"Decoded and validated {len(selected)} MMStar images; loading LLaVA.", flush=True)
+    model_started = time.perf_counter()
     model, processor = load_llava(model_path, report)
+    report["timing"]["model_loading_seconds"] = round(time.perf_counter() - model_started, 3)
+    import torch
+
+    report["hardware"] = {
+        "gpus": [{"index": i, "name": torch.cuda.get_device_name(i),
+                  "total_memory_gib": round(torch.cuda.get_device_properties(i).total_memory / 1024 ** 3, 3)}
+                 for i in range(torch.cuda.device_count())],
+        "attention_implementation": "sdpa",
+    }
     if args.apet:
         sys.path.insert(0, str(REPO))
         from apet_compression import CompressionConfig
@@ -165,33 +221,46 @@ def run(args, report):
     report["predictions_file"] = str(predictions_path)
     with context as adapter, predictions_path.open("w") as stream:
         first = dataset[selected[0]]
+        warmup_started = time.perf_counter()
         generate_answer(model, processor, first["image"], prepare_question(first["question"]), 2,
                         adapter=adapter, compression_seed=args.seed + int(first["index"]))
+        report["timing"]["warmup_seconds"] = round(time.perf_counter() - warmup_started, 3)
         if adapter is not None:
             report["compression"]["legacy_check"] = adapter.legacy_check
-        for number, row in enumerate(selected, 1):
-            sample = dataset[row]
-            gold = sample["answer"].strip().upper()
-            if gold not in {"A", "B", "C", "D"}:
-                raise ValueError(f"Invalid ground truth for sample {sample['index']}")
-            generated = generate_answer(
-                model, processor, sample["image"], prepare_question(sample["question"]),
-                args.max_new_tokens,
-                adapter=adapter, compression_seed=args.seed + int(sample["index"]),
-            )
-            prediction = parse_answer(generated["response"])
-            record = {
-                **generated, "index": int(sample["index"]), "row": row,
-                "original_question": sample["question"], "category": sample["category"],
-                "l2_category": sample["l2_category"], "gold": gold,
-                "prediction": prediction, "correct": prediction == gold,
-            }
-            stream.write(json.dumps(record) + "\n")
-            stream.flush()
-            predictions.append(record)
-            report["summary"] = summarize(predictions)
-            print(f"[{number}/{len(selected)}] index={record['index']} "
-                  f"prediction={prediction} gold={gold} correct={record['correct']}", flush=True)
+        scored_started = time.perf_counter()
+        update_progress(report, predictions, len(selected), scored_started)
+        save_report(args.output, report)
+        try:
+            for number, row in enumerate(selected, 1):
+                sample = dataset[row]
+                gold = sample["answer"].strip().upper()
+                if gold not in {"A", "B", "C", "D"}:
+                    raise ValueError(f"Invalid ground truth for sample {sample['index']}")
+                generated = generate_answer(
+                    model, processor, sample["image"], prepare_question(sample["question"]),
+                    args.max_new_tokens,
+                    adapter=adapter, compression_seed=args.seed + int(sample["index"]),
+                )
+                prediction = parse_answer(generated["response"])
+                record = {
+                    **generated, "index": int(sample["index"]), "row": row,
+                    "original_question": sample["question"], "category": sample["category"],
+                    "l2_category": sample["l2_category"], "gold": gold,
+                    "prediction": prediction, "correct": prediction == gold,
+                }
+                stream.write(json.dumps(record) + "\n")
+                stream.flush()
+                predictions.append(record)
+                if number % args.log_every == 0 or number == len(selected):
+                    update_progress(report, predictions, len(selected), scored_started)
+                    save_report(args.output, report)
+                    remaining = report["progress"]["estimated_remaining_seconds"]
+                    print(f"[{number}/{len(selected)}] accuracy={report['summary']['accuracy']:.3f} "
+                          f"scored_wall={report['timing']['scored_wall_seconds']:.1f}s "
+                          f"remaining~{remaining / 60:.1f}min", flush=True)
+        finally:
+            # Includes completed rows even after a generation failure or Ctrl-C.
+            update_progress(report, predictions, len(selected), scored_started)
     if baseline is not None:
         from compare_mmstar import compare_runs
 
@@ -213,6 +282,8 @@ def main():
     parser.add_argument("--per-category", type=int, default=4)
     parser.add_argument("--seed", type=int, default=590)
     parser.add_argument("--max-new-tokens", type=int, default=16)
+    parser.add_argument("--log-every", type=int, default=1,
+                        help="Print progress and checkpoint the JSON report every N answers")
     parser.add_argument("--apet", action="store_true", help="Enable extracted input-stage ApET")
     parser.add_argument("--keep-tokens", type=int, default=96)
     parser.add_argument("--basis-tokens", type=int, default=10)
@@ -222,16 +293,17 @@ def main():
     if args.output is None:
         filename = f"mmstar-apet-input-{args.keep_tokens}.json" if args.apet else "mmstar-baseline.json"
         args.output = REPO / "research/results" / filename
-    if args.per_category < 1 or args.max_new_tokens < 1:
-        parser.error("--per-category and --max-new-tokens must be positive")
+    if args.per_category < 1 or args.max_new_tokens < 1 or args.log_every < 1:
+        parser.error("--per-category, --max-new-tokens and --log-every must be positive")
     if args.apet and not 1 <= args.basis_tokens < args.keep_tokens <= 576:
         parser.error("Require 1 <= basis-tokens < keep-tokens <= 576")
     if args.compare_to and args.output.resolve() == args.compare_to.resolve():
         parser.error("Use a different output filename; preserve the uncompressed baseline")
     args.output.parent.mkdir(parents=True, exist_ok=True)
-    report = {"status": "failed", "timestamp_utc": datetime.now(timezone.utc).isoformat(),
+    report = {"status": "running", "timestamp_utc": datetime.now(timezone.utc).isoformat(),
               "scope": "HF LLaVA + extracted input-stage ApET" if args.apet else "HF LLaVA baseline; ApET disabled",
               "executable": sys.executable}
+    started = time.perf_counter()
     try:
         if Path(sys.prefix).resolve() != (REPO / ".venv").resolve():
             raise RuntimeError("Launch with the project's .venv/bin/python")
@@ -241,13 +313,21 @@ def main():
             ["git", "rev-parse", "HEAD"], cwd=REPO, text=True).strip()
         report["lock_sha256"] = hashlib.sha256((REPO / "uv.lock").read_bytes()).hexdigest()
         run(args, report)
+    except KeyboardInterrupt:
+        report["status"] = "interrupted"
+        report["error"] = "Interrupted; completed prediction rows are preserved, but this run is incomplete."
     except Exception as error:
         report["status"] = "failed"
         report["error"] = f"{type(error).__name__}: {error}"
-    serialized = json.dumps(report, indent=2)
-    print(serialized, flush=True)
-    args.output.write_text(serialized + "\n")
-    return int(report["status"] == "failed")
+    report.setdefault("timing", {})["total_wall_seconds"] = round(time.perf_counter() - started, 3)
+    report["finished_utc"] = datetime.now(timezone.utc).isoformat()
+    save_report(args.output, report)
+    # Keep full sample IDs/provenance in the file, rather than flooding notebook output.
+    print(json.dumps({key: report[key] for key in
+                      ["status", "summary", "timing", "comparison", "error"] if key in report}, indent=2),
+          flush=True)
+    print(f"Report: {args.output}", flush=True)
+    return int(report["status"] != "passed")
 
 
 if __name__ == "__main__":

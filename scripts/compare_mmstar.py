@@ -65,6 +65,29 @@ def compare_runs(baseline, current, baseline_rows, current_rows):
     identity = compressed.get("enabled", False) and compressed.get("keep_tokens") == compressed.get("original_tokens")
     if identity and changed:
         raise ValueError(f"Identity adapter changed raw responses for samples {changed}")
+    metrics = ["total_generation_seconds", "mean_generation_seconds", "median_generation_seconds",
+               "p95_generation_seconds", "max_generation_seconds", "total_generated_tokens",
+               "mean_generated_tokens", "peak_allocated_gib"]
+    before_seconds = baseline["summary"].get("total_generation_seconds")
+    after_seconds = current["summary"].get("total_generation_seconds")
+    performance = {
+        "baseline": {key: baseline["summary"][key] for key in metrics if key in baseline["summary"]},
+        "current": {key: current["summary"][key] for key in metrics if key in current["summary"]},
+        "generation_time_ratio_baseline_over_current": before_seconds / after_seconds
+        if before_seconds is not None and after_seconds is not None and after_seconds > 0 else None,
+        "same_generated_token_count_samples": sum(
+            before.get("generated_tokens") is not None
+            and before.get("generated_tokens") == current_rows[index].get("generated_tokens")
+            for index, before in baseline_rows.items()),
+        "same_device_map": baseline["device_map"] == current["device_map"]
+        if "device_map" in baseline and "device_map" in current else None,
+        "same_hardware": baseline["hardware"] == current["hardware"]
+        if "hardware" in baseline and "hardware" in current else None,
+        "baseline_scored_wall_seconds": baseline.get("timing", {}).get("scored_wall_seconds"),
+        "current_scored_wall_seconds": current.get("timing", {}).get("scored_wall_seconds"),
+        "note": "Observed timing for this answer workload, including diagnostic overhead. "
+                "Output lengths and device placement can differ; this is not a fixed-work speedup.",
+    }
     return {
         "paired_samples": len(baseline_rows),
         "baseline_accuracy": baseline["summary"]["accuracy"],
@@ -78,8 +101,9 @@ def compare_runs(baseline, current, baseline_rows, current_rows):
                              for row in current_rows.values() if row["prediction"] is None],
         "baseline_median_generation_seconds": baseline["summary"]["median_generation_seconds"],
         "current_median_generation_seconds": current["summary"]["median_generation_seconds"],
+        "performance": performance,
         "identity_check": "passed" if identity else "not applicable",
-        "note": "Paired subset diagnostic; generation length and instrumentation affect timing. "
+        "note": "Paired diagnostic; generation length and instrumentation affect timing. "
                 "This does not establish paper accuracy or speedup.",
     }
 

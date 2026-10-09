@@ -38,6 +38,14 @@ class ComparisonTests(unittest.TestCase):
             with self.subTest(field=field), self.assertRaisesRegex(ValueError, "differs"):
                 comparison.validate_compatible(base, current)
 
+    def test_partial_progress_reports_cannot_pass_as_completed_comparisons(self):
+        base, rows = self.fixture()
+        current = copy.deepcopy(base)
+        for status in ["running", "interrupted", "failed"]:
+            current["status"] = status
+            with self.subTest(status=status), self.assertRaisesRegex(ValueError, "did not complete"):
+                comparison.compare_runs(base, current, rows, rows)
+
     def test_gain_loss_and_unparsed_response_are_preserved(self):
         base, rows = self.fixture()
         current, changed = copy.deepcopy(base), copy.deepcopy(rows)
@@ -56,6 +64,20 @@ class ComparisonTests(unittest.TestCase):
         changed[6]["response"] = "Answer: A"
         with self.assertRaisesRegex(ValueError, "Identity adapter changed"):
             comparison.compare_runs(base, current, rows, changed)
+
+    def test_timing_ratio_keeps_output_length_and_device_differences_visible(self):
+        base, rows = self.fixture()
+        current, changed = copy.deepcopy(base), copy.deepcopy(rows)
+        base["summary"]["total_generation_seconds"] = 10
+        current["summary"]["total_generation_seconds"] = 5
+        base["device_map"], current["device_map"] = {"layer": "0"}, {"layer": "1"}
+        rows[6]["generated_tokens"] = changed[6]["generated_tokens"] = 2
+        rows[12]["generated_tokens"], changed[12]["generated_tokens"] = 16, 2
+        timing = comparison.compare_runs(base, current, rows, changed)["performance"]
+        self.assertEqual(timing["generation_time_ratio_baseline_over_current"], 2)
+        self.assertEqual(timing["same_generated_token_count_samples"], 1)
+        self.assertFalse(timing["same_device_map"])
+        self.assertIsNone(timing["same_hardware"])
 
     def test_restored_predictions_are_found_and_duplicate_ids_are_rejected(self):
         report, rows = self.fixture()
