@@ -85,6 +85,99 @@ run ApET, establish ApET equivalence, or evaluate MMStar. Those are the next
 steps after this runtime passes on Kaggle. CUDA wheel/driver compatibility is
 confirmed by actually running CUDA operations, not by comparing version labels.
 
+## Next: one image through pretrained LLaVA
+
+The runtime passed on Kaggle T4 x2 at commit `b0562a1`: Python 3.11.14,
+Torch 2.9.0+cu128, Transformers 4.48.2, tiny LLaVA generation, and CUDA operations
+on both GPUs. This is evidence for the runtime; pretrained model inference is
+the next check.
+
+With notebook Output at 7.3 / 19.5 GiB, roughly **12.2 GiB remain**. That can hold
+small result files, but not the full pretrained checkpoint. The
+[HF LLaVA-1.5-7B weights](https://huggingface.co/llava-hf/llava-1.5-7b-hf/tree/b234b804b114d9e37bb655e11cbbb5f5e971b7a9)
+are approximately 13.2 GiB before any headroom. Disk storage and GPU VRAM are
+separate budgets.
+
+After pushing the next script, update the existing notebook checkout:
+
+```python
+subprocess.run(["git", "pull", "--ff-only"], cwd=repo, check=True)
+subprocess.run(["git", "rev-parse", "HEAD"], cwd=repo, check=True)
+```
+
+This assumes you are on the `apet-analysis` branch, as in the starter notebook.
+If you checked out an exact SHA, fetch and check out the new SHA instead.
+The dependency definition has not changed; no reinstall or kernel restart is
+needed for this script update.
+
+First inspect storage and any already attached checkpoints. This cell does not
+download weights or run a model:
+
+```python
+import shutil
+
+print("Filesystem free GiB:", round(shutil.disk_usage("/kaggle/working").free / 2**30, 2))
+configs = list(Path("/kaggle/input").rglob("config.json"))
+print("Attached checkpoint config files:")
+for path in configs:
+    print(path)
+if not configs:
+    print("No config.json found under /kaggle/input")
+
+subprocess.run(
+    [str(repo / ".venv/bin/python"), "scripts/smoke_llava.py",
+     "--preflight-only", "--download-budget-gib", "12",
+     "--output", "/kaggle/working/llava-preflight.json"],
+    cwd=repo, check=True,
+)
+```
+
+The script checks Hugging Face file metadata at a pinned model revision. A
+`preflight_complete` report means inspection succeeded; inspect `storage.fits`
+to see whether downloading is allowed. With a 12 GiB budget and no cached weights,
+`fits: false` is expected. Filesystem free space can exceed the notebook's Output
+quota, so the script checks both the reported filesystem space and your explicit
+budget. The budget must describe the actual cache location; another directory
+does not automatically provide more capacity.
+
+Prefer attaching the **HF-format** checkpoint as a Kaggle Input and loading it
+directly. The directory must contain `config.json` with `model_type: llava`,
+the tokenizer/processor files, and all safetensors weight shards. Original
+`liuhaotian/llava-v1.5-7b` files are not interchangeable with this HF conversion.
+Do not copy the attached checkpoint into `/kaggle/working`.
+
+Once attached, use the directory containing its `config.json`:
+
+```python
+MODEL_PATH = "/kaggle/input/REPLACE-WITH-YOUR-INPUT/checkpoint-directory"
+subprocess.run(
+    [str(repo / ".venv/bin/python"), "scripts/smoke_llava.py",
+     "--model", MODEL_PATH,
+     "--output", "/kaggle/working/llava-smoke.json"],
+    cwd=repo, check=True,
+)
+print(Path("/kaggle/working/llava-smoke.json").read_text())
+```
+
+Alternatively, on a machine with sufficient space, omit `--model` and explicitly
+set `--download-budget-gib` to the remaining capacity at `--cache-dir`. Default
+budget is zero; an uncached remote checkpoint will not download accidentally.
+The script downloads only safetensors and processor/configuration files at the
+pinned revision, caches one copy, and reserves 1 GiB of storage headroom.
+
+The test uses the installed Transformers LLaVA implementation, FP16 weights,
+SDPA attention, and automatic GPU placement with 2 GiB VRAM reserved per GPU.
+It creates a white image with a red square, asks its color, and saves the answer,
+device map, generated token count, peak allocated GPU memory, Git commit, and
+lockfile hash. Loading from a local input never downloads weights or falls back
+to remote processor files. Record the input's source/revision separately: its
+config hash does not fingerprint all weights.
+
+`passed` means generation produced a nonempty answer; inspect whether it answers
+"red". One image does not establish accuracy, speed, or ApET correctness.
+After this passes, run a small uncompressed MMStar baseline, then introduce
+the extracted ApET core and compare it with that baseline.
+
 ## Running later scripts
 
 Always launch project scripts through the project Python:
