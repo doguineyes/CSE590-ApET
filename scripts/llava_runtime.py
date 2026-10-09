@@ -34,7 +34,7 @@ def load_llava(model_path, report):
     return model, processor
 
 
-def generate_answer(model, processor, image, question, max_new_tokens):
+def generate_answer(model, processor, image, question, max_new_tokens, adapter=None, compression_seed=590):
     import torch
 
     prompt = f"USER: <image>\n{question} ASSISTANT:"
@@ -43,6 +43,11 @@ def generate_answer(model, processor, image, question, max_new_tokens):
     if image_tokens != model.config.image_seq_length:
         raise RuntimeError(f"Image token mismatch: {image_tokens} vs {model.config.image_seq_length}")
     inputs = inputs.to(model.get_input_embeddings().weight.device, torch.float16)
+    original_image_tokens = image_tokens
+    if adapter is not None:
+        inputs = adapter.prepare_inputs(inputs, compression_seed)
+        image_tokens = (inputs["input_ids"] == model.config.image_token_index).sum().item()
+    input_length = inputs["input_ids"].shape[1]
     for i in range(torch.cuda.device_count()):
         torch.cuda.reset_peak_memory_stats(i)
         torch.cuda.synchronize(i)
@@ -53,14 +58,18 @@ def generate_answer(model, processor, image, question, max_new_tokens):
     for i in range(torch.cuda.device_count()):
         torch.cuda.synchronize(i)
     elapsed = time.perf_counter() - started
-    response = processor.decode(generated[0, inputs.input_ids.shape[1]:],
+    response = processor.decode(generated[0, input_length:],
                                 skip_special_tokens=True).strip()
     if not response:
         raise RuntimeError("Generation returned an empty response")
-    return {
+    result = {
         "question": question, "response": response, "image_tokens": image_tokens,
-        "generated_tokens": generated.shape[1] - inputs.input_ids.shape[1],
+        "original_image_tokens": original_image_tokens, "prompt_tokens": input_length,
+        "generated_tokens": generated.shape[1] - input_length,
         "generation_seconds": round(elapsed, 3),
         "peak_allocated_gib": {str(i): round(torch.cuda.max_memory_allocated(i) / GIB, 3)
                                for i in range(torch.cuda.device_count())},
     }
+    if adapter is not None:
+        result["compression"] = adapter.statistics()
+    return result

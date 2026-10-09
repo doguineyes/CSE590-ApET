@@ -11,6 +11,7 @@ import shutil
 import statistics
 import subprocess
 import sys
+from contextlib import nullcontext
 from collections import Counter, defaultdict
 from datetime import datetime, timezone
 from pathlib import Path
@@ -131,18 +132,43 @@ def run(args, report):
         "warmup": "One unscored generation of up to 2 tokens on the first selected image.",
         "note": "Subset diagnostic, not an official MMStar score or speed benchmark.",
     }
+    report["compression"] = {
+        "enabled": args.apet, "stage": "vision input only" if args.apet else "none",
+        "original_tokens": 576, "keep_tokens": args.keep_tokens if args.apet else 576,
+        "basis_tokens": args.basis_tokens if args.apet else None,
+        "epsilon": 1e-5 if args.apet else None, "merge": args.apet,
+        "fps_seed_rule": "seed + sample index, independent generator" if args.apet else None,
+        "decoder_pruning": False,
+    }
+    baseline = baseline_rows = None
+    if args.compare_to:
+        from compare_mmstar import read_predictions, validate_compatible
+
+        baseline = json.loads(args.compare_to.read_text())
+        validate_compatible(baseline, report)
+        baseline_rows = read_predictions(baseline, args.compare_to)
     # Catch image decoding problems on CPU before loading the 7B model.
     validate_images(dataset, selected)
     report["dataset"]["validated_images"] = len(selected)
     print(f"Decoded and validated {len(selected)} MMStar images; loading LLaVA.", flush=True)
     model, processor = load_llava(model_path, report)
-    first = dataset[selected[0]]
-    generate_answer(model, processor, first["image"], prepare_question(first["question"]), 2)
+    if args.apet:
+        sys.path.insert(0, str(REPO))
+        from apet_compression import CompressionConfig
+        from apet_compression.adapters.hf_llava import HFInputCompressionAdapter
 
+        context = HFInputCompressionAdapter(model, CompressionConfig(args.keep_tokens, args.basis_tokens))
+    else:
+        context = nullcontext(None)
     predictions = []
     predictions_path = args.output.with_suffix(".jsonl")
     report["predictions_file"] = str(predictions_path)
-    with predictions_path.open("w") as stream:
+    with context as adapter, predictions_path.open("w") as stream:
+        first = dataset[selected[0]]
+        generate_answer(model, processor, first["image"], prepare_question(first["question"]), 2,
+                        adapter=adapter, compression_seed=args.seed + int(first["index"]))
+        if adapter is not None:
+            report["compression"]["legacy_check"] = adapter.legacy_check
         for number, row in enumerate(selected, 1):
             sample = dataset[row]
             gold = sample["answer"].strip().upper()
@@ -151,6 +177,7 @@ def run(args, report):
             generated = generate_answer(
                 model, processor, sample["image"], prepare_question(sample["question"]),
                 args.max_new_tokens,
+                adapter=adapter, compression_seed=args.seed + int(sample["index"]),
             )
             prediction = parse_answer(generated["response"])
             record = {
@@ -165,6 +192,12 @@ def run(args, report):
             report["summary"] = summarize(predictions)
             print(f"[{number}/{len(selected)}] index={record['index']} "
                   f"prediction={prediction} gold={gold} correct={record['correct']}", flush=True)
+    if baseline is not None:
+        from compare_mmstar import compare_runs
+
+        report["comparison"] = compare_runs(baseline, {**report, "status": "passed"}, baseline_rows,
+                                             {row["index"]: row for row in predictions})
+        report["comparison"]["baseline_report"] = str(args.compare_to)
     report["status"] = "passed"
 
 
@@ -180,13 +213,25 @@ def main():
     parser.add_argument("--per-category", type=int, default=4)
     parser.add_argument("--seed", type=int, default=590)
     parser.add_argument("--max-new-tokens", type=int, default=16)
-    parser.add_argument("--output", type=Path, default=REPO / "research/results/mmstar-baseline.json")
+    parser.add_argument("--apet", action="store_true", help="Enable extracted input-stage ApET")
+    parser.add_argument("--keep-tokens", type=int, default=96)
+    parser.add_argument("--basis-tokens", type=int, default=10)
+    parser.add_argument("--compare-to", type=Path, help="Saved uncompressed baseline JSON report")
+    parser.add_argument("--output", type=Path)
     args = parser.parse_args()
+    if args.output is None:
+        filename = f"mmstar-apet-input-{args.keep_tokens}.json" if args.apet else "mmstar-baseline.json"
+        args.output = REPO / "research/results" / filename
     if args.per_category < 1 or args.max_new_tokens < 1:
         parser.error("--per-category and --max-new-tokens must be positive")
+    if args.apet and not 1 <= args.basis_tokens < args.keep_tokens <= 576:
+        parser.error("Require 1 <= basis-tokens < keep-tokens <= 576")
+    if args.compare_to and args.output.resolve() == args.compare_to.resolve():
+        parser.error("Use a different output filename; preserve the uncompressed baseline")
     args.output.parent.mkdir(parents=True, exist_ok=True)
     report = {"status": "failed", "timestamp_utc": datetime.now(timezone.utc).isoformat(),
-              "scope": "HF LLaVA baseline; ApET disabled", "executable": sys.executable}
+              "scope": "HF LLaVA + extracted input-stage ApET" if args.apet else "HF LLaVA baseline; ApET disabled",
+              "executable": sys.executable}
     try:
         if Path(sys.prefix).resolve() != (REPO / ".venv").resolve():
             raise RuntimeError("Launch with the project's .venv/bin/python")
@@ -197,6 +242,7 @@ def main():
         report["lock_sha256"] = hashlib.sha256((REPO / "uv.lock").read_bytes()).hexdigest()
         run(args, report)
     except Exception as error:
+        report["status"] = "failed"
         report["error"] = f"{type(error).__name__}: {error}"
     serialized = json.dumps(report, indent=2)
     print(serialized, flush=True)

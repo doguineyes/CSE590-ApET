@@ -261,6 +261,78 @@ evaluation pipeline. `passed` means the execution completed, regardless of
 accuracy. Neither the 24-sample accuracy nor its timing is a publication result.
 Keep this baseline and its selected IDs before enabling ApET.
 
+## Extracted input-stage ApET and paired comparison
+
+The first independent module is [apet_compression](../apet_compression/README.md).
+It preserves the original LLaVA input-stage FPS, approximation errors, basis-slot
+replacement, token merging, and spatial order. The HF adapter compresses the
+vision features before projection and sends 96 retained visual tokens to the
+language model. Decoder-layer pruning is still disabled. This is a first
+input-stage experiment, not a reproduction of the paper's complete ApET setup.
+
+Neither `pyproject.toml` nor `uv.lock` changes. After committing and pushing the
+new files, continue the same notebook where the 24-sample baseline passed:
+
+```python
+import json
+import subprocess
+from pathlib import Path
+
+repo = Path("/kaggle/working/CSE590-ApET")
+subprocess.run(["git", "pull", "--ff-only"], cwd=repo, check=True)
+subprocess.run(
+    [str(repo / ".venv/bin/python"), "scripts/run_apet_comparison.py",
+     "--baseline", "/kaggle/working/mmstar-baseline-24.json",
+     "--cache-dir", "/tmp/apet-hf-cache",
+     "--dataset-cache", "/tmp/apet-mmstar-cache",
+     "--keep-tokens", "96", "--basis-tokens", "10",
+     "--output-dir", "/kaggle/working"],
+    cwd=repo, check=True,
+)
+print(Path("/kaggle/working/apet-comparison.json").read_text())
+```
+
+The convenience runner performs these steps sequentially and stops on failure:
+
+1. Run original-source parity tests on CPU and each visible GPU, and tiny random
+   HF LLaVA generation tests. These require CUDA in this runner and download no
+   checkpoint. The original functions are executed through AST extraction;
+   the legacy LLaVA/Qwen packages are never imported.
+2. Run the same 24 samples with the adapter retaining all 576 visual tokens.
+   Compare with the saved baseline and require every raw response to match.
+   This identity gate catches unintended integration changes before compression.
+3. Run those same samples with 96 retained tokens and 10 FPS basis vectors.
+   The first unscored warmup compares actual vision features with the original
+   input-stage implementation. Per-image FPS uses `590 + sample index`, so the
+   warmup and sample iteration have the same deterministic selection.
+4. Save paired accuracy changes, gained/lost correct sample IDs, raw unparsed
+   answers, and diagnostic timing. Report/model/dataset provenance must match.
+
+Output files are `mmstar-apet-identity-24.json`/`.jsonl`,
+`mmstar-apet-input-96-24.json`/`.jsonl`, and `apet-comparison.json`.
+The original baseline remains available. Weights and dataset cache are reused;
+the evaluator refuses a missing-weight download. Preserve all these result files
+before ending the session. Rerunning the convenience runner replaces its own
+identity/compressed reports, so change `--output-dir` to retain another run.
+
+If the original baseline files are missing, first rerun the uncompressed
+`scripts/eval_mmstar.py` cell above. In a fresh session the runtime and temporary
+model cache must also be prepared again. Keep the same checkpoint, dataset,
+sample IDs, max token count, and answer parser for the comparison.
+
+For individual runs, use `scripts/eval_mmstar.py --apet --keep-tokens 96
+--basis-tokens 10 --compare-to <baseline.json> --output <new-report.json>` with
+the same cache arguments. Omitting `--apet` runs the uncompressed baseline.
+`scripts/compare_mmstar.py <baseline.json> <new-report.json>` can also inspect
+two completed reports and their prediction files without loading any model.
+
+The adapter targets Transformers 4.48.2, a single image, and batch size one.
+It uses removable hooks on the loaded projector, then normal HF generation with
+a shorter placeholder sequence. Installed model libraries and legacy model files
+are not edited. FPS/merging and generation statistics add diagnostic overhead;
+the 24-sample result establishes behavior and a paired comparison, not a paper
+accuracy or speedup claim.
+
 ## Running later scripts
 
 Always launch project scripts through the project Python:
