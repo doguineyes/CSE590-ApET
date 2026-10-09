@@ -107,6 +107,11 @@ carrying over between notebook cells. For uv commands after setup, use this
 absolute executable path. Experiments may also run directly through
 `.venv/bin/python` as above.
 
+The installer explicitly overrides inherited `UV_INSTALL_DIR` settings. If an
+older bootstrap reported installation into `/usr/local/bin` followed by a
+missing `.runtime/bin/uv`, fetch the bootstrap fix and rerun setup in the same
+session; a notebook restart is unnecessary.
+
 ## Updating the environment deliberately
 
 Edit `pyproject.toml` and regenerate the lockfile with the pinned uv version on

@@ -26,7 +26,20 @@ if [[ ! -x "$uv_bin" ]] || [[ "$("$uv_bin" --version)" != "uv $uv_version" ]]; t
     trap 'rm -f "$installer"' EXIT
     curl --fail --location --silent --show-error --retry 3 \
         "https://astral.sh/uv/$uv_version/install.sh" --output "$installer"
-    UV_UNMANAGED_INSTALL="$runtime_dir/bin" sh "$installer"
+    # The pinned installer prioritizes UV_INSTALL_DIR over UV_UNMANAGED_INSTALL.
+    # Override inherited host settings (e.g. Kaggle's /usr/local/bin destination).
+    UV_INSTALL_DIR="$runtime_dir/bin" \
+        UV_UNMANAGED_INSTALL="$runtime_dir/bin" \
+        UV_NO_MODIFY_PATH=1 sh "$installer"
+fi
+
+if [[ ! -x "$uv_bin" ]]; then
+    echo "uv installation did not produce the expected executable: $uv_bin" >&2
+    exit 1
+fi
+if [[ "$("$uv_bin" --version)" != "uv $uv_version" ]]; then
+    echo "Expected uv $uv_version at $uv_bin; refusing to sync with a different version." >&2
+    exit 1
 fi
 
 # Keep uv's artifacts in writable project storage, not Kaggle's Python installation.
