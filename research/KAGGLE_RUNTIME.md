@@ -199,6 +199,21 @@ with seed 590. It pins the dataset revision and saves the exact row/sample IDs
 for a later paired comparison. The ~42 MB `mmstar.parquet` file is downloaded
 once and prepared in `/tmp/apet-mmstar-cache`; the duplicate TSV is not fetched.
 Although only 24 samples are evaluated, the cache contains the full parquet.
+The loader explicitly casts the parquet's binary `image` column to the Datasets
+`Image` feature so rows decode into Pillow images. It validates all selected
+images on CPU before loading the model. A raw `bytes` image passed directly to
+generation would otherwise fail with `'bytes' object has no attribute 'convert'`.
+
+After pulling this decoding fix, run the CPU regression tests in the project
+environment, then rerun the evaluation cell below. This needs neither CUDA
+operations nor extra downloads:
+
+```python
+subprocess.run(
+    [str(repo / ".venv/bin/python"), "research/tests/test_mmstar_images.py", "-v"],
+    cwd=repo, check=True,
+)
+```
 
 Push the new runner and shared `scripts/llava_runtime.py` helper, then run this
 cell in the existing notebook:

@@ -22,6 +22,27 @@ DATASET_REVISION = "bc98d668301da7b14f648724866e57302778ab27"
 ANSWER_INSTRUCTION = "Answer with only the option letter (A, B, C, or D)."
 
 
+def load_mmstar_parquet(parquet, cache_dir):
+    from datasets import Image, load_dataset
+
+    dataset = load_dataset(
+        "parquet", data_files={"val": str(parquet)}, split="val", cache_dir=str(cache_dir),
+    )
+    # Loading the parquet directly can leave this as a binary column. Declare
+    # its image feature explicitly so rows decode into PIL images before use.
+    return dataset.cast_column("image", Image())
+
+
+def validate_images(dataset, selected):
+    from PIL import Image
+
+    for row in selected:
+        image = dataset[row]["image"]
+        if not isinstance(image, Image.Image):
+            raise TypeError(f"Expected a decoded PIL image at row {row}, got {type(image).__name__}")
+        image.convert("RGB").load()
+
+
 def select_rows(categories, per_category, seed):
     groups = defaultdict(list)
     for row, category in enumerate(categories):
@@ -80,7 +101,6 @@ def run(args, report):
     if shutil.disk_usage(args.dataset_cache).free < 2 * 1024 ** 3:
         raise RuntimeError("Need at least 2 GiB free at the temporary dataset cache")
     os.environ["HF_XET_CHUNK_CACHE_SIZE_BYTES"] = "0"
-    from datasets import load_dataset
     from huggingface_hub import hf_hub_download
 
     # Download just the pinned ~42 MB parquet file, not the duplicate TSV.
@@ -88,21 +108,21 @@ def run(args, report):
         DATASET_ID, "mmstar.parquet", repo_type="dataset", revision=args.dataset_revision,
         cache_dir=str(args.dataset_cache / "hub"),
     )
-    dataset = load_dataset(
-        "parquet", data_files={"val": parquet}, split="val",
-        cache_dir=str(args.dataset_cache / "arrow"),
-    )
+    dataset = load_mmstar_parquet(parquet, args.dataset_cache / "arrow")
     required = {"index", "image", "question", "answer", "category", "l2_category"}
     if not required.issubset(dataset.column_names):
         raise ValueError(f"Unexpected dataset columns: {dataset.column_names}")
-    selected = select_rows(dataset["category"], args.per_category, args.seed)
-    sample_ids = [int(dataset[row]["index"]) for row in selected]
+    categories = dataset["category"]
+    selected = select_rows(categories, args.per_category, args.seed)
+    indices = dataset["index"]
+    sample_ids = [int(indices[row]) for row in selected]
     report["dataset"] = {
         "id": DATASET_ID, "revision": args.dataset_revision, "split": "val",
         "parquet_sha256": hashlib.sha256(Path(parquet).read_bytes()).hexdigest(),
         "total_rows": len(dataset), "seed": args.seed, "per_category": args.per_category,
         "selected_rows": selected, "sample_ids": sample_ids,
-        "category_counts": dict(Counter(dataset[row]["category"] for row in selected)),
+        "category_counts": dict(Counter(categories[row] for row in selected)),
+        "image_feature": str(dataset.features["image"]),
     }
     report["protocol"] = {
         "instruction": ANSWER_INSTRUCTION, "max_new_tokens": args.max_new_tokens,
@@ -111,6 +131,10 @@ def run(args, report):
         "warmup": "One unscored generation of up to 2 tokens on the first selected image.",
         "note": "Subset diagnostic, not an official MMStar score or speed benchmark.",
     }
+    # Catch image decoding problems on CPU before loading the 7B model.
+    validate_images(dataset, selected)
+    report["dataset"]["validated_images"] = len(selected)
+    print(f"Decoded and validated {len(selected)} MMStar images; loading LLaVA.", flush=True)
     model, processor = load_llava(model_path, report)
     first = dataset[selected[0]]
     generate_answer(model, processor, first["image"], prepare_question(first["question"]), 2)
