@@ -13,7 +13,6 @@ import os
 import shutil
 import subprocess
 import sys
-import time
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -102,66 +101,19 @@ def checkpoint(args, report):
 
 
 def infer(model_path, args, report):
-    import torch
     from PIL import Image, ImageDraw
-    from transformers import AutoConfig, AutoProcessor, LlavaForConditionalGeneration
+    from llava_runtime import generate_answer, load_llava
 
-    if not torch.cuda.is_available():
-        raise RuntimeError("Enable a GPU accelerator for the pretrained model test")
-    config = AutoConfig.from_pretrained(model_path, local_files_only=True)
-    if config.model_type != "llava":
-        raise ValueError("Expected an HF LLaVA checkpoint")
-    # Leave room for activations/KV cache on each GPU. Prevent CPU/disk offload.
-    max_memory = {i: max(0, torch.cuda.mem_get_info(i)[0] - 2 * GIB)
-                  for i in range(torch.cuda.device_count())}
-    max_memory["cpu"] = 0
-    model = LlavaForConditionalGeneration.from_pretrained(
-        model_path, local_files_only=True, torch_dtype=torch.float16,
-        device_map="auto", max_memory=max_memory, attn_implementation="sdpa",
-        low_cpu_mem_usage=True,
-    ).eval()
-    report["device_map"] = {name: str(device) for name, device in model.hf_device_map.items()}
-    if any(str(device) in {"cpu", "disk"} for device in model.hf_device_map.values()):
-        raise RuntimeError("Weights did not fit on the GPUs; inspect free VRAM/device_map")
-
-    processor = AutoProcessor.from_pretrained(model_path, local_files_only=True)
-    processor.patch_size = config.vision_config.patch_size
-    processor.vision_feature_select_strategy = config.vision_feature_select_strategy
-    processor.num_additional_image_tokens = 1  # CLIP has a CLS token.
-    processor.tokenizer.padding_side = "left"
+    model, processor = load_llava(model_path, report)
     image = Image.new("RGB", (336, 336), "white")
     ImageDraw.Draw(image).rectangle((70, 70, 266, 266), fill="red")
     image_path = args.output.with_suffix(".png")
     image_path.parent.mkdir(parents=True, exist_ok=True)
     image.save(image_path)
     question = "What color is the square? Answer briefly."
-    # LLaVA-1.5's documented prompt format; no dependency on a new chat template.
-    prompt = f"USER: <image>\n{question} ASSISTANT:"
-    inputs = processor(text=prompt, images=image, return_tensors="pt")
-    image_tokens = (inputs.input_ids == config.image_token_index).sum().item()
-    if image_tokens != config.image_seq_length:
-        raise RuntimeError(f"Image token mismatch: {image_tokens} vs {config.image_seq_length}")
-    inputs = inputs.to(model.get_input_embeddings().weight.device, torch.float16)
-    for i in range(torch.cuda.device_count()):
-        torch.cuda.reset_peak_memory_stats(i)
-        torch.cuda.synchronize(i)
-    started = time.perf_counter()
-    with torch.inference_mode():
-        generated = model.generate(**inputs, max_new_tokens=args.max_new_tokens,
-                                   do_sample=False, use_cache=True)
-    for i in range(torch.cuda.device_count()):
-        torch.cuda.synchronize(i)
-    response = processor.decode(generated[0, inputs.input_ids.shape[1]:],
-                                skip_special_tokens=True).strip()
-    if not response:
-        raise RuntimeError("Generation returned an empty response")
     report["inference"] = {
-        "question": question, "response": response, "image": str(image_path),
-        "image_tokens": image_tokens,
-        "generated_tokens": generated.shape[1] - inputs.input_ids.shape[1],
-        "generation_seconds": round(time.perf_counter() - started, 3),
-        "peak_allocated_gib": {str(i): round(torch.cuda.max_memory_allocated(i) / GIB, 3)
-                               for i in range(torch.cuda.device_count())},
+        **generate_answer(model, processor, image, question, args.max_new_tokens),
+        "image": str(image_path),
         "note": "A nonempty response passes the execution smoke test; inspect its content. "
                 "This single run is not an accuracy or speed benchmark.",
     }

@@ -98,6 +98,19 @@ small result files, but not the full pretrained checkpoint. The
 are approximately 13.2 GiB before any headroom. Disk storage and GPU VRAM are
 separate budgets.
 
+The Output meter describes saved output; it does not establish all available
+temporary capacity. The user successfully cached this checkpoint under
+`/tmp/apet-hf-cache` and ran pretrained LLaVA on the red square. It answered
+`Red`, with 576 image tokens and reported peak allocated memory of 6.712 and
+6.867 GiB on the two GPUs. The reported generation time was 1.49 seconds for
+that single diagnostic, not a benchmark. The Output meter stayed around 7 GiB.
+
+For a fresh session, check temporary capacity with `shutil.disk_usage("/tmp")`,
+then use `--cache-dir /tmp/apet-hf-cache --download-budget-gib 16` in both the
+preflight and inference commands. Proceed only when `storage.fits` is true.
+Keep reports under `/kaggle/working`. Temporary weights may disappear when the
+session ends; attaching a checkpoint as an Input remains a reusable alternative.
+
 After pushing the next script, update the existing notebook checkout:
 
 ```python
@@ -177,6 +190,61 @@ config hash does not fingerprint all weights.
 "red". One image does not establish accuracy, speed, or ApET correctness.
 After this passes, run a small uncompressed MMStar baseline, then introduce
 the extracted ApET core and compare it with that baseline.
+
+## Small MMStar baseline after pretrained inference passes
+
+`scripts/eval_mmstar.py` evaluates 24 samples by default: four from each of
+[MMStar's six categories](https://github.com/MMStar-Benchmark/MMStar), sampled
+with seed 590. It pins the dataset revision and saves the exact row/sample IDs
+for a later paired comparison. The ~42 MB `mmstar.parquet` file is downloaded
+once and prepared in `/tmp/apet-mmstar-cache`; the duplicate TSV is not fetched.
+Although only 24 samples are evaluated, the cache contains the full parquet.
+
+Push the new runner and shared `scripts/llava_runtime.py` helper, then run this
+cell in the existing notebook:
+
+```python
+import json
+import subprocess
+from pathlib import Path
+
+repo = Path("/kaggle/working/CSE590-ApET")
+subprocess.run(["git", "pull", "--ff-only"], cwd=repo, check=True)
+report = Path("/kaggle/working/mmstar-baseline-24.json")
+subprocess.run(
+    [str(repo / ".venv/bin/python"), "scripts/eval_mmstar.py",
+     "--cache-dir", "/tmp/apet-hf-cache",
+     "--dataset-cache", "/tmp/apet-mmstar-cache",
+     "--per-category", "4", "--seed", "590",
+     "--output", str(report)],
+    cwd=repo, check=True,
+)
+result = json.loads(report.read_text())
+print(json.dumps(result["summary"], indent=2))
+```
+
+No dependency changes or kernel restart are needed. Existing model weights are
+reused; the runner refuses to download missing weights. In a fresh session,
+run the pretrained smoke setup again first, or supply `--model` with an attached
+HF checkpoint directory.
+
+The runner reuses the FP16/SDPA loading and generation helpers from the square
+test. It performs one unscored warmup, then generates one answer per image.
+Each raw answer, ground truth, parsed prediction, category, latency, and peak
+allocated GPU memory is flushed to `mmstar-baseline-24.jsonl`. The JSON summary
+records overall/category accuracy, unparsed answers, sample IDs, model/dataset
+revision, package versions, Git commit, lockfile hash, and dataset file hash.
+If evaluation fails partway through, completed prediction rows remain saved.
+Reruns with the same output filename replace those files; use a new filename
+when preserving a run.
+
+Answers must be an unambiguous single option letter, optionally with a short
+prefix such as `Answer: A`. Longer or ambiguous answers count as incorrect and
+are listed as unparsed; raw responses remain available for inspection. This is
+an explicitly documented diagnostic scoring rule, not the official MMStar
+evaluation pipeline. `passed` means the execution completed, regardless of
+accuracy. Neither the 24-sample accuracy nor its timing is a publication result.
+Keep this baseline and its selected IDs before enabling ApET.
 
 ## Running later scripts
 
