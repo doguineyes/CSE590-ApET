@@ -1,5 +1,8 @@
 # Candidate runtime v1: fresh Kaggle smoke test
 
+The first validated session and its results are recorded in
+[the October 9, 2026 research note](notes/2026-10-09-kaggle-apet.md).
+
 This is a new **Linux x86_64 environment**, separate from Kaggle's notebook
 kernel. It does not install the legacy `llava/`, `qwen/`, or `video-llava/`
 implementations. Those integrations still need separate compatibility work.
