@@ -1,0 +1,16 @@
+[project]
+name = "cse590-apet-editor"
+version = "0.1.0"
+description = "Intel Mac library sources and editor support for ApET research"
+requires-python = "==3.11.14"
+dependencies = [
+    "transformers==4.48.2",
+    "datasets==4.8.5",
+    "pillow==12.3.0",
+]
+
+[tool.uv]
+package = false
+required-version = "==0.9.5"
+environments = ["sys_platform == 'darwin' and platform_machine == 'x86_64'"]
+required-environments = ["sys_platform == 'darwin' and platform_machine == 'x86_64'"]
