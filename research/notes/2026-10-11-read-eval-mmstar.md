@@ -1,0 +1,1 @@
+Today I focused on reading scripts/eval_mmstar.py and understanding the overall evaluation architecture rather than modifying code.
