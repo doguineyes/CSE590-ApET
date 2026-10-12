@@ -40,3 +40,5 @@ processor.decode(...)
 text answer
     ↓
 record timing / token counts / GPU memory
+
+## adapters and core
