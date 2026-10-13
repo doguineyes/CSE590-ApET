@@ -1,82 +1,60 @@
-# [CVPR 2026 Highlight] ApET: Approximation-Error Guided Token Compression for Efficient VLMs
+# CSE590: Understanding ApET Visual Token Compression
 
-## 👀 Overview
-TL;DR ApET introduces an attention-free, approximation-error guided token compression framework for VLMs that maximally preserves visual information by pruning tokens with minimal linear reconstruction error, enabling seamless FlashAttention integration while retaining 95.2% performance at 88.9% compression ratios.
+This repository contains my CSE590 research project at Stony Brook University,
+built on [ApET](https://github.com/Maqkccx/ApET). The project studies when and why
+reconstruction-based visual token compression works in vision-language models.
 
-<p align="center">
-  <img src="./fig/showcase.png" alt="drawing", width="100%"/>
-</p>
+## Research goals
 
+- Compare reconstruction error with a token's contribution to answering a question.
+- Separate the effects of token selection and merging.
+- Explore adaptive token budgets based on these findings.
 
-## 🔧 Environment Setup
+See the [project proposal](research/reports/Peng_Chen_CSE590_ApET_Project_Proposal_v2.pdf)
+for the research plan.
 
-For the new isolated Linux research runtime and a fresh Kaggle smoke test, see
-[research/KAGGLE_RUNTIME.md](research/KAGGLE_RUNTIME.md). Its `pyproject.toml`
-and `uv.lock` define a candidate modern environment; compatibility with the
-legacy model integrations is not implied. The original authors' setup follows.
-We build and test our codebase with Python 3.10.18, PyTorch 2.1.2, and CUDA 12.1. Adapt the PyTorch and CUDA versions to your local environment as needed.
+## Current progress
 
-You can use the following command to install the required packages:
-```
-conda create -n ApET python=3.10 -y
-conda activate ApET
+The LLaVA input-stage compression core has been extracted into a model-independent
+module and connected to Hugging Face LLaVA-1.5-7B. Baseline and compressed runs on
+all 1,500 MMStar samples, plus fixed-output timing benchmarks, have been completed
+on Kaggle with two T4 GPUs. See the [experiment note](research/notes/2026-10-09-kaggle-apet.md).
 
-cd /path/to/ApET
-pip install -r requirements.txt
-```
+## Code layout
 
+- `apet_compression/`: compression core, HF LLaVA adapter, and source-parity checks.
+- `scripts/`: inference, MMStar evaluation, comparisons, and benchmarks.
+- `research/`: proposal, papers, notebooks, tests, and research notes.
+- `bootstrap/`: environment setup scripts.
+- `llava/`, `qwen/`, `video-llava/`: original model integrations retained for reference.
 
-## 🎯 Usage
-### Script Templates
-```shell
-bash scripts/llava1_5/[Benchmark].sh 
-```
+Start with the [code reading guide](research/notes/2026-10-10-code-reading-plan.md)
+and [compression module documentation](apet_compression/README.md).
 
-**For LLaVA-1.5 and LLaVA-NeXT, the script should look like this:**
+## Development workflow
+
+Read and edit on the Mac, version code with GitHub, and run research tests on
+Kaggle. Google Cloud is planned for later experiments. Separate `uv` lockfiles
+manage the Linux experiment runtime and Intel Mac editor environment.
+
+**Intel Mac editor setup:**
+
 ```bash
-python -m llava.eval.model_vqa_loader \
-        --model-path data/model/llava-v1.5-7b \
-        --question-file data/eval/gqa/$SPLIT.jsonl \
-        --image-folder data/eval/gqa/images \
-        --answers-file data/eval/gqa/answers/$SPLIT/$CKPT/${CHUNKS}_${IDX}.jsonl \
-        --num-chunks $CHUNKS \
-        --chunk-idx $IDX \
-        --temperature 0 \
-        --layer_list '[16]' \
-        --image_token_list '[32]' \
-        --visual_token_num 96 \
-        --basis_token_num 10 \
-        --conv-mode vicuna_v1 &
+bash bootstrap/setup_editor_macos.sh
 ```
-Configure the following required arguments:
-- `--model-path`: Absolute path to the model checkpoint.
-- `--question-file`: Path to the evaluation question file.
-- `--image-folder`: Directory containing the input images.
-- `--answers-file`: Output path for the generated answers.
 
-Additionally, adjust the following hyper-parameters based on your experimental configuration:
-- `--layer_list`: Layers to apply compression.
-- `--image_token_list`: Token selection strategy.
-- `--visual_token_num`: Number of visual tokens to retain.
-- `--basis_token_num`: Number of basis tokens for decomposition.
+**Kaggle T4 ×2 runtime setup:**
 
+```bash
+bash bootstrap/setup_linux.sh --require-cuda --expected-gpus 2
+```
 
-**For Qwen models, please refer to the [Qwen-2.5-VL codebase](https://github.com/QwenLM/Qwen3-VL).**
+Run these commands from the repository root. Follow the
+[Mac editor guide](environments/editor/README.md) for VSCode configuration and the
+[Kaggle guide](research/KAGGLE_RUNTIME.md) for notebook setup and experiment commands.
 
-**For Video-LLaVA models, please refer to the [Video-LLaVA codebase](https://github.com/PKU-YuanGroup/Video-LLaVA).**
+## Original ApET
 
-
-## 🙏Acknowledgements
-Our codebase is adapted from [VScan](https://github.com/Tencent/SelfEvolvingAgent) and [PyramidDrop](https://github.com/Cooperx521/PyramidDrop). We thank the authors for releasing their code! We also thank the authors of [LLaVA](https://github.com/haotian-liu/LLaVA), [Video-LLaVA](https://github.com/PKU-YuanGroup/Video-LLaVA) and [Qwen-2.5-VL](https://github.com/QwenLM/Qwen2.5-VL) for their open-sourced models and well-written instructions.
-
-
-## 📌 BibTeX & Citation
-If you find our paper and code useful in your research, please consider giving a star and citation.
-
-```BibTeX
-@article{ma2026apet,
-  title={ApET: Approximation-Error Guided Token Compression for Efficient VLMs},
-  author={Ma, Qiankun and Zhang, Ziyao and Wang, Haofei and Chen, Jie and Song, Zhen and Zheng, Hairong},
-  journal={arXiv preprint arXiv:2602.19870},
-  year={2026}
-}
+The upstream documentation is preserved in [ApET_README.md](ApET_README.md).
+The current extraction covers LLaVA input-stage compression; decoder-layer pruning
+and the other model integrations remain future work.
