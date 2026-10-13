@@ -283,9 +283,12 @@ def main():
         parser.error("--download-budget-gib must be finite and nonnegative")
     if not 4 <= args.min_new_tokens <= args.max_new_tokens:
         parser.error("Require 4 <= min-new-tokens <= max-new-tokens for the cached-decode smoke")
-    os.environ.setdefault("MPLBACKEND", "Agg")
+    # Override the host notebook's inline backend before importing original LLaVA.
+    # Its matplotlib.pyplot import must work in this standalone subprocess.
+    os.environ["MPLBACKEND"] = "Agg"
     os.environ["HF_XET_CHUNK_CACHE_SIZE_BYTES"] = "0"
     report = provenance("Original LLaVA ApET one-image execution smoke; no extraction or HF adapter")
+    report["matplotlib_backend"] = os.environ["MPLBACKEND"]
     try:
         validate_runtime(report)
         args.cache_dir.mkdir(parents=True, exist_ok=True)

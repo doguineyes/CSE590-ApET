@@ -112,8 +112,11 @@ def main():
     parser.add_argument("--expected-gpus", type=int)
     parser.add_argument("--output", type=Path, default=REPO / "research/results/original-runtime-smoke.json")
     args = parser.parse_args()
-    os.environ.setdefault("MPLBACKEND", "Agg")
+    # A notebook subprocess can inherit its kernel's matplotlib_inline backend,
+    # which is not installed in this standalone inference environment.
+    os.environ["MPLBACKEND"] = "Agg"
     report = provenance("Original ApET package imports, tiny decoder, and CUDA execution checks")
+    report["matplotlib_backend"] = os.environ["MPLBACKEND"]
     try:
         validate_runtime(report)
         import torch

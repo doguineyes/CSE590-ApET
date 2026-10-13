@@ -132,3 +132,10 @@ the following steps. The current small records can be expanded as needed.
 Code-only updates use `git pull --ff-only` followed by a new project-Python
 subprocess. Dependency edits require updating this `pyproject.toml` and its own
 `uv.lock`, then rerunning setup; avoid root `uv sync` for original ApET.
+
+The standalone check and inference scripts explicitly use Matplotlib's `Agg`
+backend. Kaggle's kernel can otherwise pass `MPLBACKEND=module://matplotlib_inline.backend_inline`
+to a subprocess whose environment does not include the notebook plotting backend.
+For this code-only fix, pull the update and rerun the inference cell; no package
+reinstall or kernel restart is needed. Checkpoints already downloaded in the same
+session are reused.
