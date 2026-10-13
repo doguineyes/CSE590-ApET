@@ -23,10 +23,11 @@ on Kaggle with two T4 GPUs. See the [experiment note](research/notes/2026-10-09-
 The original ApET LLaVA implementation also passed a baseline and combined
 input/decoder smoke on the same hardware. We will use this implementation for
 the planned research experiments. See the [passed smoke note](research/notes/2026-10-13-original-apet-smoke.md)
-and [MMStar pilot results](research/notes/2026-10-13-original-mmstar-pilot.md).
-The [full MMStar run](research/ORIGINAL_MMSTAR_FULL.md) is ready for Kaggle.
-The [same-image GQA diagnostic pilot](research/GQA_DIAGNOSTIC_PILOT.md) is prepared
-for a small subset, with native reconstruction/selection/merge logging.
+and [full MMStar results](research/notes/2026-10-13-original-mmstar-full.md).
+The [same-image GQA pilot](research/notes/2026-10-13-original-gqa-pilot.md) also passed,
+with native reconstruction/selection/merge logging. Main GQA experiments use
+[fixed development and evaluation subsets](research/GQA_SUBSETS.md), with 800
+questions each and separate image groups.
 
 ## Code layout
 
@@ -69,5 +70,5 @@ The upstream documentation is preserved in [ApET_README.md](ApET_README.md).
 See [implementation scope](research/IMPLEMENTATION_SCOPE.md) for original code,
 compatibility patches, and our experiment/scoring code.
 The extraction covers LLaVA input-stage compression. The separate original-code
-runtime supports studying both input and decoder compression; dataset baselines
-and research instrumentation are the next steps.
+runtime supports studying both input and decoder compression. Next steps are
+subset baselines and controlled answer-contribution/merging experiments.

@@ -42,6 +42,7 @@ do not silently replace the baseline reference.
 | `scripts/prepare_gqa_pilot.py`, `scripts/eval_original_gqa.py`, `scripts/gqa_scoring.py` | Pinned same-image subset, short-answer scoring, and grouped diagnostic evaluation |
 | `scripts/original_diagnostics.py` | Read-only tracing of native reconstruction, FPS, selection and merge values |
 | `scripts/prepare_gqa_full.py`, `scripts/eval_original_gqa_full.py` | Full balanced Test-Dev data, native evaluation, paired/type summaries and guarded resume; no compression reimplementation |
+| `scripts/prepare_gqa_subsets.py`, `scripts/eval_original_gqa_subset.py` | Frozen image-disjoint development/evaluation sets, nested diagnostics, resume and saved baseline comparisons |
 | `scripts/check_original_env.py`, `bootstrap/`, `environments/original/` | Locked runtime and provenance checks |
 | `research/` | Protocols, notebooks, notes, tests and artifacts |
 

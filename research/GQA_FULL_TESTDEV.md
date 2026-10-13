@@ -1,5 +1,9 @@
 # Original ApET: full GQA balanced Test-Dev
 
+For routine CSE590 experiments, use the [fixed subsets](GQA_SUBSETS.md).
+Full Test-Dev is optional final confirmation. If a full run is already active,
+interrupt its inference cell and download its partial ZIP before switching.
+
 The [GQA diagnostic pilot review](notes/2026-10-13-original-gqa-pilot.md) passed
 on 2026-10-13. The full version is ready to push and run; no native, dependency
 or scoring fixes were needed. Do not start this alongside another model process. Use the
