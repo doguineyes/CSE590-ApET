@@ -1,8 +1,10 @@
-# Original ApET LLaVA: first Kaggle smoke
+# Original ApET LLaVA: Kaggle runtime
 
-This candidate environment runs the repository's original `llava/` implementation,
+This environment runs the repository's original `llava/` implementation,
 including input and decoder compression. It uses no extracted compression core or
-modern HF LLaVA adapter. Kaggle execution still needs to be verified.
+modern HF LLaVA adapter. The one-image baseline and combined-compression smoke
+passed on Kaggle T4 ×2 on October 13; see the
+[results note](../../research/notes/2026-10-13-original-apet-smoke.md).
 
 Python 3.10.18 matches the original README. Torch 2.1.2 + CUDA 12.1,
 torchvision 0.16.2, Transformers 4.37.2, Accelerate 0.21.0, NumPy 1.26.4, and
@@ -130,9 +132,12 @@ Share them for review. Exceptions and partial completed runs are saved; the
 notebook cell also displays the subprocess failure. If failure occurs during
 installation, share the cell's install output because no Python report exists yet.
 
-This milestone establishes environment and execution feasibility. Dataset runners,
-MMStar/GQA/TextVQA baselines, formal scoring/APR, and RQ1 intervention records are
-the following steps. The current small records can be expanded as needed.
+Continue in the same session with the
+[24-image paired MMStar pilot](../../research/ORIGINAL_MMSTAR_PILOT.md).
+It runs all four stage settings with one model load and preserves images,
+raw predictions, category scores, paired APR, and lost/gained sample IDs.
+It adds only pinned PyArrow for parquet reading. Review it before full
+MMStar/GQA/TextVQA baselines and RQ1 instrumentation.
 
 Code-only updates use `git pull --ff-only` followed by a new project-Python
 subprocess. Dependency edits require updating this `pyproject.toml` and its own

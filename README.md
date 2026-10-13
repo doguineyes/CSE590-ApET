@@ -20,6 +20,11 @@ module and connected to Hugging Face LLaVA-1.5-7B. Baseline and compressed runs 
 all 1,500 MMStar samples, plus fixed-output timing benchmarks, have been completed
 on Kaggle with two T4 GPUs. See the [experiment note](research/notes/2026-10-09-kaggle-apet.md).
 
+The original ApET LLaVA implementation also passed a baseline and combined
+input/decoder smoke on the same hardware. We will use this implementation for
+the planned research experiments. See the [passed smoke note](research/notes/2026-10-13-original-apet-smoke.md)
+and [next MMStar pilot](research/ORIGINAL_MMSTAR_PILOT.md).
+
 ## Code layout
 
 - `apet_compression/`: compression core, HF LLaVA adapter, and source-parity checks.
@@ -58,6 +63,6 @@ input-stage experiments.
 ## Original ApET
 
 The upstream documentation is preserved in [ApET_README.md](ApET_README.md).
-The extraction covers LLaVA input-stage compression. The new original-code runtime
-is a candidate for studying both input and decoder compression; Kaggle validation
-is the next step.
+The extraction covers LLaVA input-stage compression. The separate original-code
+runtime supports studying both input and decoder compression; dataset baselines
+and research instrumentation are the next steps.

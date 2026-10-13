@@ -18,6 +18,7 @@ dependencies = [
     "matplotlib==3.10.3",
     "shortuuid==1.0.13",
     "requests==2.32.4",
+    "pyarrow==19.0.1",
 ]
 
 [tool.uv]

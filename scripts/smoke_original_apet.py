@@ -158,12 +158,8 @@ def validate_trace(name, trace):
         raise RuntimeError("Decoder sequence reduction does not match visual-token reduction")
 
 
-def infer(model_path, vision_path, args, report):
+def load_native_model(model_path, vision_path, report):
     import torch
-    from PIL import Image, ImageDraw
-    from llava.constants import IMAGE_TOKEN_INDEX, DEFAULT_IMAGE_TOKEN
-    from llava.conversation import conv_templates
-    from llava.mm_utils import process_images, tokenizer_image_token
     from llava.model.builder import load_pretrained_model
     from llava.model.language_model.llava_llama_x import LlavaConfig
 
@@ -203,6 +199,79 @@ def infer(model_path, vision_path, args, report):
         },
         "load_seconds": round(time.perf_counter() - started, 3),
     }
+    return tokenizer, model, processor
+
+
+def generate_native_answer(tokenizer, model, processor, image, question, name,
+                           seed=590, max_new_tokens=16, min_new_tokens=0, require_nonempty=True,
+                           record=None):
+    """One native generation; configuration and traces are scoped to this call."""
+    import torch
+    from llava.constants import IMAGE_TOKEN_INDEX, DEFAULT_IMAGE_TOKEN
+    from llava.conversation import conv_templates
+    from llava.mm_utils import process_images, tokenizer_image_token
+
+    settings = configure(model, name)
+    conversation = conv_templates["vicuna_v1"].copy()
+    conversation.append_message(conversation.roles[0], DEFAULT_IMAGE_TOKEN + "\n" + question)
+    conversation.append_message(conversation.roles[1], None)
+    prompt = conversation.get_prompt()
+    input_ids = tokenizer_image_token(prompt, tokenizer, IMAGE_TOKEN_INDEX, return_tensors="pt").unsqueeze(0)
+    if int((input_ids == IMAGE_TOKEN_INDEX).sum().item()) != 1:
+        raise ValueError("Expected one image placeholder in the native prompt")
+    expanded_length = input_ids.shape[1] - 1 + settings["input_tokens"]
+    limit = min(getattr(model.config, "tokenizer_model_max_length", None) or 2048,
+                model.config.max_position_embeddings)
+    if expanded_length + max_new_tokens > limit:
+        raise ValueError(f"Prompt/output budget exceeds context limit {limit}; "
+                         "refusing silent truncation of a scored question")
+    device = model.get_input_embeddings().weight.device
+    input_ids = input_ids.to(device)
+    images, _ = process_images([image.convert("RGB")], processor, model.config)
+    if not isinstance(images, torch.Tensor) or images.shape[0] != 1:
+        raise RuntimeError("Native runner supports one LLaVA-1.5 image tensor")
+    images = images.to(device=device, dtype=torch.float16)
+    trace = {}
+    record = {} if record is None else record
+    record.update({"configuration": name, "settings": settings, "seed": seed,
+                   "status": "running", "question": question, "prompt": prompt,
+                   "prompt_tokens_before_expansion": input_ids.shape[1],
+                   "expanded_prompt_tokens": expanded_length, "trace": trace})
+    torch.manual_seed(seed)
+    torch.cuda.manual_seed_all(seed)
+    for index in range(torch.cuda.device_count()):
+        torch.cuda.reset_peak_memory_stats(index)
+        torch.cuda.synchronize(index)
+    options = {"max_new_tokens": max_new_tokens}
+    if min_new_tokens:
+        options["min_new_tokens"] = min_new_tokens
+    started = time.perf_counter()
+    with observe_compression(model, trace), torch.inference_mode():
+        output = model.generate(
+            input_ids, images=images, image_sizes=[image.size], do_sample=False,
+            use_cache=True, return_dict_in_generate=True, output_scores=True, **options,
+        )
+    for index in range(torch.cuda.device_count()):
+        torch.cuda.synchronize(index)
+    seconds = round(time.perf_counter() - started, 3)
+    response = tokenizer.batch_decode(output.sequences, skip_special_tokens=True)[0].strip()
+    generated_tokens = len(output.scores)
+    record.update({"generation_seconds": seconds, "response": response,
+                   "generated_tokens": generated_tokens,
+                   "peak_allocated_gib": {
+                str(index): round(torch.cuda.max_memory_allocated(index) / GIB, 3)
+                for index in range(torch.cuda.device_count())}})
+    if (require_nonempty and not response) or not max(1, min_new_tokens) <= generated_tokens <= max_new_tokens:
+        raise RuntimeError("Empty answer or unexpected generation length")
+    validate_trace(name, trace)
+    record["status"] = "passed"
+    return record
+
+
+def infer(model_path, vision_path, args, report):
+    from PIL import Image, ImageDraw
+
+    tokenizer, model, processor = load_native_model(model_path, vision_path, report)
     if args.image:
         with Image.open(args.image) as source:
             image = source.convert("RGB")
@@ -212,58 +281,25 @@ def infer(model_path, vision_path, args, report):
     image_path = args.output.with_suffix(".png")
     image_path.parent.mkdir(parents=True, exist_ok=True)
     image.save(image_path)
-    conversation = conv_templates["vicuna_v1"].copy()
-    conversation.append_message(conversation.roles[0], DEFAULT_IMAGE_TOKEN + "\n" + args.question)
-    conversation.append_message(conversation.roles[1], None)
-    prompt = conversation.get_prompt()
-    input_ids = tokenizer_image_token(prompt, tokenizer, IMAGE_TOKEN_INDEX, return_tensors="pt").unsqueeze(0)
-    device = model.get_input_embeddings().weight.device
-    input_ids = input_ids.to(device)
-    images, _ = process_images([image], processor, model.config)
-    if not isinstance(images, torch.Tensor) or images.shape[0] != 1:
-        raise RuntimeError("Smoke supports one LLaVA-1.5 image tensor")
-    images = images.to(device=device, dtype=torch.float16)
     report["protocol"] = {
-        "question": args.question, "prompt": prompt, "image": str(image_path),
+        "question": args.question, "image": str(image_path),
         "image_sha256": hashlib.sha256(image_path.read_bytes()).hexdigest(),
         "seed": args.seed, "do_sample": False, "use_cache": True, "batch_size": 1,
         "min_new_tokens": args.min_new_tokens, "max_new_tokens": args.max_new_tokens,
     }
     report["runs"] = []
     for name in args.configurations:
-        settings = configure(model, name)
-        trace = {}
-        record = {"configuration": name, "settings": settings, "status": "running", "trace": trace}
+        record = {"configuration": name, "status": "running"}
         report["runs"].append(record)
         # Preserve partial evidence if a later configuration fails or is interrupted.
         args.output.write_text(json.dumps(report, indent=2) + "\n")
-        torch.manual_seed(args.seed)
-        torch.cuda.manual_seed_all(args.seed)
-        for index in range(torch.cuda.device_count()):
-            torch.cuda.reset_peak_memory_stats(index)
-            torch.cuda.synchronize(index)
-        started = time.perf_counter()
-        with observe_compression(model, trace), torch.inference_mode():
-            output = model.generate(
-                input_ids, images=images, image_sizes=[image.size], do_sample=False,
-                min_new_tokens=args.min_new_tokens, max_new_tokens=args.max_new_tokens,
-                use_cache=True, return_dict_in_generate=True, output_scores=True,
-            )
-        for index in range(torch.cuda.device_count()):
-            torch.cuda.synchronize(index)
-        record["generation_seconds"] = round(time.perf_counter() - started, 3)
-        record["response"] = tokenizer.batch_decode(output.sequences, skip_special_tokens=True)[0].strip()
-        record["generated_tokens"] = len(output.scores)
-        record["peak_allocated_gib"] = {
-            str(index): round(torch.cuda.max_memory_allocated(index) / GIB, 3)
-            for index in range(torch.cuda.device_count())
-        }
-        if not record["response"] or not args.min_new_tokens <= len(output.scores) <= args.max_new_tokens:
-            raise RuntimeError("Empty answer or unexpected generation length")
-        validate_trace(name, trace)
-        record["status"] = "passed"
-        del output
-        print(f"{name}: {record['response']} | compression: {trace}", flush=True)
+        record.update(generate_native_answer(
+            tokenizer, model, processor, image, args.question, name,
+            seed=args.seed, max_new_tokens=args.max_new_tokens, min_new_tokens=args.min_new_tokens,
+            record=record,
+        ))
+        report["protocol"]["prompt"] = record["prompt"]
+        print(f"{name}: {record['response']} | compression: {record['trace']}", flush=True)
     report["note"] = "Execution checks only. Inspect the answer; no accuracy or speed claim. " \
                      "At least four output tokens exercise cached decoding. " \
                      "Native compression math is retained; the returned mask follows projected features across GPUs."
