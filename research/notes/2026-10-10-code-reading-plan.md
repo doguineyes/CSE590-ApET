@@ -65,9 +65,12 @@ in Section 3.2 after understanding the computation.
 Keep this distinction in your notes: reconstruction error describes how well
 other visual features approximate a token; your project asks whether that token
 matters to a particular answer. The core receives no question or answer.
-At the input stage the visual features are question-independent. At a decoder
-layer, features can already be influenced by the question, even if the same
-compression function still receives only a feature tensor.
+At the input stage the visual features are question-independent. In our native
+image-before-question prompt, causal attention also prevents visual-token states
+at decoder layers from attending to the later question. Their answer contribution
+can still vary with the question, and their reconstruction errors can change with
+model depth. Do not assume deeper visual states are question-conditioned in this
+layout. Changing prompt order would require a separate experimental control.
 
 ### 2. Follow one request — 25–35 minutes
 

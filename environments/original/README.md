@@ -126,6 +126,12 @@ compression; `decoder-only` keeps 576 initially and reduces to 96 after layer 16
 
 ## Results and next step
 
+The four-configuration MMStar pilot has passed. Its saved predictions were
+rescored on CPU, preserving the original archive. Continue with the
+[full 1,500-image run](../../research/ORIGINAL_MMSTAR_FULL.md).
+See [implementation scope](../../research/IMPLEMENTATION_SCOPE.md) for the
+distinction between native ApET, the existing device fix, and our evaluation code.
+
 Download `original-runtime-smoke.json`, `original-apet-preflight.json`, and
 `original-apet-smoke.json` (or the first failure report), plus the generated PNG.
 Share them for review. Exceptions and partial completed runs are saved; the

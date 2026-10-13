@@ -1,4 +1,4 @@
-"""Paired MMStar pilot using original ApET, with one model load per invocation."""
+"""Paired MMStar evaluation using original ApET, with one model load per invocation."""
 
 import argparse
 from collections import Counter
@@ -7,14 +7,17 @@ import importlib.metadata
 import io
 import json
 import os
+import math
 from pathlib import Path
 import sys
+import shutil
 import time
 import traceback
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from check_original_env import REPO, provenance, validate_runtime, write_report
-from eval_mmstar import DATASET_ID, DATASET_REVISION, ANSWER_INSTRUCTION, parse_answer, prepare_question, select_rows, summarize
+from check_original_env import REPO, provenance, validate_runtime, verify_native_reference, write_report
+from eval_mmstar import DATASET_ID, DATASET_REVISION, ANSWER_INSTRUCTION, prepare_question, select_rows
+from mmstar_scoring import score_answer, scoring_metadata, summarize_scored
 from smoke_original_apet import (
     CONFIGURATIONS, MODEL_ID, MODEL_REVISION, VISION_ID, VISION_REVISION,
     checkpoint_plan, download, generate_native_answer, load_native_model,
@@ -78,7 +81,12 @@ def prepare_samples(args, report):
         raise ValueError("Unexpected MMStar parquet schema")
     if len({int(row["index"]) for row in rows}) != len(rows):
         raise ValueError("Duplicate MMStar sample IDs")
-    selected = select_rows([row["category"] for row in rows], args.per_category, args.seed)
+    if getattr(args, "all_samples", False):
+        if len(rows) != 1500:
+            raise ValueError("Expected exactly 1,500 rows in the pinned full MMStar dataset")
+        selected = list(range(len(rows)))
+    else:
+        selected = select_rows([row["category"] for row in rows], args.per_category, args.seed)
     image_dir = args.output.parent / (args.output.stem + "-images")
     image_dir.mkdir(parents=True)
     samples = []
@@ -109,18 +117,24 @@ def prepare_samples(args, report):
     report["dataset"] = {
         "id": DATASET_ID, "revision": DATASET_REVISION, "split": "val",
         "parquet_sha256": digest, "total_rows": len(rows), "seed": args.seed,
-        "per_category": args.per_category, "sample_ids": [row["index"] for row in samples],
+        "per_category": None if getattr(args, "all_samples", False) else args.per_category,
+        "sample_ids": [row["index"] for row in samples],
         "selected_rows": selected, "category_counts": dict(Counter(row["category"] for row in samples)),
         "image_directory": image_dir.name, "pyarrow": importlib.metadata.version("pyarrow"),
+        "selection": "all_samples" if getattr(args, "all_samples", False) else "balanced_subset",
     }
     return samples
 
 
 def update_summary(report, predictions, configurations):
     groups = {name: [row for row in predictions if row["configuration"] == name] for name in configurations}
-    report["summaries"] = {name: summarize(rows) for name, rows in groups.items()}
+    report["summaries"] = {name: summarize_scored(rows) for name, rows in groups.items()}
     report["comparisons"] = {name: paired_summary(groups["baseline"], rows)
                              for name, rows in groups.items() if name != "baseline"}
+    strict = {name: [{**row, "correct": row["strict_correct"]} for row in rows]
+              for name, rows in groups.items()}
+    report["strict_comparisons"] = {name: paired_summary(strict["baseline"], rows)
+                                    for name, rows in strict.items() if name != "baseline"}
     report["progress"] = {"completed_predictions": len(predictions),
                           "expected_predictions": len(report["dataset"]["sample_ids"]) * len(configurations)}
 
@@ -131,14 +145,16 @@ def run(args, report):
     report["protocol"] = {
         "instruction": ANSWER_INSTRUCTION, "max_new_tokens": args.max_new_tokens,
         "min_new_tokens": None, "do_sample": False, "use_cache": True, "precision": "float16",
-        "batch_size": 1, "scoring": "Conservative single-letter parsing; unparsed answers count as incorrect.",
+        "batch_size": 1, "scoring": scoring_metadata()["rule"],
         "fps_seed_rule": "seed + MMStar sample index; native global Torch/CUDA RNG reset per generation",
         "configurations": {name: CONFIGURATIONS[name] for name in args.configurations}, "basis_tokens": 10,
+        "epsilon": 1e-5,
         "order": "Sorted selected rows; configuration order rotates by sample.",
         "warmup": "One unscored max-2-token generation per configuration on the first image.",
-        "note": "Native diagnostic pilot, not official MMStar scoring or a controlled timing benchmark. "
+        "note": "Native evaluation with project scoring, not official MMStar scoring or a controlled timing benchmark. "
                 "Token-level reconstruction errors/intervention traces are not yet collected.",
     }
+    report["scoring"] = scoring_metadata()
     samples = prepare_samples(args, report)
     print(f"Decoded and validated {len(samples)} MMStar images; loading original LLaVA once.", flush=True)
     predictions_path = args.output.with_suffix(".jsonl")
@@ -146,9 +162,16 @@ def run(args, report):
     plans = [checkpoint_plan(args.model, MODEL_REVISION, args.cache_dir, native=True),
              checkpoint_plan(args.vision_model, VISION_REVISION, args.cache_dir)]
     report["checkpoints"] = {"llava": plans[0], "vision": plans[1]}
-    # The pilot follows the passed smoke; missing large checkpoints should not download silently.
-    if any(plan["missing_bytes"] for plan in plans):
-        raise ValueError("Pinned checkpoints are missing; run the original smoke's preflight/download first")
+    missing = sum(plan["missing_bytes"] for plan in plans)
+    args.cache_dir.mkdir(parents=True, exist_ok=True)
+    free = shutil.disk_usage(args.cache_dir).free
+    budget = getattr(args, "download_budget_gib", 0)
+    report["storage"] = {"missing_download_gib": round(missing / 1024 ** 3, 3),
+                         "filesystem_free_gib": round(free / 1024 ** 3, 3),
+                         "download_budget_gib": budget}
+    if missing and (missing > budget * 1024 ** 3 or missing + 1024 ** 3 > free):
+        raise ValueError("Missing checkpoints exceed the download budget or free space. "
+                         "For a restarted session, supply --download-budget-gib 20 or attached checkpoint paths.")
     model_path, vision_path = [download(plan, args.cache_dir) for plan in plans]
     tokenizer, model, processor = load_native_model(model_path, vision_path, report)
     first = samples[0]
@@ -185,9 +208,8 @@ def run(args, report):
                         require_nonempty=False,
                         record=report["current_generation"],
                     )
-                    prediction = parse_answer(generated["response"])
-                    row = {**sample, **generated, "prediction": prediction,
-                           "correct": prediction == sample["gold"]}
+                    row = {**sample, **generated,
+                           **score_answer(generated["response"], sample["original_question"], sample["gold"])}
                     output.write(json.dumps(row) + "\n")
                     output.flush()
                     predictions.append(row)
@@ -227,6 +249,9 @@ def main():
     parser.add_argument("--cache-dir", type=Path, default=Path("/tmp/apet-original-hf-cache"))
     parser.add_argument("--dataset-cache", type=Path, default=Path("/tmp/apet-original-mmstar-cache"))
     parser.add_argument("--per-category", type=int, default=4)
+    parser.add_argument("--all-samples", action="store_true", help="Use every row in the pinned 1,500-example dataset")
+    parser.add_argument("--download-budget-gib", type=float, default=0,
+                        help="Maximum missing checkpoint download; zero reuses cached weights only")
     parser.add_argument("--seed", type=int, default=590)
     parser.add_argument("--max-new-tokens", type=int, default=16)
     parser.add_argument("--configurations", nargs="+", choices=CONFIGURATIONS, default=["baseline", "combined"])
@@ -234,6 +259,8 @@ def main():
     args = parser.parse_args()
     if args.per_category < 1 or args.max_new_tokens < 1:
         parser.error("--per-category and --max-new-tokens must be positive")
+    if not math.isfinite(args.download_budget_gib) or args.download_budget_gib < 0:
+        parser.error("--download-budget-gib must be finite and nonnegative")
     if "baseline" not in args.configurations or len(set(args.configurations)) != len(args.configurations):
         parser.error("Include baseline exactly once and use unique configurations")
     if args.output.exists() or args.output.with_suffix(".jsonl").exists():
@@ -241,11 +268,12 @@ def main():
     os.environ["MPLBACKEND"] = "Agg"
     os.environ["HF_XET_CHUNK_CACHE_SIZE_BYTES"] = "0"
     args.output.parent.mkdir(parents=True, exist_ok=True)
-    report = provenance("Original ApET paired MMStar pilot; one model load, native input and decoder code")
+    report = provenance("Original ApET paired MMStar evaluation; one model load, native input and decoder code")
     report["matplotlib_backend"] = "Agg"
     report["runner_sha256"] = hashlib.sha256(Path(__file__).read_bytes()).hexdigest()
     try:
         validate_runtime(report)
+        verify_native_reference(report)
         run(args, report)
     except KeyboardInterrupt:
         report["status"] = "interrupted"

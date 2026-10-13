@@ -88,6 +88,31 @@ class DataAndWorkflowTests(unittest.TestCase):
         self.assertNotIn("<image", sample["question"])
         self.assertEqual(sample["image_sha256"], hashlib.sha256(self.raw).hexdigest())
 
+    def test_full_selection_refuses_a_truncated_dataset(self):
+        self.args.all_samples = True
+        with self.assertRaisesRegex(ValueError, "1,500"):
+            self.prepare()
+
+    def test_full_selection_contains_every_id_not_a_random_subset(self):
+        import pyarrow as pa
+        import pyarrow.parquet as pq
+
+        self.args.all_samples = True
+        parquet = self.root / "full.parquet"
+        pq.write_table(pa.Table.from_pylist([
+            {"index": index, "image": self.raw, "question": "Which? Options: A: red, B: blue, C: green, D: black",
+             "answer": "A", "category": f"category-{index // 250}", "l2_category": "color"}
+            for index in range(1500)
+        ]), parquet)
+        with patch("huggingface_hub.hf_hub_download", return_value=str(parquet)), \
+                patch.object(pilot, "PARQUET_SHA256", hashlib.sha256(parquet.read_bytes()).hexdigest()):
+            report = {}
+            samples = pilot.prepare_samples(self.args, report)
+        self.assertEqual([row["index"] for row in samples], list(range(1500)))
+        self.assertEqual(report["dataset"]["selection"], "all_samples")
+        self.assertIsNone(report["dataset"]["per_category"])
+        self.assertEqual(set(report["dataset"]["category_counts"].values()), {250})
+
     def test_corrupt_image_fails_before_model_loading(self):
         from PIL import UnidentifiedImageError
 
@@ -98,7 +123,7 @@ class DataAndWorkflowTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "Invalid answer"):
             self.prepare(gold="E")
 
-    def execute_mock_model(self, fail_at=None):
+    def execute_mock_model(self, fail_at=None, missing_bytes=0):
         samples = self.prepare()
         calls = []
         objects = (object(), object(), object())
@@ -115,7 +140,7 @@ class DataAndWorkflowTests(unittest.TestCase):
                     "generation_seconds": 0.1, "generated_tokens": 1}
 
         with patch.object(pilot, "prepare_samples", return_value=samples), \
-                patch.object(pilot, "checkpoint_plan", return_value={"missing_bytes": 0}), \
+                patch.object(pilot, "checkpoint_plan", return_value={"missing_bytes": missing_bytes}), \
                 patch.object(pilot, "download", return_value="cached"), \
                 patch.object(pilot, "load_native_model", return_value=objects) as loader, \
                 patch.object(pilot, "generate_native_answer", side_effect=generate):
@@ -142,6 +167,23 @@ class DataAndWorkflowTests(unittest.TestCase):
         self.assertEqual(rows[0]["configuration"], "baseline")
         self.assertEqual(self.report["progress"]["completed_predictions"], 1)
         self.assertEqual(self.report["comparisons"]["combined"]["paired_samples"], 0)
+
+    def test_restarted_run_can_download_with_an_explicit_budget(self):
+        self.args.download_budget_gib = 20
+        _, rows = self.execute_mock_model(missing_bytes=1024)
+        self.assertEqual(len(rows), 4)
+        self.assertEqual(self.report["storage"]["download_budget_gib"], 20)
+
+    def test_missing_weights_cannot_download_without_a_budget(self):
+        samples = self.prepare()
+        with patch.object(pilot, "prepare_samples", return_value=samples), \
+                patch.object(pilot, "checkpoint_plan", return_value={"missing_bytes": 1024}), \
+                patch.object(pilot, "download") as download, \
+                patch.object(pilot, "load_native_model") as loader:
+            with self.assertRaisesRegex(ValueError, "download budget"):
+                pilot.run(self.args, self.report)
+            download.assert_not_called()
+            loader.assert_not_called()
 
 
 if __name__ == "__main__":

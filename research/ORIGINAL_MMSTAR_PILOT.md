@@ -1,5 +1,10 @@
 # Continue the passed original ApET notebook
 
+The October 13 pilot has now passed and its saved predictions have been rescored
+on CPU. See [the result note](notes/2026-10-13-original-mmstar-pilot.md).
+The current runner uses the versioned v2 scorer; strict scores are retained
+separately. For the next 1,500-image run, use [the full-run guide](ORIGINAL_MMSTAR_FULL.md).
+
 Commit and push the update to `apet-analysis` first. Keep **Internet enabled** and
 **GPU T4 ×2**. Append the following three cells to the existing smoke notebook.
 Do not restart a working session: its installed environment and `/tmp` weight

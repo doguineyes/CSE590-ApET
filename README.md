@@ -23,7 +23,8 @@ on Kaggle with two T4 GPUs. See the [experiment note](research/notes/2026-10-09-
 The original ApET LLaVA implementation also passed a baseline and combined
 input/decoder smoke on the same hardware. We will use this implementation for
 the planned research experiments. See the [passed smoke note](research/notes/2026-10-13-original-apet-smoke.md)
-and [next MMStar pilot](research/ORIGINAL_MMSTAR_PILOT.md).
+and [MMStar pilot results](research/notes/2026-10-13-original-mmstar-pilot.md).
+The [full MMStar run](research/ORIGINAL_MMSTAR_FULL.md) is ready for Kaggle.
 
 ## Code layout
 
@@ -63,6 +64,8 @@ input-stage experiments.
 ## Original ApET
 
 The upstream documentation is preserved in [ApET_README.md](ApET_README.md).
+See [implementation scope](research/IMPLEMENTATION_SCOPE.md) for original code,
+compatibility patches, and our experiment/scoring code.
 The extraction covers LLaVA input-stage compression. The separate original-code
 runtime supports studying both input and decoder compression; dataset baselines
 and research instrumentation are the next steps.

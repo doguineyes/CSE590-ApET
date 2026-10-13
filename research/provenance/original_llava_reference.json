@@ -1,0 +1,23 @@
+{
+  "upstream_repository": "https://github.com/Maqkccx/ApET",
+  "upstream_commit": "655f5c299eea44fa5768ef1d709d7c0eb91679da",
+  "reference_commit": "9bc740dc2a61ab55cbac857cd130f5af97e4d9de",
+  "native_source_sha256": {
+    "llava/model/llava_arch.py": "60aed3c033754625d3f5ee34b633c12b1d8f59ae2eda0f00471d3f1bc33fe3a3",
+    "llava/model/modeling_llama_x.py": "1c7c8c947045d65d193c3ec5ee4b849f285081f93b1edf15a1bd469ccccf79c8",
+    "llava/model/language_model/llava_llama_x.py": "12e89c11dbe0f3ce4b7f73568b3d82810e4e2902e389a2d0fb17c90dc58ce087",
+    "llava/model/utils.py": "a861abc58d7323893ef36347c7030c4659d846ff5d156e49789e4b2983a03edb",
+    "llava/model/builder.py": "3047f7562061e0e12924dd2c2425e50dbe8610801584dae3947c2dd1e64de089",
+    "llava/model/multimodal_encoder/clip_encoder.py": "1b45c404cabdd11b706c940582daf321e70387c5e4611779dfb0206b9c9d19d4",
+    "llava/mm_utils.py": "d6ab102f7e45f524775b28af46a675ee9a5da38905b6d0b88967dbb78efecc57",
+    "llava/conversation.py": "5afd26fa231082cb6fdc100c3887d663f72d8c99a93dcdd285dac303ca72e45c"
+  },
+  "local_native_patches": [
+    {
+      "path": "llava/model/llava_arch.py",
+      "commit": "2fe7d0f351140810ec9c69f92e3eef32cdb35f17",
+      "description": "Return the image selection mask on projected features\u2019 device in both branches. Two-GPU indexing compatibility; compression math unchanged."
+    }
+  ],
+  "note": "Reference is the native implementation used in the passed 24-image pilot. The monitored files are native model, compression, loader, vision, and prompt code."
+}

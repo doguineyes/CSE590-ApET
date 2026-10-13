@@ -62,6 +62,26 @@ def write_report(report, output):
     print(serialized, flush=True)
 
 
+def verify_native_reference(report):
+    """Keep formal evaluation on the native implementation from the passed pilot."""
+    path = REPO / "research/provenance/original_llava_reference.json"
+    reference = json.loads(path.read_text())
+    expected = reference["native_source_sha256"]
+    changed = [name for name, digest in expected.items() if report["source_sha256"].get(name) != digest]
+    report["implementation"] = {
+        **reference, "native_matches_reference": not changed, "changed_native_files": changed,
+        "reference_manifest_sha256": hashlib.sha256(path.read_bytes()).hexdigest(),
+        "project_owned": ["scripts/eval_original_mmstar.py", "scripts/mmstar_scoring.py",
+                          "scripts/rescore_original_mmstar.py", "scripts/smoke_original_apet.py",
+                          "scripts/check_original_env.py", "bootstrap/", "environments/original/", "research/"],
+        "note": "Native compression follows the passed pilot reference. Project code manages "
+                "execution, settings, scoring, recording, and environment; it is not upstream ApET.",
+    }
+    if changed:
+        raise RuntimeError(f"Native sources differ from the passed-pilot reference: {changed}. "
+                           "Register an intentional research variant before comparing it as a baseline.")
+
+
 def validate_runtime(report):
     if platform.system() != "Linux" or platform.machine() != "x86_64":
         raise RuntimeError("Original runtime targets Linux x86_64; execute on Kaggle/Cloud")
