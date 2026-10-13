@@ -195,6 +195,12 @@ def infer(model_path, vision_path, args, report):
         "class": type(model).__name__, "module": type(model).__module__,
         "context_length": context_length, "attention": "sdpa", "precision": "float16",
         "device_map": {name: str(device) for name, device in model.hf_device_map.items()},
+        "component_devices": {
+            "embedding": str(model.get_input_embeddings().weight.device),
+            "vision": str(model.get_vision_tower().device),
+            "projector": str(next(model.get_model().mm_projector.parameters()).device),
+            "lm_head": str(model.lm_head.weight.device),
+        },
         "load_seconds": round(time.perf_counter() - started, 3),
     }
     if args.image:
@@ -259,7 +265,8 @@ def infer(model_path, vision_path, args, report):
         del output
         print(f"{name}: {record['response']} | compression: {trace}", flush=True)
     report["note"] = "Execution checks only. Inspect the answer; no accuracy or speed claim. " \
-                     "At least four output tokens exercise cached decoding. Native algorithm files are unchanged."
+                     "At least four output tokens exercise cached decoding. " \
+                     "Native compression math is retained; the returned mask follows projected features across GPUs."
 
 
 def main():

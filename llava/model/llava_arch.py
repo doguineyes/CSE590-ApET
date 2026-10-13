@@ -200,7 +200,9 @@ class LlavaMetaForCausalLM(ABC):
         if visual_token_num == 576:
             index_mask = torch.ones(B, N, dtype=torch.bool, device=image_features.device)
             image_features = self.get_model().mm_projector(image_features)
-            return image_features, index_mask
+            # Accelerate can place the vision tower and projector on different
+            # GPUs. The caller indexes projected features with this mask.
+            return image_features, index_mask.to(device=image_features.device)
 
         k = self.model.basis_token_num
 
@@ -248,7 +250,7 @@ class LlavaMetaForCausalLM(ABC):
         image_features = self.token_merging(image_features, errors_indices, k)
         image_features = self.get_model().mm_projector(image_features)
 
-        return image_features, index_mask
+        return image_features, index_mask.to(device=image_features.device)
 
     def prepare_inputs_labels_for_multimodal(
             self, input_ids, position_ids, attention_mask, past_key_values, labels,

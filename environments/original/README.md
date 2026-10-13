@@ -41,6 +41,10 @@ lockfile into `environments/original/.venv/`, and checks native imports, a tiny
 random-weight original decoder with cached generation, and CUDA math on each GPU.
 No pretrained checkpoint is downloaded at this step.
 
+The starter notebook also runs a small cross-device mask regression check before
+loading weights. It tests both uncompressed and compressed native image encoding
+when projection moves features to another device.
+
 The notebook kernel's Python and packages are unaffected. Always launch subsequent
 original tests with **`environments/original/.venv/bin/python`**. No kernel restart
 or shell activation is needed. Repeating setup reuses the locked environment.
@@ -95,8 +99,9 @@ Both configurations use the same original decoder class, checkpoint, image,
 prompt, seed, and GPU placement. The smoke uses SDPA without FlashAttention2,
 allows no CPU/disk model offload, and requires at least four output tokens to
 exercise cached decoding. It records actual input/decoder token reductions by
-observing the original methods. Compression math and original algorithm files
-are unchanged. The only checkpoint configuration override points the vision
+observing the original methods. Compression math is retained, with a device
+compatibility fix that returns the image-token mask on the projected features'
+device. The only checkpoint configuration override points the vision
 tower at the separately pinned local CLIP snapshot.
 
 Inspect the answers: red is expected for this synthetic image. `passed` means
@@ -139,3 +144,17 @@ to a subprocess whose environment does not include the notebook plotting backend
 For this code-only fix, pull the update and rerun the inference cell; no package
 reinstall or kernel restart is needed. Checkpoints already downloaded in the same
 session are reused.
+
+For two-GPU inference, vision features can move between the encoder and projector.
+`llava/model/llava_arch.py` therefore moves the returned selection mask to the
+projected features' device before the caller uses it for indexing. This applies
+to both the 576-token baseline and input compression. After pulling this fix in an
+existing Kaggle session, run the focused check and then rerun the inference cell:
+
+```python
+subprocess.run(
+    [str(original_python), "-I", "research/tests/test_original_devices.py"],
+    cwd=repo,
+    check=True,
+)
+```
