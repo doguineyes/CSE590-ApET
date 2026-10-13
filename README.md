@@ -25,6 +25,8 @@ input/decoder smoke on the same hardware. We will use this implementation for
 the planned research experiments. See the [passed smoke note](research/notes/2026-10-13-original-apet-smoke.md)
 and [MMStar pilot results](research/notes/2026-10-13-original-mmstar-pilot.md).
 The [full MMStar run](research/ORIGINAL_MMSTAR_FULL.md) is ready for Kaggle.
+The [same-image GQA diagnostic pilot](research/GQA_DIAGNOSTIC_PILOT.md) is prepared
+for a small subset, with native reconstruction/selection/merge logging.
 
 ## Code layout
 

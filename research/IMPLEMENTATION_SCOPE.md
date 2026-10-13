@@ -39,6 +39,8 @@ do not silently replace the baseline reference.
 | `scripts/eval_original_mmstar.py` | Data validation, paired evaluation with one model load, raw records and summaries |
 | `scripts/mmstar_scoring.py` | Versioned choice parsing, correctness and format compliance |
 | `scripts/rescore_original_mmstar.py` | CPU rescoring that preserves source evidence |
+| `scripts/prepare_gqa_pilot.py`, `scripts/eval_original_gqa.py`, `scripts/gqa_scoring.py` | Pinned same-image subset, short-answer scoring, and grouped diagnostic evaluation |
+| `scripts/original_diagnostics.py` | Read-only tracing of native reconstruction, FPS, selection and merge values |
 | `scripts/check_original_env.py`, `bootstrap/`, `environments/original/` | Locked runtime and provenance checks |
 | `research/` | Protocols, notebooks, notes, tests and artifacts |
 
@@ -46,6 +48,12 @@ The loader points the vision configuration to the separately pinned local CLIP
 snapshot. Standalone scripts force Matplotlib `Agg`. These are operational choices.
 Observation hooks call native methods without replacing their compression math.
 Scoring is our policy, not upstream ApET or the official MMStar evaluation procedure.
+
+GQA adds observational instrumentation in project code, not native source edits.
+The observer reads native locals at function return and copies small arrays to CPU.
+It does not recalculate FPS or modify native tensor values. Tests compare actual
+native function outputs with logging off/on; the pilot also checks answer-level
+logging parity. This instrumentation affects timing and is not an algorithm variant.
 
 For the full baseline, budgets, checkpoints, native prompts, seed rule,
 preprocessing, FP16, greedy generation, 16-token output maximum, and cached decoding
