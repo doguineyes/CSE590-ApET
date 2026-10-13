@@ -28,6 +28,8 @@ The [same-image GQA pilot](research/notes/2026-10-13-original-gqa-pilot.md) also
 with native reconstruction/selection/merge logging. Main GQA experiments use
 [fixed development and evaluation subsets](research/GQA_SUBSETS.md), with 800
 questions each and separate image groups.
+The [800-question development baseline](research/notes/2026-10-13-original-gqa-development.md)
+is complete; reserved evaluation remains for later confirmation.
 
 ## Code layout
 
@@ -71,4 +73,4 @@ See [implementation scope](research/IMPLEMENTATION_SCOPE.md) for original code,
 compatibility patches, and our experiment/scoring code.
 The extraction covers LLaVA input-stage compression. The separate original-code
 runtime supports studying both input and decoder compression. Next steps are
-subset baselines and controlled answer-contribution/merging experiments.
+repeatability checks and controlled answer-contribution/merging experiments.
