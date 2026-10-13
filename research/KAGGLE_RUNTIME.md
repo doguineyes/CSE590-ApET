@@ -1,5 +1,9 @@
 # Candidate runtime v1: fresh Kaggle smoke test
 
+For the original ApET LLaVA code, including decoder compression, start with the
+[separate original runtime guide](../environments/original/README.md).
+This page describes the earlier HF runtime and extracted input-stage experiments.
+
 The first validated session and its results are recorded in
 [the October 9, 2026 research note](notes/2026-10-09-kaggle-apet.md).
 

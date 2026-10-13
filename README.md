@@ -43,18 +43,21 @@ manage the Linux experiment runtime and Intel Mac editor environment.
 bash bootstrap/setup_editor_macos.sh
 ```
 
-**Kaggle T4 ×2 runtime setup:**
+**Original ApET on Kaggle T4 ×2:**
 
 ```bash
-bash bootstrap/setup_linux.sh --require-cuda --expected-gpus 2
+bash bootstrap/setup_original_linux.sh --require-cuda --expected-gpus 2
 ```
 
 Run these commands from the repository root. Follow the
 [Mac editor guide](environments/editor/README.md) for VSCode configuration and the
-[Kaggle guide](research/KAGGLE_RUNTIME.md) for notebook setup and experiment commands.
+[original ApET guide](environments/original/README.md) for the first Kaggle test.
+The [earlier HF runtime guide](research/KAGGLE_RUNTIME.md) documents the extracted
+input-stage experiments.
 
 ## Original ApET
 
 The upstream documentation is preserved in [ApET_README.md](ApET_README.md).
-The current extraction covers LLaVA input-stage compression; decoder-layer pruning
-and the other model integrations remain future work.
+The extraction covers LLaVA input-stage compression. The new original-code runtime
+is a candidate for studying both input and decoder compression; Kaggle validation
+is the next step.
