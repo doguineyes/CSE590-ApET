@@ -30,6 +30,9 @@ with native reconstruction/selection/merge logging. Main GQA experiments use
 questions each and separate image groups.
 The [800-question development baseline](research/notes/2026-10-13-original-gqa-development.md)
 is complete; reserved evaluation remains for later confirmation.
+The [repeatability notebook](research/notebooks/kaggle_original_gqa_repeatability.ipynb)
+checks the airplane answer drift with a stable control; see its
+[instructions](research/GQA_REPEATABILITY.md).
 
 ## Code layout
 
