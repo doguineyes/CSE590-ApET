@@ -44,6 +44,7 @@ do not silently replace the baseline reference.
 | `scripts/prepare_gqa_full.py`, `scripts/eval_original_gqa_full.py` | Full balanced Test-Dev data, native evaluation, paired/type summaries and guarded resume; no compression reimplementation |
 | `scripts/prepare_gqa_subsets.py`, `scripts/eval_original_gqa_subset.py` | Frozen image-disjoint development/evaluation sets, nested diagnostics, resume and saved baseline comparisons |
 | `scripts/repeat_original_gqa.py` | Two inspected GQA cases, repeated generation, logging off/on and configuration-return controls; unchanged native compression |
+| `scripts/prepare_rq1_candidates.py`, `scripts/rq1_candidates.py`, `research/templates/rq1_gallery.html` | CPU-only provisional GQA/MMStar/TextVQA selection, original image copies, provenance and review exports; no inference or compression changes |
 | `scripts/check_original_env.py`, `bootstrap/`, `environments/original/` | Locked runtime and provenance checks |
 | `research/` | Protocols, notebooks, notes, tests and artifacts |
 
@@ -67,3 +68,9 @@ and native model sources are unchanged by this update.
 Results in `research/results/` are ignored by Git; pushing code does not upload
 the ZIPs. Keep them separately. Rescoring always writes new files with previous
 scores, raw answers, source hashes and scorer version retained.
+
+The [RQ1 candidate preparation](RQ1_CANDIDATES.md) uses saved native baselines
+for GQA/MMStar and a pinned TextVQA screening pool. Its manifests are provisional
+project-owned selections. TextVQA predictions remain unmeasured; human review
+overlays leave original labels and scores intact. Candidate preparation does not
+implement an RQ1 intervention runner or resume numerical debugging.

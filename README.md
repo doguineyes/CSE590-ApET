@@ -33,6 +33,8 @@ is complete; reserved evaluation remains for later confirmation.
 The [repeatability notebook](research/notebooks/kaggle_original_gqa_repeatability.ipynb)
 checks the airplane answer drift with a stable control; see its
 [instructions](research/GQA_REPEATABILITY.md).
+The [RQ1 candidate preparation](research/RQ1_CANDIDATES.md) provides image/question
+review galleries for GQA, MMStar and TextVQA before freezing the research subsets.
 
 ## Code layout
 
@@ -76,4 +78,4 @@ See [implementation scope](research/IMPLEMENTATION_SCOPE.md) for original code,
 compatibility patches, and our experiment/scoring code.
 The extraction covers LLaVA input-stage compression. The separate original-code
 runtime supports studying both input and decoder compression. Next steps are
-repeatability checks and controlled answer-contribution/merging experiments.
+candidate review and controlled answer-contribution/merging experiments.

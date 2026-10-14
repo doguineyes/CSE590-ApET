@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>__TITLE__</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f5f6f8;color:#17202a;font:16px/1.5 system-ui,sans-serif}
+header{padding:24px;max-width:1320px;margin:auto}h1{margin:0 0 8px;font-size:28px}header p{margin:8px 0}
+button{padding:10px 16px;background:#183e67;color:white;border:0;border-radius:6px;cursor:pointer;font:inherit}
+a{color:#174d86}main{max-width:1320px;margin:auto;padding:0 24px 30px}
+article{display:grid;grid-template-columns:minmax(260px,40%) 1fr;gap:24px;background:white;border:1px solid #dfe3e8;border-radius:10px;margin:20px 0;padding:20px}
+.picture{align-self:start;position:sticky;top:12px}.picture img{width:100%;max-height:580px;object-fit:contain;background:#eef0f2}
+.picture p,.small,.tags{font-size:13px;color:#536171}.question{border-bottom:1px solid #dfe3e8;padding:0 0 20px;margin:0 0 20px}
+.question:last-child{border-bottom:0;margin-bottom:0}.q{font-weight:600;white-space:pre-wrap}.tags{font-weight:600}
+.loss{color:#9e2929}.gain{color:#166534}.preserved_correct{color:#174d86}.unmeasured{color:#665500}
+.caution{background:#fff4cf;padding:10px;border-radius:5px;font-size:14px}
+table{width:100%;border-collapse:collapse;font-size:14px}th,td{padding:6px;text-align:left;border:1px solid #e1e5ea;overflow-wrap:anywhere}
+th{font-weight:500;background:#f5f7fa}.review{margin-top:12px}select,textarea{font:inherit;border:1px solid #aab4c0;border-radius:4px;padding:6px}
+textarea{display:block;width:100%;margin-top:8px}summary{cursor:pointer;color:#174d86;padding:12px 0}
+@media(max-width:800px){article{grid-template-columns:1fr}.picture{position:static}.picture img{max-height:420px}header,main{padding-left:12px;padding-right:12px}}
+</style>
+</head>
+<body>
+<header>
+<h1>__TITLE__</h1><p>__SUMMARY__</p><p>__NOTE__</p>
+<p>Loss/gain tags use the saved evaluator. Visual interpretation and question quality still need review.
+The collection is provisional; review decisions do not change original predictions or labels.</p>
+<p><a href="__MANIFEST_FILE__">Candidate manifest</a> · <button id="export">Download review decisions</button></p>
+<p id="status" class="small">Review each candidate, add a reason when useful, and download your decisions before closing.</p>
+</header>
+<main>__BODY__</main>
+<script>
+const identity=__REVIEW_IDENTITY__;
+const storageKey='rq1-review:'+identity.manifest_sha256;
+const fields=[...document.querySelectorAll('[data-reviewcase]')];
+function decisions(){return Object.fromEntries(fields.map(field=>[field.dataset.reviewcase,{status:field.querySelector('select').value,notes:field.querySelector('textarea').value}]))}
+let saved={};try{saved=JSON.parse(localStorage.getItem(storageKey)||'{}')}catch(error){}
+for(const field of fields){const prior=saved[field.dataset.reviewcase];if(prior){field.querySelector('select').value=prior.status;field.querySelector('textarea').value=prior.notes||''}}
+function save(){try{localStorage.setItem(storageKey,JSON.stringify(decisions()))}catch(error){}const done=fields.filter(f=>f.querySelector('select').value!=='pending').length;document.querySelector('#status').textContent=done+' / '+fields.length+' reviewed. Download decisions to retain a portable copy.'}
+for(const field of fields){field.addEventListener('input',save);field.addEventListener('change',save)}save();
+document.querySelector('#export').addEventListener('click',()=>{
+ const result={...identity,exported_utc:new Date().toISOString(),decisions:decisions()};
+ const url=URL.createObjectURL(new Blob([JSON.stringify(result,null,2)+'\n'],{type:'application/json'}));
+ const link=document.createElement('a');link.href=url;link.download='rq1-'+identity.dataset+'-review.json';link.click();
+ setTimeout(()=>URL.revokeObjectURL(url),1000);
+});
+</script>
+</body>
+</html>
