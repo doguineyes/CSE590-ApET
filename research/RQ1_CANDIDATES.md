@@ -55,16 +55,24 @@ on seeded SHA256 ranks and is independent of input row ordering.
 
 ## TextVQA preparation and later screening
 
+**Decision on 2026-10-15:** retain all 100 prepared TextVQA questions, including
+the nested 30 gallery candidates, with no exclusions before model measurements.
+The 30-question view is a convenience, not the study's membership limit. No
+additional human selection round is required. Baseline-correct/wrong analysis
+strata must preserve the full pool and its records. Dataset curation is complete
+for now; see the [daily summary and next RQ1 steps](notes/2026-10-15-rq1-dataset-preparation-summary.md).
+
 We have no TextVQA model results yet. Every prediction is `null`, every outcome
-is `unmeasured`, and baseline screening is pending. Review whether the question
-requires visible text, whether the answer is legible at model resolution and
-whether the references are clear. Do not infer model competence from the gallery.
+is `unmeasured`, and baseline screening is pending. Image/text legibility and
+reference quality can be logged during measurement; no manual pruning is requested.
+Do not infer model competence from the gallery.
 
 The fixed pool contains 100 distinct images and one question per image, including
 the 30 provisional candidates. The next inference pilot will screen these inputs;
 baseline-correct cases will define the preservation denominator. Retain baseline-
-wrong cases for context and gain analysis. Any subsequent selection from that pool
-must record its rule and counts before interventions.
+wrong cases for context and gain analysis, preserving all 100 questions and their
+results. Any bounded pilot sample must record its IDs/rule separately; it does
+not remove questions from the retained pool.
 
 All ten reference answers are retained. The provisional teacher-forcing target is
 the most frequent **raw** reference answer, with a lexicographic tie-break, fixed

@@ -35,6 +35,9 @@ checks the airplane answer drift with a stable control; see its
 [instructions](research/GQA_REPEATABILITY.md).
 The [RQ1 candidate preparation](research/RQ1_CANDIDATES.md) provides image/question
 review galleries for GQA, MMStar and TextVQA before freezing the research subsets.
+Dataset curation is complete for now: GQA has 49 questions, MMStar has 18 primary
+plus 10 qualitative cases, and all 100 prepared TextVQA questions are retained.
+See the [current dataset summary and next RQ1 steps](research/notes/2026-10-15-rq1-dataset-preparation-summary.md).
 
 ## Code layout
 
@@ -78,4 +81,4 @@ See [implementation scope](research/IMPLEMENTATION_SCOPE.md) for original code,
 compatibility patches, and our experiment/scoring code.
 The extraction covers LLaVA input-stage compression. The separate original-code
 runtime supports studying both input and decoder compression. Next steps are
-candidate review and controlled answer-contribution/merging experiments.
+TextVQA baseline measurements and a small RQ1 answer-contribution pilot.
