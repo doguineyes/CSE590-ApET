@@ -39,8 +39,9 @@ Dataset curation is complete for now: GQA has 49 questions, MMStar has 18 primar
 plus 10 qualitative cases, and all 100 prepared TextVQA questions are retained.
 See the [current dataset summary and next RQ1 steps](research/notes/2026-10-15-rq1-dataset-preparation-summary.md).
 The [RQ1 input pilot](research/RQ1_INPUT_PILOT.md) passed its small GQA measurement
-calibration after correcting reference-answer casing. Next is the 12-question
-GQA input-stage pilot, with TextVQA baseline generation available afterward.
+calibration after correcting reference-answer casing. The 12-question GQA
+input-stage pilot is also complete; see the [pilot review](research/notes/2026-10-16-rq1-gqa-input-pilot-v2-review.md).
+Next are the MMStar measurement check and TextVQA baseline.
 
 ## Code layout
 

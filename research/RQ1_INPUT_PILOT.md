@@ -9,10 +9,38 @@ All accepted datasets, native ApET files and dependency locks are preserved.
 measurement. Protocol `rq1-input-zero-v2` now renders GQA labels with an initial
 capital (`no` → `No`, `stove` → `Stove`) using a fixed rule before generation.
 Raw annotations stay unchanged. Native ApET, dependencies and the v1 input ZIP
-remain unchanged. The corrected small calibration has now passed; proceed to
-the 12-question expansion described below.
+remain unchanged. The corrected calibration and full 12-question GQA pilot have
+now passed. Continue with the MMStar measurement check and TextVQA baseline below.
 
-## Current next step: GQA input pilot v2
+## Current next step: MMStar check and TextVQA baseline
+
+The [GQA pilot review](notes/2026-10-16-rq1-gqa-input-pilot-v2-review.md) verifies
+all 6,912 interventions, six paired images and stable controls. Do not rerun or
+expand GQA yet. In the existing notebook, run the small MMStar check first:
+
+```python
+mmstar_dir = run_experiment(
+    "rq1-mmstar-calibration-v2", "mmstar/manifest.json",
+    ["--questions", "3", "--tokens", "32"],
+)
+```
+
+Download its ZIP/log for measurement review. The next separate run establishes
+TextVQA baseline/input-only predictions for all 100 retained questions:
+
+```python
+textvqa_dir = run_experiment(
+    "rq1-textvqa-baseline", "textvqa/manifest.json",
+    ["--mode", "textvqa", "--configurations", "baseline", "input-only"],
+)
+```
+
+Both reuse the same uploaded inputs, v2 inference code, environment and checkpoint
+cache. TextVQA generation uses all ten annotator answers in native consensus
+scoring and performs no token interventions. The new CPU role-aware GQA review
+script does not change inference or require updating the live notebook's code.
+
+## GQA input pilot v2 (completed; retained for reproduction)
 
 The [v2 calibration review](notes/2026-10-16-rq1-calibration-v2-review.md) confirms
 target alignment and numeric controls. In the same live notebook, run this new
