@@ -9,9 +9,29 @@ All accepted datasets, native ApET files and dependency locks are preserved.
 measurement. Protocol `rq1-input-zero-v2` now renders GQA labels with an initial
 capital (`no` → `No`, `stove` → `Stove`) using a fixed rule before generation.
 Raw annotations stay unchanged. Native ApET, dependencies and the v1 input ZIP
-remain unchanged. Rerun the small calibration before the 12-question expansion.
+remain unchanged. The corrected small calibration has now passed; proceed to
+the 12-question expansion described below.
 
-## Current next step: corrected calibration v2
+## Current next step: GQA input pilot v2
+
+The [v2 calibration review](notes/2026-10-16-rq1-calibration-v2-review.md) confirms
+target alignment and numeric controls. In the same live notebook, run this new
+cell directly using the existing helper:
+
+```python
+gqa_pilot_dir = run_experiment(
+    "rq1-gqa-input-pilot-v2", "gqa/manifest.json",
+    ["--questions", "12", "--tokens", "576"],
+)
+```
+
+This measures 12 questions on six images, all 576 patches, with checks per question.
+Plan for about one hour based on calibration, with actual runtime depending on
+the prompts and hardware. Download its ZIP and log before ending the session.
+No new input upload, environment setup or inference-code update is needed in the
+current live notebook. Keep other optional runs for after reviewing this pilot.
+
+## Corrected calibration v2 (completed; retained for reproduction)
 
 Push the updated scripts. In the same live Kaggle notebook, add and run this cell
 after `run_experiment` has been defined (it was defined by the calibration cell):
