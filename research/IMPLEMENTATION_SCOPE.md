@@ -45,6 +45,7 @@ do not silently replace the baseline reference.
 | `scripts/prepare_gqa_subsets.py`, `scripts/eval_original_gqa_subset.py` | Frozen image-disjoint development/evaluation sets, nested diagnostics, resume and saved baseline comparisons |
 | `scripts/repeat_original_gqa.py` | Two inspected GQA cases, repeated generation, logging off/on and configuration-return controls; unchanged native compression |
 | `scripts/prepare_rq1_candidates.py`, `scripts/rq1_candidates.py`, `research/templates/rq1_gallery.html` | CPU-only provisional GQA/MMStar/TextVQA selection, original image copies, provenance and review exports; no inference or compression changes |
+| `scripts/prepare_gqa_rq1_round2.py`, `research/curation/gqa_rq1_round2_assistant_review.json` | Verified human-review import, explicit question-quality screening, recorded assistant visual judgments and a separate reviewed GQA proposal |
 | `scripts/check_original_env.py`, `bootstrap/`, `environments/original/` | Locked runtime and provenance checks |
 | `research/` | Protocols, notebooks, notes, tests and artifacts |
 

@@ -5,6 +5,10 @@ It copies original image bytes and saved predictions into reviewable collections
 It does not run inference, change native ApET, freeze an evaluation set or perform
 answer-contribution interventions. Numerical debugging remains deferred.
 
+The GQA first review now has a [second round and assistant-reviewed recommendation](GQA_RQ1_ROUND2.md).
+The original candidates and human review remain intact; another human review of
+that round is not required.
+
 ## Open and review
 
 The prepared collection is under `research/results/rq1-candidates-v1-s590/`.

@@ -1,0 +1,510 @@
+{
+  "schema": "rq1-assistant-review-v1",
+  "dataset": "gqa",
+  "reviewer": "Codex assistant",
+  "reviewed_local_date": "2026-10-15",
+  "human_validated": false,
+  "outcome_blinded": false,
+  "method": "Direct visual inspection of all 13 archived original-resolution images, question wording, references and saved responses; no new model inference",
+  "predictions_sha256": "651287bf17d1fbebed4b170a6372d6eb51b6aacfcae65d02fb1bbc8fedcb78d4",
+  "first_manifest_sha256": "9b3d85152edc4b4cc1abb8bceaa1e4d9ff40a1dc30f4dafe57293ed92507e108",
+  "initial_candidate_question_ids": [
+    "20911237",
+    "20911182",
+    "20911211",
+    "202218922",
+    "202218897",
+    "202218557",
+    "20542898",
+    "20542858",
+    "20543094",
+    "20118949",
+    "20119174",
+    "20118967",
+    "20434860",
+    "20434770",
+    "20435192",
+    "201713640",
+    "201713599",
+    "201713271",
+    "202036755",
+    "202036818",
+    "202036902",
+    "201479357",
+    "201479496",
+    "201479334",
+    "201428959",
+    "201428953",
+    "201428716",
+    "201882905",
+    "201883113",
+    "201882614",
+    "202257136",
+    "202257249",
+    "202257439",
+    "20596219",
+    "20596541",
+    "20596493",
+    "20644736",
+    "20644699",
+    "20644755"
+  ],
+  "image_sha256": {
+    "n217003": "3fef7569d71299e008fcee112dd711027bf9ec6e2b81f04d5f8a2410978dc4ed",
+    "n578564": "76752768b55561d7da5926daa434a870f5e00adfa6d201b6ea175475143e6fe3",
+    "n100552": "d14ac5db6dbeb4cec3bb9d6bd5fa6c4325979dcdeafe1529658b7d8fe5b66c1d",
+    "n540852": "0c840f1e09b0d57b81f55b3a274b800da09ed7c30e1f6841bcf8e5b4148449c2",
+    "n431447": "ec53ec385a083cb69c68c76575bc249798221c2a5d8a9e087f522137e13ea410",
+    "n455563": "85bc97a43b6019f61d597da205c35bfd3c8393c146eaa30ac64075e7e4266b14",
+    "n200225": "ca19f89644597f15fda605a7b5f0c8c08fd5bb995e463b1955f6bfa4c0beef84",
+    "n181210": "ab0cb29532a8234719dc23435552de531256e18d60d7c9651dc12d658356f29d",
+    "n64959": "4cc09ab55daaf57c12f309d9861acd5af65fe6054a664e650afd1313dac1dfed",
+    "n125122": "d734bac2630aef0af7036ee7b878b17734cb2886e170e0460d142d1994de620c",
+    "n92308": "61aaabccffe4b4ce4689b4086e58cf11976eb1e3a465bd34210088ec683d3cc1",
+    "n514467": "8571e8bd3b1efbf6d4cd9ef1f643761a51373f9ecad332b418c6d02a4505933a",
+    "n250821": "41e7588df75b06a6e02e4dd34491629ada4fbb451fb3097313bfda136edbce2d"
+  },
+  "decisions": {
+    "gqa:20911237": {
+      "status": "exclude",
+      "confidence": "high",
+      "notes": "The same skateboarder appears in two panels. Man/boy and skater name the same actor at different specificity; the scored errors do not establish failed perception.",
+      "image_id": "n217003",
+      "image_sha256": "3fef7569d71299e008fcee112dd711027bf9ec6e2b81f04d5f8a2410978dc4ed",
+      "origin": "initial_candidate",
+      "evidence_type": "direct_visual_review"
+    },
+    "gqa:20911182": {
+      "status": "exclude",
+      "confidence": "high",
+      "notes": "Buildings and street furniture support an urban scene, but city is a broad scene label with a strong prior; unsuitable as a precise visual contribution target.",
+      "image_id": "n217003",
+      "image_sha256": "3fef7569d71299e008fcee112dd711027bf9ec6e2b81f04d5f8a2410978dc4ed",
+      "origin": "initial_candidate",
+      "evidence_type": "direct_visual_review"
+    },
+    "gqa:20911211": {
+      "status": "ambiguous",
+      "confidence": "high",
+      "notes": "The actor rides a skateboard on a ledge; riding and skating are overlapping descriptions. Reject the reference-versus-answer contrast as semantically nonexclusive.",
+      "image_id": "n217003",
+      "image_sha256": "3fef7569d71299e008fcee112dd711027bf9ec6e2b81f04d5f8a2410978dc4ed",
+      "origin": "initial_candidate",
+      "evidence_type": "direct_visual_review"
+    },
+    "gqa:202218922": {
+      "status": "ambiguous",
+      "confidence": "high",
+      "notes": "A leafy plant in a decorated pot sits below the hanging pans. Plant and flower pot both describe plausible vertical referents; counter is also farther below.",
+      "image_id": "n578564",
+      "image_sha256": "76752768b55561d7da5926daa434a870f5e00adfa6d201b6ea175475143e6fe3",
+      "origin": "initial_candidate",
+      "evidence_type": "direct_visual_review"
+    },
+    "gqa:202218897": {
+      "status": "annotation_issue",
+      "confidence": "high",
+      "notes": "The container in front of the paper towel roll is visibly a transparent French press. The question calls it glass but labels paper as correct; retain original score only as evidence.",
+      "image_id": "n578564",
+      "image_sha256": "76752768b55561d7da5926daa434a870f5e00adfa6d201b6ea175475143e6fe3",
+      "origin": "initial_candidate",
+      "evidence_type": "direct_visual_review"
+    },
+    "gqa:202218557": {
+      "status": "ambiguous",
+      "confidence": "high",
+      "notes": "The canisters left of the toaster include light and dark bodies with metallic rims. Metallic-and-white is not clearly true of the plural referent.",
+      "image_id": "n578564",
+      "image_sha256": "76752768b55561d7da5926daa434a870f5e00adfa6d201b6ea175475143e6fe3",
+      "origin": "initial_candidate",
+      "evidence_type": "direct_visual_review"
+    },
+    "gqa:20542898": {
+      "status": "exclude",
+      "confidence": "high",
+      "notes": "The elephant is visible, but strength is a generic animal property rather than image-specific evidence. Exclude even though all saved answers are correct.",
+      "image_id": "n100552",
+      "image_sha256": "d14ac5db6dbeb4cec3bb9d6bd5fa6c4325979dcdeafe1529658b7d8fe5b66c1d",
+      "origin": "initial_candidate",
+      "evidence_type": "direct_visual_review"
+    },
+    "gqa:20542858": {
+      "status": "uncertain",
+      "confidence": "medium",
+      "notes": "An elephant behind a barrier is visible, but zoo versus a wildlife enclosure or sanctuary is not uniquely verifiable from this frame.",
+      "image_id": "n100552",
+      "image_sha256": "d14ac5db6dbeb4cec3bb9d6bd5fa6c4325979dcdeafe1529658b7d8fe5b66c1d",
+      "origin": "initial_candidate",
+      "evidence_type": "direct_visual_review"
+    },
+    "gqa:20543094": {
+      "status": "keep",
+      "confidence": "high",
+      "notes": "The horizontal rail runs behind the visible elephant; no cow is present. The animal and barrier relation are directly visible.",
+      "image_id": "n100552",
+      "image_sha256": "d14ac5db6dbeb4cec3bb9d6bd5fa6c4325979dcdeafe1529658b7d8fe5b66c1d",
+      "origin": "initial_candidate",
+      "evidence_type": "direct_visual_review"
+    },
+    "gqa:20118949": {
+      "status": "ambiguous",
+      "confidence": "high",
+      "notes": "The photograph is monochrome and contains several ties and shoes. The unqualified pair is not unique, and grayscale similarity cannot establish matching physical colors.",
+      "image_id": "n540852",
+      "image_sha256": "0c840f1e09b0d57b81f55b3a274b800da09ed7c30e1f6841bcf8e5b4148449c2",
+      "origin": "initial_candidate",
+      "evidence_type": "direct_visual_review"
+    },
+    "gqa:20119174": {
+      "status": "uncertain",
+      "confidence": "medium",
+      "notes": "The clear umbrella appears to be flexible transparent film, but its exact material is inferred rather than verified. Exclude as a primary material-contribution case.",
+      "image_id": "n540852",
+      "image_sha256": "0c840f1e09b0d57b81f55b3a274b800da09ed7c30e1f6841bcf8e5b4148449c2",
+      "origin": "initial_candidate",
+      "evidence_type": "direct_visual_review"
+    },
+    "gqa:20118967": {
+      "status": "keep",
+      "confidence": "medium",
+      "notes": "The women in the foreground have stepping leg positions in a group moving toward the camera. Walking is visually supported, with ordinary static-image action uncertainty.",
+      "image_id": "n540852",
+      "image_sha256": "0c840f1e09b0d57b81f55b3a274b800da09ed7c30e1f6841bcf8e5b4148449c2",
+      "origin": "initial_candidate",
+      "evidence_type": "direct_visual_review"
+    },
+    "gqa:20434860": {
+      "status": "exclude",
+      "confidence": "high",
+      "notes": "Both a child at left and an adult at the rear are seated at the same table. People is a reasonable answer to who is sitting, so Boy to People is not a clean loss.",
+      "image_id": "n431447",
+      "image_sha256": "ec53ec385a083cb69c68c76575bc249798221c2a5d8a9e087f522137e13ea410",
+      "origin": "initial_candidate",
+      "evidence_type": "direct_visual_review"
+    },
+    "gqa:20434770": {
+      "status": "keep",
+      "confidence": "high",
+      "notes": "The visible chair backs are yellow/tan, not white. That visible color alone falsifies the white-and-wooden conjunction without inferring material.",
+      "image_id": "n431447",
+      "image_sha256": "ec53ec385a083cb69c68c76575bc249798221c2a5d8a9e087f522137e13ea410",
+      "origin": "initial_candidate",
+      "evidence_type": "direct_visual_review"
+    },
+    "gqa:20435192": {
+      "status": "ambiguous",
+      "confidence": "medium",
+      "notes": "The table boundary is cropped and the chair backs also contain rectangular regions. The contrast between whole-object furniture shapes is not a uniquely grounded label.",
+      "image_id": "n431447",
+      "image_sha256": "ec53ec385a083cb69c68c76575bc249798221c2a5d8a9e087f522137e13ea410",
+      "origin": "initial_candidate",
+      "evidence_type": "direct_visual_review"
+    },
+    "gqa:201713640": {
+      "status": "keep",
+      "confidence": "high",
+      "notes": "The wall-mounted mirrored medicine cabinet occupies the upper-right of the frame; it is distinct from the round tabletop mirror. Right to Left changes a visible location. Mirror reflections are a retained caution.",
+      "image_id": "n455563",
+      "image_sha256": "85bc97a43b6019f61d597da205c35bfd3c8393c146eaa30ac64075e7e4266b14",
+      "origin": "initial_candidate",
+      "evidence_type": "direct_visual_review"
+    },
+    "gqa:201713599": {
+      "status": "keep",
+      "confidence": "high",
+      "notes": "Within the visible bathroom frame, towels and mirrors are present, while no curtain or trash can is visible. This is a broad visible-absence control, not localized positive evidence.",
+      "image_id": "n455563",
+      "image_sha256": "85bc97a43b6019f61d597da205c35bfd3c8393c146eaa30ac64075e7e4266b14",
+      "origin": "initial_candidate",
+      "evidence_type": "broad_absence_control"
+    },
+    "gqa:201713271": {
+      "status": "keep",
+      "confidence": "high",
+      "notes": "A bathroom sink, interior walls, mirror and fittings clearly establish indoors. Retain as a coarse scene control, not a fine-detail task.",
+      "image_id": "n455563",
+      "image_sha256": "85bc97a43b6019f61d597da205c35bfd3c8393c146eaa30ac64075e7e4266b14",
+      "origin": "initial_candidate",
+      "evidence_type": "coarse_scene_control"
+    },
+    "gqa:202036755": {
+      "status": "ambiguous",
+      "confidence": "high",
+      "notes": "The pizza box has a white inner side and darker outer/back regions. White versus Brown may select different surfaces of the same container; exclude the apparent loss.",
+      "image_id": "n200225",
+      "image_sha256": "ca19f89644597f15fda605a7b5f0c8c08fd5bb995e463b1955f6bfa4c0beef84",
+      "origin": "initial_candidate",
+      "evidence_type": "direct_visual_review"
+    },
+    "gqa:202036818": {
+      "status": "keep",
+      "confidence": "high",
+      "notes": "Visible pepper pieces are green, while red circular toppings are pepperoni. Green color is sufficient to reject the red-and-cooked conjunction; no cooking-state judgment is needed.",
+      "image_id": "n200225",
+      "image_sha256": "ca19f89644597f15fda605a7b5f0c8c08fd5bb995e463b1955f6bfa4c0beef84",
+      "origin": "initial_candidate",
+      "evidence_type": "direct_visual_review"
+    },
+    "gqa:202036902": {
+      "status": "ambiguous",
+      "confidence": "high",
+      "notes": "Numerous meat slices and yellow cheese patches occur across the pizza. The sausage and yellow-food referents are not unique, and some slices lie to the right of cheese.",
+      "image_id": "n200225",
+      "image_sha256": "ca19f89644597f15fda605a7b5f0c8c08fd5bb995e463b1955f6bfa4c0beef84",
+      "origin": "initial_candidate",
+      "evidence_type": "direct_visual_review"
+    },
+    "gqa:201479357": {
+      "status": "ambiguous",
+      "confidence": "high",
+      "notes": "The white fork handle is exposed while its tines are partly underneath the chicken. Covered could mean partly occluded or wrapped/fully covered; Yes and No reflect different readings.",
+      "image_id": "n181210",
+      "image_sha256": "ab0cb29532a8234719dc23435552de531256e18d60d7c9651dc12d658356f29d",
+      "origin": "initial_candidate",
+      "evidence_type": "direct_visual_review"
+    },
+    "gqa:201479496": {
+      "status": "keep",
+      "confidence": "high",
+      "notes": "A visibly breaded chicken portion is directly above the white fork in the tray. The meat and relation are clear at the archived image resolution.",
+      "image_id": "n181210",
+      "image_sha256": "ab0cb29532a8234719dc23435552de531256e18d60d7c9651dc12d658356f29d",
+      "origin": "initial_candidate",
+      "evidence_type": "direct_visual_review"
+    },
+    "gqa:201479334": {
+      "status": "keep",
+      "confidence": "high",
+      "notes": "The white fork is visibly present at the front of the tray. Its presence makes the tablecloth-or-fork disjunction true, independent of any tablecloth; both saved No answers miss it.",
+      "image_id": "n181210",
+      "image_sha256": "ab0cb29532a8234719dc23435552de531256e18d60d7c9651dc12d658356f29d",
+      "origin": "initial_candidate",
+      "evidence_type": "direct_visual_review"
+    },
+    "gqa:201428959": {
+      "status": "keep",
+      "confidence": "high",
+      "notes": "The white refrigerator stands to the right of the visible cardboard food boxes on the left counter. The relevant objects and left-right order are clear.",
+      "image_id": "n64959",
+      "image_sha256": "4cc09ab55daaf57c12f309d9861acd5af65fe6054a664e650afd1313dac1dfed",
+      "origin": "initial_candidate",
+      "evidence_type": "direct_visual_review"
+    },
+    "gqa:201428953": {
+      "status": "keep",
+      "confidence": "high",
+      "notes": "The freezer compartment belongs to the same refrigerator to the right of the cardboard boxes. This is a paraphrase/entity-part control, not an independent visual task.",
+      "image_id": "n64959",
+      "image_sha256": "4cc09ab55daaf57c12f309d9861acd5af65fe6054a664e650afd1313dac1dfed",
+      "origin": "initial_candidate",
+      "evidence_type": "paraphrase_control"
+    },
+    "gqa:201428716": {
+      "status": "uncertain",
+      "confidence": "high",
+      "notes": "Several possible plumbing/pipe-like objects occur by the sink and lower left. The unqualified pipe and its color cannot be uniquely identified.",
+      "image_id": "n64959",
+      "image_sha256": "4cc09ab55daaf57c12f309d9861acd5af65fe6054a664e650afd1313dac1dfed",
+      "origin": "initial_candidate",
+      "evidence_type": "direct_visual_review"
+    },
+    "gqa:201882905": {
+      "status": "keep",
+      "confidence": "high",
+      "notes": "A black flat-screen television sits on the desk immediately right of the curtains. Television to Phone is a visibly different object-class prediction.",
+      "image_id": "n125122",
+      "image_sha256": "d734bac2630aef0af7036ee7b878b17734cb2886e170e0460d142d1994de620c",
+      "origin": "initial_candidate",
+      "evidence_type": "direct_visual_review"
+    },
+    "gqa:201883113": {
+      "status": "annotation_issue",
+      "confidence": "high",
+      "notes": "Both hotel beds have visible quilted white bedding/comforters. The blanket term comforter is reasonable, so a gold No for planters-or-comforters is not a clean preserved control.",
+      "image_id": "n125122",
+      "image_sha256": "d734bac2630aef0af7036ee7b878b17734cb2886e170e0460d142d1994de620c",
+      "origin": "initial_candidate",
+      "evidence_type": "direct_visual_review"
+    },
+    "gqa:201882614": {
+      "status": "keep",
+      "confidence": "high",
+      "notes": "The lit bedside lamp is at the far left edge of the image. Left to Right contradicts a clear image-coordinate location.",
+      "image_id": "n125122",
+      "image_sha256": "d734bac2630aef0af7036ee7b878b17734cb2886e170e0460d142d1994de620c",
+      "origin": "initial_candidate",
+      "evidence_type": "direct_visual_review"
+    },
+    "gqa:202257136": {
+      "status": "ambiguous",
+      "confidence": "medium",
+      "notes": "Two dogs are visible at lower right. At least one is standing, but resting is a behavioral state that cannot be confidently excluded from a static scene; do not call this a clean gain.",
+      "image_id": "n92308",
+      "image_sha256": "61aaabccffe4b4ce4689b4086e58cf11976eb1e3a465bd34210088ec683d3cc1",
+      "origin": "initial_candidate",
+      "evidence_type": "direct_visual_review"
+    },
+    "gqa:202257249": {
+      "status": "keep",
+      "confidence": "high",
+      "notes": "A cyclist is visibly mounted on a bicycle along the path. That rider makes the cyclists-or-men-riding existential true.",
+      "image_id": "n92308",
+      "image_sha256": "61aaabccffe4b4ce4689b4086e58cf11976eb1e3a465bd34210088ec683d3cc1",
+      "origin": "initial_candidate",
+      "evidence_type": "direct_visual_review"
+    },
+    "gqa:202257439": {
+      "status": "ambiguous",
+      "confidence": "high",
+      "notes": "Several people wear jackets, including the rider. Depending on the intended wearer, a bicycle can be beside or under that person; the referent is not unique.",
+      "image_id": "n92308",
+      "image_sha256": "61aaabccffe4b4ce4689b4086e58cf11976eb1e3a465bd34210088ec683d3cc1",
+      "origin": "initial_candidate",
+      "evidence_type": "direct_visual_review"
+    },
+    "gqa:20596219": {
+      "status": "keep",
+      "confidence": "medium",
+      "notes": "The foreground coat and the visible bin farther along the sidewalk both appear very dark/black. The gold No is visually plausible; small bin size and possible dark-hue variation remain cautions, so this is a tentative gain case.",
+      "image_id": "n514467",
+      "image_sha256": "8571e8bd3b1efbf6d4cd9ef1f643761a51373f9ecad332b418c6d02a4505933a",
+      "origin": "initial_candidate",
+      "evidence_type": "tentative_color_gain"
+    },
+    "gqa:20596541": {
+      "status": "uncertain",
+      "confidence": "medium",
+      "notes": "The pavement is dark gray, but clear puddles or reflections are not visible enough to distinguish damp from dry asphalt/concrete. Do not use the saved Wet score as visual confirmation.",
+      "image_id": "n514467",
+      "image_sha256": "8571e8bd3b1efbf6d4cd9ef1f643761a51373f9ecad332b418c6d02a4505933a",
+      "origin": "initial_candidate",
+      "evidence_type": "direct_visual_review"
+    },
+    "gqa:20596493": {
+      "status": "keep",
+      "confidence": "high",
+      "notes": "The clearly visible foreground coat is black/dark rather than tan; no visibly tan coat is identifiable in this frame. Retain as a broad color/absence control.",
+      "image_id": "n514467",
+      "image_sha256": "8571e8bd3b1efbf6d4cd9ef1f643761a51373f9ecad332b418c6d02a4505933a",
+      "origin": "initial_candidate",
+      "evidence_type": "broad_absence_control"
+    },
+    "gqa:20644736": {
+      "status": "keep",
+      "confidence": "high",
+      "notes": "A single visible cat looks toward the person or hand at left. Cat identification is supported directly; no fine inference about gaze direction is required to resolve the referent.",
+      "image_id": "n250821",
+      "image_sha256": "41e7588df75b06a6e02e4dd34491629ada4fbb451fb3097313bfda136edbce2d",
+      "origin": "initial_candidate",
+      "evidence_type": "direct_visual_review"
+    },
+    "gqa:20644699": {
+      "status": "keep",
+      "confidence": "high",
+      "notes": "A cat is plainly visible in the right half of the frame. This is a direct positive object-presence control.",
+      "image_id": "n250821",
+      "image_sha256": "41e7588df75b06a6e02e4dd34491629ada4fbb451fb3097313bfda136edbce2d",
+      "origin": "initial_candidate",
+      "evidence_type": "direct_visual_review"
+    },
+    "gqa:20644755": {
+      "status": "ambiguous",
+      "confidence": "high",
+      "notes": "The person is heavily cropped: an arm enters from above, but legs and shoes fill the lower half. Top versus bottom depends on which body region defines position.",
+      "image_id": "n250821",
+      "image_sha256": "41e7588df75b06a6e02e4dd34491629ada4fbb451fb3097313bfda136edbce2d",
+      "origin": "initial_candidate",
+      "evidence_type": "direct_visual_review"
+    },
+    "gqa:20911239": {
+      "status": "exclude",
+      "confidence": "medium",
+      "notes": "The word skater strongly cues skateboard, while on could also refer to the ledge. Prefer more specific visual questions rather than promoting this easy lexical-prior control.",
+      "image_id": "n217003",
+      "image_sha256": "3fef7569d71299e008fcee112dd711027bf9ec6e2b81f04d5f8a2410978dc4ed",
+      "origin": "same_image_replacement_review",
+      "evidence_type": "direct_visual_review"
+    },
+    "gqa:202218593": {
+      "status": "keep",
+      "confidence": "high",
+      "notes": "The white paper-towel roll sits in the lower part of the image, behind the French press and beside the plant. Bottom is directly supported.",
+      "image_id": "n578564",
+      "image_sha256": "76752768b55561d7da5926daa434a870f5e00adfa6d201b6ea175475143e6fe3",
+      "origin": "same_image_replacement_review",
+      "evidence_type": "direct_visual_review"
+    },
+    "gqa:202218829": {
+      "status": "keep",
+      "confidence": "high",
+      "notes": "The two hanging pans are directly in front of the right-hand window frame. Window is a clear spatial reference.",
+      "image_id": "n578564",
+      "image_sha256": "76752768b55561d7da5926daa434a870f5e00adfa6d201b6ea175475143e6fe3",
+      "origin": "same_image_replacement_review",
+      "evidence_type": "direct_visual_review"
+    },
+    "gqa:20543088": {
+      "status": "keep",
+      "confidence": "high",
+      "notes": "The visible green bush is behind the barrier rails, so the fence is not behind that bush. The overlapping layers support No.",
+      "image_id": "n100552",
+      "image_sha256": "d14ac5db6dbeb4cec3bb9d6bd5fa6c4325979dcdeafe1529658b7d8fe5b66c1d",
+      "origin": "same_image_replacement_review",
+      "evidence_type": "direct_visual_review"
+    },
+    "gqa:20434856": {
+      "status": "keep",
+      "confidence": "high",
+      "notes": "A visible child at the left edge sits immediately next to the open pizza box and pizza. The existential near relation is supported without relying on age comparisons.",
+      "image_id": "n431447",
+      "image_sha256": "ec53ec385a083cb69c68c76575bc249798221c2a5d8a9e087f522137e13ea410",
+      "origin": "same_image_replacement_review",
+      "evidence_type": "direct_visual_review"
+    },
+    "gqa:201479426": {
+      "status": "keep",
+      "confidence": "high",
+      "notes": "The bread roll is split open with a visible cut interior, while the orange is whole. The contrast is visible and is not a necessary property of either food.",
+      "image_id": "n181210",
+      "image_sha256": "ab0cb29532a8234719dc23435552de531256e18d60d7c9651dc12d658356f29d",
+      "origin": "same_image_replacement_review",
+      "evidence_type": "direct_visual_review"
+    },
+    "gqa:201429017": {
+      "status": "keep",
+      "confidence": "high",
+      "notes": "The black stove/oven stands immediately left of the white refrigerator. This adds object identification to the refrigerator relation questions.",
+      "image_id": "n64959",
+      "image_sha256": "4cc09ab55daaf57c12f309d9861acd5af65fe6054a664e650afd1313dac1dfed",
+      "origin": "same_image_replacement_review",
+      "evidence_type": "direct_visual_review"
+    },
+    "gqa:201883221": {
+      "status": "keep",
+      "confidence": "high",
+      "notes": "No sink or basin is visible in front of the tall mirror left of the desk chair. Retain only as a broad visible-absence control; room priors and lack of localized target evidence must be considered.",
+      "image_id": "n125122",
+      "image_sha256": "d734bac2630aef0af7036ee7b878b17734cb2886e170e0460d142d1994de620c",
+      "origin": "same_image_replacement_review",
+      "evidence_type": "broad_absence_control"
+    },
+    "gqa:202257420": {
+      "status": "keep",
+      "confidence": "high",
+      "notes": "Bicycles are visibly present, which is enough to make the bicycles-or-fences question true regardless of fences. A simple positive presence control.",
+      "image_id": "n92308",
+      "image_sha256": "61aaabccffe4b4ce4689b4086e58cf11976eb1e3a465bd34210088ec683d3cc1",
+      "origin": "same_image_replacement_review",
+      "evidence_type": "direct_visual_review"
+    },
+    "gqa:20644661": {
+      "status": "keep",
+      "confidence": "high",
+      "notes": "A black cable visibly crosses the light paper sheets above and left of the cat. The object overlap supports Yes and provides a different task from cat presence.",
+      "image_id": "n250821",
+      "image_sha256": "41e7588df75b06a6e02e4dd34491629ada4fbb451fb3097313bfda136edbce2d",
+      "origin": "same_image_replacement_review",
+      "evidence_type": "direct_visual_review"
+    }
+  }
+}
