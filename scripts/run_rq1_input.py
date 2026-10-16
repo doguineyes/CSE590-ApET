@@ -19,8 +19,9 @@ import zipfile
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from check_original_env import REPO, provenance, validate_runtime, verify_native_reference
-from rq1_protocol import (VERSION, consensus_score, load_manifest, pilot_cases, sha256,
-                          measurement_target, spearman, textvqa_evaluator, textvqa_summary, token_order, write_json)
+from rq1_protocol import (VERSION, TEXTVQA_SELECTION, consensus_score, load_manifest, pilot_cases, sha256,
+                          measurement_target, spearman, textvqa_evaluator, textvqa_summary,
+                          textvqa_selection, token_order, validate_textvqa_audit, write_json)
 from smoke_original_apet import (CONFIGURATIONS, MODEL_ID, MODEL_REVISION, VISION_ID,
     VISION_REVISION, checkpoint_plan, download, generate_native_answer, load_native_model)
 
@@ -57,6 +58,19 @@ def copy_evidence(args, report, data):
         target = destination / "sources" / rel
         target.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(REPO / rel, target)
+    if data["dataset"] == "textvqa" and args.mode != "textvqa":
+        target = destination / "sources" / TEXTVQA_SELECTION.relative_to(REPO)
+        target.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(TEXTVQA_SELECTION, target)
+    if args.target_audit_report is not None:
+        shutil.copy2(args.target_audit_report, destination / "prerequisite-target-audit.json")
+        # Preserve detailed token/probability evidence, not only the gate summary.
+        for entry in report["target_audit_prerequisite"]["case_ids"]:
+            qid = entry.split(":", 1)[1]
+            original = args.target_audit_report.parent / "target-audit" / f"{qid}.json"
+            target = destination / "prerequisite-target-audit" / f"{qid}.json"
+            target.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(original, target)
     report["evidence_sha256"] = {str(path.relative_to(destination)): sha256(path)
                                  for path in destination.rglob("*") if path.is_file()}
 
@@ -88,6 +102,10 @@ def generation_score(dataset, case, response):
     if dataset == "gqa":
         from gqa_scoring import score_answer
         return score_answer(response, case["canonical_target"])
+    if dataset == "textvqa":
+        score = consensus_score(textvqa_evaluator(), response, case["gold_answers"])
+        return {**score, "correct": score["full_credit"],
+                "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"}
     from mmstar_scoring import score_answer
     return score_answer(response, case["question"], case["canonical_target"])
 
@@ -112,7 +130,7 @@ def run_interventions(args, report, data, loaded):
         "S": "Mean teacher-forced canonical reference token log probability, causal shift, no EOS",
         "reference_context": "Uncompressed 576 visual tokens; no decoder pruning; use_cache=False for scoring",
         "perturbation": "Singleton feature zeroing after projector; sequence length/order/position IDs/mask unchanged",
-        "target": "GQA: initial-capital rendering of unchanged manifest label; MMStar: literal option. Fixed before generation, one separator space, no EOS.",
+        "target": "GQA/TextVQA: initial-capital rendering of unchanged manifest label; MMStar: literal option. Fixed before generation, one separator space, no EOS.",
         "target_alignment": "For correct baselines require fixed target IDs to match generated prefix; compare teacher-forced/generated target logprobs within control tolerance. Never retarget wrong baselines.",
         "selection": "Outcome-enriched reviewed mechanism subset; not population sampling or proof of visual grounding",
         "sampling": "Uniform seeded permutation of all 576 indices, nested prefix; identical across same-image questions",
@@ -157,6 +175,11 @@ def run_interventions(args, report, data, loaded):
             generate_native_answer(tokenizer, model, processor, image, case["generation_question"],
                 "baseline", seed=seed, max_new_tokens=16, require_nonempty=False, record=free_generation)
         free_generation["scoring"] = generation_score(data["dataset"], case, free_generation["response"])
+        if data["dataset"] == "textvqa" and not free_generation["scoring"]["full_credit"]:
+            write_json(args.output / "questions" / f"{case['question_id']}-baseline-failure.json", {
+                "case_id": case["case_id"], "free_generation": free_generation,
+                "generation_tokens": generation_tokens, "status": "baseline_full_credit_changed"})
+            raise RuntimeError("Frozen TextVQA baseline lost full credit; stopping without retargeting or replacing the case")
         path = args.output / "questions" / f"{case['question_id']}.json"
         order = token_order(case["image_sha256"], args.seed)[:args.tokens]
 
@@ -259,6 +282,9 @@ def run_target_audit(args, report, data, loaded):
             del encoded
             encoded = encode_image(model, processor, image, seed)
             current_image = case["image_sha256"]
+            if data["dataset"] == "textvqa":
+                from PIL import Image
+                Image.fromarray(encoded["canvas"]).save(args.output / "images" / f"{current_image}-canvas.png")
         elif encoded["seed"] != seed:
             raise ValueError("Same-image diagnostic cases have different seeds")
         generation, generation_tokens = {}, {}
@@ -268,9 +294,24 @@ def run_target_audit(args, report, data, loaded):
                 "baseline", seed=seed, max_new_tokens=16, require_nonempty=False, record=generation)
         generation["scoring"] = generation_score(data["dataset"], case, generation["response"])
         row = audit_target_forms(tokenizer, model, case, encoded, generation, generation_tokens)
+        fixed = None
+        if data["dataset"] == "textvqa":
+            variant = next(v for v in row["variants"] if v["name"] == "initial_capital")
+            delta = max(variant["reference_repeat_max_delta"],
+                        variant["generated_prefix_score_max_delta"]
+                        if variant["generated_prefix_score_max_delta"] is not None else float("inf"))
+            # Keep JSON finite when there is a token-prefix mismatch.
+            fixed = {"text": measurement_target(case)["text"],
+                     "policy": measurement_target(case)["policy"],
+                     "baseline_full_credit": generation["scoring"]["full_credit"],
+                     "target_ids_match_generated_prefix": variant["target_ids_match_generated_prefix"],
+                     "max_score_delta": delta if math.isfinite(delta) else None,
+                     "passed": generation["scoring"]["full_credit"]
+                         and variant["target_ids_match_generated_prefix"] and delta <= args.control_tolerance}
+            row["fixed_reference"] = fixed
         write_json(args.output / "target-audit" / f"{case['question_id']}.json", row)
         rows.append({"case_id": case["case_id"], "baseline_response": generation["response"],
-                     "variants": row["variants"]})
+                     "variants": row["variants"], **({"fixed_reference": fixed} if fixed is not None else {})})
         report["target_audit"] = rows
         report["progress"] = {"completed_questions": len(rows), "expected_questions": len(cases)}
         write_json(args.output / "report.json", report)
@@ -278,6 +319,12 @@ def run_target_audit(args, report, data, loaded):
             print(f"{case['case_id']} {variant['name']} {variant['text']!r}: "
                   f"logp={variant['score']['sum_logprob']:.5f}, "
                   f"matches_generated_prefix={variant['target_ids_match_generated_prefix']}", flush=True)
+        if fixed is not None:
+            print(f"{case['case_id']} fixed-reference gate: {fixed}", flush=True)
+            if not fixed["passed"]:
+                raise RuntimeError("TextVQA reference audit failed; inspect saved evidence before interventions. No automatic retargeting.")
+    if data["dataset"] == "textvqa":
+        report["scientific_status"] = "fixed_textvqa_reference_alignment_passed"
 
 
 def main():
@@ -288,6 +335,8 @@ def main():
     parser.add_argument("--questions", type=int, default=2)
     parser.add_argument("--tokens", type=int, default=32)
     parser.add_argument("--control-tolerance", type=float, default=0.001)
+    parser.add_argument("--target-audit-report", type=Path,
+                        help="Required for TextVQA interventions: passed six-case target-audit report.json")
     parser.add_argument("--seed", type=int, default=590)
     parser.add_argument("--configurations", nargs="+", choices=CONFIGURATIONS, default=["baseline", "input-only"])
     parser.add_argument("--model", default=MODEL_ID)
@@ -305,6 +354,8 @@ def main():
         parser.error("Use unique configurations, baseline first")
     args.output = args.output.resolve()
     args.manifest = args.manifest.resolve()
+    if args.target_audit_report is not None:
+        args.target_audit_report = args.target_audit_report.resolve()
     archive = args.output.with_suffix(".zip")
     if args.output.exists() or archive.exists():
         parser.error("Output already exists; choose a new name to preserve earlier results")
@@ -319,10 +370,23 @@ def main():
         validate_runtime(report)
         verify_native_reference(report)
         data = load_manifest(args.manifest)
-        if (args.mode == "textvqa") != (data["dataset"] == "textvqa"):
-            raise ValueError("TextVQA interventions deferred; choose its generation mode or a GQA/MMStar intervention manifest")
         report["dataset"] = {"name": data["dataset"], "manifest_sha256": sha256(args.manifest),
                              "retained_questions": len(data["cases"])}
+        if args.mode == "textvqa" and data["dataset"] != "textvqa":
+            raise ValueError("TextVQA generation mode requires its accepted manifest")
+        if args.target_audit_report is not None and not (data["dataset"] == "textvqa" and args.mode == "interventions"):
+            raise ValueError("--target-audit-report is only for TextVQA interventions")
+        if args.mode != "textvqa":
+            if len(pilot_cases(data, args.questions)) != args.questions:
+                raise ValueError("Requested more cases than the frozen pilot")
+            if data["dataset"] == "textvqa":
+                selection = textvqa_selection(data)
+                report["textvqa_selection_sha256"] = sha256(TEXTVQA_SELECTION)
+                report["textvqa_selection"] = selection
+                if args.mode == "interventions":
+                    report["target_audit_prerequisite"] = validate_textvqa_audit(
+                        args.target_audit_report, data, args.control_tolerance, args.seed,
+                        model=args.model, vision_model=args.vision_model)
         copy_evidence(args, report, data)
         loaded = load_model(args, report)
         if args.mode == "target-audit":

@@ -142,6 +142,9 @@ def audit_target_forms(tokenizer, model, case, encoded, generation, generation_t
             "target_token_strings": tokenizer.convert_ids_to_tokens(ids), "score": score,
             "reference_sequence_probability_no_eos": math.exp(score["sum_logprob"]),
             "reference_repeat_max_delta": max_score_delta(score, repeated),
+            "generated_prefix_score_max_delta": max(abs(a-b) for a, b in zip(
+                score["token_logprobs"], generation_tokens["generated_token_logprobs"][:len(ids)]))
+                if ids == generated_ids[:len(ids)] else None,
             "first_target_matches_first_generated_token": ids[0] == generated_ids[0],
             "target_ids_match_generated_prefix": ids == generated_ids[:len(ids)],
             "teacher_forced_first_step_top1": first_top,
@@ -308,6 +311,8 @@ def measure_question(tokenizer, model, case, encoded, order, tolerance, progress
               "clip_sha256": encoded["clip_sha256"], "projected_sha256": encoded["projected_sha256"],
               "token_execution_order": order, "tokens": [], "controls": {},
               "score_definition": "Mean reference answer token log probability, no EOS; I = S_full - S_zero"}
+    if "screening_provenance" in case:
+        record["screening_provenance"] = case["screening_provenance"]
     alignment = target_alignment(prepared["target_token_ids"],
                                  generation_tokens["generated_token_ids"], baseline_correct)
     record["target_alignment"] = alignment

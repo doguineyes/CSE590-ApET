@@ -10,9 +10,9 @@ from unittest.mock import patch
 REPO = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(REPO / "scripts"))
 from analyze_rq1_input import quadrant_examples
-from rq1_protocol import (GQA_IDS, REPO, SOURCES, consensus_score, load_manifest,
+from rq1_protocol import (GQA_IDS, REPO, SOURCES, TEXTVQA_SELECTION, consensus_score, load_manifest,
     measurement_target, pilot_cases, spearman, target_alignment, target_audit_candidates,
-    textvqa_evaluator, textvqa_summary, token_order)
+    textvqa_evaluator, textvqa_summary, token_order, sha256, validate_textvqa_audit)
 
 
 class ProtocolTests(unittest.TestCase):
@@ -23,8 +23,10 @@ class ProtocolTests(unittest.TestCase):
             self.assertEqual(measurement_target(case)["text"], expected)
             self.assertEqual(case["canonical_target"], raw)
         self.assertEqual(measurement_target({"case_id": "mmstar:1", "canonical_target": "A"})["text"], "A")
-        with self.assertRaises(ValueError):
-            measurement_target({"case_id": "textvqa:1", "canonical_target": "some sign"})
+        text = {"case_id": "textvqa:1", "canonical_target": "cookery school"}
+        self.assertEqual(measurement_target(text),
+                         {"text": "Cookery school", "policy": "textvqa-initial-capital-v1"})
+        self.assertEqual(text["canonical_target"], "cookery school")
 
     def test_alignment_gate_rejects_correct_answer_format_mismatch_not_wrong_gold(self):
         self.assertFalse(target_alignment([694], [1939, 2], True)["passed"])
@@ -90,8 +92,56 @@ class ProtocolTests(unittest.TestCase):
         self.assertTrue(all(c["predictions"]["baseline"]["correct"] for c in pilot_cases(mm)))
         text = load_manifest(results / SOURCES["textvqa"][0])
         self.assertEqual(len(text["cases"]), 100)
+        selected = pilot_cases(text, 6)
+        self.assertEqual([c["question_id"] for c in selected],
+                         ["37533", "35670", "35962", "39323", "36001", "38025"])
+        self.assertEqual([c["outcomes"]["input-only"] for c in selected],
+                         ["loss", "preserved_correct"] * 3)
+        self.assertEqual([c["case_id"] for c in pilot_cases(text, 2)],
+                         [c["case_id"] for c in selected[:2]])
+        self.assertTrue(all(c["predictions"]["baseline"] is None for c in text["cases"]))
         with self.assertRaises(ValueError):
-            pilot_cases(text)
+            pilot_cases(text, 7)
+
+    def test_textvqa_audit_gate_rejects_missing_stale_partial_and_failed_evidence(self):
+        import copy
+        # Identity/reference validation is exercised against the private manifest
+        # above. This test works in a fresh Kaggle checkout without result ZIPs.
+        profile = json.loads(TEXTVQA_SELECTION.read_text())
+        cases = [{"case_id": e["case_id"], "canonical_target": e["canonical_target"]}
+                 for e in profile["cases"]]
+        report = {"status": "passed", "arguments": {"mode": "target-audit", "seed": 590},
+            "dataset": {"manifest_sha256": SOURCES["textvqa"][1]},
+            "textvqa_selection_sha256": sha256(TEXTVQA_SELECTION),
+            "evidence_sha256": {"sources/" + rel: sha256(REPO / rel) for rel in (
+                "scripts/rq1_native.py", "scripts/rq1_protocol.py", "scripts/run_rq1_input.py",
+                "environments/original/uv.lock", "research/provenance/original_llava_reference.json",
+                "llava/eval/m4c_evaluator.py")},
+            "target_audit": [{"case_id": c["case_id"], "fixed_reference": {
+                "text": measurement_target(c)["text"], "passed": True, "baseline_full_credit": True,
+                "target_ids_match_generated_prefix": True, "max_score_delta": 0.0}} for c in cases]}
+        with tempfile.TemporaryDirectory() as temp, patch("rq1_protocol.pilot_cases", return_value=cases):
+            path = Path(temp) / "report.json"
+            with self.assertRaises(ValueError):
+                validate_textvqa_audit(None, {}, .001, 590)
+            path.write_text(json.dumps(report))
+            self.assertTrue(validate_textvqa_audit(path, {}, .001, 590)["passed"])
+            with self.assertRaisesRegex(ValueError, "checkpoint source differs"):
+                validate_textvqa_audit(path, {}, .001, 590, model="different-model")
+            bad = []
+            for field, value in [("status", "failed"), ("textvqa_selection_sha256", "stale")]:
+                altered = copy.deepcopy(report);altered[field] = value;bad.append(altered)
+            altered = copy.deepcopy(report);altered["target_audit"].pop();bad.append(altered)
+            altered = copy.deepcopy(report);altered["evidence_sha256"]["sources/scripts/rq1_native.py"] = "other";bad.append(altered)
+            for field, value in [("passed", False), ("baseline_full_credit", False),
+                                 ("target_ids_match_generated_prefix", False),
+                                 ("max_score_delta", .002), ("max_score_delta", None)]:
+                altered = copy.deepcopy(report)
+                altered["target_audit"][0]["fixed_reference"][field] = value;bad.append(altered)
+            for altered in bad:
+                path.write_text(json.dumps(altered))
+                with self.assertRaises(ValueError):
+                    validate_textvqa_audit(path, {}, .001, 590)
 
     def test_changed_manifest_rejected(self):
         with tempfile.TemporaryDirectory() as tmp:

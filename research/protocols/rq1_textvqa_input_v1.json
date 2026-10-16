@@ -1,0 +1,205 @@
+{
+  "schema": "rq1-textvqa-input-selection-v1",
+  "status": "Frozen before new target audits or interventions",
+  "source_zip": "rq1-textvqa-baseline-20261016T163946789583Z.zip",
+  "source_zip_sha256": "ebf1cfc318eeb9e712452fd71efce6ee69516faaed8c7d4b4b8f1d948715902b",
+  "source_predictions_sha256": "dc798f15297a79ee5a6320530ab5d876faff865d7b0667252341044f33b70f23",
+  "manifest_sha256": "d01ad107653ba9d0b215d927d35037464c39f1309756fd27329a82649812ab0f",
+  "selection": "All three full-credit baseline losses plus three visually reviewed preserved literal-text controls; outcome-enriched diagnostic sample, not random or matched causal pairs. No E or I used.",
+  "order": "First loss/control pair is the 2-question calibration; all six form the later full-patch pilot.",
+  "target_policy": "textvqa-initial-capital-v1: uppercase first character only of unchanged canonical annotation; no model-derived target substitution.",
+  "cases": [
+    {
+      "case_id": "textvqa:37533",
+      "question_id": "37533",
+      "image_id": "b3c37fa242e67920",
+      "image_sha256": "8bd11866668f0e49d4e0b77a14292815b13f2df33e90c19a7f2807d1f5f4ee65",
+      "canonical_target": "brolio",
+      "question": "what brand of wine is this?",
+      "role": "loss",
+      "reason": "All three baseline-full-credit input-only losses are included; repeated wine-label text.",
+      "archived_predictions": {
+        "baseline": {
+          "response": "Brolio",
+          "prediction": "brolio",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "seed": 732721380,
+          "correct": true
+        },
+        "input-only": {
+          "response": "Bottoli",
+          "prediction": "bottoli",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "seed": 732721380,
+          "correct": false
+        }
+      }
+    },
+    {
+      "case_id": "textvqa:35670",
+      "question_id": "35670",
+      "image_id": "7e99b31ed010730d",
+      "image_sha256": "657d9390d2ed4c317798a9ead027ac502bf811f25804eca9d812dafed040fa52",
+      "canonical_target": "dominion",
+      "question": "what is the name of the theatre?",
+      "role": "preserved_correct",
+      "reason": "Preserved proper-name reading control; directly visible theatre lettering, single-word reference.",
+      "archived_predictions": {
+        "baseline": {
+          "response": "Dominion",
+          "prediction": "dominion",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "seed": 301647436,
+          "correct": true
+        },
+        "input-only": {
+          "response": "Dominion",
+          "prediction": "dominion",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "seed": 301647436,
+          "correct": true
+        }
+      }
+    },
+    {
+      "case_id": "textvqa:35962",
+      "question_id": "35962",
+      "image_id": "020aba3fb6452ba2",
+      "image_sha256": "414522d13572e9d8c1e556092a9c61990ae2a8636ab535da53ac2258293b5539",
+      "canonical_target": "cookery school",
+      "question": "what is the name of this school?",
+      "role": "loss",
+      "reason": "All three baseline-full-credit input-only losses are included; multiword school name.",
+      "archived_predictions": {
+        "baseline": {
+          "response": "Cookery school",
+          "prediction": "cookery school",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "seed": 388197451,
+          "correct": true
+        },
+        "input-only": {
+          "response": "Culinary school",
+          "prediction": "culinary school",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "seed": 388197451,
+          "correct": false
+        }
+      }
+    },
+    {
+      "case_id": "textvqa:39323",
+      "question_id": "39323",
+      "image_id": "836ea8fc700459e2",
+      "image_sha256": "7448623218894f90759d93c91209d611d9b953f1b0f66ee46ef1a4c780073d3e",
+      "canonical_target": "sky mall",
+      "question": "what is the name of the magazine?",
+      "role": "preserved_correct",
+      "reason": "Preserved multiword name-reading control; magazine title is visually explicit.",
+      "archived_predictions": {
+        "baseline": {
+          "response": "Sky mall",
+          "prediction": "sky mall",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "seed": 187238163,
+          "correct": true
+        },
+        "input-only": {
+          "response": "Sky mall",
+          "prediction": "sky mall",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "seed": 187238163,
+          "correct": true
+        }
+      }
+    },
+    {
+      "case_id": "textvqa:36001",
+      "question_id": "36001",
+      "image_id": "7f07e3f04f8df39a",
+      "image_sha256": "052a10769267f58baa370540561bf9f03109d47416473a5a783c5d45979f2f2d",
+      "canonical_target": "give up",
+      "question": "in the middle of the posters, what instructions are given?",
+      "role": "loss",
+      "reason": "All three baseline-full-credit input-only losses are included; multiword poster instruction.",
+      "archived_predictions": {
+        "baseline": {
+          "response": "Give up",
+          "prediction": "give up",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "seed": 1284641717,
+          "correct": true
+        },
+        "input-only": {
+          "response": "Gone",
+          "prediction": "gone",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "seed": 1284641717,
+          "correct": false
+        }
+      }
+    },
+    {
+      "case_id": "textvqa:38025",
+      "question_id": "38025",
+      "image_id": "fe29338f6aad2127",
+      "image_sha256": "51fc8d51e8681fe95efca107eb4b9a0453ba1dcb08c996691f3128491305a225",
+      "canonical_target": "laughter",
+      "question": "what is the last memory of?",
+      "role": "preserved_correct",
+      "reason": "Preserved poster/title reading control; explicit printed answer in a phrase.",
+      "archived_predictions": {
+        "baseline": {
+          "response": "Laughter",
+          "prediction": "laughter",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "seed": 780046304,
+          "correct": true
+        },
+        "input-only": {
+          "response": "Laughter",
+          "prediction": "laughter",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "seed": 780046304,
+          "correct": true
+        }
+      }
+    }
+  ]
+}

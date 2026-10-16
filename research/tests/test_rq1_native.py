@@ -154,6 +154,19 @@ class NativeTests(unittest.TestCase):
         self.assertEqual(model.visual_token_num, 576)
         self.assertNotIn("forward", model.model.vision.__dict__)
 
+    def test_textvqa_multiword_target_preserves_case_and_scores_suffix_only(self):
+        torch = self.torch
+        case = {"case_id": "textvqa:35962", "generation_question": "School name?",
+                "canonical_target": "cookery school"}
+        def tokenize(text, *args, **kwargs):
+            return torch.tensor([1, -200, 7, 20, 21] if text.endswith(" Cookery school") else [1, -200, 7])
+        with patch("llava.mm_utils.tokenizer_image_token", side_effect=tokenize):
+            _, full, labels, prefix = reference_tokens(None, case)
+        self.assertEqual(full[0, -2:].tolist(), [20, 21])
+        self.assertEqual(labels[0, prefix:].tolist(), [20, 21])
+        self.assertTrue((labels[0, :prefix] == -100).all())
+        self.assertEqual(case["canonical_target"], "cookery school")
+
     def test_native_preparation_positions_target_and_tiny_forward(self):
         torch = self.torch
         from llava.model.language_model.llava_llama_x import LlavaConfig, LlavaLlamaForCausalLM_X

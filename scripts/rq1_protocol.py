@@ -25,6 +25,36 @@ SOURCES = {
 GQA_IDS = ["201636988", "201637316", "201713640", "201713599",
            "201428959", "201429017", "201882905", "201883221",
            "201998268", "201998118", "202218593", "202218829"]
+TEXTVQA_SELECTION = REPO / "research/protocols/rq1_textvqa_input_v1.json"
+
+
+def textvqa_selection(data):
+    """Validate a separately frozen diagnostic selection; never edit v1 inputs."""
+    selection = json.loads(TEXTVQA_SELECTION.read_text())
+    if data["dataset"] != "textvqa" or selection["manifest_sha256"] != SOURCES["textvqa"][1]:
+        raise ValueError("TextVQA selection is for a different accepted manifest")
+    lookup = {c["case_id"]: c for c in data["cases"]}
+    entries = selection["cases"]
+    if (len(entries) != 6 or len({c["case_id"] for c in entries}) != 6
+            or sum(c["role"] == "loss" for c in entries) != 3
+            or sum(c["role"] == "preserved_correct" for c in entries) != 3):
+        raise ValueError("Expected six frozen TextVQA cases: three losses and three controls")
+    evaluator = textvqa_evaluator()
+    for entry in entries:
+        case = lookup[entry["case_id"]]
+        for key in ("question_id", "image_id", "image_sha256", "canonical_target", "question"):
+            if case[key] != entry[key]:
+                raise ValueError(f"TextVQA selection identity differs: {key}")
+        predictions = entry["archived_predictions"]
+        for name in ("baseline", "input-only"):
+            scored = consensus_score(evaluator, predictions[name]["response"], case["gold_answers"])
+            if (abs(scored["consensus_score"] - predictions[name]["consensus_score"]) > 1e-12
+                    or scored["full_credit"] != predictions[name]["full_credit"]):
+                raise ValueError("TextVQA frozen screening scores do not match references")
+        if (not predictions["baseline"]["full_credit"]
+                or predictions["input-only"]["full_credit"] != (entry["role"] == "preserved_correct")):
+            raise ValueError("TextVQA selection role does not match screening")
+    return selection
 
 
 def sha256(path):
@@ -77,7 +107,17 @@ def pilot_cases(data, limit=12):
         # Later confirmation: stable seed order independent of reconstruction scores.
         return sorted(data["cases"], key=lambda c: hashlib.sha256(
             ("rq1-mmstar-pilot-590:" + c["case_id"]).encode()).hexdigest())[:limit]
-    raise ValueError("TextVQA interventions are deferred; establish baseline results first")
+    if data["dataset"] == "textvqa":
+        selection = textvqa_selection(data)
+        if not 1 <= limit <= len(selection["cases"]):
+            raise ValueError("TextVQA pilot supports 1..6 frozen cases")
+        lookup = {c["case_id"]: c for c in data["cases"]}
+        return [{**lookup[e["case_id"]], "predictions": e["archived_predictions"],
+                 "outcomes": {"input-only": e["role"]},
+                 "screening_provenance": {"selection_sha256": sha256(TEXTVQA_SELECTION),
+                    "source_zip_sha256": selection["source_zip_sha256"], "reason": e["reason"]}}
+                for e in selection["cases"][:limit]]
+    raise ValueError("Unsupported pilot dataset")
 
 
 def token_order(image_sha256, seed=590):
@@ -106,11 +146,45 @@ def measurement_target(case):
     """Fixed reference rendering from annotations only, never from model output."""
     raw = case["canonical_target"]
     dataset = case["case_id"].split(":", 1)[0]
-    if dataset == "gqa":
-        return {"text": raw[:1].upper() + raw[1:], "policy": "gqa-initial-capital-v1"}
+    if dataset in ("gqa", "textvqa"):
+        return {"text": raw[:1].upper() + raw[1:], "policy": f"{dataset}-initial-capital-v1"}
     if dataset == "mmstar":
         return {"text": raw, "policy": "mmstar-literal-option-v1"}
-    raise ValueError("TextVQA interventions need their own reference policy; generation baseline is unchanged")
+    raise ValueError("Unsupported target dataset")
+
+
+def validate_textvqa_audit(path, data, tolerance, seed, *, model=None, vision_model=None):
+    """Require a compatible six-case audit before spending GPU time on interventions."""
+    if path is None:
+        raise ValueError("TextVQA interventions require --target-audit-report from the six-case target audit")
+    audit = json.loads(Path(path).read_text())
+    cases = pilot_cases(data, 6)
+    if (audit.get("status") != "passed" or audit.get("arguments", {}).get("mode") != "target-audit"
+            or audit.get("arguments", {}).get("seed") != seed
+            or audit.get("dataset", {}).get("manifest_sha256") != SOURCES["textvqa"][1]
+            or audit.get("textvqa_selection_sha256") != sha256(TEXTVQA_SELECTION)):
+        raise ValueError("TextVQA audit failed, incomplete, or uses different inputs, selection or seed")
+    for name, expected in (("model", model), ("vision_model", vision_model)):
+        if expected is not None and audit.get("arguments", {}).get(name) != expected:
+            raise ValueError(f"TextVQA audit checkpoint source differs: {name}")
+    entries = audit.get("target_audit", [])
+    if [e["case_id"] for e in entries] != [c["case_id"] for c in cases]:
+        raise ValueError("Target audit must cover all six frozen cases in order")
+    for entry, case in zip(entries, cases):
+        gate = entry.get("fixed_reference", {})
+        delta = gate.get("max_score_delta", float("inf"))
+        if (not gate.get("passed") or gate.get("text") != measurement_target(case)["text"]
+                or not gate.get("baseline_full_credit") or not gate.get("target_ids_match_generated_prefix")
+                or not isinstance(delta, (int, float)) or not math.isfinite(delta) or delta > tolerance):
+            raise ValueError(f"TextVQA fixed-reference audit did not pass: {case['case_id']}")
+    # An audit under other numerical/model code cannot silently authorize this run.
+    for relative in ("scripts/rq1_native.py", "scripts/rq1_protocol.py", "scripts/run_rq1_input.py",
+                     "environments/original/uv.lock", "research/provenance/original_llava_reference.json",
+                     "llava/eval/m4c_evaluator.py"):
+        if audit.get("evidence_sha256", {}).get("sources/" + relative) != sha256(REPO / relative):
+            raise ValueError(f"TextVQA audit code/environment differs: {relative}")
+    return {"report_sha256": sha256(path), "selection_sha256": sha256(TEXTVQA_SELECTION),
+            "passed": True, "case_ids": [c["case_id"] for c in cases]}
 
 
 def target_alignment(target_ids, generated_ids, baseline_correct):

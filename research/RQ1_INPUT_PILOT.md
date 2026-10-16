@@ -12,9 +12,10 @@ Raw annotations stay unchanged. Native ApET, dependencies and the v1 input ZIP
 remain unchanged. The corrected calibration and full 12-question GQA pilot have
 now passed. The MMStar three-question calibration and the 100-question TextVQA
 baseline also passed. The three-case MMStar full-patch check is now complete;
-next, prepare a bounded TextVQA intervention pilot with reference-alignment controls.
+the [TextVQA intervention extension](RQ1_TEXTVQA_INPUT_PILOT.md) is now implemented
+and awaits its first six-case audit and two-question calibration on Kaggle.
 
-## Current next step: prepare TextVQA interventions
+## Current next step: TextVQA audit and calibration
 
 The [MMStar calibration review](notes/2026-10-16-rq1-mmstar-calibration-v2-review.md)
 confirms all 96 interventions and option-token/numeric controls passed. The
@@ -24,10 +25,12 @@ and 41/44 full-credit baseline answers preserved. No baseline rerun is needed.
 The [MMStar full-patch review](notes/2026-10-16-rq1-mmstar-fullpatch-review.md)
 verifies all 1,728 interventions. All 96 repeated calibration effects match
 exactly, but full-grid E–I correlations are near zero (−0.013, +0.024, −0.042).
-No repeat or larger MMStar run is required now. Prepare a small TextVQA subset
-with baseline-correct loss cases and preserved controls, then validate exact
-reference-token alignment before enabling its token interventions. The current
-CLI still deliberately refuses TextVQA intervention mode.
+No repeat or larger MMStar run is required now. The
+[TextVQA guide](RQ1_TEXTVQA_INPUT_PILOT.md) provides update/test, six-case audit and
+two-question × 32-patch calibration cells for the existing live notebook, plus a
+dedicated fresh-session notebook. Reuse the v1 input bundle. TextVQA interventions
+require a compatible passed audit; the six-question full sweep remains a later
+step after calibration review.
 
 The completed MMStar run used:
 
@@ -38,8 +41,8 @@ mmstar_fullpatch_dir = run_experiment(
 )
 ```
 
-Its ZIP/log are archived. Future TextVQA intervention support will require new
-project instrumentation; keep original ApET and the locked environment fixed.
+Its ZIP/log are archived. New TextVQA support is project instrumentation only;
+keep original ApET and the locked environment fixed.
 
 ## MMStar check (completed) and TextVQA execution
 

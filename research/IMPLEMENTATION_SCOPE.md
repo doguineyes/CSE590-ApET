@@ -48,8 +48,8 @@ do not silently replace the baseline reference.
 | `scripts/prepare_gqa_rq1_round2.py`, `research/curation/gqa_rq1_round2_assistant_review.json` | Verified human-review import, explicit question-quality screening, recorded assistant visual judgments and a separate reviewed GQA proposal |
 | `scripts/prepare_mmstar_rq1_round2.py`, `research/curation/mmstar_rq1_round2_assistant_review.json` | Small baseline-correct MMStar RQ1 extension with a separate qualitative gain/baseline-failure appendix; reuses the read-only review renderer |
 | `scripts/check_original_env.py`, `bootstrap/`, `environments/original/` | Locked runtime and provenance checks |
-| `scripts/prepare_rq1_pilot.py`, `scripts/rq1_protocol.py` | Hash-verified portable accepted inputs, fixed GQA pilot IDs, token sampling/statistics and native TextVQA scorer access |
-| `scripts/run_rq1_input.py`, `scripts/rq1_native.py`, `scripts/analyze_rq1_input.py` | Project-owned teacher-forced scoring, cached feature replay, shape-preserving singleton zeroing, controls, TextVQA generation screening and plots; native sources remain unchanged |
+| `scripts/prepare_rq1_pilot.py`, `scripts/rq1_protocol.py`, `research/protocols/rq1_textvqa_input_v1.json` | Hash-verified accepted inputs, frozen GQA/MMStar/TextVQA pilot ordering, TextVQA screening provenance/audit gate, token sampling/statistics and native scorer access |
+| `scripts/run_rq1_input.py`, `scripts/rq1_native.py`, `scripts/analyze_rq1_input.py` | Project-owned teacher-forced scoring, cached feature replay, shape-preserving singleton zeroing, controls, TextVQA generation and gated interventions, and plots; native sources remain unchanged |
 | `research/` | Protocols, notebooks, notes, tests and artifacts |
 
 The loader points the vision configuration to the separately pinned local CLIP
@@ -75,8 +75,8 @@ scores, raw answers, source hashes and scorer version retained.
 
 The [RQ1 candidate preparation](RQ1_CANDIDATES.md) uses saved native baselines
 for GQA/MMStar and a pinned TextVQA screening pool. Its manifests are provisional
-project-owned selections. TextVQA predictions remain unmeasured; human review
-overlays leave original labels and scores intact. Candidate preparation does not
+project-owned selections. The later 100-case TextVQA generation baseline is now
+archived separately; human review overlays leave original labels and scores intact. Candidate preparation does not
 implement an RQ1 intervention runner or resume numerical debugging.
 
 The separate [RQ1 input pilot](RQ1_INPUT_PILOT.md) now implements a small GQA-first
@@ -94,3 +94,11 @@ After the confirmed casing mismatch, measurement v2 uses fixed initial-capital
 GQA target rendering, preserves raw labels and adds generated-prefix/token-score
 alignment controls. This changes our reference-probability measurement only;
 native compression, generation prompts and dependency locks remain unchanged.
+
+The [TextVQA extension](RQ1_TEXTVQA_INPUT_PILOT.md) adds six frozen diagnostic
+cases, an annotation-only initial-capital reference policy and a prerequisite
+six-case target audit. It gates a two-question calibration and later six-question
+input-stage sweep using the existing scoring/zeroing implementation. Fresh full
+consensus credit and exact token-prefix alignment are required; no prediction is
+adopted as a replacement gold target. Accepted manifests and all 100 baseline
+records stay unchanged. This extension awaits Kaggle execution validation.

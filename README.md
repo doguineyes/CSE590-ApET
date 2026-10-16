@@ -44,7 +44,8 @@ input-stage pilot is also complete; see the [pilot review](research/notes/2026-1
 The [three-case MMStar calibration](research/notes/2026-10-16-rq1-mmstar-calibration-v2-review.md)
 also passed. The [TextVQA baseline](research/notes/2026-10-16-rq1-textvqa-baseline-review.md)
 is complete. The [three-case MMStar full-patch check](research/notes/2026-10-16-rq1-mmstar-fullpatch-review.md)
-also passed; next is a bounded TextVQA intervention pilot with reference-alignment controls.
+also passed. The [TextVQA intervention pilot](research/RQ1_TEXTVQA_INPUT_PILOT.md)
+is implemented; next is its six-case reference audit and two-question calibration on Kaggle.
 
 ## Code layout
 
