@@ -10,17 +10,29 @@ measurement. Protocol `rq1-input-zero-v2` now renders GQA labels with an initial
 capital (`no` → `No`, `stove` → `Stove`) using a fixed rule before generation.
 Raw annotations stay unchanged. Native ApET, dependencies and the v1 input ZIP
 remain unchanged. The corrected calibration and full 12-question GQA pilot have
-now passed. The MMStar three-question calibration also passed; continue with the
-TextVQA baseline below.
+now passed. The MMStar three-question calibration and the 100-question TextVQA
+baseline also passed. Next, measure all 576 patches on the same three MMStar cases.
 
-## Current next step: TextVQA baseline
+## Current next step: MMStar full-patch check
 
 The [MMStar calibration review](notes/2026-10-16-rq1-mmstar-calibration-v2-review.md)
-confirms all 96 interventions and option-token/numeric controls passed. Run the
-TextVQA cell below in the same live notebook: 100 retained questions × baseline
-and input-only = 200 generations, with native ten-answer consensus scoring.
-Download its ZIP/log for review. Then a bounded full-576-patch run on the same
-three MMStar cases can check whether their sampled correlations persist.
+confirms all 96 interventions and option-token/numeric controls passed. The
+[TextVQA baseline review](notes/2026-10-16-rq1-textvqa-baseline-review.md) verifies
+all 200 predictions: mean consensus scores 49.7% baseline / 46.9% input-only,
+and 41/44 full-credit baseline answers preserved. No baseline rerun is needed.
+Run the bounded full-576-patch measurement on the same three MMStar cases to
+check whether their sampled correlations persist:
+
+```python
+mmstar_fullpatch_dir = run_experiment(
+    "rq1-mmstar-threecases-v2", "mmstar/manifest.json",
+    ["--questions", "3", "--tokens", "576"],
+)
+```
+
+Reuse the current live notebook, environment, inputs and inference code; no pull
+is required. Download its ZIP/log. TextVQA token interventions still need a
+validated target-format policy and a bounded subset with preserved controls.
 
 ## MMStar check (completed) and TextVQA execution
 

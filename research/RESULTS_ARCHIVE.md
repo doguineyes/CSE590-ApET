@@ -1,18 +1,18 @@
 # Results archive
 
-Checked **2026-10-16**, before the TextVQA baseline. Raw artifacts are kept in
+Checked **2026-10-16**, including the TextVQA baseline. Raw artifacts are kept in
 `research/results/`, which is ignored by Git. GitHub therefore does not back up
 these result files. Preserve an additional copy of the downloaded exports.
 
 ## Verified local holdings
 
 The [dated inventory](results/archive-inventory-2026-10-16.json) records sizes,
-SHA-256 hashes and report provenance for **32 top-level artifacts**. All **19
+SHA-256 hashes and report provenance for **34 top-level artifacts**. All **20
 ZIPs** passed a full member CRC check. Extracted folders and separately generated
 review galleries are retained alongside the original ZIPs. No predictions,
 measurements, original logs or ZIP contents were changed during this audit.
 
-All five current RQ1 runs have both their original ZIP and adjacent `.log`:
+All six current RQ1 runs have both their original ZIP and adjacent `.log`:
 
 | Run | Timestamp suffix | Interpretation |
 |---|---|---|
@@ -21,6 +21,7 @@ All five current RQ1 runs have both their original ZIP and adjacent `.log`:
 | GQA calibration v2 | `20261016T142220402681Z` | Validated corrected measurement |
 | GQA input pilot v2 | `20261016T143422920388Z` | 12 questions × 576 interventions |
 | MMStar calibration v2 | `20261016T160231333218Z` | 3 questions × 32 interventions |
+| TextVQA baseline | `20261016T163946789583Z` | 100 questions × baseline/input-only; generation screening |
 
 Earlier native artifacts are also present: passed original-ApET smoke, MMStar
 24 and its separately rescored v2 exports, MMStar 1,500, GQA pilot, GQA development
@@ -44,7 +45,9 @@ CRC checks alone do not establish scientific validity.
   substitute for those raw files. Recover them from prior downloads/Kaggle
   exports if available; they are separate from the preserved native baselines.
 - macOS denied access to listing Downloads, including an escalated attempt.
-  Other Downloads files have not been inventoried. These are **not located**
+  Explicitly supplied TextVQA ZIP/log paths were subsequently readable and copied
+  successfully; directory listing access is a separate restriction. Other
+  Downloads files have not been inventoried. These are **not located**
   artifacts, not evidence that they were deleted. No source files were removed.
 
 ## Workflow for subsequent runs
@@ -62,14 +65,14 @@ CRC checks alone do not establish scientific validity.
    from generated review galleries and maintain a second backup outside this
    ignored directory.
 
-## Next Kaggle run: TextVQA
+## TextVQA baseline (completed)
 
 **No GitHub pull, environment reinstall or input re-upload is required in the
 current live notebook.** The MMStar calibration ZIP contains the TextVQA runner
 in its archived `scripts/run_rq1_input.py`, from runtime commit
 `a3842946ccd91c35805c161dca1f23729000d325`.
 
-Add a code cell using the already defined helper:
+The completed run used the already defined helper:
 
 ```python
 textvqa_dir = run_experiment(
@@ -78,7 +81,9 @@ textvqa_dir = run_experiment(
 )
 ```
 
-This runs all 100 retained questions under baseline and input-only ApET (200
-generations), with ten-annotator consensus scoring. Download its ZIP and log.
-This is baseline/preservation screening; TextVQA token interventions follow a
-separate reference-format decision.
+All 200 generations and their scores were verified. The
+[TextVQA review](notes/2026-10-16-rq1-textvqa-baseline-review.md) records 49.7%
+baseline and 46.9% input-only mean consensus scores, with 41/44 full-credit
+baseline answers preserved. This is baseline/preservation screening; TextVQA
+token interventions follow a separate reference-format decision. The next bounded
+Kaggle run is the three-case MMStar full-patch check described in that review.
