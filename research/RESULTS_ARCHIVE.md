@@ -7,12 +7,12 @@ these result files. Preserve an additional copy of the downloaded exports.
 ## Verified local holdings
 
 The [dated inventory](results/archive-inventory-2026-10-16.json) records sizes,
-SHA-256 hashes and report provenance for **38 top-level artifacts**. All **22
+SHA-256 hashes and report provenance for **42 top-level artifacts**. All **24
 ZIPs** passed a full member CRC check. Extracted folders and separately generated
 review galleries are retained alongside the original ZIPs. No predictions,
 measurements, original logs or ZIP contents were changed during this audit.
 
-All eight current RQ1 runs have both their original ZIP and adjacent `.log`:
+All ten current RQ1 runs have both their original ZIP and adjacent `.log`:
 
 | Run | Timestamp suffix | Interpretation |
 |---|---|---|
@@ -24,6 +24,8 @@ All eight current RQ1 runs have both their original ZIP and adjacent `.log`:
 | TextVQA baseline | `20261016T163946789583Z` | 100 questions × baseline/input-only; generation screening |
 | MMStar full-patch check | `20261016T170443901294Z` | Same 3 calibration cases × 576 interventions |
 | TextVQA audit v1 | `20261016T180759434962Z` | Failed after 3/6: cached/full score gap; preserve as failed evidence, no interventions |
+| TextVQA audit v2 (filename label v1) | `20261016T182747377877Z` | All 6 passed; full-forward controls and first-token agreement have zero drift |
+| TextVQA calibration v1 | `20261016T182930625290Z` | 2 cases × 32 interventions passed; ready for frozen six-case full grid |
 
 Earlier native artifacts are also present: passed original-ApET smoke, MMStar
 24 and its separately rescored v2 exports, MMStar 1,500, GQA pilot, GQA development

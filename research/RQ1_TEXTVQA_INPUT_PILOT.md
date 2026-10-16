@@ -4,10 +4,12 @@ Use the existing locked original-ApET environment and **unchanged
 `rq1-inputs-v1.zip`**. This adds project measurement support, not a compression
 variant. Native ApET/LLaVA files and environment definitions are unchanged.
 
-**Current step after the first failed audit:** push/pull the correction, run the
-prerequisite tests, then run **only audit v2** and send its ZIP/log. Keep
-calibration and the full sweep off until that audit is reviewed. See the
-[failure analysis](notes/2026-10-16-rq1-textvqa-audit-fix.md).
+**Current step:** [audit v2 passed all six cases](notes/2026-10-16-rq1-textvqa-audit-v2-review.md).
+[The two-question calibration also passed](notes/2026-10-16-rq1-textvqa-calibration-review.md).
+Proceed to the six-question full sweep below. A twelve-case MMStar follow-up
+using the same code is described in that review.
+No additional inference-code update is needed in the current live notebook.
+The [first failed audit](notes/2026-10-16-rq1-textvqa-audit-fix.md) remains archived.
 
 ## Frozen diagnostic cases
 
@@ -55,7 +57,7 @@ for test in [
 
 No package installation, kernel restart, new input upload or previous baseline
 rerun is needed in that live session. The following cells give the audit and
-later calibration sequence; run only the audit for the current retry.
+later calibration sequence; the current live session has completed the audit.
 They intentionally load/release the model once per subprocess; weights and the
 environment remain cached. Do not change code between audit and interventions.
 
