@@ -15,7 +15,7 @@ REPO = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(REPO))
 sys.path.insert(0, str(REPO / "scripts"))
 from rq1_native import (encode_image, max_score_delta, prepare_question, reference_tokens,
-                        replaced, score_embeddings, score_from_logits, zero_patch)
+                        observe_generation_tokens, replaced, score_embeddings, score_from_logits, zero_patch)
 
 
 class NativeTests(unittest.TestCase):
@@ -43,6 +43,24 @@ class NativeTests(unittest.TestCase):
             device = f"cuda:{torch.cuda.device_count()-1}"
             gpu = score_from_logits(logits.to(device), labels)
             self.assertAlmostEqual(gpu["mean_logprob"], actual["mean_logprob"], places=5)
+
+    def test_generation_observer_excludes_dummy_bos_and_preserves_native_output(self):
+        torch = self.torch
+        first, second = torch.zeros(1, 16), torch.zeros(1, 16)
+        first[0, 5], second[0, 2] = 8, 7
+        output = SimpleNamespace(sequences=torch.tensor([[1, 5, 2]]), scores=(first, second))
+        class Model:
+            def generate(self): return output
+        class Tokenizer:
+            def convert_ids_to_tokens(self, ids):
+                return [str(v) for v in ids] if isinstance(ids, list) else str(ids)
+        model, record = Model(), {}
+        with observe_generation_tokens(model, Tokenizer(), record):
+            self.assertIs(model.generate(), output)
+        self.assertEqual(record["generated_token_ids"], [5, 2])
+        self.assertEqual(record["first_step_top10"][0]["token_id"], 5)
+        self.assertAlmostEqual(record["generated_token_logprobs"][0], first[0].log_softmax(-1)[5].item())
+        self.assertNotIn("generate", model.__dict__)
 
     def test_zeroing_preserves_every_other_position_and_noop(self):
         torch = self.torch

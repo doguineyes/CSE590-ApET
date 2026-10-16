@@ -229,9 +229,56 @@ def run_textvqa(args, report, data, loaded):
                       f"{row['response']!r}, score={row['consensus_score']:.2f}", flush=True)
 
 
+def run_target_audit(args, report, data, loaded):
+    """Bounded diagnosis of target formatting; deliberately no token interventions."""
+    from rq1_native import audit_target_forms, encode_image, observe_generation_tokens, replaced
+
+    tokenizer, model, processor = loaded
+    cases = pilot_cases(data, args.questions)
+    report["version"] = "rq1-target-audit-v1"
+    report["protocol"] = {
+        "mode": "Target-format diagnosis only; no interventions or automatic target changes",
+        "candidates": "Manifest literal; first character uppercased with remainder preserved; generated response for diagnosis only",
+        "references": "Raw canonical targets/manifests unchanged. Generated candidates are post-inference diagnostics, not selected gold labels.",
+        "checks": "Record actual generated IDs/logprobs, compare target prefix IDs, repeat teacher-forced scores, compare first-token generation/teacher-forcing values",
+        "context": "Same cached native full 576-token CLIP/projector image values for all target forms",
+        "next_step": "Review the audit before defining a revised scoring policy or running the 12-question intervention pilot",
+    }
+    report["scientific_status"] = "target_alignment_requires_review"
+    current_image, encoded = None, None
+    rows = []
+    (args.output / "target-audit").mkdir()
+    for case in cases:
+        image = save_image(args, data, case)
+        seed = case_seed(case, args.seed)
+        if current_image != case["image_sha256"]:
+            del encoded
+            encoded = encode_image(model, processor, image, seed)
+            current_image = case["image_sha256"]
+        elif encoded["seed"] != seed:
+            raise ValueError("Same-image diagnostic cases have different seeds")
+        generation, generation_tokens = {}, {}
+        cached = lambda *a, **kw: (encoded["projected"].clone(), encoded["mask"].clone())
+        with replaced(model, "encode_images", cached), observe_generation_tokens(model, tokenizer, generation_tokens):
+            generate_native_answer(tokenizer, model, processor, image, case["generation_question"],
+                "baseline", seed=seed, max_new_tokens=16, require_nonempty=False, record=generation)
+        generation["scoring"] = generation_score(data["dataset"], case, generation["response"])
+        row = audit_target_forms(tokenizer, model, case, encoded, generation, generation_tokens)
+        write_json(args.output / "target-audit" / f"{case['question_id']}.json", row)
+        rows.append({"case_id": case["case_id"], "baseline_response": generation["response"],
+                     "variants": row["variants"]})
+        report["target_audit"] = rows
+        report["progress"] = {"completed_questions": len(rows), "expected_questions": len(cases)}
+        write_json(args.output / "report.json", report)
+        for variant in row["variants"]:
+            print(f"{case['case_id']} {variant['name']} {variant['text']!r}: "
+                  f"logp={variant['score']['sum_logprob']:.5f}, "
+                  f"matches_generated_prefix={variant['target_ids_match_generated_prefix']}", flush=True)
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--mode", choices=["interventions", "textvqa"], default="interventions")
+    parser.add_argument("--mode", choices=["interventions", "textvqa", "target-audit"], default="interventions")
     parser.add_argument("--manifest", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True, help="New output directory; adjacent ZIP produced even on failure")
     parser.add_argument("--questions", type=int, default=2)
@@ -274,7 +321,9 @@ def main():
                              "retained_questions": len(data["cases"])}
         copy_evidence(args, report, data)
         loaded = load_model(args, report)
-        if args.mode == "interventions":
+        if args.mode == "target-audit":
+            run_target_audit(args, report, data, loaded)
+        elif args.mode == "interventions":
             run_interventions(args, report, data, loaded)
         else:
             run_textvqa(args, report, data, loaded)

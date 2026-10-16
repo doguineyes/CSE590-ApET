@@ -87,3 +87,6 @@ embedding. Temporarily replaying cached vision/encoding outputs is measurement
 instrumentation, not an upstream method or an ApET variant. It does not validate
 decoder-layer interventions or resume the deferred airplane numerical study.
 The no-op, repeated references and cached/native parity checks gate each question.
+The added target-format audit records actual native generation tokens and compares
+literal/capitalized reference spellings. It diagnoses project measurement alignment;
+it does not edit manifest labels, automatically select a new target, or alter ApET.

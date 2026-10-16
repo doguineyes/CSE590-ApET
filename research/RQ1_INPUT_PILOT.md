@@ -5,6 +5,43 @@ algorithm or a completed RQ1 result. Start with GQA, validate the measurement,
 then expand to MMStar and TextVQA. Decoder-layer interventions come later.
 All accepted datasets, native ApET files and dependency locks are preserved.
 
+**2026-10-16 update:** the first GQA calibration passed execution/numeric controls,
+but its lowercase literal targets differed from the model's capitalized answers.
+Hold the 12-question expansion until the target-format audit below is reviewed.
+This concerns our answer-probability measurement, not native ApET or its environment.
+
+## Current next step: short target-format audit
+
+Push the updated scripts. In the same live Kaggle notebook, add and run this cell
+after `run_experiment` has been defined (it was defined by the calibration cell):
+
+```python
+subprocess.run(["git", "pull", "--ff-only"], cwd=repo, check=True, timeout=120)
+subprocess.run(
+    [str(original_python), "-I", "research/tests/test_rq1_native.py"],
+    cwd=repo, check=True,
+)
+target_audit_dir = run_experiment(
+    "rq1-gqa-target-audit", "gqa/manifest.json",
+    ["--mode", "target-audit", "--questions", "2"],
+)
+```
+
+Keep all larger/optional runs off. No ZIP re-upload, environment reinstall or
+dataset reconstruction is needed in the same live session. The subprocess reloads
+the model from the checkpoint cache. Download the new audit ZIP and log.
+
+For a fresh session, the updated notebook has `RUN_TARGET_AUDIT`: set it `True`,
+set `RUN_CALIBRATION=False`, keep other run flags `False`, and run setup/helper
+definition plus the separate target-audit cell.
+
+The audit records actual generated token IDs/log probabilities, scores the raw
+manifest target and its initial-capital form on the same uncompressed image,
+and checks target-prefix/first-token alignment and reference repeats. A third
+candidate reproduces the generated response for diagnosis **only**. It is not
+adopted as a gold label. No interventions or automatic policy changes occur;
+`passed` means the diagnostic executed, not that target selection is settled.
+
 ## First Kaggle run
 
 1. Push the new source files and
@@ -35,7 +72,7 @@ It is a measurement and runtime check. The native Torch tests require Kaggle;
 the Mac only runs protocol/scoring/input checks. Neither native GPU execution
 nor research findings are claimed by the local implementation checks.
 
-After calibration passes and its results make sense, set `RUN_GQA_PILOT = True`
+After calibration passes, target-format alignment is resolved, and its results make sense, set `RUN_GQA_PILOT = True`
 in a new cell and run its optional GQA cell. It measures **12 questions on six
 images × all 576 patches**. Set `RUN_CALIBRATION = False` if rerunning all cells.
 The fixed pilot contains four loss/control image pairs and two preserved pairs;

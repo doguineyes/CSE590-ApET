@@ -86,6 +86,20 @@ def token_order(image_sha256, seed=590):
     return result
 
 
+def target_audit_candidates(case, generated_response):
+    """Diagnostic spelling comparison, not a new target-selection policy.
+
+    The first two forms depend only on the saved gold label. The generated form
+    is explicitly post-inference and may not become an experimental gold target.
+    """
+    raw = case["canonical_target"]
+    candidates = [("manifest_literal", raw),
+                  ("initial_capital", raw[:1].upper() + raw[1:]),
+                  ("generated_diagnostic_only", generated_response.strip())]
+    return [{"name": name, "text": text, "post_inference": name == "generated_diagnostic_only"}
+            for name, text in candidates if text]
+
+
 def average_ranks(values):
     order = sorted(range(len(values)), key=values.__getitem__)
     ranks = [0.0] * len(values)

@@ -12,6 +12,7 @@ import time
 
 from original_diagnostics import observe_native_values, validate_diagnostics
 from smoke_original_apet import configure
+from rq1_protocol import target_audit_candidates
 
 
 @contextmanager
@@ -80,6 +81,82 @@ def max_score_delta(first, second):
     if len(first["token_logprobs"]) != len(second["token_logprobs"]):
         raise ValueError("Reference token counts differ")
     return max(abs(x-y) for x, y in zip(first["token_logprobs"], second["token_logprobs"]))
+
+
+@contextmanager
+def observe_generation_tokens(model, tokenizer, record):
+    """Record existing native generation outputs without changing generation."""
+    original = model.generate
+
+    def observed(*args, **kwargs):
+        output = original(*args, **kwargs)
+        count = len(output.scores)
+        if not count:
+            raise RuntimeError("Native generation returned no scored tokens")
+        # GenerationMixin may prefix a dummy BOS when using inputs_embeds.
+        ids = output.sequences[0, -count:].detach().cpu().tolist()
+        logprobs = [float(scores[0].float().log_softmax(-1)[token].item())
+                    for scores, token in zip(output.scores, ids)]
+        values, indices = output.scores[0][0].float().log_softmax(-1).topk(10)
+        record.update({"generated_token_ids": ids,
+                       "generated_token_strings": tokenizer.convert_ids_to_tokens(ids),
+                       "generated_token_logprobs": logprobs,
+                       "first_step_top10": [{"token_id": int(index),
+                           "token_string": tokenizer.convert_ids_to_tokens(int(index)),
+                           "logprob": float(value)}
+                           for index, value in zip(indices.detach().cpu().tolist(), values.detach().cpu().tolist())],
+                       "score_source": "Existing native generate output.scores (processed generation scores)"})
+        return output
+
+    with replaced(model, "generate", observed):
+        yield
+
+
+def audit_target_forms(tokenizer, model, case, encoded, generation, generation_tokens):
+    """Compare literal gold casing/tokenization with the actual generated prefix.
+
+    No perturbations, no automatic target replacement, no manifest edits. This
+    audit checks semantic/format alignment that no-op/numeric controls cannot.
+    """
+    import math
+    import torch
+
+    variants = []
+    generated_ids = generation_tokens["generated_token_ids"]
+    for candidate in target_audit_candidates(case, generation["response"]):
+        diagnostic_case = {**case, "canonical_target": candidate["text"]}
+        prepared = prepare_question(tokenizer, model, diagnostic_case, encoded)
+        with torch.inference_mode():
+            output = model(inputs_embeds=prepared["embeddings"],
+                position_ids=prepared["position_ids"], attention_mask=prepared["attention_mask"],
+                use_cache=False, return_dict=True)
+            score = score_from_logits(output.logits, prepared["labels"])
+            next_logprobs = output.logits[0, prepared["target_start"]-1].float().log_softmax(-1)
+            first_generated_logprob = float(next_logprobs[generated_ids[0]].item())
+            top_value, top_id = next_logprobs.max(0)
+            first_top = {"token_id": int(top_id.item()), "logprob": float(top_value.item()),
+                         "token_string": tokenizer.convert_ids_to_tokens(int(top_id.item()))}
+        del output, next_logprobs
+        repeated = score_embeddings(model, prepared)
+        ids = prepared["target_token_ids"]
+        variants.append({**candidate, "target_token_ids": ids,
+            "target_token_strings": tokenizer.convert_ids_to_tokens(ids), "score": score,
+            "reference_sequence_probability_no_eos": math.exp(score["sum_logprob"]),
+            "reference_repeat_max_delta": max_score_delta(score, repeated),
+            "first_target_matches_first_generated_token": ids[0] == generated_ids[0],
+            "target_ids_match_generated_prefix": ids == generated_ids[:len(ids)],
+            "teacher_forced_first_step_top1": first_top,
+            "first_generated_token_logprob_in_teacher_forcing": first_generated_logprob,
+            "first_generated_token_logprob_delta_vs_generate": abs(first_generated_logprob -
+                generation_tokens["generated_token_logprobs"][0]),
+        })
+    return {"case_id": case["case_id"], "question": case["question"],
+            "canonical_target": case["canonical_target"], "target_rule": case["target_rule"],
+            "image_id": case["image_id"], "seed": encoded["seed"],
+            "clip_sha256": encoded["clip_sha256"], "projected_sha256": encoded["projected_sha256"],
+            "generation": generation, "generation_tokens": generation_tokens, "variants": variants,
+            "note": "Target-format diagnosis only; generated text is not adopted as a reference. "
+                    "Probability uses exact token sequences, excludes EOS, and is not semantic answer probability."}
 
 
 def encode_image(model, processor, image, seed):

@@ -11,10 +11,18 @@ REPO = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(REPO / "scripts"))
 from analyze_rq1_input import quadrant_examples
 from rq1_protocol import (GQA_IDS, REPO, SOURCES, consensus_score, load_manifest,
-    pilot_cases, spearman, textvqa_evaluator, textvqa_summary, token_order)
+    pilot_cases, spearman, target_audit_candidates, textvqa_evaluator, textvqa_summary, token_order)
 
 
 class ProtocolTests(unittest.TestCase):
+    def test_target_audit_does_not_change_gold_or_select_generated_answer(self):
+        case = {"canonical_target": "no"}
+        candidates = target_audit_candidates(case, "Yes")
+        self.assertEqual(case["canonical_target"], "no")
+        self.assertEqual([c["text"] for c in candidates], ["no", "No", "Yes"])
+        self.assertEqual([c["post_inference"] for c in candidates], [False, False, True])
+        self.assertEqual(target_audit_candidates({"canonical_target": "iPhone"}, "")[1]["text"], "IPhone")
+
     def test_spearman_ties_and_constant(self):
         self.assertAlmostEqual(spearman([1, 1, 3, 4], [9, 9, 2, 0]), -1)
         self.assertIsNone(spearman([1, 1, 1], [1, 2, 3]))
