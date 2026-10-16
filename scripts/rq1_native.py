@@ -12,7 +12,8 @@ import time
 
 from original_diagnostics import observe_native_values, validate_diagnostics
 from smoke_original_apet import configure
-from rq1_protocol import VERSION, measurement_target, target_alignment, target_audit_candidates
+from rq1_protocol import (VERSION, TEXTVQA_CONTROL_POLICY, measurement_target,
+                          target_alignment, target_audit_candidates)
 
 
 @contextmanager
@@ -138,10 +139,24 @@ def audit_target_forms(tokenizer, model, case, encoded, generation, generation_t
         del output, next_logprobs
         repeated = score_embeddings(model, prepared)
         ids = prepared["target_token_ids"]
+        full_controls = None
+        if case["case_id"].startswith("textvqa:") and candidate["name"] == "initial_capital":
+            # The intervention metric uses full teacher forcing. Validate that
+            # path independently of incremental cached decoding's later steps.
+            noop_values = zero_patch(prepared["embeddings"], prepared["image_start"])
+            if not torch.equal(noop_values, prepared["embeddings"]):
+                raise RuntimeError("Audit no-op changed input embeddings")
+            noop = score_embeddings(model, prepared, noop_values)
+            del noop_values
+            native = native_parity(model, prepared, encoded)
+            full_controls = {"policy": TEXTVQA_CONTROL_POLICY, "reference": score,
+                "reference_repeat": repeated, "noop": noop, "native_multimodal": native,
+                "max_token_logprob_delta": max(max_score_delta(score, x) for x in (repeated, noop, native))}
         variants.append({**candidate, "target_token_ids": ids,
             "target_token_strings": tokenizer.convert_ids_to_tokens(ids), "score": score,
             "reference_sequence_probability_no_eos": math.exp(score["sum_logprob"]),
             "reference_repeat_max_delta": max_score_delta(score, repeated),
+            "full_forward_controls": full_controls,
             "generated_prefix_score_max_delta": max(abs(a-b) for a, b in zip(
                 score["token_logprobs"], generation_tokens["generated_token_logprobs"][:len(ids)]))
                 if ids == generated_ids[:len(ids)] else None,
@@ -339,8 +354,15 @@ def measure_question(tokenizer, model, case, encoded, order, tolerance, progress
         generated_scores = generation_tokens["generated_token_logprobs"][:len(prepared["target_token_ids"])]
         controls["generated_prefix_score_max_delta"] = max(abs(a-b) for a, b in
             zip(reference["token_logprobs"], generated_scores))
-        controls["max_pre_token_logprob_delta"] = max(controls["max_pre_token_logprob_delta"],
-                                                       controls["generated_prefix_score_max_delta"])
+        if case["case_id"].startswith("textvqa:"):
+            controls["numeric_policy"] = TEXTVQA_CONTROL_POLICY
+            controls["generated_first_token_score_delta"] = abs(reference["token_logprobs"][0] - generated_scores[0])
+            controls["cached_decode_comparison"] = "All-token gap recorded as diagnostic; full-forward controls and first-token prefill gate the measurement"
+            controls["max_pre_token_logprob_delta"] = max(controls["max_pre_token_logprob_delta"],
+                                                          controls["generated_first_token_score_delta"])
+        else:
+            controls["max_pre_token_logprob_delta"] = max(controls["max_pre_token_logprob_delta"],
+                                                          controls["generated_prefix_score_max_delta"])
     else:
         controls["generated_prefix_score_max_delta"] = None
     controls["tolerance_per_answer_token"] = tolerance

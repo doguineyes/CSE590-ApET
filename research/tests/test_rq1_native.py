@@ -15,7 +15,8 @@ REPO = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(REPO))
 sys.path.insert(0, str(REPO / "scripts"))
 from rq1_native import (encode_image, max_score_delta, prepare_question, reference_tokens,
-                        observe_generation_tokens, replaced, score_embeddings, score_from_logits, zero_patch)
+                        observe_generation_tokens, replaced, score_embeddings, score_from_logits, zero_patch,
+                        measure_question)
 
 
 class NativeTests(unittest.TestCase):
@@ -196,6 +197,28 @@ class NativeTests(unittest.TestCase):
         self.assertEqual(max_score_delta(first, clone), 0)
         changed = score_embeddings(model, prepared, zero_patch(prepared["embeddings"], 1, 0))
         self.assertEqual(len(changed["token_logprobs"]), 2)
+        # TextVQA's metric uses the full forward. A later cached-decode score
+        # gap must be recorded, while same-forward failures still stop scoring.
+        case = {"case_id": "textvqa:test", "question_id": "test", "image_id": "tiny",
+                "question": "Name?", "canonical_target": "cookery school", "target_rule": "fixed",
+                "predictions": {}, "task_metadata": {}, "outcomes": {}}
+        encoded.update(seed=590, clip_sha256="clip", projected_sha256="projected",
+                       diagnostics={"input": {"errors": list(range(576))}})
+        generation = {"generated_token_ids": [4, 5, 2], "generated_token_logprobs": [
+            first["token_logprobs"][0], first["token_logprobs"][1] + .0055, -1.]}
+        with patch("rq1_native.prepare_question", return_value=prepared), \
+             patch("rq1_native.native_parity", return_value=first):
+            record = measure_question(None, model, case, encoded, [0], .001, lambda r: None,
+                                      generation_tokens=generation, baseline_correct=True)
+            self.assertEqual(record["status"], "passed")
+            self.assertAlmostEqual(record["controls"]["generated_prefix_score_max_delta"], .0055)
+            self.assertEqual(record["controls"]["max_pre_token_logprob_delta"], 0)
+        drifted = {**first, "token_logprobs": [first["token_logprobs"][0] + .0055, first["token_logprobs"][1]]}
+        with patch("rq1_native.prepare_question", return_value=prepared), \
+             patch("rq1_native.native_parity", return_value=drifted), \
+             self.assertRaisesRegex(RuntimeError, "control exceeded tolerance"):
+            measure_question(None, model, case, encoded, [0], .001, lambda r: None,
+                             generation_tokens=generation, baseline_correct=True)
 
 
 if __name__ == "__main__":

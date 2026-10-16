@@ -4,6 +4,11 @@ Use the existing locked original-ApET environment and **unchanged
 `rq1-inputs-v1.zip`**. This adds project measurement support, not a compression
 variant. Native ApET/LLaVA files and environment definitions are unchanged.
 
+**Current step after the first failed audit:** push/pull the correction, run the
+prerequisite tests, then run **only audit v2** and send its ZIP/log. Keep
+calibration and the full sweep off until that audit is reviewed. See the
+[failure analysis](notes/2026-10-16-rq1-textvqa-audit-fix.md).
+
 ## Frozen diagnostic cases
 
 The tracked [selection](protocols/rq1_textvqa_input_v1.json) records identities,
@@ -49,7 +54,8 @@ for test in [
 ```
 
 No package installation, kernel restart, new input upload or previous baseline
-rerun is needed in that live session. Then run the following two cells in order.
+rerun is needed in that live session. The following cells give the audit and
+later calibration sequence; run only the audit for the current retry.
 They intentionally load/release the model once per subprocess; weights and the
 environment remain cached. Do not change code between audit and interventions.
 
@@ -57,7 +63,7 @@ environment remain cached. Do not change code between audit and interventions.
 
 ```python
 textvqa_audit_dir = run_experiment(
-    "rq1-textvqa-target-audit-v1", "textvqa/manifest.json",
+    "rq1-textvqa-target-audit-v2", "textvqa/manifest.json",
     ["--mode", "target-audit", "--questions", "6"],
 )
 ```
@@ -70,8 +76,19 @@ generated form as a target. Every fixed reference must have:
 
 - fresh full consensus credit using all ten annotator answers;
 - token IDs exactly matching the native generated prefix;
-- reference-repeat and **all target-token** generation/teacher-forcing score
-  differences no greater than 0.001 nats per token.
+- full teacher-forcing reference-repeat, clone-only no-op and native multimodal
+  parity differences no greater than 0.001 nats for every target token;
+- first-target-token generation/teacher-forcing agreement within 0.001 nats.
+
+Audit v2 records the **all-token cached-generation gap as a diagnostic**, rather
+than requiring cached decoding and full teacher forcing to agree within that
+tolerance for every later token. This separates execution paths: all intervention
+S/I values use full teacher forcing. The
+[failed first audit](notes/2026-10-16-rq1-textvqa-audit-fix.md) had exact token
+alignment and repeatability but a 0.00550-nat cached/full gap on Cookery school.
+The revised audit adds no-op/native-forward checks without increasing tolerance
+or changing targets. It must be rerun under the final code; the old ZIP is not
+rescored as passed. The audit saves model-scale canvases for inspection too.
 
 A mismatch saves its evidence and stops. Download the failed ZIP/log for review;
 do not increase tolerance, silently swap a target or replace the question.
@@ -101,8 +118,9 @@ not a desired research outcome.
 
 Import [kaggle_rq1_textvqa_input_pilot.ipynb](notebooks/kaggle_rq1_textvqa_input_pilot.ipynb)
 into an editable Kaggle draft. Enable Internet/T4 ×2 and attach the existing v1
-input bundle. Set `RUN_TARGET_AUDIT = True`, `RUN_CALIBRATION = True`, and keep
-`RUN_FULL_PILOT = False`; run cells in order. Default flags are all False to
+input bundle. For the current retry set `RUN_TARGET_AUDIT = True`, keep
+`RUN_CALIBRATION = False` and `RUN_FULL_PILOT = False`, and run cells in order.
+Enable calibration only after audit review. Default flags are all False to
 prevent accidental inference during import. Setup installs the same locked
 environment only when necessary. The notebook captures logs and preserves failed
 run ZIPs. It also supports an existing extracted audit/calibration directory.

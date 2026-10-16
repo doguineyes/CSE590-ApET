@@ -10,7 +10,7 @@ from unittest.mock import patch
 REPO = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(REPO / "scripts"))
 from analyze_rq1_input import quadrant_examples
-from rq1_protocol import (GQA_IDS, REPO, SOURCES, TEXTVQA_SELECTION, consensus_score, load_manifest,
+from rq1_protocol import (GQA_IDS, REPO, SOURCES, TEXTVQA_SELECTION, TEXTVQA_CONTROL_POLICY, consensus_score, load_manifest,
     measurement_target, pilot_cases, spearman, target_alignment, target_audit_candidates,
     textvqa_evaluator, textvqa_summary, token_order, sha256, validate_textvqa_audit)
 
@@ -119,6 +119,7 @@ class ProtocolTests(unittest.TestCase):
                 "llava/eval/m4c_evaluator.py")},
             "target_audit": [{"case_id": c["case_id"], "fixed_reference": {
                 "text": measurement_target(c)["text"], "passed": True, "baseline_full_credit": True,
+                "numeric_policy": TEXTVQA_CONTROL_POLICY,
                 "target_ids_match_generated_prefix": True, "max_score_delta": 0.0}} for c in cases]}
         with tempfile.TemporaryDirectory() as temp, patch("rq1_protocol.pilot_cases", return_value=cases):
             path = Path(temp) / "report.json"
@@ -134,6 +135,7 @@ class ProtocolTests(unittest.TestCase):
             altered = copy.deepcopy(report);altered["target_audit"].pop();bad.append(altered)
             altered = copy.deepcopy(report);altered["evidence_sha256"]["sources/scripts/rq1_native.py"] = "other";bad.append(altered)
             for field, value in [("passed", False), ("baseline_full_credit", False),
+                                 ("numeric_policy", "old-cross-path-comparison"),
                                  ("target_ids_match_generated_prefix", False),
                                  ("max_score_delta", .002), ("max_score_delta", None)]:
                 altered = copy.deepcopy(report)

@@ -79,6 +79,8 @@ class TextVQARunnerTests(unittest.TestCase):
         variant = {"name": "initial_capital", "text": fixed, "post_inference": False,
                    "target_ids_match_generated_prefix": False,
                    "generated_prefix_score_max_delta": None,
+                   "full_forward_controls": {"max_token_logprob_delta": 0.0},
+                   "first_generated_token_logprob_delta_vs_generate": 0.0,
                    "reference_repeat_max_delta": 0.0, "score": {"sum_logprob": -5.0}}
         with tempfile.TemporaryDirectory() as temp:
             args = SimpleNamespace(output=Path(temp), questions=2, seed=590, control_tolerance=.001)
@@ -100,8 +102,37 @@ class TextVQARunnerTests(unittest.TestCase):
             record = json.loads(raw)
             self.assertFalse(record["fixed_reference"]["passed"])
             self.assertEqual(record["fixed_reference"]["text"], fixed)
-            self.assertIsNone(record["fixed_reference"]["max_score_delta"])
+            self.assertEqual(record["fixed_reference"]["max_score_delta"], 0)
             self.assertFalse(report["target_audit"][0]["fixed_reference"]["baseline_full_credit"])
+
+    def test_cached_decode_gap_is_diagnostic_but_full_forward_drift_still_stops(self):
+        data = synthetic_selection_data();case = data["cases"][0]
+        for full_drift, expected_pass in [(0.0, True), (.0055, False)]:
+            with self.subTest(full_drift=full_drift), tempfile.TemporaryDirectory() as temp:
+                args = SimpleNamespace(output=Path(temp), questions=1, seed=590, control_tolerance=.001)
+                report = {}
+                variant = {"name": "initial_capital", "text": "Brolio", "post_inference": False,
+                    "target_ids_match_generated_prefix": True, "generated_prefix_score_max_delta": .0055,
+                    "first_generated_token_logprob_delta_vs_generate": 0.0,
+                    "full_forward_controls": {"max_token_logprob_delta": full_drift},
+                    "score": {"sum_logprob": -.3}}
+                def generate(*args, **kwargs):kwargs["record"].update(response="Brolio")
+                with patch.object(runner, "pilot_cases", return_value=[case]), \
+                     patch.object(runner, "save_image"), \
+                     patch.object(runner, "generate_native_answer", side_effect=generate), \
+                     patch("rq1_native.encode_image", return_value={"seed": runner.case_seed(case, 590), "canvas": None}), \
+                     patch("PIL.Image.fromarray"), \
+                     patch("rq1_native.observe_generation_tokens", return_value=nullcontext()), \
+                     patch("rq1_native.audit_target_forms", return_value={"variants": [variant]}), \
+                     patch("builtins.print"):
+                    if expected_pass:runner.run_target_audit(args, report, data, (None, SimpleNamespace(), None))
+                    else:
+                        with self.assertRaisesRegex(RuntimeError, "reference audit failed"):
+                            runner.run_target_audit(args, report, data, (None, SimpleNamespace(), None))
+                gate = report["target_audit"][0]["fixed_reference"]
+                self.assertEqual(gate["passed"], expected_pass)
+                self.assertEqual(gate["cached_generation_prefix_max_delta_diagnostic"], .0055)
+                self.assertEqual(gate["max_score_delta"], full_drift)
 
 
 if __name__ == "__main__":

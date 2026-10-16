@@ -19,7 +19,7 @@ import zipfile
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from check_original_env import REPO, provenance, validate_runtime, verify_native_reference
-from rq1_protocol import (VERSION, TEXTVQA_SELECTION, consensus_score, load_manifest, pilot_cases, sha256,
+from rq1_protocol import (VERSION, TEXTVQA_SELECTION, TEXTVQA_CONTROL_POLICY, consensus_score, load_manifest, pilot_cases, sha256,
                           measurement_target, spearman, textvqa_evaluator, textvqa_summary,
                           textvqa_selection, token_order, validate_textvqa_audit, write_json)
 from smoke_original_apet import (CONFIGURATIONS, MODEL_ID, MODEL_REVISION, VISION_ID,
@@ -140,6 +140,9 @@ def run_interventions(args, report, data, loaded):
         "noise": "No deterministic numeric-policy change. Values near observed control drift need caution.",
         "timing": "Instrumented single-question scoring; not an inference speed benchmark",
     }
+    if data["dataset"] == "textvqa":
+        report["protocol"].update({"numeric_policy": TEXTVQA_CONTROL_POLICY,
+            "target_alignment": "Exact fixed target IDs must match the correct generated prefix. Full-teacher-forcing repeat/no-op/native/final controls and first-token prefill comparison gate the measurement; later cached-decode score gaps are diagnostics."})
     (args.output / "questions").mkdir()
     (args.output / "features").mkdir()
     encoded = None
@@ -272,6 +275,11 @@ def run_target_audit(args, report, data, loaded):
         "next_step": "Review the audit before defining a revised scoring policy or running the 12-question intervention pilot",
     }
     report["scientific_status"] = "target_alignment_requires_review"
+    if data["dataset"] == "textvqa":
+        report["version"] = "rq1-target-audit-v2"
+        report["protocol"].update({"numeric_policy": TEXTVQA_CONTROL_POLICY,
+            "checks": "Exact target IDs, full-teacher-forcing repeat/no-op/native parity and first-token generation comparison; later cached decoding scores retained as diagnostics",
+            "next_step": "Two-question TextVQA calibration only after the compatible six-case audit passes"})
     current_image, encoded = None, None
     rows = []
     (args.output / "target-audit").mkdir()
@@ -297,15 +305,16 @@ def run_target_audit(args, report, data, loaded):
         fixed = None
         if data["dataset"] == "textvqa":
             variant = next(v for v in row["variants"] if v["name"] == "initial_capital")
-            delta = max(variant["reference_repeat_max_delta"],
-                        variant["generated_prefix_score_max_delta"]
-                        if variant["generated_prefix_score_max_delta"] is not None else float("inf"))
+            delta = max(variant["full_forward_controls"]["max_token_logprob_delta"],
+                        variant["first_generated_token_logprob_delta_vs_generate"])
             # Keep JSON finite when there is a token-prefix mismatch.
             fixed = {"text": measurement_target(case)["text"],
                      "policy": measurement_target(case)["policy"],
+                     "numeric_policy": TEXTVQA_CONTROL_POLICY,
                      "baseline_full_credit": generation["scoring"]["full_credit"],
                      "target_ids_match_generated_prefix": variant["target_ids_match_generated_prefix"],
                      "max_score_delta": delta if math.isfinite(delta) else None,
+                     "cached_generation_prefix_max_delta_diagnostic": variant["generated_prefix_score_max_delta"],
                      "passed": generation["scoring"]["full_credit"]
                          and variant["target_ids_match_generated_prefix"] and delta <= args.control_tolerance}
             row["fixed_reference"] = fixed

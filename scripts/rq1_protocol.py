@@ -26,6 +26,7 @@ GQA_IDS = ["201636988", "201637316", "201713640", "201713599",
            "201428959", "201429017", "201882905", "201883221",
            "201998268", "201998118", "202218593", "202218829"]
 TEXTVQA_SELECTION = REPO / "research/protocols/rq1_textvqa_input_v1.json"
+TEXTVQA_CONTROL_POLICY = "full-teacher-forced-controls-v1"
 
 
 def textvqa_selection(data):
@@ -174,6 +175,7 @@ def validate_textvqa_audit(path, data, tolerance, seed, *, model=None, vision_mo
         gate = entry.get("fixed_reference", {})
         delta = gate.get("max_score_delta", float("inf"))
         if (not gate.get("passed") or gate.get("text") != measurement_target(case)["text"]
+                or gate.get("numeric_policy") != TEXTVQA_CONTROL_POLICY
                 or not gate.get("baseline_full_credit") or not gate.get("target_ids_match_generated_prefix")
                 or not isinstance(delta, (int, float)) or not math.isfinite(delta) or delta > tolerance):
             raise ValueError(f"TextVQA fixed-reference audit did not pass: {case['case_id']}")
