@@ -1,18 +1,18 @@
 # Results archive
 
-Checked **2026-10-16**, including the TextVQA baseline and MMStar full-patch check. Raw artifacts are kept in
+Checked **2026-10-16**, including the TextVQA full pilot and twelve-case MMStar sweep. Raw artifacts are kept in
 `research/results/`, which is ignored by Git. GitHub therefore does not back up
 these result files. Preserve an additional copy of the downloaded exports.
 
 ## Verified local holdings
 
 The [dated inventory](results/archive-inventory-2026-10-16.json) records sizes,
-SHA-256 hashes and report provenance for **44 top-level artifacts**. All **25
+SHA-256 hashes and report provenance for **46 top-level artifacts**. All **26
 ZIPs** passed a full member CRC check. Extracted folders and separately generated
 review galleries are retained alongside the original ZIPs. No predictions,
 measurements, original logs or ZIP contents were changed during this audit.
 
-All eleven current RQ1 runs have both their original ZIP and adjacent `.log`:
+All twelve current RQ1 runs have both their original ZIP and adjacent `.log`:
 
 | Run | Timestamp suffix | Interpretation |
 |---|---|---|
@@ -27,6 +27,13 @@ All eleven current RQ1 runs have both their original ZIP and adjacent `.log`:
 | TextVQA audit v2 (filename label v1) | `20261016T182747377877Z` | All 6 passed; full-forward controls and first-token agreement have zero drift |
 | TextVQA calibration v1 | `20261016T182930625290Z` | 2 cases × 32 interventions passed; ready for frozen six-case full grid |
 | TextVQA input pilot v1 | `20261016T204945039325Z` | 6 cases × 576 interventions passed; all 64 calibration effects repeat exactly |
+| MMStar twelve-case input sweep v2 | `20261016T215926569196Z` | 12 cases × 576 interventions passed; all 1,728 earlier full-grid effects repeat exactly |
+
+The [input-stage synthesis](notes/2026-10-16-rq1-input-stage-summary-and-next-steps.md)
+counts only the canonical GQA12, MMStar12 and TextVQA6 sweeps: 30 questions,
+24 images and 17,280 interventions. Calibration and reproduction effects are not
+counted again. The combined local gallery/CSV/JSON are retained separately in
+`results/rq1-input-stage-summary-2026-10-16/`.
 
 Earlier native artifacts are also present: passed original-ApET smoke, MMStar
 24 and its separately rescored v2 exports, MMStar 1,500, GQA pilot, GQA development

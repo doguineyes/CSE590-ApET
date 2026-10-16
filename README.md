@@ -44,8 +44,10 @@ input-stage pilot is also complete; see the [pilot review](research/notes/2026-1
 The [three-case MMStar calibration](research/notes/2026-10-16-rq1-mmstar-calibration-v2-review.md)
 also passed. The [TextVQA baseline](research/notes/2026-10-16-rq1-textvqa-baseline-review.md)
 is complete. The [three-case MMStar full-patch check](research/notes/2026-10-16-rq1-mmstar-fullpatch-review.md)
-also passed. The [TextVQA intervention pilot](research/RQ1_TEXTVQA_INPUT_PILOT.md)
-is implemented; next is its six-case reference audit and two-question calibration on Kaggle.
+also passed. Full input-stage intervention sweeps are now complete for GQA (12
+questions), MMStar (12) and TextVQA (6): 17,280 measurements across 24 images.
+See the [findings and next steps](research/notes/2026-10-16-rq1-input-stage-summary-and-next-steps.md).
+Next is a small decoder-layer calibration; its instrumentation is still to be implemented.
 
 ## Code layout
 
@@ -88,5 +90,6 @@ The upstream documentation is preserved in [ApET_README.md](ApET_README.md).
 See [implementation scope](research/IMPLEMENTATION_SCOPE.md) for original code,
 compatibility patches, and our experiment/scoring code.
 The extraction covers LLaVA input-stage compression. The separate original-code
-runtime supports studying both input and decoder compression. Next: validate
-the small RQ1 input-stage measurement on Kaggle before expanding it.
+runtime supports studying both input and decoder compression. Project RQ1
+instrumentation currently measures input-stage sensitivity; decoder-layer
+measurement is the next extension.

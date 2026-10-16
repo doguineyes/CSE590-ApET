@@ -15,13 +15,27 @@ baseline also passed. The three-case MMStar full-patch check is now complete;
 the [TextVQA intervention extension](RQ1_TEXTVQA_INPUT_PILOT.md) is now implemented
 and has passed its six-case audit and two-question calibration on Kaggle.
 
-## Current next step: broader MMStar confirmation and cross-dataset review
+## Current next step: small decoder-layer calibration
+
+The [twelve-case MMStar sweep](notes/2026-10-16-rq1-mmstar-twelve-case-review.md)
+has passed all 6,912 interventions, with exact repeats of all earlier three-case
+effects. The [cross-dataset checkpoint](notes/2026-10-16-rq1-input-stage-summary-and-next-steps.md)
+consolidates 30 questions / 24 images / 17,280 interventions. Median signed rho
+is −0.08684 for GQA, +0.00912 for MMStar and −0.02299 for TextVQA. These are
+descriptive curated subsets and singleton-zeroing measurements, not estimates
+of native compression effectiveness.
+
+No large baseline or input-sweep rerun is needed. Next, implement and validate a
+small layer-16 calibration on existing cases across all three datasets. The
+current runner has no decoder-intervention option yet; the checkpoint records
+the proposed boundary, controls and expansion criteria. Earlier commands below
+remain for reproduction.
 
 The [full TextVQA review](notes/2026-10-16-rq1-textvqa-full-pilot-review.md) verifies
 all 3,456 patch interventions. All six E–I correlations are near zero, including
 both loss and preserved cases, and all 64 calibration effects repeat exactly.
-No TextVQA repeat is required. Review the planned twelve-case MMStar extension
-when it returns, then consolidate task-specific findings before decoder-layer work.
+No TextVQA repeat is required. The twelve-case MMStar extension and cross-dataset
+review are also complete; see the checkpoint above before further GPU work.
 
 The [TextVQA calibration review](notes/2026-10-16-rq1-textvqa-calibration-review.md)
 verifies all 64 sampled interventions. It provides ready-to-run cells for six
