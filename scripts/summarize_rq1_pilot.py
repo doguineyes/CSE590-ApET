@@ -128,7 +128,7 @@ def summarize(source, output):
         "negative_question_rho_count": sum(v < 0 for v in values),
         "positive_question_rho_count": sum(v > 0 for v in values),
         "questions": rows, "pairs": pairs,
-        "interpretation": "Descriptive, curated six-image pilot. No independent-token population inference. "
+        "interpretation": "Descriptive, curated input-stage pilot. No independent-token population inference. "
             "Singleton zeroing is not native compression; basis sources are represented separately. "
             "A source absent from direct retained features may still contribute via merging. "
             "Low-E/high-I examples are post-hoc qualitative candidates, not established compression failures. "

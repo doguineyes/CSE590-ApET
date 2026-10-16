@@ -11,17 +11,25 @@ capital (`no` → `No`, `stove` → `Stove`) using a fixed rule before generatio
 Raw annotations stay unchanged. Native ApET, dependencies and the v1 input ZIP
 remain unchanged. The corrected calibration and full 12-question GQA pilot have
 now passed. The MMStar three-question calibration and the 100-question TextVQA
-baseline also passed. Next, measure all 576 patches on the same three MMStar cases.
+baseline also passed. The three-case MMStar full-patch check is now complete;
+next, prepare a bounded TextVQA intervention pilot with reference-alignment controls.
 
-## Current next step: MMStar full-patch check
+## Current next step: prepare TextVQA interventions
 
 The [MMStar calibration review](notes/2026-10-16-rq1-mmstar-calibration-v2-review.md)
 confirms all 96 interventions and option-token/numeric controls passed. The
 [TextVQA baseline review](notes/2026-10-16-rq1-textvqa-baseline-review.md) verifies
 all 200 predictions: mean consensus scores 49.7% baseline / 46.9% input-only,
 and 41/44 full-credit baseline answers preserved. No baseline rerun is needed.
-Run the bounded full-576-patch measurement on the same three MMStar cases to
-check whether their sampled correlations persist:
+The [MMStar full-patch review](notes/2026-10-16-rq1-mmstar-fullpatch-review.md)
+verifies all 1,728 interventions. All 96 repeated calibration effects match
+exactly, but full-grid E–I correlations are near zero (−0.013, +0.024, −0.042).
+No repeat or larger MMStar run is required now. Prepare a small TextVQA subset
+with baseline-correct loss cases and preserved controls, then validate exact
+reference-token alignment before enabling its token interventions. The current
+CLI still deliberately refuses TextVQA intervention mode.
+
+The completed MMStar run used:
 
 ```python
 mmstar_fullpatch_dir = run_experiment(
@@ -30,9 +38,8 @@ mmstar_fullpatch_dir = run_experiment(
 )
 ```
 
-Reuse the current live notebook, environment, inputs and inference code; no pull
-is required. Download its ZIP/log. TextVQA token interventions still need a
-validated target-format policy and a bounded subset with preserved controls.
+Its ZIP/log are archived. Future TextVQA intervention support will require new
+project instrumentation; keep original ApET and the locked environment fixed.
 
 ## MMStar check (completed) and TextVQA execution
 
