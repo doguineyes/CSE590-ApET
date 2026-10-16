@@ -38,6 +38,8 @@ review galleries for GQA, MMStar and TextVQA before freezing the research subset
 Dataset curation is complete for now: GQA has 49 questions, MMStar has 18 primary
 plus 10 qualitative cases, and all 100 prepared TextVQA questions are retained.
 See the [current dataset summary and next RQ1 steps](research/notes/2026-10-15-rq1-dataset-preparation-summary.md).
+The [RQ1 input pilot](research/RQ1_INPUT_PILOT.md) is ready for a small GQA
+measurement check on Kaggle, with optional TextVQA baseline generation.
 
 ## Code layout
 
@@ -80,5 +82,5 @@ The upstream documentation is preserved in [ApET_README.md](ApET_README.md).
 See [implementation scope](research/IMPLEMENTATION_SCOPE.md) for original code,
 compatibility patches, and our experiment/scoring code.
 The extraction covers LLaVA input-stage compression. The separate original-code
-runtime supports studying both input and decoder compression. Next steps are
-TextVQA baseline measurements and a small RQ1 answer-contribution pilot.
+runtime supports studying both input and decoder compression. Next: validate
+the small RQ1 input-stage measurement on Kaggle before expanding it.

@@ -48,6 +48,8 @@ do not silently replace the baseline reference.
 | `scripts/prepare_gqa_rq1_round2.py`, `research/curation/gqa_rq1_round2_assistant_review.json` | Verified human-review import, explicit question-quality screening, recorded assistant visual judgments and a separate reviewed GQA proposal |
 | `scripts/prepare_mmstar_rq1_round2.py`, `research/curation/mmstar_rq1_round2_assistant_review.json` | Small baseline-correct MMStar RQ1 extension with a separate qualitative gain/baseline-failure appendix; reuses the read-only review renderer |
 | `scripts/check_original_env.py`, `bootstrap/`, `environments/original/` | Locked runtime and provenance checks |
+| `scripts/prepare_rq1_pilot.py`, `scripts/rq1_protocol.py` | Hash-verified portable accepted inputs, fixed GQA pilot IDs, token sampling/statistics and native TextVQA scorer access |
+| `scripts/run_rq1_input.py`, `scripts/rq1_native.py`, `scripts/analyze_rq1_input.py` | Project-owned teacher-forced scoring, cached feature replay, shape-preserving singleton zeroing, controls, TextVQA generation screening and plots; native sources remain unchanged |
 | `research/` | Protocols, notebooks, notes, tests and artifacts |
 
 The loader points the vision configuration to the separately pinned local CLIP
@@ -76,3 +78,12 @@ for GQA/MMStar and a pinned TextVQA screening pool. Its manifests are provisiona
 project-owned selections. TextVQA predictions remain unmeasured; human review
 overlays leave original labels and scores intact. Candidate preparation does not
 implement an RQ1 intervention runner or resume numerical debugging.
+
+The separate [RQ1 input pilot](RQ1_INPUT_PILOT.md) now implements a small GQA-first
+measurement run and optional TextVQA generation baseline. It reads E from the
+native compressed input branch on cached full-path CLIP features, then measures
+reference-answer log-probability changes from zeroing a full-context projected
+embedding. Temporarily replaying cached vision/encoding outputs is measurement
+instrumentation, not an upstream method or an ApET variant. It does not validate
+decoder-layer interventions or resume the deferred airplane numerical study.
+The no-op, repeated references and cached/native parity checks gate each question.
