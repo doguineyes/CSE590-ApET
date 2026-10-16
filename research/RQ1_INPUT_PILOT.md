@@ -15,7 +15,13 @@ baseline also passed. The three-case MMStar full-patch check is now complete;
 the [TextVQA intervention extension](RQ1_TEXTVQA_INPUT_PILOT.md) is now implemented
 and has passed its six-case audit and two-question calibration on Kaggle.
 
-## Current next step: TextVQA full pilot and broader MMStar confirmation
+## Current next step: broader MMStar confirmation and cross-dataset review
+
+The [full TextVQA review](notes/2026-10-16-rq1-textvqa-full-pilot-review.md) verifies
+all 3,456 patch interventions. All six E–I correlations are near zero, including
+both loss and preserved cases, and all 64 calibration effects repeat exactly.
+No TextVQA repeat is required. Review the planned twelve-case MMStar extension
+when it returns, then consolidate task-specific findings before decoder-layer work.
 
 The [TextVQA calibration review](notes/2026-10-16-rq1-textvqa-calibration-review.md)
 verifies all 64 sampled interventions. It provides ready-to-run cells for six

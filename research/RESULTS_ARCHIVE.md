@@ -7,12 +7,12 @@ these result files. Preserve an additional copy of the downloaded exports.
 ## Verified local holdings
 
 The [dated inventory](results/archive-inventory-2026-10-16.json) records sizes,
-SHA-256 hashes and report provenance for **42 top-level artifacts**. All **24
+SHA-256 hashes and report provenance for **44 top-level artifacts**. All **25
 ZIPs** passed a full member CRC check. Extracted folders and separately generated
 review galleries are retained alongside the original ZIPs. No predictions,
 measurements, original logs or ZIP contents were changed during this audit.
 
-All ten current RQ1 runs have both their original ZIP and adjacent `.log`:
+All eleven current RQ1 runs have both their original ZIP and adjacent `.log`:
 
 | Run | Timestamp suffix | Interpretation |
 |---|---|---|
@@ -26,6 +26,7 @@ All ten current RQ1 runs have both their original ZIP and adjacent `.log`:
 | TextVQA audit v1 | `20261016T180759434962Z` | Failed after 3/6: cached/full score gap; preserve as failed evidence, no interventions |
 | TextVQA audit v2 (filename label v1) | `20261016T182747377877Z` | All 6 passed; full-forward controls and first-token agreement have zero drift |
 | TextVQA calibration v1 | `20261016T182930625290Z` | 2 cases × 32 interventions passed; ready for frozen six-case full grid |
+| TextVQA input pilot v1 | `20261016T204945039325Z` | 6 cases × 576 interventions passed; all 64 calibration effects repeat exactly |
 
 Earlier native artifacts are also present: passed original-ApET smoke, MMStar
 24 and its separately rescored v2 exports, MMStar 1,500, GQA pilot, GQA development
@@ -36,6 +37,11 @@ are preserved. See the dated notes for scientific validation and limitations;
 CRC checks alone do not establish scientific validity.
 
 ## Gaps and scope limits
+
+- The TextVQA full pilot embeds a newer passed audit report and all six target
+  records from `rq1-textvqa-target-audit-v1-20261016T204856423651Z`. Its standalone
+  ZIP/log have not been received; the key prerequisite evidence is preserved
+  inside the pilot, but its separate console log is not archived locally yet.
 
 - The standalone `rq1-runtime.json` visible in Kaggle has not been located
   locally. Download it if still available. Run ZIPs already retain dependency,

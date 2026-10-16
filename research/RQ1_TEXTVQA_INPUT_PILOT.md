@@ -6,8 +6,10 @@ variant. Native ApET/LLaVA files and environment definitions are unchanged.
 
 **Current step:** [audit v2 passed all six cases](notes/2026-10-16-rq1-textvqa-audit-v2-review.md).
 [The two-question calibration also passed](notes/2026-10-16-rq1-textvqa-calibration-review.md).
-Proceed to the six-question full sweep below. A twelve-case MMStar follow-up
-using the same code is described in that review.
+The [six-question full sweep also passed](notes/2026-10-16-rq1-textvqa-full-pilot-review.md):
+3,456 interventions, zero full-forward drift and exact repeats of calibration.
+No TextVQA rerun is needed. The twelve-case MMStar follow-up remains the next
+planned input-stage confirmation; decoder-layer instrumentation follows review.
 No additional inference-code update is needed in the current live notebook.
 The [first failed audit](notes/2026-10-16-rq1-textvqa-audit-fix.md) remains archived.
 
