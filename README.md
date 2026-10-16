@@ -41,7 +41,8 @@ See the [current dataset summary and next RQ1 steps](research/notes/2026-10-15-r
 The [RQ1 input pilot](research/RQ1_INPUT_PILOT.md) passed its small GQA measurement
 calibration after correcting reference-answer casing. The 12-question GQA
 input-stage pilot is also complete; see the [pilot review](research/notes/2026-10-16-rq1-gqa-input-pilot-v2-review.md).
-Next are the MMStar measurement check and TextVQA baseline.
+The [three-case MMStar calibration](research/notes/2026-10-16-rq1-mmstar-calibration-v2-review.md)
+also passed. Next is the TextVQA baseline.
 
 ## Code layout
 

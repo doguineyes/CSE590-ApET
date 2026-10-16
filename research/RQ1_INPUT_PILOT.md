@@ -10,9 +10,19 @@ measurement. Protocol `rq1-input-zero-v2` now renders GQA labels with an initial
 capital (`no` → `No`, `stove` → `Stove`) using a fixed rule before generation.
 Raw annotations stay unchanged. Native ApET, dependencies and the v1 input ZIP
 remain unchanged. The corrected calibration and full 12-question GQA pilot have
-now passed. Continue with the MMStar measurement check and TextVQA baseline below.
+now passed. The MMStar three-question calibration also passed; continue with the
+TextVQA baseline below.
 
-## Current next step: MMStar check and TextVQA baseline
+## Current next step: TextVQA baseline
+
+The [MMStar calibration review](notes/2026-10-16-rq1-mmstar-calibration-v2-review.md)
+confirms all 96 interventions and option-token/numeric controls passed. Run the
+TextVQA cell below in the same live notebook: 100 retained questions × baseline
+and input-only = 200 generations, with native ten-answer consensus scoring.
+Download its ZIP/log for review. Then a bounded full-576-patch run on the same
+three MMStar cases can check whether their sampled correlations persist.
+
+## MMStar check (completed) and TextVQA execution
 
 The [GQA pilot review](notes/2026-10-16-rq1-gqa-input-pilot-v2-review.md) verifies
 all 6,912 interventions, six paired images and stable controls. Do not rerun or
