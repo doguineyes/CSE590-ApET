@@ -87,10 +87,29 @@ class NativeTests(unittest.TestCase):
 
     def test_boundary_rejects_prompt_retokenization(self):
         torch = self.torch
-        case = {"generation_question": "Q?", "canonical_target": "yes"}
+        case = {"case_id": "gqa:test", "generation_question": "Q?", "canonical_target": "yes"}
         fake = lambda *a, **kw: torch.tensor([1, -200, 7]) if a[0].endswith(":") else torch.tensor([1, -200, 8, 9])
         with patch("llava.mm_utils.tokenizer_image_token", fake), self.assertRaises(ValueError):
             reference_tokens(None, case)
+
+    def test_fixed_measurement_casing_and_explicit_literal_audit(self):
+        torch = self.torch
+        case = {"case_id": "gqa:test", "generation_question": "Q?", "canonical_target": "no"}
+        def tokenize(text, *args, **kwargs):
+            ids = [1, -200, 7]
+            if text.endswith(" No"):
+                ids.append(1939)
+            elif text.endswith(" no"):
+                ids.append(694)
+            return torch.tensor(ids)
+        with patch("llava.mm_utils.tokenizer_image_token", side_effect=tokenize):
+            _, fixed, labels, prefix = reference_tokens(None, case)
+            _, literal, _, _ = reference_tokens(None, case, target_text="no")
+        self.assertEqual(fixed[0, -1].item(), 1939)
+        self.assertEqual(literal[0, -1].item(), 694)
+        self.assertEqual(labels[0, prefix:].tolist(), [1939])
+        self.assertTrue((labels[0, :prefix] == -100).all())
+        self.assertEqual(case["canonical_target"], "no")
 
     def test_error_pass_reuses_full_path_clip_without_mutation(self):
         torch = self.torch

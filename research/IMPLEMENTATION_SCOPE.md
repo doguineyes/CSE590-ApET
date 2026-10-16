@@ -90,3 +90,7 @@ The no-op, repeated references and cached/native parity checks gate each questio
 The added target-format audit records actual native generation tokens and compares
 literal/capitalized reference spellings. It diagnoses project measurement alignment;
 it does not edit manifest labels, automatically select a new target, or alter ApET.
+After the confirmed casing mismatch, measurement v2 uses fixed initial-capital
+GQA target rendering, preserves raw labels and adds generated-prefix/token-score
+alignment controls. This changes our reference-probability measurement only;
+native compression, generation prompts and dependency locks remain unchanged.

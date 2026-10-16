@@ -20,7 +20,7 @@ import zipfile
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from check_original_env import REPO, provenance, validate_runtime, verify_native_reference
 from rq1_protocol import (VERSION, consensus_score, load_manifest, pilot_cases, sha256,
-                          spearman, textvqa_evaluator, textvqa_summary, token_order, write_json)
+                          measurement_target, spearman, textvqa_evaluator, textvqa_summary, token_order, write_json)
 from smoke_original_apet import (CONFIGURATIONS, MODEL_ID, MODEL_REVISION, VISION_ID,
     VISION_REVISION, checkpoint_plan, download, generate_native_answer, load_native_model)
 
@@ -95,13 +95,15 @@ def generation_score(dataset, case, response):
 def run_interventions(args, report, data, loaded):
     from PIL import Image
     import torch
-    from rq1_native import encode_image, measure_question, replaced
+    from rq1_native import encode_image, measure_question, observe_generation_tokens, replaced
 
     tokenizer, model, processor = loaded
     cases = pilot_cases(data, args.questions)
     if len(cases) != args.questions:
         raise ValueError("Requested more cases than the registered pilot")
     report["case_ids"] = [case["case_id"] for case in cases]
+    # Materialize all fixed targets before generating any answer in this run.
+    report["measurement_targets"] = {case["case_id"]: measurement_target(case) for case in cases}
     report["protocol"] = {
         "version": VERSION, "stage": "input", "decoder_layers": [],
         "E": "Native L2 residual in 1024-D pre-projector CLIP patch space; basis=10, epsilon=1e-5, seed from archived image/sample",
@@ -110,7 +112,8 @@ def run_interventions(args, report, data, loaded):
         "S": "Mean teacher-forced canonical reference token log probability, causal shift, no EOS",
         "reference_context": "Uncompressed 576 visual tokens; no decoder pruning; use_cache=False for scoring",
         "perturbation": "Singleton feature zeroing after projector; sequence length/order/position IDs/mask unchanged",
-        "target": "Manifest canonical target fixed before inference; one leading separator space; prompt token prefix checked",
+        "target": "GQA: initial-capital rendering of unchanged manifest label; MMStar: literal option. Fixed before generation, one separator space, no EOS.",
+        "target_alignment": "For correct baselines require fixed target IDs to match generated prefix; compare teacher-forced/generated target logprobs within control tolerance. Never retarget wrong baselines.",
         "selection": "Outcome-enriched reviewed mechanism subset; not population sampling or proof of visual grounding",
         "sampling": "Uniform seeded permutation of all 576 indices, nested prefix; identical across same-image questions",
         "tokens_measured_per_question": args.tokens, "seed": args.seed,
@@ -147,10 +150,10 @@ def run_interventions(args, report, data, loaded):
             })
         elif encoded["seed"] != seed:
             raise ValueError("Same-image questions have different compression seeds")
-        free_generation = {}
+        free_generation, generation_tokens = {}, {}
         # Normal native generation through the same cached full image embeddings.
         cached = lambda *a, **kw: (encoded["projected"].clone(), encoded["mask"].clone())
-        with replaced(model, "encode_images", cached):
+        with replaced(model, "encode_images", cached), observe_generation_tokens(model, tokenizer, generation_tokens):
             generate_native_answer(tokenizer, model, processor, image, case["generation_question"],
                 "baseline", seed=seed, max_new_tokens=16, require_nonempty=False, record=free_generation)
         free_generation["scoring"] = generation_score(data["dataset"], case, free_generation["response"])
@@ -166,7 +169,8 @@ def run_interventions(args, report, data, loaded):
             if count % 64 == 0 or count == args.tokens:
                 print(f"{case['case_id']}: {count}/{args.tokens} interventions; status={record['status']}", flush=True)
 
-        record = measure_question(tokenizer, model, case, encoded, order, args.control_tolerance, progress)
+        record = measure_question(tokenizer, model, case, encoded, order, args.control_tolerance, progress,
+            generation_tokens=generation_tokens, baseline_correct=free_generation["scoring"]["correct"])
         rho = spearman([row["reconstruction_error"] for row in record["tokens"]],
                        [row["intervention_score"] for row in record["tokens"]])
         summaries.append({"case_id": case["case_id"], "image_id": case["image_id"],

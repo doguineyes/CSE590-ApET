@@ -5,7 +5,7 @@ from pathlib import Path
 import shutil
 import zipfile
 
-from rq1_protocol import GQA_IDS, REPO, SOURCES, VERSION, load_manifest, sha256, write_json
+from rq1_protocol import GQA_IDS, REPO, SOURCES, INPUT_VERSION, load_manifest, sha256, write_json
 
 
 def prepare(results, output):
@@ -28,7 +28,7 @@ def prepare(results, output):
         counts[name] = {"questions": len(data["cases"]), "images": len(data["images"]),
                         "manifest_sha256": sha256(source)}
     write_json(output / "protocol.json", {
-        "version": VERSION, "gqa_pilot_question_ids": GQA_IDS,
+        "version": INPUT_VERSION, "gqa_pilot_question_ids": GQA_IDS,
         "calibration": {"questions": 2, "uniform_sampled_tokens_per_image": 32},
         "pilot": {"questions": 12, "tokens_per_image": 576},
         "inputs": counts, "textvqa": "All 100 retained; baseline/ApET generation only at this stage",

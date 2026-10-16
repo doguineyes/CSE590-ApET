@@ -11,10 +11,47 @@ REPO = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(REPO / "scripts"))
 from analyze_rq1_input import quadrant_examples
 from rq1_protocol import (GQA_IDS, REPO, SOURCES, consensus_score, load_manifest,
-    pilot_cases, spearman, target_audit_candidates, textvqa_evaluator, textvqa_summary, token_order)
+    measurement_target, pilot_cases, spearman, target_alignment, target_audit_candidates,
+    textvqa_evaluator, textvqa_summary, token_order)
 
 
 class ProtocolTests(unittest.TestCase):
+    def test_reference_rendering_is_fixed_and_preserves_annotation(self):
+        for raw, expected in [("no", "No"), ("stove", "Stove"), ("light blue", "Light blue"),
+                              ("2", "2"), ("USA", "USA")]:
+            case = {"case_id": "gqa:test", "canonical_target": raw}
+            self.assertEqual(measurement_target(case)["text"], expected)
+            self.assertEqual(case["canonical_target"], raw)
+        self.assertEqual(measurement_target({"case_id": "mmstar:1", "canonical_target": "A"})["text"], "A")
+        with self.assertRaises(ValueError):
+            measurement_target({"case_id": "textvqa:1", "canonical_target": "some sign"})
+
+    def test_alignment_gate_rejects_correct_answer_format_mismatch_not_wrong_gold(self):
+        self.assertFalse(target_alignment([694], [1939, 2], True)["passed"])
+        self.assertTrue(target_alignment([1939], [1939, 2], True)["passed"])
+        wrong_baseline = target_alignment([1939], [3869, 2], False)
+        self.assertTrue(wrong_baseline["passed"])
+        self.assertFalse(wrong_baseline["target_matches_generated_prefix"])
+        with self.assertRaises(ValueError):
+            target_alignment([], [2], True)
+
+    def test_saved_audit_resolves_the_two_real_calibration_targets(self):
+        import zipfile
+        path = REPO / "research/results/rq1-gqa-target-audit-20261016T140244407717Z.zip"
+        if not path.exists():
+            self.skipTest("Private Kaggle audit result is not present")
+        with zipfile.ZipFile(path) as archive:
+            for qid in ["201636988", "201637316"]:
+                row = json.loads(archive.read(f"target-audit/{qid}.json"))
+                variants = {v["name"]: v for v in row["variants"]}
+                target = measurement_target(row)
+                self.assertEqual(target["text"], variants["initial_capital"]["text"])
+                self.assertTrue(target_alignment(variants["initial_capital"]["target_token_ids"],
+                    row["generation_tokens"]["generated_token_ids"], True)["passed"])
+                self.assertFalse(target_alignment(variants["manifest_literal"]["target_token_ids"],
+                    row["generation_tokens"]["generated_token_ids"], True)["passed"])
+                self.assertEqual(variants["initial_capital"]["reference_repeat_max_delta"], 0)
+
     def test_target_audit_does_not_change_gold_or_select_generated_answer(self):
         case = {"canonical_target": "no"}
         candidates = target_audit_candidates(case, "Yes")

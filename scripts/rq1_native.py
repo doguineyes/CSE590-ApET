@@ -12,7 +12,7 @@ import time
 
 from original_diagnostics import observe_native_values, validate_diagnostics
 from smoke_original_apet import configure
-from rq1_protocol import target_audit_candidates
+from rq1_protocol import VERSION, measurement_target, target_alignment, target_audit_candidates
 
 
 @contextmanager
@@ -124,8 +124,7 @@ def audit_target_forms(tokenizer, model, case, encoded, generation, generation_t
     variants = []
     generated_ids = generation_tokens["generated_token_ids"]
     for candidate in target_audit_candidates(case, generation["response"]):
-        diagnostic_case = {**case, "canonical_target": candidate["text"]}
-        prepared = prepare_question(tokenizer, model, diagnostic_case, encoded)
+        prepared = prepare_question(tokenizer, model, case, encoded, target_text=candidate["text"])
         with torch.inference_mode():
             output = model(inputs_embeds=prepared["embeddings"],
                 position_ids=prepared["position_ids"], attention_mask=prepared["attention_mask"],
@@ -218,7 +217,7 @@ def encode_image(model, processor, image, seed):
             "canvas": (canvas.permute(1, 2, 0) * 255).round().byte().numpy()}
 
 
-def reference_tokens(tokenizer, case):
+def reference_tokens(tokenizer, case, target_text=None):
     import torch
     from llava.constants import DEFAULT_IMAGE_TOKEN, IMAGE_TOKEN_INDEX
     from llava.conversation import conv_templates
@@ -231,7 +230,8 @@ def reference_tokens(tokenizer, case):
     if case.get("archived_prompt") and prompt != case["archived_prompt"]:
         raise ValueError("Prompt differs from archived baseline")
     prefix = tokenizer_image_token(prompt, tokenizer, IMAGE_TOKEN_INDEX, return_tensors="pt")
-    full = tokenizer_image_token(prompt + " " + case["canonical_target"], tokenizer,
+    target_text = measurement_target(case)["text"] if target_text is None else target_text
+    full = tokenizer_image_token(prompt + " " + target_text, tokenizer,
                                  IMAGE_TOKEN_INDEX, return_tensors="pt")
     if full.numel() <= prefix.numel() or not torch.equal(full[:len(prefix)], prefix):
         raise ValueError("Answer tokenization changes prompt prefix; inspect boundary before measurement")
@@ -242,12 +242,12 @@ def reference_tokens(tokenizer, case):
     return prompt, full.unsqueeze(0), labels.unsqueeze(0), len(prefix)
 
 
-def prepare_question(tokenizer, model, case, encoded):
+def prepare_question(tokenizer, model, case, encoded, target_text=None):
     import torch
     from llava.constants import IMAGE_TOKEN_INDEX
 
     configure(model, "baseline")
-    prompt, ids, labels, prefix_length = reference_tokens(tokenizer, case)
+    prompt, ids, labels, prefix_length = reference_tokens(tokenizer, case, target_text=target_text)
     length = ids.shape[1] - 1 + 576
     limit = min(getattr(model.config, "tokenizer_model_max_length", None) or 2048,
                 model.config.max_position_embeddings)
@@ -289,7 +289,8 @@ def native_parity(model, prepared, encoded):
         return score_from_logits(output.logits, prepared["labels"])
 
 
-def measure_question(tokenizer, model, case, encoded, order, tolerance, progress):
+def measure_question(tokenizer, model, case, encoded, order, tolerance, progress,
+                     *, generation_tokens, baseline_correct):
     """Yield progress after controls/each token so interruptions retain expensive work."""
     import torch
     started = time.perf_counter()
@@ -297,6 +298,8 @@ def measure_question(tokenizer, model, case, encoded, order, tolerance, progress
     record = {"case_id": case["case_id"], "question_id": case["question_id"],
               "image_id": case["image_id"], "status": "running", "question": case["question"],
               "prompt": prepared["prompt"], "canonical_target": case["canonical_target"],
+              "measurement_version": VERSION, "measurement_target": measurement_target(case)["text"],
+              "measurement_target_policy": measurement_target(case)["policy"],
               "target_rule": case["target_rule"], "target_token_ids": prepared["target_token_ids"],
               "target_expanded_start": prepared["target_start"], "image_expanded_start": prepared["image_start"],
               "expanded_sequence_length": prepared["embeddings"].shape[1],
@@ -305,6 +308,15 @@ def measure_question(tokenizer, model, case, encoded, order, tolerance, progress
               "clip_sha256": encoded["clip_sha256"], "projected_sha256": encoded["projected_sha256"],
               "token_execution_order": order, "tokens": [], "controls": {},
               "score_definition": "Mean reference answer token log probability, no EOS; I = S_full - S_zero"}
+    alignment = target_alignment(prepared["target_token_ids"],
+                                 generation_tokens["generated_token_ids"], baseline_correct)
+    record["target_alignment"] = alignment
+    record["generation_tokens"] = generation_tokens
+    if not alignment["passed"]:
+        record["status"] = "target_alignment_failed"
+        progress(record)
+        raise RuntimeError("Fixed measurement target differs from a correct generated answer's token prefix. "
+                           "Inspect formatting/target audit before running interventions; do not retarget to predictions.")
     # Stable reference repeats and a clone-only no-op precede expensive interventions.
     reference = score_embeddings(model, prepared)
     controls = record["controls"]
@@ -318,6 +330,14 @@ def measure_question(tokenizer, model, case, encoded, order, tolerance, progress
     controls["native_multimodal"] = native_parity(model, prepared, encoded)
     controls["max_pre_token_logprob_delta"] = max(max_score_delta(reference, controls[key])
         for key in ["reference_repeat", "noop", "native_multimodal"])
+    if alignment["target_matches_generated_prefix"]:
+        generated_scores = generation_tokens["generated_token_logprobs"][:len(prepared["target_token_ids"])]
+        controls["generated_prefix_score_max_delta"] = max(abs(a-b) for a, b in
+            zip(reference["token_logprobs"], generated_scores))
+        controls["max_pre_token_logprob_delta"] = max(controls["max_pre_token_logprob_delta"],
+                                                       controls["generated_prefix_score_max_delta"])
+    else:
+        controls["generated_prefix_score_max_delta"] = None
     controls["tolerance_per_answer_token"] = tolerance
     controls["passed"] = controls["max_pre_token_logprob_delta"] <= tolerance
     progress(record)

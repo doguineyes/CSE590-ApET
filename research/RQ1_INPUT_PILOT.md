@@ -5,12 +5,13 @@ algorithm or a completed RQ1 result. Start with GQA, validate the measurement,
 then expand to MMStar and TextVQA. Decoder-layer interventions come later.
 All accepted datasets, native ApET files and dependency locks are preserved.
 
-**2026-10-16 update:** the first GQA calibration passed execution/numeric controls,
-but its lowercase literal targets differed from the model's capitalized answers.
-Hold the 12-question expansion until the target-format audit below is reviewed.
-This concerns our answer-probability measurement, not native ApET or its environment.
+**2026-10-16 update:** the target audit confirmed a casing mismatch in our
+measurement. Protocol `rq1-input-zero-v2` now renders GQA labels with an initial
+capital (`no` → `No`, `stove` → `Stove`) using a fixed rule before generation.
+Raw annotations stay unchanged. Native ApET, dependencies and the v1 input ZIP
+remain unchanged. Rerun the small calibration before the 12-question expansion.
 
-## Current next step: short target-format audit
+## Current next step: corrected calibration v2
 
 Push the updated scripts. In the same live Kaggle notebook, add and run this cell
 after `run_experiment` has been defined (it was defined by the calibration cell):
@@ -21,26 +22,37 @@ subprocess.run(
     [str(original_python), "-I", "research/tests/test_rq1_native.py"],
     cwd=repo, check=True,
 )
-target_audit_dir = run_experiment(
-    "rq1-gqa-target-audit", "gqa/manifest.json",
-    ["--mode", "target-audit", "--questions", "2"],
+calibration_v2_dir = run_experiment(
+    "rq1-gqa-calibration-v2", "gqa/manifest.json",
+    ["--questions", "2", "--tokens", "32"],
 )
 ```
 
-Keep all larger/optional runs off. No ZIP re-upload, environment reinstall or
-dataset reconstruction is needed in the same live session. The subprocess reloads
-the model from the checkpoint cache. Download the new audit ZIP and log.
+Keep all larger/optional runs off. The existing input bundle, environment and
+checkpoint cache are reusable. The subprocess reloads the model from cache.
+Download the v2 calibration ZIP/log; the old calibration/audit remain intact.
+For a fresh session use `RUN_CALIBRATION=True`, `RUN_TARGET_AUDIT=False`, and keep
+other run flags `False` in the updated notebook.
 
-For a fresh session, the updated notebook has `RUN_TARGET_AUDIT`: set it `True`,
-set `RUN_CALIBRATION=False`, keep other run flags `False`, and run setup/helper
-definition plus the separate target-audit cell.
+The fixed target is derived from the gold label only, not copied from the model's
+answer or chosen per intervention. For baseline-correct questions, target token
+IDs must match the generated answer prefix. On matching prefixes, teacher-forced
+and native generation target log probabilities must agree within the existing
+0.001-nat control tolerance. A mismatch stops before patch interventions. For
+baseline-wrong cases the fixed gold target is retained; it is not replaced with
+the wrong prediction to make the check pass.
 
-The audit records actual generated token IDs/log probabilities, scores the raw
-manifest target and its initial-capital form on the same uncompressed image,
-and checks target-prefix/first-token alignment and reference repeats. A third
-candidate reproduces the generated response for diagnosis **only**. It is not
-adopted as a gold label. No interventions or automatic policy changes occur;
-`passed` means the diagnostic executed, not that target selection is settled.
+V2 changes only the measured reference spelling and adds alignment controls;
+E, full-context features, seed, patch order, zeroing intervention and no-op/repeat
+controls are unchanged. Compare new and old results as different scoring
+protocols, not as an algorithm improvement. The capitalization rule is a fixed
+pilot representation, not full case/synonym marginalization or a semantic-answer
+probability. Other answer-format mismatches need explicit diagnosis.
+
+The optional `--mode target-audit` remains available to compare raw/capitalized
+forms and actual native generated token IDs without interventions. Its third,
+generated-response candidate is explicitly diagnostic and is never adopted as a
+gold label. The completed two-question audit ran successfully in about 18 seconds.
 
 ## First Kaggle run
 
@@ -112,8 +124,11 @@ at explicitly different representations. Later perturbation variants can check
 whether conclusions depend on zeroing. Initial I values are singleton effects
 and do not measure redundancy or interactions between multiple removed patches.
 
-The canonical target comes unchanged from the input manifest, fixed before new
-inference. One separator space is appended after the Vicuna prompt. Tokenization
+The raw canonical label stays unchanged in the input manifest. V2 applies a
+fixed initial-capital rendering to GQA measurement targets and preserves MMStar
+option letters. Rendered targets are materialized for every selected case before
+generation; the model's prediction does not choose them. Both raw and measured
+targets and the policy/version are saved. One separator space is appended after the Vicuna prompt. Tokenization
 must preserve the entire prompt prefix; scoring uses the preceding logit for
 each target token. Only teacher-forced measurement sees the reference. The fresh
 greedy baseline generation prompt contains no answer and is also saved/scored.
@@ -142,7 +157,8 @@ Each result ZIP includes:
   revisions, manifest identity, protocol, controls, runtime and peak memory.
 - `questions/*.json`: raw baseline generation/scoring, exact prompt, fixed target
   token IDs, input/answer positions, reference/no-op/parity scores and perturbed
-  token scores, seed, metadata and archived outcomes. During the loop these are
+  token scores, raw/rendered target, actual generated IDs and alignment checks,
+  measurement version, seed, metadata and archived outcomes. During the loop these are
   checkpointed every 16 tokens; interrupted runs can lose up to 15 token forwards.
 - `features/*.json`: all native reconstruction errors, FPS basis, selection/merge
   diagnostics, feature hashes and processor configuration, grouped by image.

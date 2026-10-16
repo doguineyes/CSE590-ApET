@@ -9,7 +9,9 @@ from pathlib import Path
 import random
 
 REPO = Path(__file__).resolve().parents[1]
-VERSION = "rq1-input-zero-v1"
+VERSION = "rq1-input-zero-v2"
+# Existing portable inputs remain byte-for-byte valid; only measurement changes.
+INPUT_VERSION = "rq1-input-zero-v1"
 SOURCES = {
     "gqa": ("rq1-gqa-reviewed-v1-s591/recommended-manifest.json",
             "07a6d8f449d1b3081f34b9568828712178085c16923dc7a9a72832b90feb5111"),
@@ -98,6 +100,32 @@ def target_audit_candidates(case, generated_response):
                   ("generated_diagnostic_only", generated_response.strip())]
     return [{"name": name, "text": text, "post_inference": name == "generated_diagnostic_only"}
             for name, text in candidates if text]
+
+
+def measurement_target(case):
+    """Fixed reference rendering from annotations only, never from model output."""
+    raw = case["canonical_target"]
+    dataset = case["case_id"].split(":", 1)[0]
+    if dataset == "gqa":
+        return {"text": raw[:1].upper() + raw[1:], "policy": "gqa-initial-capital-v1"}
+    if dataset == "mmstar":
+        return {"text": raw, "policy": "mmstar-literal-option-v1"}
+    raise ValueError("TextVQA interventions need their own reference policy; generation baseline is unchanged")
+
+
+def target_alignment(target_ids, generated_ids, baseline_correct):
+    """Correct generation must reproduce the fixed target prefix before token runs.
+
+    Wrong-baseline cases still measure the fixed gold answer; they must never be
+    retargeted to the generated wrong answer to pass this check.
+    """
+    if not target_ids or not generated_ids:
+        raise ValueError("Missing target or generated tokens for alignment check")
+    matches = target_ids == generated_ids[:len(target_ids)]
+    return {"baseline_scored_correct": bool(baseline_correct),
+            "target_matches_generated_prefix": matches,
+            "passed": matches or not baseline_correct,
+            "note": "Mismatch is expected for some baseline-wrong cases; the gold target is never replaced"}
 
 
 def average_ranks(values):

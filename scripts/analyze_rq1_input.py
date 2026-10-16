@@ -88,7 +88,8 @@ def plot_case(folder, case, errors, exemplars):
     axes[3].set_ylabel("S(full) − S(zero), nats/token")
     axes[3].set_title(f"Per-question Spearman ρ = {case['spearman']:.3f}" if case["spearman"] is not None else "Spearman undefined")
     title = case["question"] if len(case["question"]) < 140 else case["question"][:137] + "..."
-    fig.suptitle(f"{case['case_id']}: {title}\nReference: {case['canonical_target']}; controls: {case['status']}", fontsize=10)
+    target = case.get("measurement_target", case["canonical_target"])
+    fig.suptitle(f"{case['case_id']}: {title}\nMeasured reference: {target}; controls: {case['status']}", fontsize=10)
     destination = folder / "analysis" / case["question_id"]
     fig.savefig(destination.with_suffix(".png"), dpi=150)
     fig.savefig(destination.with_suffix(".pdf"))
@@ -113,6 +114,9 @@ def analyze(folder):
             for index, error in enumerate(errors):
                 measured = lookup.get(index)
                 flat.write(json.dumps({"sample_id": case["case_id"], "image_id": case["image_id"],
+                    "measurement_version": case.get("measurement_version", "rq1-input-zero-v1"),
+                    "canonical_target": case["canonical_target"],
+                    "measurement_target": case.get("measurement_target", case["canonical_target"]),
                     "stage": "input_post_projector", "layer": None, "token_index": index,
                     "reconstruction_error": error, "measured": measured is not None,
                     "intervention_score": measured["intervention_score"] if measured else None,
@@ -124,6 +128,9 @@ def analyze(folder):
             case["spearman"] = rho
             exemplars = quadrant_examples(case["tokens"])
             summary = {"case_id": case["case_id"], "image_id": case["image_id"], "status": case["status"],
+                       "measurement_version": case.get("measurement_version", "rq1-input-zero-v1"),
+                       "measurement_target": case.get("measurement_target", case["canonical_target"]),
+                       "target_alignment": case.get("target_alignment"),
                        "measured_tokens": len(lookup), "spearman": rho, "quadrants": exemplars,
                        "sensitivity_min": min(r["intervention_score"] for r in case["tokens"]),
                        "sensitivity_max": max(r["intervention_score"] for r in case["tokens"]),
@@ -135,7 +142,8 @@ def analyze(folder):
                 f"token {r['token_index']} (E={r['reconstruction_error']:.3g}, I={r['intervention_score']:.3g})" for r in rows) + "</li>"
                 for name, rows in exemplars.get("examples", {}).items())
             sections.append(f"<section><h2>{html.escape(case['case_id'])}: {html.escape(case['question'])}</h2>"
-                f"<p>Reference: {html.escape(case['canonical_target'])}; fresh baseline: "
+                f"<p>Annotation: {html.escape(case['canonical_target'])}; measured reference: "
+                f"{html.escape(case.get('measurement_target', case['canonical_target']))}; fresh baseline: "
                 f"{html.escape(case['free_generation']['response'])}; control status: {html.escape(case['status'])}</p>"
                 f"<a href='{case['question_id']}.pdf'><img src='{case['question_id']}.png' width='100%'></a><ul>{examples}</ul></section>")
     same_image = []
