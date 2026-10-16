@@ -1,0 +1,190 @@
+{
+  "schema": "rq1-assistant-review-v1",
+  "dataset": "mmstar",
+  "reviewer": "Codex assistant",
+  "reviewed_local_date": "2026-10-15",
+  "human_validated": false,
+  "outcome_blinded": false,
+  "method": "Direct inspection of all 18 original-resolution archived images and choices; independent elementary arithmetic where applicable; no inference rerun",
+  "predictions_sha256": "7c0f512f607bfe5649d456ced85a08b40a4b5c8b7a0d36326b1e15fd66f0d731",
+  "first_manifest_sha256": "858f70118e782ecaa221727fa77cde27983fa6009f8b154a7af06a0d80cf3503",
+  "initial_candidate_question_ids": [
+    "1030",
+    "1478",
+    "1188",
+    "1014",
+    "1276",
+    "1281",
+    "776",
+    "845",
+    "180",
+    "246",
+    "272",
+    "527"
+  ],
+  "reserve_selection_note": "Six replacements chosen after initial review to fill perception, literal spatial-relation, common-reasoning and science-diagram coverage. Selection uses baseline correctness, question wording and category gaps; not a blinded or preregistered random sample.",
+  "decisions": {
+    "mmstar:1030": {
+      "status": "keep",
+      "confidence": "high",
+      "notes": "The pentagon angles are x, x+20, x+5, x-5 and x+10 degrees. Their sum is 540, giving x=102 and H=97 degrees, option A. This independently verifies the reference using visible labels and elementary geometry.",
+      "image_id": "cfc97e3f3d80c03b3355259e28e057fb8719bc76fdd919e2f0176d39314ca952",
+      "image_sha256": "cfc97e3f3d80c03b3355259e28e057fb8719bc76fdd919e2f0176d39314ca952",
+      "evidence_type": "geometry_arithmetic",
+      "origin": "initial_candidate"
+    },
+    "mmstar:1478": {
+      "status": "uncertain",
+      "confidence": "high",
+      "notes": "The anatomical cross-section and pointer E are visible, but the pointer endpoint and tissue identity cannot be independently resolved as bone without specialist interpretation. Baseline correctness alone is insufficient to validate this added loss case.",
+      "image_id": "a9da9bcd5261678c6ae41cbe3a0cd3c76d769844531d9f2a58edda228d4acab0",
+      "image_sha256": "a9da9bcd5261678c6ae41cbe3a0cd3c76d769844531d9f2a58edda228d4acab0",
+      "evidence_type": "specialist_label_uncertain",
+      "origin": "initial_candidate"
+    },
+    "mmstar:1188": {
+      "status": "keep",
+      "confidence": "high",
+      "notes": "All three plots show 0-5 as the first/lowest age bin on the horizontal axis, matching option C. The labels are readable at original resolution; they may become very small at the model input resolution. No clinical interpretation of the plotted measurements is needed.",
+      "image_id": "0d823aee4d33f51aa02761e62f9a171211570d6cb1479976208c9d121eba574f",
+      "image_sha256": "0d823aee4d33f51aa02761e62f9a171211570d6cb1479976208c9d121eba574f",
+      "evidence_type": "axis_label_reading",
+      "origin": "initial_candidate"
+    },
+    "mmstar:1014": {
+      "status": "keep",
+      "confidence": "high",
+      "notes": "The chart has two bars at 8 and 6. Neither is strictly smaller than 6, so the count is 0, option A. The strict inequality and bar heights can be checked directly.",
+      "image_id": "97adca4873aef59ec2f5e9707dca71e80b775bac48141c48984828a17dac4d48",
+      "image_sha256": "97adca4873aef59ec2f5e9707dca71e80b775bac48141c48984828a17dac4d48",
+      "evidence_type": "chart_threshold_count",
+      "origin": "initial_candidate"
+    },
+    "mmstar:1276": {
+      "status": "keep",
+      "confidence": "high",
+      "notes": "B labels the mainland region of China, while A is to its north, C is Korea and D is Japan. Option A names label B. This requires map recognition/geographic knowledge plus reading the visible label, not location wording alone.",
+      "image_id": "fd56a69776aa14104213451438192b01462ddb8d56182963a82962d8a5474087",
+      "image_sha256": "fd56a69776aa14104213451438192b01462ddb8d56182963a82962d8a5474087",
+      "evidence_type": "map_label_with_knowledge",
+      "origin": "initial_candidate"
+    },
+    "mmstar:1281": {
+      "status": "keep",
+      "confidence": "high",
+      "notes": "The circled flowering-plant stage at lower right is labeled B and visibly contains yellow flowers. Other offered labels point to fruit, a wilted plant or germination. The original answer A names B.",
+      "image_id": "a191869b7c8dd07882591112e043f891768a6da087a4dbfba412bba5b96f06f4",
+      "image_sha256": "a191869b7c8dd07882591112e043f891768a6da087a4dbfba412bba5b96f06f4",
+      "evidence_type": "life_cycle_label",
+      "origin": "initial_candidate"
+    },
+    "mmstar:776": {
+      "status": "keep",
+      "confidence": "high",
+      "notes": "The dark-blue stacked segments are labeled 263, 288 and 317. Maximum minus minimum is 317-263=54, option A; the brighter-blue segments are a distinct series.",
+      "image_id": "a44da075568aa5863ed22d9acfecd4e75d99eda908154890aef369645c98bcd9",
+      "image_sha256": "a44da075568aa5863ed22d9acfecd4e75d99eda908154890aef369645c98bcd9",
+      "evidence_type": "chart_reading_arithmetic",
+      "origin": "initial_candidate"
+    },
+    "mmstar:845": {
+      "status": "ambiguous",
+      "confidence": "high",
+      "notes": "Several blue/dark cars appear on a road. A still image does not uniquely establish whether a particular car is driving or parked/stopped, so options B and D cannot be distinguished confidently.",
+      "image_id": "93c347b74490ddf7a1bdd1b2b3189b5d12f0c35e54ef9e98b2697af53148f806",
+      "image_sha256": "93c347b74490ddf7a1bdd1b2b3189b5d12f0c35e54ef9e98b2697af53148f806",
+      "evidence_type": "unverifiable_motion",
+      "origin": "initial_candidate"
+    },
+    "mmstar:180": {
+      "status": "exclude",
+      "confidence": "high",
+      "notes": "All four options describe a skier and distinguish only boy/girl/man/woman. The case chiefly tests demographic/category specificity rather than the intended visual activity evidence; omit from the added primary set without inferring personal identity.",
+      "image_id": "81e32e01fdbc5c2fa64510d0e56e63051b5fdafff95b51b022d51e54b10879e2",
+      "image_sha256": "81e32e01fdbc5c2fa64510d0e56e63051b5fdafff95b51b022d51e54b10879e2",
+      "evidence_type": "demographic_option_contrast",
+      "origin": "initial_candidate"
+    },
+    "mmstar:246": {
+      "status": "exclude",
+      "confidence": "high",
+      "notes": "This is an art-movement classification task involving a collage. The reviewer has not independently established a uniquely correct historical attribution from visual evidence alone; omit this specialist naming task from the small controlled addition.",
+      "image_id": "aa1aa8922eba8ad749231a13abf20016b7ca546d27a840e67a89266495d82a48",
+      "image_sha256": "aa1aa8922eba8ad749231a13abf20016b7ca546d27a840e67a89266495d82a48",
+      "evidence_type": "specialist_style_attribution",
+      "origin": "initial_candidate"
+    },
+    "mmstar:272": {
+      "status": "ambiguous",
+      "confidence": "high",
+      "notes": "A green soccer field and visible surface clippings do not reliably distinguish artificial turf from natural grass at this resolution. The saved gold C cannot be independently confirmed over D.",
+      "image_id": "e683fdd1dac629c169b818c6c23e4cc331592ae2d0bf363caf445d3ee4d72c5f",
+      "image_sha256": "e683fdd1dac629c169b818c6c23e4cc331592ae2d0bf363caf445d3ee4d72c5f",
+      "evidence_type": "surface_material_ambiguity",
+      "origin": "initial_candidate"
+    },
+    "mmstar:527": {
+      "status": "ambiguous",
+      "confidence": "high",
+      "notes": "Two guitarists stand near each other by large windows in a performance area. Far away on a stage versus next to each other against a wall mixes vague spacing and setting descriptions; D is not uniquely supported.",
+      "image_id": "eed90e045b1ace7607c41ca659e70a77044dc8e7a778340da5c59bf39379a78b",
+      "image_sha256": "eed90e045b1ace7607c41ca659e70a77044dc8e7a778340da5c59bf39379a78b",
+      "evidence_type": "overlapping_spatial_choices",
+      "origin": "initial_candidate"
+    },
+    "mmstar:136": {
+      "status": "keep",
+      "confidence": "high",
+      "notes": "A soccer ball, goal net and pitch are visible with two players. Soccer, option B, is clearly distinguished from tennis, volleyball and basketball.",
+      "image_id": "9790449169bfc27ccb1f93020f1c04506ad96a906d91a78ccd388fd4878639f2",
+      "image_sha256": "9790449169bfc27ccb1f93020f1c04506ad96a906d91a78ccd388fd4878639f2",
+      "evidence_type": "sport_object_recognition",
+      "origin": "targeted_replacement"
+    },
+    "mmstar:234": {
+      "status": "keep",
+      "confidence": "high",
+      "notes": "The foreground person holds a makeup brush to the cheek in front of a round mirror. Option D directly describes this visible activity; the camera, theater and reading alternatives do not.",
+      "image_id": "3bc4702eefde92e2aebe563133b9a6876c587d02e312653bd1e9e19c49ca332b",
+      "image_sha256": "3bc4702eefde92e2aebe563133b9a6876c587d02e312653bd1e9e19c49ca332b",
+      "evidence_type": "activity_caption",
+      "origin": "targeted_replacement"
+    },
+    "mmstar:271": {
+      "status": "ambiguous",
+      "confidence": "high",
+      "notes": "The rightmost baseball jersey appears light gray/silver, with lighting that can make it look white. Since White and Gray are separate choices, saved gold B is not an unambiguous color reference.",
+      "image_id": "e1b35678d9e5f5e4230aa73fc2ab9433e30374b07509f9087e16a42561afbfe4",
+      "image_sha256": "e1b35678d9e5f5e4230aa73fc2ab9433e30374b07509f9087e16a42561afbfe4",
+      "evidence_type": "gray_white_color_ambiguity",
+      "origin": "targeted_replacement"
+    },
+    "mmstar:626": {
+      "status": "keep",
+      "confidence": "high",
+      "notes": "The main person stands visibly to the left of the red-and-blue fire hydrant. Option B is a direct image-coordinate relation; no demographic inference is needed to resolve it.",
+      "image_id": "586c148260bb6520f19e6089cc13eb908c75791775a47aaddaf33d9945be709f",
+      "image_sha256": "586c148260bb6520f19e6089cc13eb908c75791775a47aaddaf33d9945be709f",
+      "evidence_type": "spatial_relation",
+      "origin": "targeted_replacement"
+    },
+    "mmstar:825": {
+      "status": "keep",
+      "confidence": "high",
+      "notes": "The red carpet extends to the very bottom edge of the image, below the shoes. The sign and banner are in the background, so A is clearly the lowest listed object.",
+      "image_id": "d765062f4bc6a2854ee554c3cb0c054bc0268e67ad5984521a6008c760ae38e3",
+      "image_sha256": "d765062f4bc6a2854ee554c3cb0c054bc0268e67ad5984521a6008c760ae38e3",
+      "evidence_type": "image_coordinate_localization",
+      "origin": "targeted_replacement"
+    },
+    "mmstar:1372": {
+      "status": "keep",
+      "confidence": "high",
+      "notes": "Exactly one arrow leaves Sea Coral and reaches Nurse Shark. Under the food-to-consumer direction encoded in the drawing, one listed organism eats coral, option C. This reads the diagram rather than asserting real-world dietary facts.",
+      "image_id": "5ff8bc5cacf7068432a4149e4f2a1541e0be23e37a92316dc0fc35e185ca821a",
+      "image_sha256": "5ff8bc5cacf7068432a4149e4f2a1541e0be23e37a92316dc0fc35e185ca821a",
+      "evidence_type": "diagram_edge_count",
+      "origin": "targeted_replacement"
+    }
+  }
+}

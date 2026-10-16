@@ -9,6 +9,9 @@ The GQA first review now has a [second round and assistant-reviewed recommendati
 The original candidates and human review remain intact; another human review of
 that round is not required.
 
+MMStar also has a [small baseline-correct primary set and qualitative appendix](MMSTAR_RQ1_ROUND2.md)
+following the supplied human review and assistant inspection of a bounded second round.
+
 ## Open and review
 
 The prepared collection is under `research/results/rq1-candidates-v1-s590/`.

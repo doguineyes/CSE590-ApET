@@ -161,7 +161,7 @@ def validated_assistant_review(path, archive, manifest, first_manifest_sha):
     return review
 
 
-def render_decisions(path, title, cases, images, directory, introduction):
+def render_decisions(path, title, cases, images, directory, introduction, extra_links=()):
     """Read-only, offline review result; no new review is requested."""
     import base64
 
@@ -172,6 +172,7 @@ def render_decisions(path, title, cases, images, directory, introduction):
     parts = []
     for image, questions in groups.items():
         meta = images[image]
+        image_label = meta.get("display_id", image)
         data = base64.b64encode((directory / meta["file"]).read_bytes()).decode()
         cards = []
         for case in questions:
@@ -181,26 +182,30 @@ def render_decisions(path, title, cases, images, directory, introduction):
                 f"<td>{case['predictions'][cfg]['correct']}</td></tr>" for cfg in CONFIGURATIONS)
             eligibility = ("<p class='caution'>Set aside by the stricter rubric: " + esc(", ".join(case["policy_flags"])) + "</p>"
                            if case.get("policy_flags") and decision["status"] == "keep" else "")
+            warnings = "".join("<p class='caution'>" + esc(note) + "</p>" for note in case.get("curation_cautions", []))
             control_ids = ", ".join(case.get("same_image_preserved_controls", [])) or "None in recommended selection"
             cards.append(f"<section><p class='small'>{esc(case['question_id'])} · {esc(case['category'])} · "
                 f"input-only: {esc(case['outcomes']['input-only'])}</p><h3>{esc(case['question'])}</h3>"
                 f"<p>Original reference: <b>{esc(case['canonical_target'])}</b></p><p><b>{provenance}: "
                 f"{esc(decision['status'])}</b> · confidence: {esc(decision.get('confidence', 'not recorded'))}</p>"
-                f"<p>{esc(decision['notes'] or 'Kept in the supplied human review; no additional visual validation asserted.')}</p>"
-                f"{eligibility}<p class='small'>Preserved same-image controls (input-only): {esc(control_ids)}</p>"
+                f"<p>{esc(decision['notes'] or ('Human review status: ' + decision['status'] + '. No written reason supplied; no additional visual validation asserted.'))}</p>"
+                f"{eligibility}{warnings}<p class='small'>Preserved same-image controls (input-only): {esc(control_ids)}</p>"
                 f"<table><tr><th>Configuration</th><th>Saved raw answer</th><th>Saved score</th></tr>{predictions}</table></section>")
-        parts.append(f"<article><div class='photo'><img src='data:{meta['mime']};base64,{data}' alt='{esc(image)}'>"
-                     f"<p>{esc(image)} · {meta['size'][0]} × {meta['size'][1]}</p></div><div>{''.join(cards)}</div></article>")
+        parts.append(f"<article><div class='photo'><img src='data:{meta['mime']};base64,{data}' alt='{esc(image_label)}'>"
+                     f"<p>{esc(image_label)} · {meta['size'][0]} × {meta['size'][1]}</p></div><div>{''.join(cards)}</div></article>")
     page = """<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <style>body{margin:0;background:#f5f6f8;color:#17202a;font:16px/1.5 system-ui}header,main{max-width:1280px;margin:auto;padding:24px}
 article{display:grid;grid-template-columns:minmax(260px,40%) 1fr;gap:24px;background:white;border:1px solid #ddd;border-radius:8px;padding:20px;margin:20px 0}
-.photo{position:sticky;top:12px;align-self:start}.photo img{width:100%;max-height:620px;object-fit:contain}h3{font-size:18px}section{border-bottom:1px solid #ddd;padding-bottom:20px;margin-bottom:20px}
+.photo{position:sticky;top:12px;align-self:start}.photo img{width:100%;max-height:620px;object-fit:contain}h3{font-size:18px;white-space:pre-wrap}section{border-bottom:1px solid #ddd;padding-bottom:20px;margin-bottom:20px}
 .small{font-size:13px;color:#536171}.caution{background:#fff1c2;padding:10px}table{width:100%;border-collapse:collapse;font-size:14px}th,td{border:1px solid #ddd;padding:6px;text-align:left;overflow-wrap:anywhere}
 a{color:#174d86}@media(max-width:800px){article{grid-template-columns:1fr}.photo{position:static}header,main{padding:12px}}</style></head><body>"""
     page = page.replace("<head>", "<head><title>" + esc(title) + "</title>")
     page += f"<header><h1>{esc(title)}</h1><p>{esc(introduction)}</p><p>{len(cases)} questions / {len(groups)} images. "
     page += "Assistant judgments are not independent human validation. Labels, prompts and saved scores are unchanged.</p>"
     page += "<p><a href='index.html'>Recommended selection</a> · <a href='review-audit.html'>All review decisions</a> · <a href='review-report.json'>Summary</a> · <a href='recommended-manifest.json'>Manifest</a></p></header>"
+    if extra_links:
+        links = " · ".join(f"<a href='{esc(href, quote=True)}'>{esc(label)}</a>" for href, label in extra_links)
+        page = page.replace("</header>", "<p>" + links + "</p></header>")
     path.write_text(page + "<main>" + "".join(parts) + "</main></body></html>", encoding="utf-8")
 
 
