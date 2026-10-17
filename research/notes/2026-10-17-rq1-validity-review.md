@@ -109,6 +109,89 @@ on intervention choice and that several baseline-correct MMStar diagrams have
 weak grounding evidence. Neither finding establishes that ApET is ineffective,
 that token zeroing measures ground-truth relevance, or that all chart cases fail.
 
+## Interpretation recorded after discussion
+
+Our operational definition should remain explicit:
+
+\[
+I_i^{(T)} = S(X) - S(T_i(X)),
+\]
+
+where S is the fixed reference-answer mean token log probability without EOS,
+and T specifies the representation, position, replacement and strength. Zeroing,
+halving and neighbor replacement define different counterfactuals. The recorded
+quantity is **answer sensitivity under a specified intervention**. Calling it an
+intrinsic, intervention-independent token importance or ground-truth answer
+contribution would exceed our evidence. This is our project-owned measurement;
+we have not shown that an inspiring paper's exact experimental procedure is wrong.
+
+Keep two findings distinct. **Reproducibility passed** for the recorded cases:
+reference controls and repeated zeroing effects match exactly. **Interpretation
+depends on the intervention**: changes in rankings and signs limit the claim that
+one sensitivity map identifies task-critical evidence under other manipulations.
+This is not evidence that today's results are numerically random. Different
+strengths and the possibility that replacement retains information also mean
+disagreement alone cannot invalidate any one intervention.
+
+Possible explanations to investigate, rather than established causes, include
+unusual states introduced by zeroing, nonlinear responses, overlapping evidence
+across contextualized tokens, and dependence on the chosen answer-score metric.
+A small singleton effect can coexist with a large joint effect. Conversely, a
+large response to an artificial vector change need not establish that a specific
+visible object was essential. A changed reference score need not change the
+generated answer or its semantic correctness. Related methodological limitations
+are discussed in [Zhang and Nanda](https://arxiv.org/abs/2309.16042) and
+[Heimersheim and Nanda](https://arxiv.org/abs/2404.15255); those papers do not
+establish the mechanism behind our particular VLM results.
+
+Discussion raised the possibility that consistent effects of token manipulation
+will be difficult to find. We should distinguish **continuity**, **monotonicity**,
+and **consistency across intervention choices**. We have not measured a dense
+strength-response curve or established mathematical discontinuity. Window patch
+211 does show a nonmonotonic sampled zeroing-strength response: I is 0 at the
+unchanged reference, −0.12530 at half strength, and +0.30548 at complete zeroing.
+That observation is specific to this patch/question/score. It does not establish
+that every token has such behavior or that no useful regularity can be found.
+The useful reporting goal is to identify conditions with stable, weak, or reversed
+effects, preserving counterexamples and the scope of each observation.
+
+## Connection to selection, merging and FPS bases
+
+The same issue matters for the later selection/merging study. Native ApET changes
+many representations together, replaces selected slots with FPS basis features,
+merges contributions from other sources, and shortens the sequence. Singleton
+zeroing holds the other input states, token count and positions fixed. We cannot
+predict the combined native effect by simply adding singleton I values.
+
+A source absent from direct retention can still contribute through merging or
+as a basis feature. A retained slot may contain a replacement basis source, so
+slot IDs and original source IDs must remain distinguishable. Choosing different
+FPS bases can also change E, selection and merge assignments together. Any basis
+comparison must record these coupled changes rather than attribute the result
+to a basis choice in isolation. Low E–I correlation by itself does not identify
+whether selection, basis handling, merging or the sensitivity proxy caused an
+answer failure.
+
+For future controlled comparisons, record the following before drawing a mechanism
+claim; these are planning commitments, not additional completed experiments:
+
+- Compare merge variants with the same source features, basis mapping, selected
+  indices and total output budget, documenting any unavoidable difference.
+- For a selection or basis variant, fix the other algorithm settings and report
+  the resulting changes in selected sources, replacement slots and merge targets.
+  Match total output budgets; changing basis count also changes the allocation
+  between direct retained targets and basis slots.
+- Preserve raw answers, correctness/preservation, fixed-reference scores, seeds,
+  per-question and same-image outcomes, and native feature/selection/merge records.
+  Report gains, losses and weak/reversed effects rather than only favorable cases.
+- Keep exploratory diagnostic cases and later broader or reserved-set confirmation
+  distinct. Do not choose a new I definition because it correlates better with E.
+
+The project can contribute evidence about where reconstruction-based compression
+and answer sensitivity align or diverge, including the limits of the measurement.
+We do not need to demonstrate one universally smooth or monotonic token-importance
+law, or conclude that compression/intervention research is generally unreliable.
+
 ## Next action
 
 Proceed with the already implemented **six-question × 32-position input/layer-16

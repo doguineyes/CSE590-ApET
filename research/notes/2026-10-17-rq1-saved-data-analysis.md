@@ -225,3 +225,10 @@ still require the first Kaggle execution. No validation result is claimed yet.
 reproduction, image/option concerns on selected MMStar diagrams, intervention-
 dependent rankings, and a locally repaired HTML export. The prior input results
 and this saved-data analysis remain unchanged.
+
+The review also records today's methodological interpretation and its connection
+to later selection/merging/basis comparisons. Repeated measurements agree, while
+the meaning of I depends on the intervention. Singleton scores cannot be assumed
+to predict joint compression effects. Future records should identify conditions
+with stable, weak or reversed effects; the present evidence does not establish
+mathematical discontinuity or a universal failure of token interventions.
