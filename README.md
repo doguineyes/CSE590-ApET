@@ -49,7 +49,9 @@ questions), MMStar (12) and TextVQA (6): 17,280 measurements across 24 images.
 See the [findings and next steps](research/notes/2026-10-16-rq1-input-stage-summary-and-next-steps.md).
 The [saved-data analysis](research/notes/2026-10-17-rq1-saved-data-analysis.md)
 compares reconstruction-error groups and GQA same-image questions without new inference.
-Next is a small decoder-layer calibration; its instrumentation is still to be implemented.
+The [bounded validity checks](research/RQ1_VALIDITY_CHECKS.md) are ready for their
+first Kaggle run: image/option reliance and alternative feature interventions.
+A small decoder-layer calibration follows; its instrumentation is still to be implemented.
 
 ## Code layout
 

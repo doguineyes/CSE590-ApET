@@ -17,6 +17,12 @@ and has passed its six-case audit and two-question calibration on Kaggle.
 
 ## Current next step: small decoder-layer calibration
 
+Before decoder calibration, run the prepared
+[bounded validity diagnostics](RQ1_VALIDITY_CHECKS.md) to check image/option
+reliance and the singleton-zeroing proxy. The new notebook loads the model once
+for both checks, reuses v1 inputs and preserves native code/locks. CPU checks
+pass; its new pretrained/Torch paths still need Kaggle execution validation.
+
 The [2026-10-17 saved-data analysis](notes/2026-10-17-rq1-saved-data-analysis.md)
 has completed error-group distributions, separate FPS basis statistics and all
 six GQA same-image pair comparisons. It uses existing measurements only; no GPU

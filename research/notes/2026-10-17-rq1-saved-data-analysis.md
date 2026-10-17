@@ -211,3 +211,11 @@ The output must be new and outside all original runs. Source ZIPs and extracted
 folders must be present. The tracked
 [analysis plan](../protocols/rq1_saved_analysis_v1.json) pins their identities,
 hashes, grouping, sensitivity checks and illustrative-example selection.
+
+The follow-up [validity diagnostics](../RQ1_VALIDITY_CHECKS.md) are now implemented:
+72 MMStar image/option trials plus six reference repeats, then six fixed
+questions × 32 patches × zero/half/neighbor replacement. One notebook can run
+both parts with one model load and the unchanged v1 input bundle. The tracked
+profile freezes the panel, patch strata and archived E/I before new outcomes.
+Ten CPU protocol/export checks pass; Torch prerequisites and pretrained behavior
+still require the first Kaggle execution. No validation result is claimed yet.
