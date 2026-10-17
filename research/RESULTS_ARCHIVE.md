@@ -67,6 +67,20 @@ CRC checks alone do not establish scientific validity.
   Downloads files have not been inventoried. These are **not located**
   artifacts, not evidence that they were deleted. No source files were removed.
 
+## Derived saved-data analysis (2026-10-17)
+
+The [group/pair analysis note](notes/2026-10-17-rq1-saved-data-analysis.md) records
+the completed CPU-only review of the canonical 30 questions. Derived CSV/JSON,
+source validation summaries and a gallery with unchanged figure copies are in
+`results/rq1-saved-analysis-v1-2026-10-17/`. Its plan pins the three original ZIP
+hashes; those archives and their logs remain unchanged. This directory is a
+derived analysis, not a new GPU run or an additional independent sample, and
+does not increase the top-level raw artifact counts above.
+The later `results/rq1-padding-aware-gallery-v1-2026-10-17/` adds clearer PNG/PDF
+review figures, marker/location CSVs and rendering provenance. It preserves all
+original exports and numerical analysis. Existing derived pages have a banner
+link and an adjacent HTML backup; see the same analysis note for the legend.
+
 ## Workflow for subsequent runs
 
 1. Download the run's `.zip` **and** `.log` from Kaggle before ending its session.

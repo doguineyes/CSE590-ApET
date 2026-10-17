@@ -17,6 +17,13 @@ and has passed its six-case audit and two-question calibration on Kaggle.
 
 ## Current next step: small decoder-layer calibration
 
+The [2026-10-17 saved-data analysis](notes/2026-10-17-rq1-saved-data-analysis.md)
+has completed error-group distributions, separate FPS basis statistics and all
+six GQA same-image pair comparisons. It uses existing measurements only; no GPU
+rerun is needed. Its new script and post-hoc plan preserve the original exports.
+Before broad decoder work, a bounded alternative-perturbation/group check can
+test whether selected observations depend on the singleton-zeroing proxy.
+
 The [twelve-case MMStar sweep](notes/2026-10-16-rq1-mmstar-twelve-case-review.md)
 has passed all 6,912 interventions, with exact repeats of all earlier three-case
 effects. The [cross-dataset checkpoint](notes/2026-10-16-rq1-input-stage-summary-and-next-steps.md)

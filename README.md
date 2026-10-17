@@ -47,6 +47,8 @@ is complete. The [three-case MMStar full-patch check](research/notes/2026-10-16-
 also passed. Full input-stage intervention sweeps are now complete for GQA (12
 questions), MMStar (12) and TextVQA (6): 17,280 measurements across 24 images.
 See the [findings and next steps](research/notes/2026-10-16-rq1-input-stage-summary-and-next-steps.md).
+The [saved-data analysis](research/notes/2026-10-17-rq1-saved-data-analysis.md)
+compares reconstruction-error groups and GQA same-image questions without new inference.
 Next is a small decoder-layer calibration; its instrumentation is still to be implemented.
 
 ## Code layout

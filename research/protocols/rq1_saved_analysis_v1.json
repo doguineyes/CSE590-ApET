@@ -1,0 +1,31 @@
+{
+  "schema": "rq1-saved-analysis-plan-v1",
+  "dated_local": "2026-10-17",
+  "status": "Post-hoc descriptive analysis of previously inspected input-stage pilots; not a preregistered hypothesis test",
+  "stage": "input",
+  "sources": {
+    "gqa": {"run": "rq1-gqa-input-pilot-v2-20261016T143422920388Z", "archive_sha256": "492244e9f7ea0637986989dd49adb23e7efa558eaf3dc77d9ec7ae0669c5000f"},
+    "mmstar": {"run": "rq1-mmstar-twelvecases-v2-20261016T215926569196Z", "archive_sha256": "6263266c03cff9830f5d601c1d85ce0b3a4dfb323cab25a259fdb0b06372c553"},
+    "textvqa": {"run": "rq1-textvqa-input-pilot-v1-20261016T204945039325Z", "archive_sha256": "cf37506d9a3c087e60db409de57feb3691c813b2e3dd2cdc086de0e187ff99ea"}
+  },
+  "grouping": "Primary: three groups by average E rank within the 566 non-basis tokens of each image. Rank <= n/3 is low, <= 2n/3 is middle, otherwise high. Equal E values are never split. FPS basis sources are a separate group. Secondary: repeat with four rank groups as a bin-boundary sensitivity check.",
+  "score": "Primary signed I = S(full) - S(single projected embedding zeroed), in mean reference-answer nats/token. Absolute I is explicitly auxiliary. Group means/medians describe separate singleton effects; neither sums nor means are joint interventions.",
+  "aggregation": "Compute groups and high-minus-low contrasts within each question; summarize question contrasts within dataset. Also average question contrasts per image and report the median over images. No pooled-token p-values or population/dataset-difference claims.",
+  "pairs": "GQA same-image pairs require exact matching CLIP/projected feature hashes, seed, all E values and native roles. Compare signed-I Spearman and overlap of the 57 highest signed-I non-basis patches. Top-set ties use patch index; log their boundary count. Sign disagreement uses both effects exceeding 0.0001 nats/token in magnitude, a descriptive cutoff rather than a measured noise floor.",
+  "mmstar_sensitivity": "Additionally summarize without previously flagged cases 604 (two real choices) and 617 (option-name typo), without discarding their saved measurements.",
+  "visual_examples": [
+    {"case_id": "gqa:202218829", "tokens": [211], "paired_case_id": "gqa:202218593", "reason": "Previously observed low-E/high-positive-I window patch versus same-image paper-towel question; both native input answers preserved"},
+    {"case_id": "gqa:201882905", "tokens": [215], "paired_case_id": "gqa:201883221", "reason": "Previously observed localized television peak despite negative global rho; inspect basis/retention roles"},
+    {"case_id": "mmstar:895", "tokens": [344, 347], "reason": "Previously observed bedroom peaks outside direct-original retention; merging still possible"},
+    {"case_id": "mmstar:136", "tokens": [201, 21], "reason": "Preserved soccer case includes a directly retained peak and a padded-border sensitivity example"},
+    {"case_id": "textvqa:35962", "tokens": [136, 140], "reason": "Cookery school loss with positive-I text-region candidates"},
+    {"case_id": "textvqa:37533", "tokens": [317], "reason": "Brolio loss despite directly retaining its strongest positive-I patch"}
+  ],
+  "limitations": [
+    "Examples are explicitly selected after observing saved E/I; qualitative illustrations are not independent confirmation.",
+    "Question wording, fixed answer, answer-token length and reference confidence vary within GQA pairs.",
+    "A missing directly retained original feature may still contribute through native basis replacement or merging.",
+    "Contextualized CLIP features and artificial zeroing prevent literal pixel-relevance claims, including on padding.",
+    "Calibration and MMStar3 repeats are excluded from canonical counts; no GPU inference is performed."
+  ]
+}
