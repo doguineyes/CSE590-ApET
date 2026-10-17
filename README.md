@@ -55,9 +55,10 @@ rankings depend on the intervention. See the [review](research/notes/2026-10-17-
 The [saved-score reanalysis](research/notes/2026-10-17-rq1-score-reanalysis.md)
 checks first-token scoring, answer pieces, same-image pairs and flagged subsets;
 the broad weak-alignment finding remains, with important TextVQA qualifications.
-The [matched input / layer-16 runner](research/RQ1_LAYER_PILOT.md) is implemented
-for a six-question, 32-position calibration; its pretrained controls await the
-first Kaggle run. It reuses the same inputs and original locked environment.
+The [matched input / layer-16 calibration](research/notes/2026-10-17-rq1-layer16-calibration-review.md)
+passed for six questions and 32 positions at both stages, with zero reference
+control drift. A full 576-position comparison on the same panel is ready.
+It reuses the same inputs and original locked environment.
 
 ## Code layout
 
@@ -102,4 +103,4 @@ compatibility patches, and our experiment/scoring code.
 The extraction covers LLaVA input-stage compression. The separate original-code
 runtime supports studying both input and decoder compression. Project RQ1
 instrumentation measures input-stage sensitivity and now includes a decoder-layer-16
-calibration runner. Layer measurements still require Kaggle execution validation.
+calibration runner, now validated on that bounded Kaggle panel.

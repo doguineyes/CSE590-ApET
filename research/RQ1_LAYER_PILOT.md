@@ -14,9 +14,12 @@ per-answer-token log probabilities permit first/whole scoring summaries later.
 This pilot remains exploratory; successful controls do not by themselves justify
 a full sweep or an intervention-independent claim about layer effects.
 
-**Status:** implementation and CPU checks are available. Tiny native Torch tests
-are Kaggle prerequisites; pretrained layer controls still require their first
-Kaggle run. No successful layer experiment is claimed yet.
+**Status:** the six-question × 32-position calibration passed on T4 ×2, with
+zero full-forward control drift and exact repetition of all 192 archived input
+effects. See the [calibration review](notes/2026-10-17-rq1-layer16-calibration-review.md).
+A bounded full sweep of these same six questions is ready; full-dataset or
+whole-decoder conclusions are not established. The notebook launches the
+isolated child with `-X utf8` to avoid an ASCII-locale summary-export error.
 
 ## First run
 
@@ -26,7 +29,7 @@ Kaggle run. No successful layer experiment is claimed yet.
    [kaggle_rq1_layer16_pilot.ipynb](notebooks/kaggle_rq1_layer16_pilot.ipynb).
    Enable Internet and T4 ×2; attach the **same** private `rq1-inputs-v1` dataset.
    No new input ZIP, previous results ZIP or separate TextVQA audit is needed.
-3. Set `RUN_LAYER_CALIBRATION = True`. Keep `RUN_FULL_LAYER_SWEEP = False` and
+3. For a new calibration, set `RUN_LAYER_CALIBRATION = True`. Keep `RUN_FULL_LAYER_SWEEP = False` and
    `INPUT_ZIP = None` for automatic attached-input detection. Run cells in order.
 4. Download `rq1-layer16-calibration-v1-<timestamp>.zip` and its companion `.log`.
    Review numerical controls and the input-validity results before the full sweep.
@@ -124,7 +127,7 @@ Then run `layer_calibration_dir = run_layer()`; this helper launches the new
 The equivalent shell command, from the repository root, is:
 
 ```bash
-environments/original/.venv/bin/python -I scripts/run_rq1_layer.py \
+environments/original/.venv/bin/python -X utf8 -I scripts/run_rq1_layer.py \
   --inputs /kaggle/working/rq1-inputs-v1 \
   --output /kaggle/working/rq1-layer16-calibration-new \
   --download-budget-gib 20
@@ -142,3 +145,12 @@ full-sweep cell. It uses the same six cases and expands the nested positions to
 the calibration's six-case completion, model/profile/source/lock compatibility.
 It does not infer scientific approval from successful controls; interpretability
 still depends on reviewing the validity checks. No full sweep starts by default.
+
+The first calibration has now been reviewed and the same-panel full sweep is
+reasonable. In that still-live notebook, add `"-X", "utf8"` before `"-I"` in the
+`run_layer` command, rerun only the helper definition, and call
+`run_layer(tokens=576, calibration=layer_calibration_dir)`. The repository notebook
+already includes this launch fix. Measurement source hashes are unchanged, so
+the passed calibration remains valid; no calibration rerun is required. Allow
+roughly 70–90 minutes based on the measured intervention timings. Review the
+full results before expanding depth, cohorts or counterfactuals further.

@@ -83,6 +83,22 @@ link and an adjacent HTML backup; see the same analysis note for the legend.
 
 ## Workflow for subsequent runs
 
+### October 17 additions
+
+The original validity ZIP/log and the newly supplied layer-calibration ZIP/log
+are preserved under their timestamped names. The
+[validity review](notes/2026-10-17-rq1-validity-review.md) and
+[layer-calibration review](notes/2026-10-17-rq1-layer16-calibration-review.md)
+record their hashes and separate derived reviews. In particular,
+`rq1-layer16-calibration-v1-20261017T230335470061Z.zip` and `.log` both match the
+Downloads originals; the ZIP's 78 members pass CRC and all 39 evidence hashes
+and 11 feature-file byte hashes verify. A summary-export encoding error was
+repaired locally without changing the source ZIP or rerunning inference.
+The October 16 inventory counts above remain a dated snapshot, not a claim
+that today's later artifacts were included in those counts.
+
+### Subsequent downloads
+
 1. Download the run's `.zip` **and** `.log` from Kaggle before ending its session.
    Keep the timestamped names. Optionally download the executed notebook and
    standalone runtime report as session context.

@@ -54,6 +54,7 @@ do not silently replace the baseline reference.
 | `scripts/analyze_rq1_validity.py` | CPU verification of archived trial identities, scoring, controls, sensitivity arithmetic and evidence hashes; separate reconstructed UTF-8 HTML/CSV review, with original ZIP/log preserved |
 | `scripts/analyze_rq1_scores.py`, `research/protocols/rq1_score_reanalysis_v1.json` | CPU first-token/whole-answer reanalysis and audits using original archived per-token scores; unchanged singleton counterfactual and cohorts, no inference or IH reproduction |
 | `scripts/run_rq1_layer.py`, `scripts/rq1_layer.py`, `scripts/rq1_layer_native.py`, `research/protocols/rq1_layer16_v1.json` | Matched input / block-16 measurement: original decoder reconstruction on protected copies with compressed output discarded; temporary output hooks for observation, no-op and single-state zeroing; six frozen questions and random positions, no native source/lock changes |
+| `scripts/analyze_rq1_layer.py` | CPU verification and reconstructed layer review from original archives; matched targets/positions, reference controls, historical input repeats, first/whole scores and provenance; no tensor loading or inference |
 | `research/` | Protocols, notebooks, notes, tests and artifacts |
 
 The loader points the vision configuration to the separately pinned local CLIP
