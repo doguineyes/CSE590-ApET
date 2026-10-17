@@ -1,0 +1,31 @@
+{
+  "schema": "rq1-saved-score-reanalysis-v1",
+  "dated_local": "2026-10-17",
+  "status": "Post-hoc descriptive robustness analysis of already inspected input-stage results; not a preregistered hypothesis test",
+  "parent_plan": "research/protocols/rq1_saved_analysis_v1.json",
+  "sources": {
+    "gqa": {"run": "rq1-gqa-input-pilot-v2-20261016T143422920388Z", "archive_sha256": "492244e9f7ea0637986989dd49adb23e7efa558eaf3dc77d9ec7ae0669c5000f", "questions": 12},
+    "mmstar": {"run": "rq1-mmstar-twelvecases-v2-20261016T215926569196Z", "archive_sha256": "6263266c03cff9830f5d601c1d85ce0b3a4dfb323cab25a259fdb0b06372c553", "questions": 12},
+    "textvqa": {"run": "rq1-textvqa-input-pilot-v1-20261016T204945039325Z", "archive_sha256": "cf37506d9a3c087e60db409de57feb3691c813b2e3dd2cdc086de0e187ff99ea", "questions": 6}
+  },
+  "validity_source": {"run": "rq1-validity-all-20261017T204446432120Z", "archive_sha256": "259441e1a772fc370aa07fb51d577da2d37f50d755b55e85b83b395b472b8901"},
+  "metrics": {
+    "whole_log": "Existing signed mean reference-token log probability difference, full minus singleton-zeroed, excluding EOS.",
+    "first_log": "Signed first fixed reference-token log probability difference, full minus singleton-zeroed.",
+    "first_probability": "Signed first fixed reference-token probability difference, exp(full first log p) minus exp(zeroed first log p). Same intervention as before; not Information Horizon."
+  },
+  "checks": [
+    "Verify source ZIP CRC and fixed SHA256, original source/lock/manifest evidence, encoded images and feature-file byte hashes without loading tensor contents.",
+    "Verify question/feature/seed/target identities, prompt and target-position mappings, fresh reference scoring/alignment, complete unique 576-position grids, per-token log probability sums/means, all stored sensitivity arithmetic and full-forward controls.",
+    "Compare per-question E-I ranks on all positions, 566 non-basis positions, and photo-only non-basis positions. FPS basis and padding are labeled, not silently discarded from canonical results.",
+    "Retain the prior tie-aware non-basis error thirds, summarize individual effects within groups, and compare high-minus-low mean effects; these are not joint interventions.",
+    "Compare GQA same-image pairs under each score with identical feature/native hashes. Record target length, subword pieces and baseline confidence as interpretation limits.",
+    "Check one-token score identity and within-question rank invariance of first-log versus first-probability; report any undefined correlations or extra probability ties.",
+    "Retain all 12 MMStar cases. Add labeled sensitivity summaries without five newly flagged grounding cases, two prior question-quality cases, and their union. These post-hoc subsets are not a new accepted cohort or a clean/validated denominator.",
+    "Use only the archived six-question validity panel to describe feature-norm and perturbation-strength associations, with its 16 random, 8 high-I and 8 low-E-high-I positions separated. Do not generalize targeted-stratum associations or infer causation from magnitude correlations."
+  ],
+  "mmstar_grounding_flags": ["mmstar:1014", "mmstar:1030", "mmstar:1188", "mmstar:776", "mmstar:1372"],
+  "mmstar_prior_quality_flags": ["mmstar:604", "mmstar:617"],
+  "aggregation": "Summarize per question within each dataset, and report image counts; no pooled-token p-values or causal task/dataset/layer claims. GQA questions share six images. Canonical counts remain 30 questions / 24 images / 17,280 singleton interventions; validity repeats are not new canonical samples.",
+  "scope": "No new inference, metric replacement, original report rewriting, cohort changes, native-source edits, dependency changes or claim to reproduce IH. IH is optional. The existing zero-only layer calibration remains exploratory; full sweep stays disabled pending review."
+}

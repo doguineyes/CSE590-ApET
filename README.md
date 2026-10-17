@@ -52,6 +52,9 @@ compares reconstruction-error groups and GQA same-image questions without new in
 The [bounded validity checks](research/RQ1_VALIDITY_CHECKS.md) completed on Kaggle:
 several selected MMStar diagrams show option/grounding concerns and sensitivity
 rankings depend on the intervention. See the [review](research/notes/2026-10-17-rq1-validity-review.md).
+The [saved-score reanalysis](research/notes/2026-10-17-rq1-score-reanalysis.md)
+checks first-token scoring, answer pieces, same-image pairs and flagged subsets;
+the broad weak-alignment finding remains, with important TextVQA qualifications.
 The [matched input / layer-16 runner](research/RQ1_LAYER_PILOT.md) is implemented
 for a six-question, 32-position calibration; its pretrained controls await the
 first Kaggle run. It reuses the same inputs and original locked environment.

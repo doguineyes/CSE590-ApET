@@ -232,3 +232,9 @@ the meaning of I depends on the intervention. Singleton scores cannot be assumed
 to predict joint compression effects. Future records should identify conditions
 with stable, weak or reversed effects; the present evidence does not establish
 mathematical discontinuity or a universal failure of token interventions.
+
+The [later saved-score reanalysis](2026-10-17-rq1-score-reanalysis.md) is complete:
+first/whole scores are identical for all single-token targets, and GQA rankings
+almost agree, while some TextVQA cases change materially. The weak E–I association and same-image
+differences persist under the stated checks. Original reports and scores remain
+unchanged; the new review also records subword, confidence and archival limits.

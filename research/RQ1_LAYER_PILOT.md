@@ -7,6 +7,13 @@ Proceed with this small calibration and describe I as stage-specific zeroing
 sensitivity. Keep its existing panel unchanged; the five flagged diagrams are
 not in this layer panel. Review calibration controls before any full sweep.
 
+The [saved-score reanalysis](notes/2026-10-17-rq1-score-reanalysis.md) is now
+complete. The bounded next run uses this existing **zero-only** implementation;
+IH-style retain-one measurements are optional and are not required first. Saved
+per-answer-token log probabilities permit first/whole scoring summaries later.
+This pilot remains exploratory; successful controls do not by themselves justify
+a full sweep or an intervention-independent claim about layer effects.
+
 **Status:** implementation and CPU checks are available. Tiny native Torch tests
 are Kaggle prerequisites; pretrained layer controls still require their first
 Kaggle run. No successful layer experiment is claimed yet.
