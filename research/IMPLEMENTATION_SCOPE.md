@@ -51,6 +51,8 @@ do not silently replace the baseline reference.
 | `scripts/prepare_rq1_pilot.py`, `scripts/rq1_protocol.py`, `research/protocols/rq1_textvqa_input_v1.json` | Hash-verified accepted inputs, frozen GQA/MMStar/TextVQA pilot ordering, TextVQA screening provenance/audit gate, token sampling/statistics and native scorer access |
 | `scripts/run_rq1_input.py`, `scripts/rq1_native.py`, `scripts/analyze_rq1_input.py` | Project-owned teacher-forced scoring, cached feature replay, shape-preserving singleton zeroing, controls, TextVQA generation and gated interventions, and plots; native sources remain unchanged |
 | `scripts/run_rq1_validation.py`, `scripts/rq1_validation.py`, `scripts/rq1_validation_native.py`, `research/protocols/rq1_validation_v1.json` | Bounded case/measurement validation: true text-only and neutral-image MMStar trials, content-preserving option rotations, fixed cross-dataset patches with zero/half/neighbor replacement and numerical controls; no native compression change |
+| `scripts/analyze_rq1_validity.py` | CPU verification of archived trial identities, scoring, controls, sensitivity arithmetic and evidence hashes; separate reconstructed UTF-8 HTML/CSV review, with original ZIP/log preserved |
+| `scripts/run_rq1_layer.py`, `scripts/rq1_layer.py`, `scripts/rq1_layer_native.py`, `research/protocols/rq1_layer16_v1.json` | Matched input / block-16 measurement: original decoder reconstruction on protected copies with compressed output discarded; temporary output hooks for observation, no-op and single-state zeroing; six frozen questions and random positions, no native source/lock changes |
 | `research/` | Protocols, notebooks, notes, tests and artifacts |
 
 The loader points the vision configuration to the separately pinned local CLIP

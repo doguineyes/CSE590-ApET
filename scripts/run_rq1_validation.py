@@ -179,7 +179,7 @@ def write_review(output,report):
                         str(stats['sign_agreement_beyond_1e_minus4'])+'/'+str(stats['sign_comparison_patches'])])
             parts += ['<h3>'+html.escape(entry['case_id'])+'</h3>',table(['Stratum','Method','Patches','Median I','E–I rho','Rho vs zero','Sign agreement above 0.0001'],rows)]
     parts.append('<p>All correlations are descriptive within a question and patch stratum. No pooled-token inference or native-compression accuracy claim.</p>')
-    (output/'index.html').write_text('\n'.join(parts))
+    (output/'index.html').write_text('\n'.join(parts), encoding='utf-8')
 
 
 def main():

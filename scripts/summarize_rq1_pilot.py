@@ -21,7 +21,7 @@ from rq1_protocol import average_ranks, sha256, spearman, write_json
 def write_csv(path, rows):
     if not rows:
         return
-    with path.open("w", newline="") as stream:
+    with path.open("w", newline="", encoding="utf-8") as stream:
         writer = csv.DictWriter(stream, fieldnames=list(rows[0]))
         writer.writeheader()
         writer.writerows(rows)
@@ -142,7 +142,7 @@ def summarize(source, output):
         "<style>body{font:16px system-ui;max-width:1500px;margin:30px auto}section{border-top:1px solid #aaa;padding:20px}</style>"
         "<h1>Saved RQ1 pilot review</h1><p>Role-aware CPU analysis; original results are unchanged. "
         "FPS basis sources are not evidence of discarded low-error information. Padding patches contain contextualized CLIP features, "
-        "so empty pixels do not imply an irrelevant embedding. See summary.json and CSV files.</p>" + "".join(sections))
+        "so empty pixels do not imply an irrelevant embedding. See summary.json and CSV files.</p>" + "".join(sections), encoding="utf-8")
     return summary
 
 

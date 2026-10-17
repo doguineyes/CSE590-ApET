@@ -49,9 +49,12 @@ questions), MMStar (12) and TextVQA (6): 17,280 measurements across 24 images.
 See the [findings and next steps](research/notes/2026-10-16-rq1-input-stage-summary-and-next-steps.md).
 The [saved-data analysis](research/notes/2026-10-17-rq1-saved-data-analysis.md)
 compares reconstruction-error groups and GQA same-image questions without new inference.
-The [bounded validity checks](research/RQ1_VALIDITY_CHECKS.md) are ready for their
-first Kaggle run: image/option reliance and alternative feature interventions.
-A small decoder-layer calibration follows; its instrumentation is still to be implemented.
+The [bounded validity checks](research/RQ1_VALIDITY_CHECKS.md) completed on Kaggle:
+several selected MMStar diagrams show option/grounding concerns and sensitivity
+rankings depend on the intervention. See the [review](research/notes/2026-10-17-rq1-validity-review.md).
+The [matched input / layer-16 runner](research/RQ1_LAYER_PILOT.md) is implemented
+for a six-question, 32-position calibration; its pretrained controls await the
+first Kaggle run. It reuses the same inputs and original locked environment.
 
 ## Code layout
 
@@ -95,5 +98,5 @@ See [implementation scope](research/IMPLEMENTATION_SCOPE.md) for original code,
 compatibility patches, and our experiment/scoring code.
 The extraction covers LLaVA input-stage compression. The separate original-code
 runtime supports studying both input and decoder compression. Project RQ1
-instrumentation currently measures input-stage sensitivity; decoder-layer
-measurement is the next extension.
+instrumentation measures input-stage sensitivity and now includes a decoder-layer-16
+calibration runner. Layer measurements still require Kaggle execution validation.

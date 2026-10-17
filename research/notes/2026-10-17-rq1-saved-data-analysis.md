@@ -219,3 +219,9 @@ both parts with one model load and the unchanged v1 input bundle. The tracked
 profile freezes the panel, patch strata and archived E/I before new outcomes.
 Ten CPU protocol/export checks pass; Torch prerequisites and pretrained behavior
 still require the first Kaggle execution. No validation result is claimed yet.
+
+**Later checkpoint:** the complete validity run returned on 2026-10-17. The
+[separate review](2026-10-17-rq1-validity-review.md) records exact zeroing
+reproduction, image/option concerns on selected MMStar diagrams, intervention-
+dependent rankings, and a locally repaired HTML export. The prior input results
+and this saved-data analysis remain unchanged.

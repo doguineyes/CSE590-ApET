@@ -6,9 +6,11 @@ feature interventions. It is project-owned instrumentation around unchanged
 original ApET/LLaVA. No baseline, native source, dependency lock, accepted input
 manifest or previous result is modified.
 
-**Implementation status:** CPU protocol/export tests pass. Torch replacement and
-tiny native text-only tests are included as Kaggle prerequisites. The new
-pretrained diagnostics still need their first Kaggle run.
+**Execution status:** the complete Kaggle run passed on 2026-10-17. All six
+questions passed numerical controls and reproduced archived zeroing values.
+Selected MMStar diagrams show option/grounding concerns; intervention rankings
+are not consistently preserved. See the [review](notes/2026-10-17-rq1-validity-review.md).
+The HTML export encoding error was repaired locally; no inference rerun is needed.
 
 ## Run in a fresh Kaggle notebook
 
