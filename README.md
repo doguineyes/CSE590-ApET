@@ -67,7 +67,8 @@ states missed by the 32-position sample. These are intervention-specific effects
 not intrinsic token importance or generated-answer accuracy.
 The [input-stage IH extension](research/RQ1_INPUT_IH.md) is prepared for the same
 30-question input panel, with strict reuse of archived E/zero scores and a new
-Kaggle calibration gate. It has not yet been validated with pretrained inference.
+Kaggle calibration gate. Its [six-case pretrained calibration](research/notes/2026-10-18-rq1-input-ih-calibration-review.md)
+passed with exact reference reuse and zero control drift; the full sweep is ready.
 
 ## Code layout
 

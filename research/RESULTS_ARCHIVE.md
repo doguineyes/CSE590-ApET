@@ -129,6 +129,18 @@ This is prepared evidence for a future run, not a new GPU result. The previous
 input bundle and all source results remain preserved. Upload the new bundle
 separately from GitHub; the old bundle alone cannot supply the historical scores.
 
+### October 18 input IH calibration
+
+`rq1-input-ih-calibration-v1-20261018T135403155797Z.zip` and matching `.log`
+are saved and match their Downloads originals. All 121 unique ZIP members pass
+CRC; 95 evidence hashes, 5 fresh feature metadata files and all 192 retention
+scores verify. All 18 zeroing audit repeats and reference reuse are exact;
+retention controls have zero drift. The
+[calibration review](notes/2026-10-18-rq1-input-ih-calibration-review.md) records
+raw hashes, effect sizes, source-gate acceptance and a same-session full-run
+command. Separate derived outputs are in
+`results/rq1-input-ih-calibration-review-v1-2026-10-18/`.
+
 ### Subsequent downloads
 
 1. Download the run's `.zip` **and** `.log` from Kaggle before ending its session.

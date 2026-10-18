@@ -1,5 +1,9 @@
 # RQ1 input-stage IH extension — 2026-10-18
 
+**Later checkpoint:** the [six-case pretrained calibration](2026-10-18-rq1-input-ih-calibration-review.md)
+has passed on Kaggle with exact archived reuse and zero retention-control drift.
+The fixed full sweep is ready; no measurement code fix was needed.
+
 Decision: add source-informed 1×1 retain-one sensitivity wherever the canonical
 input panel already measured native ApET E and zero-one sensitivity. Preserve the
 30-question cohort (GQA12/MMStar12/TextVQA6) and all historical scores. The

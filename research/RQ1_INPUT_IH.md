@@ -1,5 +1,11 @@
 # RQ1: add input-stage 1×1 IH to the existing panel
 
+**Status:** the six-case 32-position pretrained calibration passed on October 18,
+with exact archived reuse and zero retention-control drift. The full 30-case
+sweep is ready. See the [calibration review](notes/2026-10-18-rq1-input-ih-calibration-review.md)
+for results, the same-session command and a provisional 30–45-minute budget.
+Setup instructions below remain for fresh sessions.
+
 This extension adds retain-one sensitivity to **every canonical input-stage
 case already measured**: GQA 12, MMStar 12, TextVQA 6. Existing calibrations and
 smaller sweeps are nested repetitions, not extra cohorts. The six-question
@@ -167,6 +173,7 @@ independent manual decoder oracle, verify original positions and causal target
 scoring, and check hook cleanup/reference recovery. The notebook imports Torch
 explicitly so these native checks cannot silently skip in Kaggle.
 
-The Intel Mac does not have this native runtime. Native tests and pretrained
-calibration must therefore pass on Kaggle before the full run. No new model
-inference has been claimed during implementation.
+The Intel Mac does not have this native runtime. Native tests run on Kaggle;
+pretrained calibration has now passed there. Separate setup-test console output
+is not included in the supplied run log, while the archive preserves the passed
+pretrained controls. No local model inference was used during implementation or review.
