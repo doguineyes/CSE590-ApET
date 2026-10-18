@@ -1,8 +1,11 @@
 # RQ1: bounded zeroing / IH layer comparison
 
-**Implementation ready; new pretrained controls await Kaggle.** Pause the older
-zero-only full sweep. Run the new six-question × 32-position calibration first.
-The passed older calibration remains preserved, but does not validate IH.
+**The new six-question × 32-position calibration passed on Kaggle.** All IH
+reference/no-op/retention repeats have zero drift, and all 384 zeroing effects
+exactly reproduce the earlier calibration. See the
+[results review](notes/2026-10-17-rq1-layer-ih-calibration-review.md).
+The same-panel full comparison is ready; the new report is its prerequisite.
+For future changes to the measurement, calibrate again before expanding.
 
 ## What this comparison answers
 

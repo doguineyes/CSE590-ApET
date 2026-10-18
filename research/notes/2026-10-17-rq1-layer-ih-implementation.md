@@ -6,6 +6,11 @@ calibration and its raw ZIP/log remain unchanged. No conclusion about the new
 IH results is assumed. The new calibration is the next run; the full sweep is
 deferred until it is reviewed.
 
+**Later checkpoint:** the new calibration has now passed. The
+[saved-results review](2026-10-17-rq1-layer-ih-calibration-review.md) records zero
+control drift, 384 exact zeroing repeats and 192 verified IH measurements.
+The statements below describe the earlier implementation/validation boundary.
+
 Implementation and complete run instructions are in
 [RQ1_LAYER_IH_PILOT.md](../RQ1_LAYER_IH_PILOT.md). Use the same frozen panel,
 positions, targets, input dataset, original uv environment and T4 ×2. Existing

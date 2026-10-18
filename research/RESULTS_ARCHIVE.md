@@ -97,6 +97,15 @@ repaired locally without changing the source ZIP or rerunning inference.
 The October 16 inventory counts above remain a dated snapshot, not a claim
 that today's later artifacts were included in those counts.
 
+The later `rq1-layer16-ih-calibration-v1-20261018T002129035074Z.zip` and `.log`
+(October 17 local time) are also preserved and match their Downloads originals.
+Its 92 ZIP members pass CRC, with 49 evidence hashes and 11 feature-file byte
+hashes verified. All 384 zeroing effects reproduce the preceding calibration;
+192 new IH effects and all controls pass. The
+[IH calibration review](notes/2026-10-17-rq1-layer-ih-calibration-review.md)
+records hashes, first-token probabilities, limitations and the separate saved-data
+review. These repetitions do not increase the canonical input-stage sample count.
+
 ### Subsequent downloads
 
 1. Download the run's `.zip` **and** `.log` from Kaggle before ending its session.

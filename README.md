@@ -59,8 +59,9 @@ The [matched input / layer-16 calibration](research/notes/2026-10-17-rq1-layer16
 passed for six questions and 32 positions at both stages, with zero reference
 control drift. A full 576-position comparison on the same panel is ready.
 It reuses the same inputs and original locked environment.
-The [IH comparison extension](research/RQ1_LAYER_IH_PILOT.md) adds a separately
-gated retain-one measurement at layer 16; its new small calibration is next.
+The [IH comparison calibration](research/notes/2026-10-17-rq1-layer-ih-calibration-review.md)
+also passed at layer 16. Its signed rankings differ from zeroing, and tiny sampled
+singleton effects can coexist with a large full-to-none probability change.
 
 ## Code layout
 
