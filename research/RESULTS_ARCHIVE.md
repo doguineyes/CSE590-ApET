@@ -118,6 +118,17 @@ hashes, exact historical repeats and strong singleton effects missed by the
 32-position sample. Derived HTML/CSV and source snapshots are separate in
 `results/rq1-layer16-ih-full-review-v1-2026-10-17/`. Original files remain unchanged.
 
+### October 18 prepared input bundle
+
+`rq1-ih-inputs-v1.zip` (34.1 MiB) is the new portable input/reference bundle for
+the [input IH extension](RQ1_INPUT_IH.md). It adds the verified canonical
+30-case E/zero records to unchanged accepted images/manifests. All 207 members
+pass CRC; reference-index and ZIP hashes are recorded in the
+[implementation note](notes/2026-10-18-rq1-input-ih-implementation.md).
+This is prepared evidence for a future run, not a new GPU result. The previous
+input bundle and all source results remain preserved. Upload the new bundle
+separately from GitHub; the old bundle alone cannot supply the historical scores.
+
 ### Subsequent downloads
 
 1. Download the run's `.zip` **and** `.log` from Kaggle before ending its session.

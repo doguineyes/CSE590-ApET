@@ -65,6 +65,9 @@ verifies all 10,368 measurements. Neither sensitivity measure aligns consistentl
 positively with reconstruction error; the full grid also finds strong retained
 states missed by the 32-position sample. These are intervention-specific effects,
 not intrinsic token importance or generated-answer accuracy.
+The [input-stage IH extension](research/RQ1_INPUT_IH.md) is prepared for the same
+30-question input panel, with strict reuse of archived E/zero scores and a new
+Kaggle calibration gate. It has not yet been validated with pretrained inference.
 
 ## Code layout
 

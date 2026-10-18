@@ -1,5 +1,11 @@
 # RQ1 input-stage pilot
 
+**Current extension:** the [input-stage IH instructions](RQ1_INPUT_IH.md) add
+retain-one measurements to the same completed 30-question input panel, with
+strict reuse of the archived E/zero records. Use the updated input notebook and
+new `rq1-ih-inputs-v1.zip` for that calibration. Historical zeroing instructions
+below are retained; those completed sweeps do not need rerunning now.
+
 This is the first contribution-measurement implementation, not a new compression
 algorithm or a completed RQ1 result. Start with GQA, validate the measurement,
 then expand to MMStar and TextVQA. Decoder-layer interventions come later.
