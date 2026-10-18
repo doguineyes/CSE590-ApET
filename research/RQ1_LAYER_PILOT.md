@@ -8,8 +8,10 @@ sensitivity. Keep its existing panel unchanged; the five flagged diagrams are
 not in this layer panel. Review calibration controls before any full sweep.
 
 The [saved-score reanalysis](notes/2026-10-17-rq1-score-reanalysis.md) is now
-complete. The bounded next run uses this existing **zero-only** implementation;
-IH-style retain-one measurements are optional and are not required first. Saved
+complete. The **zero-only** implementation described below remains unchanged.
+After its passed calibration, the next requested comparison is the separate
+[zeroing / IH extension](RQ1_LAYER_IH_PILOT.md): run its new small calibration
+before deciding on a full run. Saved
 per-answer-token log probabilities permit first/whole scoring summaries later.
 This pilot remains exploratory; successful controls do not by themselves justify
 a full sweep or an intervention-independent claim about layer effects.
@@ -17,8 +19,8 @@ a full sweep or an intervention-independent claim about layer effects.
 **Status:** the six-question × 32-position calibration passed on T4 ×2, with
 zero full-forward control drift and exact repetition of all 192 archived input
 effects. See the [calibration review](notes/2026-10-17-rq1-layer16-calibration-review.md).
-A bounded full sweep of these same six questions is ready; full-dataset or
-whole-decoder conclusions are not established. The notebook launches the
+A bounded zero-only full sweep was ready; it is now deferred while the requested
+IH comparison calibrates. Full-dataset or whole-decoder conclusions are not established. The notebook launches the
 isolated child with `-X utf8` to avoid an ASCII-locale summary-export error.
 
 ## First run
@@ -146,8 +148,10 @@ the calibration's six-case completion, model/profile/source/lock compatibility.
 It does not infer scientific approval from successful controls; interpretability
 still depends on reviewing the validity checks. No full sweep starts by default.
 
-The first calibration has now been reviewed and the same-panel full sweep is
-reasonable. In that still-live notebook, add `"-X", "utf8"` before `"-I"` in the
+The first calibration has now been reviewed and the same-panel zero-only full sweep
+passed the execution gate. The newly requested IH extension needs its own
+[calibration and review](RQ1_LAYER_IH_PILOT.md) first; the old report cannot unlock
+the IH full sweep. For the preserved zero-only workflow, add `"-X", "utf8"` before `"-I"` in the
 `run_layer` command, rerun only the helper definition, and call
 `run_layer(tokens=576, calibration=layer_calibration_dir)`. The repository notebook
 already includes this launch fix. Measurement source hashes are unchanged, so

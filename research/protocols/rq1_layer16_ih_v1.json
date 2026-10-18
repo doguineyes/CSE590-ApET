@@ -1,0 +1,30 @@
+{
+  "version": "rq1-layer16-ih-v1",
+  "parent_profile_sha256": "9bf6b48a308d7eef146bb32b176378e02b9b0fa6097fcac83489dd5f0e42f37f",
+  "layer": 16,
+  "next_module_index": 16,
+  "window_size": 1,
+  "control_tolerance": 0.001,
+  "operator": "physical-retain-one-original-positions",
+  "primary_metric": "P(first fixed reference token | retain patch at block-16 boundary) - P(first fixed reference token | remove all visual states at that boundary)",
+  "comparison_metric": "P(first fixed reference token | full context) - P(first fixed reference token | zero one state at the same boundary)",
+  "scope": "Same frozen six questions and first 32 independently randomized positions as the original layer pilot. IH is added only at layer 16. Existing input/decoder singleton-zeroing and whole-answer scores remain unchanged. Full sweep requires this new passed 32-position calibration.",
+  "adaptations": [
+    "The official calculation scripts default to SIZE=2 (a 2x2 region). Use the supported SIZE=1 setting here to match the singleton zeroing unit. No 2x2 group effects are inferred.",
+    "Follow the released physical-deletion operator and original retained RoPE positions, rather than the paper equation's elementwise zero mask. Native ApET's SDPA runtime is retained instead of the official example's FlashAttention 2.",
+    "The boundary after 16 blocks corresponds to released zero-based pruning index K=16, before module 16 (block 17).",
+    "Score the first frozen gold tokenizer token from the same full teacher-forced forwards as zeroing. Later answer tokens cannot attend backward into that prediction. This is not a benchmark reproduction or a semantic whole-answer metric.",
+    "Temporary downstream pre-hooks adapt hidden sequence, causal masks, original position IDs and old native RoPE lookup extent. No native source or environment changes, cached suffix implementation or text-state rewriting.",
+    "Text states have already seen the image in earlier layers. The remove-all-at-layer reference is not a genuine image-free or question-only baseline.",
+    "The two families differ in both retained context and zeroing/deletion operator. Rank disagreement alone cannot identify which difference caused it."
+  ],
+  "official_repository": "https://github.com/YahongWang1/Information-Horizon",
+  "official_commit": "75909b2936a13d7214e83514f0bc0cb9cc91139e",
+  "official_source_sha256": {
+    "llava/model/language_model/modeling_llama_self.py": "528f828e62530b619dbb05692d4e3caf7d463d92bc85c5fa3380d5dc674c6458",
+    "scripts/v1_5/cal_info/textvqa.sh": "55723af43d35e0ce1cbd2779213b45a743866ea4531c83fa9d92bc8bdb45746c",
+    "scripts/v1_5/cal_info/mme.sh": "ec16bca095d84e1cb2f7051ca8dbc9a212907e2c1397c22b96f17f1bf202a00e",
+    "llava/eval/model_vqa_loader.py": "5d98cf34ca9965b6f1cf61948ea98940c738b513f11a77e5de2d712229640e05"
+  },
+  "source_inspection": "modeling_llama_self.py:102-113 window indexing; 517-580 remove other visual states before the selected decoder block and preserve kept position IDs; 2092-2120 export first-step logits. cal_info scripts:8-16 SIZE=2; 17-50 remove-all and retain-region passes. Source is inspected and hash pinned; no upstream source is imported or vendored."
+}
