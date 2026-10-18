@@ -11,7 +11,8 @@ The [saved-score reanalysis](notes/2026-10-17-rq1-score-reanalysis.md) is now
 complete. The **zero-only** implementation described below remains unchanged.
 After its passed calibration, the next requested comparison is the separate
 [zeroing / IH extension](RQ1_LAYER_IH_PILOT.md), whose small calibration has now
-also passed. Use its new report for the combined full run. Saved
+also passed, followed by the completed
+[combined full run](notes/2026-10-17-rq1-layer-ih-full-review.md). Saved
 per-answer-token log probabilities permit first/whole scoring summaries later.
 This pilot remains exploratory; successful controls do not by themselves justify
 a full sweep or an intervention-independent claim about layer effects.
@@ -19,8 +20,8 @@ a full sweep or an intervention-independent claim about layer effects.
 **Status:** the six-question × 32-position calibration passed on T4 ×2, with
 zero full-forward control drift and exact repetition of all 192 archived input
 effects. See the [calibration review](notes/2026-10-17-rq1-layer16-calibration-review.md).
-A bounded zero-only full sweep was ready; the requested IH comparison is now
-calibrated and ready for the joint same-panel full run. Full-dataset or
+A bounded zero-only full sweep was ready; the requested joint zeroing/IH
+comparison has since completed all 576 positions on that panel. Full-dataset or
 whole-decoder conclusions are not established. The notebook launches the
 isolated child with `-X utf8` to avoid an ASCII-locale summary-export error.
 

@@ -1,11 +1,12 @@
 # RQ1: bounded zeroing / IH layer comparison
 
-**The new six-question × 32-position calibration passed on Kaggle.** All IH
-reference/no-op/retention repeats have zero drift, and all 384 zeroing effects
-exactly reproduce the earlier calibration. See the
-[results review](notes/2026-10-17-rq1-layer-ih-calibration-review.md).
-The same-panel full comparison is ready; the new report is its prerequisite.
-For future changes to the measurement, calibrate again before expanding.
+**The six-question × 576-position full comparison is complete.** All 10,368
+measurements and controls verify; no GPU rerun is needed. The
+[full review](notes/2026-10-17-rq1-layer-ih-full-review.md) records weak/inconsistent
+positive E alignment and strong retained states missed by the earlier sample.
+The [32-position calibration review](notes/2026-10-17-rq1-layer-ih-calibration-review.md)
+is preserved as historical evidence. Launch instructions below describe the
+completed protocol; future measurement changes require a matching calibration.
 
 ## What this comparison answers
 

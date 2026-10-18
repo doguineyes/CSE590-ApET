@@ -1,5 +1,11 @@
 # RQ1 layer-16 IH calibration review — 2026-10-17
 
+**Later checkpoint:** the [full 576-position comparison](2026-10-17-rq1-layer-ih-full-review.md)
+has completed. It finds strong retained states outside these 32 positions:
+Window 94.1%, Cookery school 74.2%, Dominion 98.1% first-target probability.
+The sample below is unchanged historical evidence; its low sampled maxima
+do not establish that support must be distributed. No new GPU run is needed.
+
 The new calibration passed. Its 1×1 released-style IH measurement does **not**
 restore a consistently positive relationship between native E and signed
 first-answer-token sensitivity in these six cases. The two sensitivity rankings

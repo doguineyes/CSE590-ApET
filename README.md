@@ -57,11 +57,14 @@ checks first-token scoring, answer pieces, same-image pairs and flagged subsets;
 the broad weak-alignment finding remains, with important TextVQA qualifications.
 The [matched input / layer-16 calibration](research/notes/2026-10-17-rq1-layer16-calibration-review.md)
 passed for six questions and 32 positions at both stages, with zero reference
-control drift. A full 576-position comparison on the same panel is ready.
-It reuses the same inputs and original locked environment.
+control drift. The full 576-position comparison is now complete using the same
+inputs and original locked environment.
 The [IH comparison calibration](research/notes/2026-10-17-rq1-layer-ih-calibration-review.md)
-also passed at layer 16. Its signed rankings differ from zeroing, and tiny sampled
-singleton effects can coexist with a large full-to-none probability change.
+also passed at layer 16. The [full six-case review](research/notes/2026-10-17-rq1-layer-ih-full-review.md)
+verifies all 10,368 measurements. Neither sensitivity measure aligns consistently
+positively with reconstruction error; the full grid also finds strong retained
+states missed by the 32-position sample. These are intervention-specific effects,
+not intrinsic token importance or generated-answer accuracy.
 
 ## Code layout
 
@@ -105,5 +108,5 @@ See [implementation scope](research/IMPLEMENTATION_SCOPE.md) for original code,
 compatibility patches, and our experiment/scoring code.
 The extraction covers LLaVA input-stage compression. The separate original-code
 runtime supports studying both input and decoder compression. Project RQ1
-instrumentation measures input-stage sensitivity and now includes a decoder-layer-16
-calibration runner, now validated on that bounded Kaggle panel.
+instrumentation measures input-stage sensitivity and includes a decoder-layer-16
+zeroing/retain-one runner, validated on a bounded six-question full-grid panel.

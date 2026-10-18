@@ -106,6 +106,18 @@ hashes verified. All 384 zeroing effects reproduce the preceding calibration;
 records hashes, first-token probabilities, limitations and the separate saved-data
 review. These repetitions do not increase the canonical input-stage sample count.
 
+The full `rq1-layer16-ih-sixcases-v1-20261018T014830278963Z.zip` and `.log`
+are now preserved too. All 93 members pass CRC, 50 evidence hashes and 11
+feature-file hashes verify, and all 10,368 scores pass independent arithmetic
+and geometry/control checks. Its embedded calibration is the user's rerun
+ending in `013751203709Z`, not the earlier `002129035074Z` run; the new report's
+content hash and source gate verify. That rerun's separate ZIP/log were not
+supplied, but the prerequisite report is preserved and no rerun is required.
+The [full review](notes/2026-10-17-rq1-layer-ih-full-review.md) records both raw
+hashes, exact historical repeats and strong singleton effects missed by the
+32-position sample. Derived HTML/CSV and source snapshots are separate in
+`results/rq1-layer16-ih-full-review-v1-2026-10-17/`. Original files remain unchanged.
+
 ### Subsequent downloads
 
 1. Download the run's `.zip` **and** `.log` from Kaggle before ending its session.
