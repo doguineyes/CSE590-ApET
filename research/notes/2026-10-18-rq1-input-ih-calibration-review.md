@@ -1,5 +1,10 @@
 # RQ1 input IH calibration review — 2026-10-18
 
+**Later checkpoint:** the [30-case full sweep](2026-10-18-rq1-input-ih-full-review.md)
+is complete. All 192 calibration effects repeat exactly, but unsampled strong
+states change several maxima (Dominion: 0.0015% → 20.2%). The following preserves
+the original 32-position review and its historical launch recommendation.
+
 The calibration passed. **Proceed to the fixed 30-question × 576-position full
 input IH sweep.** All archived reuse checks are exact and the new retention
 controls have zero drift. No measurement fix, reference replacement, setup

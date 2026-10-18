@@ -1,10 +1,12 @@
 # RQ1: add input-stage 1×1 IH to the existing panel
 
-**Status:** the six-case 32-position pretrained calibration passed on October 18,
-with exact archived reuse and zero retention-control drift. The full 30-case
-sweep is ready. See the [calibration review](notes/2026-10-18-rq1-input-ih-calibration-review.md)
-for results, the same-session command and a provisional 30–45-minute budget.
-Setup instructions below remain for fresh sessions.
+**Status:** the full 30-question × 576-position sweep passed on October 18 in
+31.1 minutes. All 90 archived zeroing audit scores and 192 calibration IH scores
+repeat exactly, with zero retention-control drift. See the
+[full review](notes/2026-10-18-rq1-input-ih-full-review.md) for the combined
+E/zero/IH findings and input/layer comparison. No additional RQ1 GPU run is
+required now; consolidate the saved analysis, then prepare a controlled RQ2
+merge ablation. Setup instructions below remain for deliberate reproduction.
 
 This extension adds retain-one sensitivity to **every canonical input-stage
 case already measured**: GQA 12, MMStar 12, TextVQA 6. Existing calibrations and

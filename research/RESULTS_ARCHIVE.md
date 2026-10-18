@@ -141,6 +141,24 @@ raw hashes, effect sizes, source-gate acceptance and a same-session full-run
 command. Separate derived outputs are in
 `results/rq1-input-ih-calibration-review-v1-2026-10-18/`.
 
+### October 18 full input IH sweep
+
+`rq1-input-ih-thirtycases-v1-20261018T140840768523Z.zip` and its matching `.log`
+are saved and byte-identical to the supplied Downloads originals. All 209 unique
+ZIP members pass CRC; 102 evidence hashes, 24 fresh feature metadata files and
+17,280 retention effects verify. All 90 archived zeroing audit scores and 192
+calibration IH effects repeat exactly; reference reuse and retention controls
+have zero recorded drift. Its embedded prerequisite report and detailed records
+match the already archived calibration. Both supplied companions are present.
+
+The [full input-IH review](notes/2026-10-18-rq1-input-ih-full-review.md) records
+raw hashes, 31.1-minute runtime, matched E/zero/IH findings, basis/padding checks,
+same-image comparisons and the six-case input/layer panel. Derived verification
+and synthesis are separate in `results/rq1-input-ih-full-review-v1-2026-10-18/`
+and `results/rq1-input-ih-synthesis-v1-2026-10-18/`. No raw source was overwritten,
+no inference was repeated locally and the primary cohort is unchanged. The dated
+October 16 inventory above does not include these later files.
+
 ### Subsequent downloads
 
 1. Download the run's `.zip` **and** `.log` from Kaggle before ending its session.

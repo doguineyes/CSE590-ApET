@@ -65,10 +65,12 @@ verifies all 10,368 measurements. Neither sensitivity measure aligns consistentl
 positively with reconstruction error; the full grid also finds strong retained
 states missed by the 32-position sample. These are intervention-specific effects,
 not intrinsic token importance or generated-answer accuracy.
-The [input-stage IH extension](research/RQ1_INPUT_IH.md) is prepared for the same
-30-question input panel, with strict reuse of archived E/zero scores and a new
-Kaggle calibration gate. Its [six-case pretrained calibration](research/notes/2026-10-18-rq1-input-ih-calibration-review.md)
-passed with exact reference reuse and zero control drift; the full sweep is ready.
+The [input-stage IH extension](research/RQ1_INPUT_IH.md) is complete for the same
+30-question panel: 17,280 retention effects with exact archived E/zero reuse and
+calibration repeats. The [full review](research/notes/2026-10-18-rq1-input-ih-full-review.md)
+compares both counterfactuals across datasets and the six-case layer panel.
+Alignment varies by question and operator; strong sparse states can be missed by
+small position samples. Next is a controlled selection/merging comparison.
 
 ## Code layout
 
