@@ -1,5 +1,11 @@
 # RQ2 v2: captured native features and separate repeatability controls
 
+**Current result:** the seven-case calibration and full30 Kaggle panel have
+passed. See the [full review](notes/2026-10-19-rq2-v2-full-review.md): native
+merging gives 19/30 correct and no-merge 21/30 in this selected panel. The run
+instructions below remain for reproduction; no repeat is needed to validate
+the saved result. Selection/routing/protection controls remain future work.
+
 The diagnostic established that independent original native merge executions can
 produce different FP16 feature bytes. The old v1 pilot still requires those
 independent outputs to be identical, so running it again cannot fix that check.

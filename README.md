@@ -74,7 +74,9 @@ small position samples. Next is a controlled selection/merging comparison.
 The [RQ2 v2 pilot](research/RQ2_INPUT_MERGE_V2.md) compares full LLaVA, native input
 ApET and identical selection/basis without merging on the same 30 questions.
 It reuses captured features and records native numerical variation separately.
-CPU checks pass; the seven-question calibration is ready for Kaggle validation.
+The [Kaggle full-panel review](research/notes/2026-10-19-rq2-v2-full-review.md)
+records 19/30 correct with merging and 21/30 without it, including recovery of
+Brolio. This selected diagnostic panel is not a benchmark accuracy estimate.
 
 ## Code layout
 

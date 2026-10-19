@@ -198,6 +198,15 @@ old failed evidence remains unchanged.
 
 ### Subsequent downloads
 
+The first passed RQ2 full panel is archived as
+`rq2-input-merge-v2-full-20261019T224044177722Z.zip` and matching `.log`.
+All 385 members/384 artifact hashes verify, including 244 evidence hashes, 58
+feature files and the embedded seven-case calibration. All 90 predictions
+rescore exactly. The [full review](notes/2026-10-19-rq2-v2-full-review.md) records
+19/30 correct with merging versus 21/30 without merging: cake/plate and Brolio
+rescues, no new losses, nine unresolved failures, and bounded repeat stability.
+Derived JSON/CSV are separate in `results/rq2-input-merge-v2-full-review-2026-10-19/`.
+
 The October 19 v2 prerequisite failure was supplied as pasted console output and
 is preserved as `results/rq2-v2-prerequisites-20261019T221634315245Z-pasted.log`.
 It is not a complete standalone setup log. Fifteen of 16 tests passed; the one
