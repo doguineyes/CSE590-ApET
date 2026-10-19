@@ -171,6 +171,31 @@ The [failure review](notes/2026-10-19-rq2-first-parity-failure.md) records raw h
 exact checks, limitations and the bounded next diagnostic. Derived review records
 are separate in `results/rq2-input-merge-failed-review-v1-2026-10-19/`.
 
+### October 19 RQ2 numerical diagnostic
+
+`rq2-native-parity-diagnostic-v1-20261019T193300319406Z.zip` and matching `.log`
+are preserved byte-for-byte from Downloads. All 110 members pass CRC; 109 artifact
+hashes and 103 evidence hashes verify, including the actual tensor evidence.
+The setup passed 17 prerequisite tests; all nine diagnostic passes completed.
+Raw native repeats vary, observed native differences first appear after merging
+on retained states, and two no-merge repeats are exact. This is diagnostic-only,
+not a passed RQ2 panel. The [review note](notes/2026-10-19-rq2-native-parity-diagnostic-review.md)
+records numerical/score effects and a proposed versioned capture/replay policy.
+Derived JSON/CSV verification is separate in
+`results/rq2-native-parity-review-v1-2026-10-19/`. Nothing from this supplied pair
+is missing. No tensor loading or inference ran locally.
+
+### October 19 second v1 attempt and v2 correction
+
+`rq2-input-merge-pilot-v1-20261019T195332472383Z.zip` and its matching `.log`
+are preserved from Downloads; CRC/artifact hashes verify. It repeats
+`features_exact` on the first GQA case, with identical masks/generated IDs and
+zero completed pilot questions. The diagnostic had not changed the v1 gate.
+The [v2 correction note](notes/2026-10-19-rq2-v2-capture-replay.md) records its raw
+hashes and the implemented first-realization/replay policy. Use the separate
+[v2 guide](RQ2_INPUT_MERGE_V2.md) for the seven-question calibration next;
+old failed evidence remains unchanged.
+
 ### Subsequent downloads
 
 1. Download the run's `.zip` **and** `.log` from Kaggle before ending its session.

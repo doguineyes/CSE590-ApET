@@ -18,6 +18,22 @@ pass before the comparison is interpreted.
 
 ## Current checkpoint: inspect the numerical parity failure first
 
+**Use the new [v2 capture/replay notebook and guide](RQ2_INPUT_MERGE_V2.md) for the
+next run.** Its seven-question calibration replaces the unsuitable separate-run
+byte-parity requirement with exact replay checks and separate fresh-repeat
+uncertainty records. The v1 notebook below remains historical/reproduction code;
+do not rerun its full pilot to try to clear `features_exact`.
+
+**Diagnostic review completed:** the nine-pass run shows that unwrapped native
+encodes themselves vary. Observed differences first appear after merging, while
+selection/basis and no-merge repeats are exact. See the
+[October 19 diagnostic review](notes/2026-10-19-rq2-native-parity-diagnostic-review.md).
+The existing full v1 pilot still requires exact independent execution parity and
+should not be rerun unchanged. The separate v2 implements a versioned capture/replay
+policy with independently recorded native repeat variability; its new pretrained
+calibration is the next validation step.
+The diagnostic instructions below remain available for reproduction.
+
 The first Kaggle pilot stopped on `features_exact` for `gqa:201636988`.
 The raw/native projected-feature hashes differed, while the mask and generated
 IDs matched. Native/no-merge CLIP, E, FPS, selection and basis placement matched.
