@@ -71,6 +71,9 @@ calibration repeats. The [full review](research/notes/2026-10-18-rq1-input-ih-fu
 compares both counterfactuals across datasets and the six-case layer panel.
 Alignment varies by question and operator; strong sparse states can be missed by
 small position samples. Next is a controlled selection/merging comparison.
+The [first RQ2 pilot](research/RQ2_INPUT_MERGE_PILOT.md) is implemented for the same
+30 questions: full LLaVA, native input ApET and identical selection/basis without
+merging. CPU checks pass; native prerequisites and pretrained parity run on Kaggle.
 
 ## Code layout
 

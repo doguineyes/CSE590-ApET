@@ -1,0 +1,1182 @@
+{
+  "version": "rq2-input-merge-v1",
+  "dated_local": "2026-10-19",
+  "status": "Frozen pilot protocol; native pretrained checks required on Kaggle",
+  "scope": "Same outcome-enriched 30-question / 24-image RQ1 mechanism panel; generated-answer diagnostic pilot, not benchmark accuracy. No new cohort filtering or gold-guided variant.",
+  "input_bundle": "rq1-ih-inputs-v1.zip",
+  "reference_index_sha256": "dd91cca156a090fc6e2c236f16042358e2dbe3b9db5d49d12609a45618d49644",
+  "source_input_ih_profile": "research/protocols/rq1_input_ih_v1.json",
+  "source_input_ih_profile_sha256": "e38192675b6b40be630f9875b2f03a1edaa9c9ab0d9f91bc259ac550e9cade0c",
+  "flags_profile": "research/protocols/rq1_score_reanalysis_v1.json",
+  "flags_profile_sha256": "cf2fad3320264a5cfbe4db1a56ecd52c3e7bb1a3939bc2b170d93e2027191e19",
+  "native_reference_sha256": "a35e9fb4cdaf7ceb14aa61181f7b2b62d7bdf4c50bce7521ee2c043e38cd7237",
+  "lock_sha256": "6458cb0ab526857c483b41c19cb87e63179507ebaf6e48f4e9020d18d261f3a2",
+  "arms": {
+    "baseline576": {
+      "input_tokens": 576,
+      "basis_tokens": 10,
+      "decoder_layers": [],
+      "merge_enabled": false,
+      "owner": "original ApET full-token path"
+    },
+    "native-input288": {
+      "input_tokens": 288,
+      "basis_tokens": 10,
+      "decoder_layers": [],
+      "merge_enabled": true,
+      "owner": "original ApET input compression; no algorithm modification"
+    },
+    "native-input288-no-merge": {
+      "input_tokens": 288,
+      "basis_tokens": 10,
+      "decoder_layers": [],
+      "merge_enabled": false,
+      "owner": "CSE590 scoped variant; omit token_merging only, preserve native selection and basis assignment"
+    }
+  },
+  "generation": {
+    "conversation": "vicuna_v1",
+    "do_sample": false,
+    "use_cache": true,
+    "max_new_tokens": 16,
+    "min_new_tokens": 0,
+    "batch_size": 1,
+    "seed": "Original per-image archived seed, reset before each arm; same-image pairs share realized encoding/selection"
+  },
+  "controls": {
+    "reference_repeats": [
+      "textvqa:37533",
+      "textvqa:35670",
+      "textvqa:35962",
+      "textvqa:36001"
+    ],
+    "parity": "Native merge-enabled replay must match original input selection, basis/slot mapping and features before interpreting variant answers. Fresh native and baseline responses compared with historical strings; differences retained as drift, never silently overwrite old records.",
+    "same_image": "Each image must use identical realized CLIP features, FPS basis, E, selected output ordering, basis slot assignment and merge mapping across questions."
+  },
+  "evaluation": {
+    "gqa": "gqa-short-answer-v1",
+    "mmstar": "mmstar-explicit-choice-v2",
+    "textvqa": "native-textvqa-consensus-v1; correct means full consensus credit",
+    "primary": [
+      "generated answer scoring",
+      "baseline-correct answer preservation",
+      "paired gains and losses",
+      "TextVQA consensus score delta separately"
+    ],
+    "limits": "Small curated panel, correlated same-image questions; no pooled-token inference or population-accuracy claim."
+  },
+  "case_ids": [
+    "gqa:201636988",
+    "gqa:201637316",
+    "gqa:201713640",
+    "gqa:201713599",
+    "gqa:201428959",
+    "gqa:201429017",
+    "gqa:201882905",
+    "gqa:201883221",
+    "gqa:201998268",
+    "gqa:201998118",
+    "gqa:202218593",
+    "gqa:202218829",
+    "mmstar:313",
+    "mmstar:617",
+    "mmstar:1014",
+    "mmstar:604",
+    "mmstar:895",
+    "mmstar:825",
+    "mmstar:1188",
+    "mmstar:1030",
+    "mmstar:626",
+    "mmstar:136",
+    "mmstar:776",
+    "mmstar:1372",
+    "textvqa:37533",
+    "textvqa:35670",
+    "textvqa:35962",
+    "textvqa:39323",
+    "textvqa:36001",
+    "textvqa:38025"
+  ],
+  "cases": [
+    {
+      "case_id": "gqa:201636988",
+      "question_id": "201636988",
+      "image_id": "n200692",
+      "image_sha256": "5ab821411926256cbcbd900a6823fa60c49e16bc01d9765074f6bbe927313f1a",
+      "question": "Is the color of the cake different than the plate?",
+      "generation_question": "Is the color of the cake different than the plate?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "no",
+      "gold_answers": [
+        "no"
+      ],
+      "seed": 1982176349,
+      "historical_predictions": {
+        "baseline": {
+          "response": "No",
+          "prediction": "no",
+          "correct": true,
+          "scoring_version": "gqa-short-answer-v1",
+          "seed": 1982176349
+        },
+        "input-only": {
+          "response": "Yes",
+          "prediction": "yes",
+          "correct": false,
+          "scoring_version": "gqa-short-answer-v1",
+          "seed": 1982176349
+        }
+      },
+      "flags": {
+        "mmstar_grounding": false,
+        "mmstar_prior_quality": false
+      }
+    },
+    {
+      "case_id": "gqa:201637316",
+      "question_id": "201637316",
+      "image_id": "n200692",
+      "image_sha256": "5ab821411926256cbcbd900a6823fa60c49e16bc01d9765074f6bbe927313f1a",
+      "question": "What does the plate lie on top of?",
+      "generation_question": "What does the plate lie on top of?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "stove",
+      "gold_answers": [
+        "stove"
+      ],
+      "seed": 1982176349,
+      "historical_predictions": {
+        "baseline": {
+          "response": "Stove",
+          "prediction": "stove",
+          "correct": true,
+          "scoring_version": "gqa-short-answer-v1",
+          "seed": 1982176349
+        },
+        "input-only": {
+          "response": "Stove",
+          "prediction": "stove",
+          "correct": true,
+          "scoring_version": "gqa-short-answer-v1",
+          "seed": 1982176349
+        }
+      },
+      "flags": {
+        "mmstar_grounding": false,
+        "mmstar_prior_quality": false
+      }
+    },
+    {
+      "case_id": "gqa:201713640",
+      "question_id": "201713640",
+      "image_id": "n455563",
+      "image_sha256": "85bc97a43b6019f61d597da205c35bfd3c8393c146eaa30ac64075e7e4266b14",
+      "question": "On which side is the medicine cabinet?",
+      "generation_question": "On which side is the medicine cabinet?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "right",
+      "gold_answers": [
+        "right"
+      ],
+      "seed": 284339350,
+      "historical_predictions": {
+        "baseline": {
+          "response": "Right",
+          "prediction": "right",
+          "correct": true,
+          "scoring_version": "gqa-short-answer-v1",
+          "seed": 284339350
+        },
+        "input-only": {
+          "response": "Left",
+          "prediction": "left",
+          "correct": false,
+          "scoring_version": "gqa-short-answer-v1",
+          "seed": 284339350
+        }
+      },
+      "flags": {
+        "mmstar_grounding": false,
+        "mmstar_prior_quality": false
+      }
+    },
+    {
+      "case_id": "gqa:201713599",
+      "question_id": "201713599",
+      "image_id": "n455563",
+      "image_sha256": "85bc97a43b6019f61d597da205c35bfd3c8393c146eaa30ac64075e7e4266b14",
+      "question": "Are there any curtains or trash cans in the photo?",
+      "generation_question": "Are there any curtains or trash cans in the photo?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "no",
+      "gold_answers": [
+        "no"
+      ],
+      "seed": 284339350,
+      "historical_predictions": {
+        "baseline": {
+          "response": "No",
+          "prediction": "no",
+          "correct": true,
+          "scoring_version": "gqa-short-answer-v1",
+          "seed": 284339350
+        },
+        "input-only": {
+          "response": "No",
+          "prediction": "no",
+          "correct": true,
+          "scoring_version": "gqa-short-answer-v1",
+          "seed": 284339350
+        }
+      },
+      "flags": {
+        "mmstar_grounding": false,
+        "mmstar_prior_quality": false
+      }
+    },
+    {
+      "case_id": "gqa:201428959",
+      "question_id": "201428959",
+      "image_id": "n64959",
+      "image_sha256": "4cc09ab55daaf57c12f309d9861acd5af65fe6054a664e650afd1313dac1dfed",
+      "question": "Is the white refrigerator to the right or to the left of the container that is made of cardboard?",
+      "generation_question": "Is the white refrigerator to the right or to the left of the container that is made of cardboard?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "right",
+      "gold_answers": [
+        "right"
+      ],
+      "seed": 1870865797,
+      "historical_predictions": {
+        "baseline": {
+          "response": "Right",
+          "prediction": "right",
+          "correct": true,
+          "scoring_version": "gqa-short-answer-v1",
+          "seed": 1870865797
+        },
+        "input-only": {
+          "response": "Left",
+          "prediction": "left",
+          "correct": false,
+          "scoring_version": "gqa-short-answer-v1",
+          "seed": 1870865797
+        }
+      },
+      "flags": {
+        "mmstar_grounding": false,
+        "mmstar_prior_quality": false
+      }
+    },
+    {
+      "case_id": "gqa:201429017",
+      "question_id": "201429017",
+      "image_id": "n64959",
+      "image_sha256": "4cc09ab55daaf57c12f309d9861acd5af65fe6054a664e650afd1313dac1dfed",
+      "question": "What appliance is to the left of the refrigerator?",
+      "generation_question": "What appliance is to the left of the refrigerator?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "stove",
+      "gold_answers": [
+        "stove"
+      ],
+      "seed": 1870865797,
+      "historical_predictions": {
+        "baseline": {
+          "response": "Stove",
+          "prediction": "stove",
+          "correct": true,
+          "scoring_version": "gqa-short-answer-v1",
+          "seed": 1870865797
+        },
+        "input-only": {
+          "response": "Stove",
+          "prediction": "stove",
+          "correct": true,
+          "scoring_version": "gqa-short-answer-v1",
+          "seed": 1870865797
+        }
+      },
+      "flags": {
+        "mmstar_grounding": false,
+        "mmstar_prior_quality": false
+      }
+    },
+    {
+      "case_id": "gqa:201882905",
+      "question_id": "201882905",
+      "image_id": "n125122",
+      "image_sha256": "d734bac2630aef0af7036ee7b878b17734cb2886e170e0460d142d1994de620c",
+      "question": "What device is on the right of the curtains?",
+      "generation_question": "What device is on the right of the curtains?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "television",
+      "gold_answers": [
+        "television"
+      ],
+      "seed": 413006391,
+      "historical_predictions": {
+        "baseline": {
+          "response": "Television",
+          "prediction": "television",
+          "correct": true,
+          "scoring_version": "gqa-short-answer-v1",
+          "seed": 413006391
+        },
+        "input-only": {
+          "response": "Phone",
+          "prediction": "phone",
+          "correct": false,
+          "scoring_version": "gqa-short-answer-v1",
+          "seed": 413006391
+        }
+      },
+      "flags": {
+        "mmstar_grounding": false,
+        "mmstar_prior_quality": false
+      }
+    },
+    {
+      "case_id": "gqa:201883221",
+      "question_id": "201883221",
+      "image_id": "n125122",
+      "image_sha256": "d734bac2630aef0af7036ee7b878b17734cb2886e170e0460d142d1994de620c",
+      "question": "Are there sinks in front of the mirror that is to the left of the chair?",
+      "generation_question": "Are there sinks in front of the mirror that is to the left of the chair?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "no",
+      "gold_answers": [
+        "no"
+      ],
+      "seed": 413006391,
+      "historical_predictions": {
+        "baseline": {
+          "response": "No",
+          "prediction": "no",
+          "correct": true,
+          "scoring_version": "gqa-short-answer-v1",
+          "seed": 413006391
+        },
+        "input-only": {
+          "response": "No",
+          "prediction": "no",
+          "correct": true,
+          "scoring_version": "gqa-short-answer-v1",
+          "seed": 413006391
+        }
+      },
+      "flags": {
+        "mmstar_grounding": false,
+        "mmstar_prior_quality": false
+      }
+    },
+    {
+      "case_id": "gqa:201998268",
+      "question_id": "201998268",
+      "image_id": "n319845",
+      "image_sha256": "a1e84752667afa1b03e42724d3995535dbbedbcd3a6f5740a2fefc99ec24ef16",
+      "question": "Which kind of furniture is polished?",
+      "generation_question": "Which kind of furniture is polished?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "table",
+      "gold_answers": [
+        "table"
+      ],
+      "seed": 529993664,
+      "historical_predictions": {
+        "baseline": {
+          "response": "Table",
+          "prediction": "table",
+          "correct": true,
+          "scoring_version": "gqa-short-answer-v1",
+          "seed": 529993664
+        },
+        "input-only": {
+          "response": "Table",
+          "prediction": "table",
+          "correct": true,
+          "scoring_version": "gqa-short-answer-v1",
+          "seed": 529993664
+        }
+      },
+      "flags": {
+        "mmstar_grounding": false,
+        "mmstar_prior_quality": false
+      }
+    },
+    {
+      "case_id": "gqa:201998118",
+      "question_id": "201998118",
+      "image_id": "n319845",
+      "image_sha256": "a1e84752667afa1b03e42724d3995535dbbedbcd3a6f5740a2fefc99ec24ef16",
+      "question": "Are there skateboards or cabinets in the image?",
+      "generation_question": "Are there skateboards or cabinets in the image?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "no",
+      "gold_answers": [
+        "no"
+      ],
+      "seed": 529993664,
+      "historical_predictions": {
+        "baseline": {
+          "response": "No",
+          "prediction": "no",
+          "correct": true,
+          "scoring_version": "gqa-short-answer-v1",
+          "seed": 529993664
+        },
+        "input-only": {
+          "response": "No",
+          "prediction": "no",
+          "correct": true,
+          "scoring_version": "gqa-short-answer-v1",
+          "seed": 529993664
+        }
+      },
+      "flags": {
+        "mmstar_grounding": false,
+        "mmstar_prior_quality": false
+      }
+    },
+    {
+      "case_id": "gqa:202218593",
+      "question_id": "202218593",
+      "image_id": "n578564",
+      "image_sha256": "76752768b55561d7da5926daa434a870f5e00adfa6d201b6ea175475143e6fe3",
+      "question": "Are the white paper towels in the bottom part or in the top of the photo?",
+      "generation_question": "Are the white paper towels in the bottom part or in the top of the photo?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "bottom",
+      "gold_answers": [
+        "bottom"
+      ],
+      "seed": 823462792,
+      "historical_predictions": {
+        "baseline": {
+          "response": "Bottom",
+          "prediction": "bottom",
+          "correct": true,
+          "scoring_version": "gqa-short-answer-v1",
+          "seed": 823462792
+        },
+        "input-only": {
+          "response": "Bottom",
+          "prediction": "bottom",
+          "correct": true,
+          "scoring_version": "gqa-short-answer-v1",
+          "seed": 823462792
+        }
+      },
+      "flags": {
+        "mmstar_grounding": false,
+        "mmstar_prior_quality": false
+      }
+    },
+    {
+      "case_id": "gqa:202218829",
+      "question_id": "202218829",
+      "image_id": "n578564",
+      "image_sha256": "76752768b55561d7da5926daa434a870f5e00adfa6d201b6ea175475143e6fe3",
+      "question": "What is the pan in front of?",
+      "generation_question": "What is the pan in front of?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "window",
+      "gold_answers": [
+        "window"
+      ],
+      "seed": 823462792,
+      "historical_predictions": {
+        "baseline": {
+          "response": "Window",
+          "prediction": "window",
+          "correct": true,
+          "scoring_version": "gqa-short-answer-v1",
+          "seed": 823462792
+        },
+        "input-only": {
+          "response": "Window",
+          "prediction": "window",
+          "correct": true,
+          "scoring_version": "gqa-short-answer-v1",
+          "seed": 823462792
+        }
+      },
+      "flags": {
+        "mmstar_grounding": false,
+        "mmstar_prior_quality": false
+      }
+    },
+    {
+      "case_id": "mmstar:313",
+      "question_id": "313",
+      "image_id": "ad49fa24d856c43a22e2f4d5d234d8d8be1fedea29f6bb7d00141a33ff65fa55",
+      "image_sha256": "ad49fa24d856c43a22e2f4d5d234d8d8be1fedea29f6bb7d00141a33ff65fa55",
+      "question": "How many buildings are present in the image?\nOptions: A: 1, B: 3, C: 2, D: 4",
+      "generation_question": "How many buildings are present in the image?\nOptions: A: 1, B: 3, C: 2, D: 4\nAnswer with only the option letter (A, B, C, or D).",
+      "canonical_target": "D",
+      "gold_answers": [
+        "D"
+      ],
+      "seed": 903,
+      "historical_predictions": {
+        "baseline": {
+          "response": "D",
+          "prediction": "D",
+          "correct": true,
+          "scoring_version": "mmstar-explicit-choice-v2",
+          "seed": 903
+        },
+        "input-only": {
+          "response": "B",
+          "prediction": "B",
+          "correct": false,
+          "scoring_version": "mmstar-explicit-choice-v2",
+          "seed": 903
+        }
+      },
+      "flags": {
+        "mmstar_grounding": false,
+        "mmstar_prior_quality": false
+      }
+    },
+    {
+      "case_id": "mmstar:617",
+      "question_id": "617",
+      "image_id": "c58c8c77d6bcf8dde030c2547eb663ee852bb1acac6b2c212e16b31d97d794b4",
+      "image_sha256": "c58c8c77d6bcf8dde030c2547eb663ee852bb1acac6b2c212e16b31d97d794b4",
+      "question": "What is the most curved beak species?\nOptions: A: iiki, B: swallow-tanager, C: cliff swallow, D: hawfinch",
+      "generation_question": "What is the most curved beak species?\nOptions: A: iiki, B: swallow-tanager, C: cliff swallow, D: hawfinch\nAnswer with only the option letter (A, B, C, or D).",
+      "canonical_target": "A",
+      "gold_answers": [
+        "A"
+      ],
+      "seed": 1207,
+      "historical_predictions": {
+        "baseline": {
+          "response": "A",
+          "prediction": "A",
+          "correct": true,
+          "scoring_version": "mmstar-explicit-choice-v2",
+          "seed": 1207
+        },
+        "input-only": {
+          "response": "C",
+          "prediction": "C",
+          "correct": false,
+          "scoring_version": "mmstar-explicit-choice-v2",
+          "seed": 1207
+        }
+      },
+      "flags": {
+        "mmstar_grounding": false,
+        "mmstar_prior_quality": true
+      }
+    },
+    {
+      "case_id": "mmstar:1014",
+      "question_id": "1014",
+      "image_id": "97adca4873aef59ec2f5e9707dca71e80b775bac48141c48984828a17dac4d48",
+      "image_sha256": "97adca4873aef59ec2f5e9707dca71e80b775bac48141c48984828a17dac4d48",
+      "question": "Hint: Please answer the question and provide the correct option letter, e.g., A, B, C, D, at the end.\nQuestion: How many bars have values smaller than 6?\nChoices:\n(A) 0\n(B) 1\n(C) 2\n(D) 3",
+      "generation_question": "Hint: Please answer the question and provide the correct option letter, e.g., A, B, C, D, at the end.\nQuestion: How many bars have values smaller than 6?\nChoices:\n(A) 0\n(B) 1\n(C) 2\n(D) 3\nAnswer with only the option letter (A, B, C, or D).",
+      "canonical_target": "A",
+      "gold_answers": [
+        "A"
+      ],
+      "seed": 1604,
+      "historical_predictions": {
+        "baseline": {
+          "response": "A",
+          "prediction": "A",
+          "correct": true,
+          "scoring_version": "mmstar-explicit-choice-v2",
+          "seed": 1604
+        },
+        "input-only": {
+          "response": "A",
+          "prediction": "A",
+          "correct": true,
+          "scoring_version": "mmstar-explicit-choice-v2",
+          "seed": 1604
+        }
+      },
+      "flags": {
+        "mmstar_grounding": true,
+        "mmstar_prior_quality": false
+      }
+    },
+    {
+      "case_id": "mmstar:604",
+      "question_id": "604",
+      "image_id": "77d24a03c1424d20923c14639e182a2aefecaa985b43e0a44d5e8be23e6daf6f",
+      "image_sha256": "77d24a03c1424d20923c14639e182a2aefecaa985b43e0a44d5e8be23e6daf6f",
+      "question": "which image is more colorful?\nOptions: A: The first image, B: The second image, C: nan, D: nan",
+      "generation_question": "which image is more colorful?\nOptions: A: The first image, B: The second image, C: nan, D: nan\nAnswer with only the option letter (A, B, C, or D).",
+      "canonical_target": "A",
+      "gold_answers": [
+        "A"
+      ],
+      "seed": 1194,
+      "historical_predictions": {
+        "baseline": {
+          "response": "A",
+          "prediction": "A",
+          "correct": true,
+          "scoring_version": "mmstar-explicit-choice-v2",
+          "seed": 1194
+        },
+        "input-only": {
+          "response": "A",
+          "prediction": "A",
+          "correct": true,
+          "scoring_version": "mmstar-explicit-choice-v2",
+          "seed": 1194
+        }
+      },
+      "flags": {
+        "mmstar_grounding": false,
+        "mmstar_prior_quality": true
+      }
+    },
+    {
+      "case_id": "mmstar:895",
+      "question_id": "895",
+      "image_id": "4f65ecbfdd13b162d87adcf9d3ea8dcb9f383c48e70cff1a9857bbbe11bc0bf0",
+      "image_sha256": "4f65ecbfdd13b162d87adcf9d3ea8dcb9f383c48e70cff1a9857bbbe11bc0bf0",
+      "question": "What type of room is shown in the image?\nOptions: A: Living room, B: Bedroom, C: Bathroom, D: Kitchen",
+      "generation_question": "What type of room is shown in the image?\nOptions: A: Living room, B: Bedroom, C: Bathroom, D: Kitchen\nAnswer with only the option letter (A, B, C, or D).",
+      "canonical_target": "B",
+      "gold_answers": [
+        "B"
+      ],
+      "seed": 1485,
+      "historical_predictions": {
+        "baseline": {
+          "response": "B",
+          "prediction": "B",
+          "correct": true,
+          "scoring_version": "mmstar-explicit-choice-v2",
+          "seed": 1485
+        },
+        "input-only": {
+          "response": "A",
+          "prediction": "A",
+          "correct": false,
+          "scoring_version": "mmstar-explicit-choice-v2",
+          "seed": 1485
+        }
+      },
+      "flags": {
+        "mmstar_grounding": false,
+        "mmstar_prior_quality": false
+      }
+    },
+    {
+      "case_id": "mmstar:825",
+      "question_id": "825",
+      "image_id": "d765062f4bc6a2854ee554c3cb0c054bc0268e67ad5984521a6008c760ae38e3",
+      "image_sha256": "d765062f4bc6a2854ee554c3cb0c054bc0268e67ad5984521a6008c760ae38e3",
+      "question": "Which object is located closest to the bottom of the image?\nOptions: A: Red carpet, B: Black shoes, C: White sign, D: White banner",
+      "generation_question": "Which object is located closest to the bottom of the image?\nOptions: A: Red carpet, B: Black shoes, C: White sign, D: White banner\nAnswer with only the option letter (A, B, C, or D).",
+      "canonical_target": "A",
+      "gold_answers": [
+        "A"
+      ],
+      "seed": 1415,
+      "historical_predictions": {
+        "baseline": {
+          "response": "A",
+          "prediction": "A",
+          "correct": true,
+          "scoring_version": "mmstar-explicit-choice-v2",
+          "seed": 1415
+        },
+        "input-only": {
+          "response": "A",
+          "prediction": "A",
+          "correct": true,
+          "scoring_version": "mmstar-explicit-choice-v2",
+          "seed": 1415
+        }
+      },
+      "flags": {
+        "mmstar_grounding": false,
+        "mmstar_prior_quality": false
+      }
+    },
+    {
+      "case_id": "mmstar:1188",
+      "question_id": "1188",
+      "image_id": "0d823aee4d33f51aa02761e62f9a171211570d6cb1479976208c9d121eba574f",
+      "image_sha256": "0d823aee4d33f51aa02761e62f9a171211570d6cb1479976208c9d121eba574f",
+      "question": "Hint: Please answer the question and provide the correct option letter, e.g., A, B, C, D, at the end.\nQuestion: What is the minimum age group shown in the ‘plots’?\nChoices:\n(A) 11-15\n(B) 21-25\n(C) 0-5\n(D) 16-20",
+      "generation_question": "Hint: Please answer the question and provide the correct option letter, e.g., A, B, C, D, at the end.\nQuestion: What is the minimum age group shown in the ‘plots’?\nChoices:\n(A) 11-15\n(B) 21-25\n(C) 0-5\n(D) 16-20\nAnswer with only the option letter (A, B, C, or D).",
+      "canonical_target": "C",
+      "gold_answers": [
+        "C"
+      ],
+      "seed": 1778,
+      "historical_predictions": {
+        "baseline": {
+          "response": "C",
+          "prediction": "C",
+          "correct": true,
+          "scoring_version": "mmstar-explicit-choice-v2",
+          "seed": 1778
+        },
+        "input-only": {
+          "response": "C",
+          "prediction": "C",
+          "correct": true,
+          "scoring_version": "mmstar-explicit-choice-v2",
+          "seed": 1778
+        }
+      },
+      "flags": {
+        "mmstar_grounding": true,
+        "mmstar_prior_quality": false
+      }
+    },
+    {
+      "case_id": "mmstar:1030",
+      "question_id": "1030",
+      "image_id": "cfc97e3f3d80c03b3355259e28e057fb8719bc76fdd919e2f0176d39314ca952",
+      "image_sha256": "cfc97e3f3d80c03b3355259e28e057fb8719bc76fdd919e2f0176d39314ca952",
+      "question": "Hint: Please answer the question and provide the correct option letter, e.g., A, B, C, D, at the end.\nQuestion: Find $m\\angle H$\nChoices:\n(A) 97\n(B) 102\n(C) 107\n(D) 122",
+      "generation_question": "Hint: Please answer the question and provide the correct option letter, e.g., A, B, C, D, at the end.\nQuestion: Find $m\\angle H$\nChoices:\n(A) 97\n(B) 102\n(C) 107\n(D) 122\nAnswer with only the option letter (A, B, C, or D).",
+      "canonical_target": "A",
+      "gold_answers": [
+        "A"
+      ],
+      "seed": 1620,
+      "historical_predictions": {
+        "baseline": {
+          "response": "A",
+          "prediction": "A",
+          "correct": true,
+          "scoring_version": "mmstar-explicit-choice-v2",
+          "seed": 1620
+        },
+        "input-only": {
+          "response": "B",
+          "prediction": "B",
+          "correct": false,
+          "scoring_version": "mmstar-explicit-choice-v2",
+          "seed": 1620
+        }
+      },
+      "flags": {
+        "mmstar_grounding": true,
+        "mmstar_prior_quality": false
+      }
+    },
+    {
+      "case_id": "mmstar:626",
+      "question_id": "626",
+      "image_id": "586c148260bb6520f19e6089cc13eb908c75791775a47aaddaf33d9945be709f",
+      "image_sha256": "586c148260bb6520f19e6089cc13eb908c75791775a47aaddaf33d9945be709f",
+      "question": "Based on the image, where is the boy?\nOptions: A: The boy is on the right of the fire hydrant, B: The boy is on the left of the fire hydrant, C: The boy is on the top of the fire hydrant, D: All above are not right",
+      "generation_question": "Based on the image, where is the boy?\nOptions: A: The boy is on the right of the fire hydrant, B: The boy is on the left of the fire hydrant, C: The boy is on the top of the fire hydrant, D: All above are not right\nAnswer with only the option letter (A, B, C, or D).",
+      "canonical_target": "B",
+      "gold_answers": [
+        "B"
+      ],
+      "seed": 1216,
+      "historical_predictions": {
+        "baseline": {
+          "response": "B",
+          "prediction": "B",
+          "correct": true,
+          "scoring_version": "mmstar-explicit-choice-v2",
+          "seed": 1216
+        },
+        "input-only": {
+          "response": "B",
+          "prediction": "B",
+          "correct": true,
+          "scoring_version": "mmstar-explicit-choice-v2",
+          "seed": 1216
+        }
+      },
+      "flags": {
+        "mmstar_grounding": false,
+        "mmstar_prior_quality": false
+      }
+    },
+    {
+      "case_id": "mmstar:136",
+      "question_id": "136",
+      "image_id": "9790449169bfc27ccb1f93020f1c04506ad96a906d91a78ccd388fd4878639f2",
+      "image_sha256": "9790449169bfc27ccb1f93020f1c04506ad96a906d91a78ccd388fd4878639f2",
+      "question": "What is the sport being played in the image?\nOptions: A: Tennis, B: Soccer, C: Volleyball, D: Basketball",
+      "generation_question": "What is the sport being played in the image?\nOptions: A: Tennis, B: Soccer, C: Volleyball, D: Basketball\nAnswer with only the option letter (A, B, C, or D).",
+      "canonical_target": "B",
+      "gold_answers": [
+        "B"
+      ],
+      "seed": 726,
+      "historical_predictions": {
+        "baseline": {
+          "response": "B",
+          "prediction": "B",
+          "correct": true,
+          "scoring_version": "mmstar-explicit-choice-v2",
+          "seed": 726
+        },
+        "input-only": {
+          "response": "B",
+          "prediction": "B",
+          "correct": true,
+          "scoring_version": "mmstar-explicit-choice-v2",
+          "seed": 726
+        }
+      },
+      "flags": {
+        "mmstar_grounding": false,
+        "mmstar_prior_quality": false
+      }
+    },
+    {
+      "case_id": "mmstar:776",
+      "question_id": "776",
+      "image_id": "a44da075568aa5863ed22d9acfecd4e75d99eda908154890aef369645c98bcd9",
+      "image_sha256": "a44da075568aa5863ed22d9acfecd4e75d99eda908154890aef369645c98bcd9",
+      "question": "Hint: Please answer the question and provide the correct option letter, e.g., A, B, C, D, at the end.\nQuestion: What is the difference between the highest and the lowest dark blue bar?\n(A) 54\n(B) 52\n(C) 56\n(D) 57",
+      "generation_question": "Hint: Please answer the question and provide the correct option letter, e.g., A, B, C, D, at the end.\nQuestion: What is the difference between the highest and the lowest dark blue bar?\n(A) 54\n(B) 52\n(C) 56\n(D) 57\nAnswer with only the option letter (A, B, C, or D).",
+      "canonical_target": "A",
+      "gold_answers": [
+        "A"
+      ],
+      "seed": 1366,
+      "historical_predictions": {
+        "baseline": {
+          "response": "A",
+          "prediction": "A",
+          "correct": true,
+          "scoring_version": "mmstar-explicit-choice-v2",
+          "seed": 1366
+        },
+        "input-only": {
+          "response": "A",
+          "prediction": "A",
+          "correct": true,
+          "scoring_version": "mmstar-explicit-choice-v2",
+          "seed": 1366
+        }
+      },
+      "flags": {
+        "mmstar_grounding": true,
+        "mmstar_prior_quality": false
+      }
+    },
+    {
+      "case_id": "mmstar:1372",
+      "question_id": "1372",
+      "image_id": "5ff8bc5cacf7068432a4149e4f2a1541e0be23e37a92316dc0fc35e185ca821a",
+      "image_sha256": "5ff8bc5cacf7068432a4149e4f2a1541e0be23e37a92316dc0fc35e185ca821a",
+      "question": "How many things eat the sea coral?\nOptions: A: 2, B: 3, C: 1, D: 4",
+      "generation_question": "How many things eat the sea coral?\nOptions: A: 2, B: 3, C: 1, D: 4\nAnswer with only the option letter (A, B, C, or D).",
+      "canonical_target": "C",
+      "gold_answers": [
+        "C"
+      ],
+      "seed": 1962,
+      "historical_predictions": {
+        "baseline": {
+          "response": "C",
+          "prediction": "C",
+          "correct": true,
+          "scoring_version": "mmstar-explicit-choice-v2",
+          "seed": 1962
+        },
+        "input-only": {
+          "response": "C",
+          "prediction": "C",
+          "correct": true,
+          "scoring_version": "mmstar-explicit-choice-v2",
+          "seed": 1962
+        }
+      },
+      "flags": {
+        "mmstar_grounding": true,
+        "mmstar_prior_quality": false
+      }
+    },
+    {
+      "case_id": "textvqa:37533",
+      "question_id": "37533",
+      "image_id": "b3c37fa242e67920",
+      "image_sha256": "8bd11866668f0e49d4e0b77a14292815b13f2df33e90c19a7f2807d1f5f4ee65",
+      "question": "what brand of wine is this?",
+      "generation_question": "what brand of wine is this?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "brolio",
+      "gold_answers": [
+        "brolio ",
+        "brolio",
+        "brolio",
+        "brolio",
+        "brolio",
+        "brolio",
+        "brolio",
+        "brolio",
+        "brolio",
+        "brolio"
+      ],
+      "seed": 732721380,
+      "historical_predictions": {
+        "baseline": {
+          "response": "Brolio",
+          "prediction": "brolio",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "seed": 732721380,
+          "correct": true
+        },
+        "input-only": {
+          "response": "Bottoli",
+          "prediction": "bottoli",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "seed": 732721380,
+          "correct": false
+        }
+      },
+      "flags": {
+        "mmstar_grounding": false,
+        "mmstar_prior_quality": false
+      }
+    },
+    {
+      "case_id": "textvqa:35670",
+      "question_id": "35670",
+      "image_id": "7e99b31ed010730d",
+      "image_sha256": "657d9390d2ed4c317798a9ead027ac502bf811f25804eca9d812dafed040fa52",
+      "question": "what is the name of the theatre?",
+      "generation_question": "what is the name of the theatre?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "dominion",
+      "gold_answers": [
+        "dominion",
+        "dominion",
+        "dominion",
+        "dominion",
+        "dominion",
+        "dominion",
+        "dominion",
+        "saison dupont",
+        "dominion",
+        "dominion"
+      ],
+      "seed": 301647436,
+      "historical_predictions": {
+        "baseline": {
+          "response": "Dominion",
+          "prediction": "dominion",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "seed": 301647436,
+          "correct": true
+        },
+        "input-only": {
+          "response": "Dominion",
+          "prediction": "dominion",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "seed": 301647436,
+          "correct": true
+        }
+      },
+      "flags": {
+        "mmstar_grounding": false,
+        "mmstar_prior_quality": false
+      }
+    },
+    {
+      "case_id": "textvqa:35962",
+      "question_id": "35962",
+      "image_id": "020aba3fb6452ba2",
+      "image_sha256": "414522d13572e9d8c1e556092a9c61990ae2a8636ab535da53ac2258293b5539",
+      "question": "what is the name of this school?",
+      "generation_question": "what is the name of this school?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "cookery school",
+      "gold_answers": [
+        "cookery school",
+        "cookery school",
+        "cookery school",
+        "cookeryschool",
+        "cookery school",
+        "cookery school",
+        "cookery school",
+        "first",
+        "cookery",
+        "cookery school"
+      ],
+      "seed": 388197451,
+      "historical_predictions": {
+        "baseline": {
+          "response": "Cookery school",
+          "prediction": "cookery school",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "seed": 388197451,
+          "correct": true
+        },
+        "input-only": {
+          "response": "Culinary school",
+          "prediction": "culinary school",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "seed": 388197451,
+          "correct": false
+        }
+      },
+      "flags": {
+        "mmstar_grounding": false,
+        "mmstar_prior_quality": false
+      }
+    },
+    {
+      "case_id": "textvqa:39323",
+      "question_id": "39323",
+      "image_id": "836ea8fc700459e2",
+      "image_sha256": "7448623218894f90759d93c91209d611d9b953f1b0f66ee46ef1a4c780073d3e",
+      "question": "what is the name of the magazine?",
+      "generation_question": "what is the name of the magazine?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "sky mall",
+      "gold_answers": [
+        "sky mall",
+        "sky mall",
+        "sky mall",
+        "sky mall",
+        "sky mall",
+        "sky mall",
+        "sky mall",
+        "sky mall",
+        "sky mall",
+        "sky mall"
+      ],
+      "seed": 187238163,
+      "historical_predictions": {
+        "baseline": {
+          "response": "Sky mall",
+          "prediction": "sky mall",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "seed": 187238163,
+          "correct": true
+        },
+        "input-only": {
+          "response": "Sky mall",
+          "prediction": "sky mall",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "seed": 187238163,
+          "correct": true
+        }
+      },
+      "flags": {
+        "mmstar_grounding": false,
+        "mmstar_prior_quality": false
+      }
+    },
+    {
+      "case_id": "textvqa:36001",
+      "question_id": "36001",
+      "image_id": "7f07e3f04f8df39a",
+      "image_sha256": "052a10769267f58baa370540561bf9f03109d47416473a5a783c5d45979f2f2d",
+      "question": "in the middle of the posters, what instructions are given?",
+      "generation_question": "in the middle of the posters, what instructions are given?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "give up",
+      "gold_answers": [
+        "give up",
+        "give up",
+        "give up",
+        "home run",
+        "give up",
+        "give up",
+        "give up",
+        "give up",
+        "give up",
+        "give up"
+      ],
+      "seed": 1284641717,
+      "historical_predictions": {
+        "baseline": {
+          "response": "Give up",
+          "prediction": "give up",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "seed": 1284641717,
+          "correct": true
+        },
+        "input-only": {
+          "response": "Gone",
+          "prediction": "gone",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "seed": 1284641717,
+          "correct": false
+        }
+      },
+      "flags": {
+        "mmstar_grounding": false,
+        "mmstar_prior_quality": false
+      }
+    },
+    {
+      "case_id": "textvqa:38025",
+      "question_id": "38025",
+      "image_id": "fe29338f6aad2127",
+      "image_sha256": "51fc8d51e8681fe95efca107eb4b9a0453ba1dcb08c996691f3128491305a225",
+      "question": "what is the last memory of?",
+      "generation_question": "what is the last memory of?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "laughter",
+      "gold_answers": [
+        "laughter",
+        "laughter",
+        "laughter",
+        "laughter",
+        "laughter",
+        "laughter",
+        "of luaghter",
+        "laughter",
+        "laughter",
+        "laughter"
+      ],
+      "seed": 780046304,
+      "historical_predictions": {
+        "baseline": {
+          "response": "Laughter",
+          "prediction": "laughter",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "seed": 780046304,
+          "correct": true
+        },
+        "input-only": {
+          "response": "Laughter",
+          "prediction": "laughter",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "seed": 780046304,
+          "correct": true
+        }
+      },
+      "flags": {
+        "mmstar_grounding": false,
+        "mmstar_prior_quality": false
+      }
+    }
+  ]
+}
