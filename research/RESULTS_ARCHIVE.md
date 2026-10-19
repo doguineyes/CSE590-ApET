@@ -198,6 +198,13 @@ old failed evidence remains unchanged.
 
 ### Subsequent downloads
 
+The October 19 v2 prerequisite failure was supplied as pasted console output and
+is preserved as `results/rq2-v2-prerequisites-20261019T221634315245Z-pasted.log`.
+It is not a complete standalone setup log. Fifteen of 16 tests passed; the one
+error came from our mutation test editing an inference tensor outside inference
+mode. The [test fix note](notes/2026-10-19-rq2-v2-prerequisite-test-fix.md) records
+the correction and rerun instructions. No calibration inference result was lost.
+
 1. Download the run's `.zip` **and** `.log` from Kaggle before ending its session.
    Keep the timestamped names. Optionally download the executed notebook and
    standalone runtime report as session context.

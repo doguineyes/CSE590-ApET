@@ -87,7 +87,11 @@ class FrozenNativeTests(unittest.TestCase):
             with _generation_replay(model, pixels, 'native-input288', snapshot):
                 model.encode_images(pixels); model.encode_images(pixels)
         self.assertIs(model.encode_images.__func__, old)
-        snapshot['encoded'][0][0, 0, 0] += 1
+        # Capture intentionally creates inference tensors. Inject corruption in
+        # the permitted context so our own fingerprint guard, rather than
+        # PyTorch's outside-inference mutation guard, is what rejects it.
+        with torch.inference_mode():
+            snapshot['encoded'][0][0, 0, 0] += 1
         with self.assertRaisesRegex(ValueError, 'mutated'):
             validate_snapshot(snapshot, 'native-input288', pixels)
 
