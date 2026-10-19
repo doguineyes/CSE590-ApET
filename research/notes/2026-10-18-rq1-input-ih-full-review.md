@@ -156,8 +156,12 @@ with the current input records. Matched IH results are:
 
 There is no consistent improvement of E alignment at layer 16. Only two
 boundaries were studied, not a full information-horizon curve. Input E is
-image-conditioned; decoder E need not be question-independent because the
-hidden states have processed the prompt. Late nulls also retain text states
+image-conditioned. In this runner, visual tokens precede the question in a
+causal decoder, so their layer-16 states cannot attend to the later question
+either. Different whole-sequence shapes can yield numerical differences; the
+observed same-image layer E agreement is nearly exact. This corrects the earlier
+statement that processing the prompt makes these visual states question-aware.
+Answer sensitivity remains question/target-conditioned. Late nulls retain text states
 that have already seen the full image; different null probabilities and
 intervention contexts prevent attributing every cross-stage difference to depth
 alone. The input null preserves the original visual-position gap and is not an
