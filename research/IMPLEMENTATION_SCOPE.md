@@ -65,6 +65,16 @@ do not silently replace the baseline reference.
 | `scripts/rq2_frozen_protocol.py`, `scripts/rq2_frozen_native.py`, `scripts/run_rq2_input_merge_v2.py`, `research/protocols/rq2_input_merge_v2.json` | Versioned RQ2 execution correction after native merging proved non-bitwise-repeatable: first captured native/no-merge tuples per image, exact clone replay across generation/scoring/same-image questions, unchanged structural/source checks, fixed replay repeats and separate fresh native numerical/answer controls. Seven-question calibration gates the full30 panel. Original v1 files, native sources, cohort and dependency lock stay unchanged. The pretrained Kaggle calibration and full30 panel passed; the [review](notes/2026-10-19-rq2-v2-full-review.md) records outcomes and limits. |
 | `research/` | Protocols, notebooks, notes, tests and artifacts |
 
+The separate `rq2_crossed_protocol.py`, `rq2_crossed_native.py` and
+`run_rq2_crossed.py` now add the [E/random × merge comparison](RQ2_CROSSED.md).
+Random selection is an explicitly project-owned index-result intervention;
+native source/FPS/reconstruction/basis assignment/merge/projection remain pinned.
+Three fixed seeds retain native basis spatial placement, with exact pair and
+replay controls. A separate gold-informed Brolio single-target restoration is an
+oracle diagnostic, excluded from the main summaries. Native files, existing v2
+measurement code, runtime lock and old results remain unchanged. The new native
+tests and seven-question calibration await Kaggle.
+
 The loader points the vision configuration to the separately pinned local CLIP
 snapshot. Standalone scripts force Matplotlib `Agg`. These are operational choices.
 Observation hooks call native methods without replacing their compression math.

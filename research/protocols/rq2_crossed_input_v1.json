@@ -1,0 +1,157 @@
+{
+  "version": "rq2-crossed-input-v1",
+  "dated_local": "2026-10-19",
+  "parent_profile": "research/protocols/rq2_input_merge_v2.json",
+  "parent_profile_sha256": "86591283846d3d83767b6a317e0591b39e332e421bfc26ef327ddfae2e243be5",
+  "input_bundle": "rq1-ih-inputs-v1.zip",
+  "reference_index_sha256": "dd91cca156a090fc6e2c236f16042358e2dbe3b9db5d49d12609a45618d49644",
+  "case_ids": [
+    "gqa:201636988",
+    "gqa:201637316",
+    "gqa:201713640",
+    "gqa:201713599",
+    "gqa:201428959",
+    "gqa:201429017",
+    "gqa:201882905",
+    "gqa:201883221",
+    "gqa:201998268",
+    "gqa:201998118",
+    "gqa:202218593",
+    "gqa:202218829",
+    "mmstar:313",
+    "mmstar:617",
+    "mmstar:1014",
+    "mmstar:604",
+    "mmstar:895",
+    "mmstar:825",
+    "mmstar:1188",
+    "mmstar:1030",
+    "mmstar:626",
+    "mmstar:136",
+    "mmstar:776",
+    "mmstar:1372",
+    "textvqa:37533",
+    "textvqa:35670",
+    "textvqa:35962",
+    "textvqa:39323",
+    "textvqa:36001",
+    "textvqa:38025"
+  ],
+  "calibration_case_ids": [
+    "gqa:201636988",
+    "gqa:201637316",
+    "mmstar:313",
+    "textvqa:37533",
+    "textvqa:35670",
+    "textvqa:35962",
+    "textvqa:36001"
+  ],
+  "conditions": {
+    "baseline576": {
+      "selection": "full",
+      "merge": false,
+      "random_seed": null,
+      "replay_arm": "baseline576"
+    },
+    "E-merge": {
+      "selection": "E",
+      "merge": true,
+      "random_seed": null,
+      "replay_arm": "native-input288"
+    },
+    "E-no-merge": {
+      "selection": "E",
+      "merge": false,
+      "random_seed": null,
+      "replay_arm": "native-input288-no-merge"
+    },
+    "random-101-merge": {
+      "selection": "random",
+      "merge": true,
+      "random_seed": 101,
+      "replay_arm": "native-input288"
+    },
+    "random-101-no-merge": {
+      "selection": "random",
+      "merge": false,
+      "random_seed": 101,
+      "replay_arm": "native-input288-no-merge"
+    },
+    "random-202-merge": {
+      "selection": "random",
+      "merge": true,
+      "random_seed": 202,
+      "replay_arm": "native-input288"
+    },
+    "random-202-no-merge": {
+      "selection": "random",
+      "merge": false,
+      "random_seed": 202,
+      "replay_arm": "native-input288-no-merge"
+    },
+    "random-303-merge": {
+      "selection": "random",
+      "merge": true,
+      "random_seed": 303,
+      "replay_arm": "native-input288"
+    },
+    "random-303-no-merge": {
+      "selection": "random",
+      "merge": false,
+      "random_seed": 303,
+      "replay_arm": "native-input288-no-merge"
+    }
+  },
+  "random_seeds": [
+    101,
+    202,
+    303
+  ],
+  "input_tokens": 288,
+  "basis_tokens": 10,
+  "ordinary_tokens": 278,
+  "decoder_layers": [],
+  "random_policy": {
+    "pool": "All 576 source positions except the ten native E-selected basis replacement slots",
+    "sample": "Uniform 278 positions without replacement using isolated Python Random",
+    "ordering": "Descending native E, then source index; append the unchanged native ranked basis-slot tail",
+    "basis_source_duplicates": "Allowed at distinct ordinary coordinates, as in native E selection",
+    "derived_seed": "SHA256 of version|image_sha256|archived_seed|random_seed, full digest integer",
+    "pairing": "One identical random selected set for merge/no-merge and every same-image question"
+  },
+  "oracle": {
+    "case_id": "textvqa:37533",
+    "target": 317,
+    "kind": "post-hoc oracle, not a deployable protection rule",
+    "matched_control": "Other native merge target with closest incoming count; index tie-break"
+  },
+  "controls": {
+    "fixed_replay_repeats": [
+      "gqa:201636988",
+      "textvqa:37533",
+      "textvqa:35670",
+      "textvqa:35962",
+      "textvqa:36001"
+    ],
+    "fresh_native_repeats": [
+      "gqa:201636988",
+      "textvqa:37533",
+      "textvqa:35670",
+      "textvqa:35962",
+      "textvqa:36001"
+    ],
+    "fresh_native_captures_per_control": 2,
+    "fixed_replay_conditions": [
+      "baseline576",
+      "E-merge",
+      "E-no-merge",
+      "random-101-merge",
+      "random-101-no-merge"
+    ],
+    "fresh_conditions": [
+      "E-merge",
+      "random-101-merge"
+    ]
+  },
+  "limits": "Outcome-enriched diagnostic 30 questions/24 images; random seeds repeat conditions on the same questions; no benchmark inference. Basis source/slot assignment fixed across selectors, but compact output positions change with selected coordinates."
+}

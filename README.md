@@ -77,6 +77,8 @@ It reuses captured features and records native numerical variation separately.
 The [Kaggle full-panel review](research/notes/2026-10-19-rq2-v2-full-review.md)
 records 19/30 correct with merging and 21/30 without it, including recovery of
 Brolio. This selected diagnostic panel is not a benchmark accuracy estimate.
+The next [E/random × merge comparison](research/RQ2_CROSSED.md) and optional
+Brolio restoration diagnostic are implemented; their Kaggle calibration is next.
 
 ## Code layout
 
