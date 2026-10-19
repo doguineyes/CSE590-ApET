@@ -16,6 +16,70 @@ original ApET files and original locked environment stay unchanged. Native parit
 selection/slot identity, repeated references and saved feature fingerprints must
 pass before the comparison is interpreted.
 
+## Current checkpoint: inspect the numerical parity failure first
+
+The first Kaggle pilot stopped on `features_exact` for `gqa:201636988`.
+The raw/native projected-feature hashes differed, while the mask and generated
+IDs matched. Native/no-merge CLIP, E, FPS, selection and basis placement matched.
+The failed archive cannot quantify or locate the raw/native feature difference;
+it remains failed evidence, not a completed RQ2 result. Do not change tolerances
+or rerun the unchanged 30-question pilot yet.
+
+The updated notebook offers a bounded diagnostic using **only the first
+question**: three raw native encodes, three instrumented native encodes, two
+no-merge encodes and one instrumented native generation. It records stage tensors
+and numerical comparisons so we can
+distinguish repeated native variability from instrumentation effects. The same
+original code, environment, inputs, seed and checkpoints are used. Completing
+this diagnostic does **not** mean that the original 30-question pilot passed.
+
+For a newly imported notebook, set only:
+
+```python
+RUN_PARITY_DIAGNOSTIC = True
+RUN_RQ2_PILOT = False
+```
+
+Both flags default to False; enabling both raises an error. Download the new
+`rq2-native-parity-diagnostic-v1-<timestamp>.zip` and its matching log for review.
+
+### Continue in the existing live notebook
+
+Wait until the failed process has exited, push the update to GitHub, then add
+the following cell to the same notebook. It reuses the already prepared
+`repo`, `inputs`, `original_python`, `setup_log`, `runtime_report` and
+`stream_command`; no reimport, environment reinstall or input upload is needed.
+The updated helper is read from your own checked-out notebook. This defines a
+function only; the final line starts the bounded diagnostic.
+
+```python
+subprocess.run(["git", "pull", "--ff-only"], cwd=repo, check=True, timeout=120)
+with setup_log.open("a", encoding="utf-8") as stream:
+    stream_command([str(original_python), "-X", "utf8", "-I", "-c",
+                    "import torch; print(torch.__version__)"], stream, cwd=repo)
+    native_output = stream_command([
+        str(original_python), "-X", "utf8", "-m", "unittest",
+        "research.tests.test_rq2_native",
+        "research.tests.test_rq2_parity_diagnostic.DiagnosticPolicyTests",
+        "research.tests.test_rq2_parity_diagnostic.DiagnosticTensorTests", "-v",
+    ], stream, cwd=repo)
+    count = re.search(r"Ran (\d+) tests?", native_output)
+    if not count or int(count.group(1)) == 0 or re.search(r"skipped\s*=", native_output):
+        raise RuntimeError("Expected native tests with zero skips; preserve the setup log.")
+updated = json.loads((repo / "research/notebooks/kaggle_rq2_input_merge_pilot.ipynb").read_text())
+helpers = ["".join(cell["source"]) for cell in updated["cells"]
+           if cell["cell_type"] == "code"
+           and "".join(cell["source"]).startswith("def run_rq2_pilot(")]
+if len(helpers) != 1:
+    raise RuntimeError("Expected exactly one updated RQ2 helper; stop and inspect the checkout.")
+exec(compile(helpers[0], "updated-rq2-helper", "exec"), globals())
+rq2_diagnostic_dir = run_rq2_pilot(diagnostic=True)
+```
+
+If notebook variables were lost because the session ended, use the updated
+notebook and run its setup cells instead. Separate sessions do not share the
+virtual environment. Keep earlier failed ZIPs/logs unchanged.
+
 ## Run on Kaggle
 
 1. Push these new files to `apet-analysis`.
@@ -25,10 +89,11 @@ pass before the comparison is interpreted.
    run. It contains [rq1-ih-inputs-v1.zip](results/rq1-ih-inputs-v1.zip), **34.1 MiB**,
    or its automatically extracted contents. No new bundle or public upload is
    required. The older `rq1-inputs-v1` bundle alone is insufficient.
-4. In the first code cell set:
+4. After the numerical diagnostic has been reviewed, set only:
 
    ```python
    RUN_RQ2_PILOT = True
+   RUN_PARITY_DIAGNOSTIC = False
    ```
 
    Leave `QUESTIONS = 30`. `INPUT_ZIP = None` detects a ZIP or unpacked Dataset.
@@ -42,7 +107,7 @@ pass before the comparison is interpreted.
    runtime JSON are also linked; both are copied into the runner's evidence ZIP.
    Send the result ZIP/log for review before expanding RQ2 variants or datasets.
 
-The flag defaults to False and stops before cloning, setup or inference. Importing
+Both flags default to False and stop before cloning, setup or inference. Importing
 the notebook must not start an experiment. If Kaggle imports it as a running
 version, open **Edit** to make the change in a draft.
 
@@ -80,8 +145,9 @@ to exclude a new wrong answer.
 
 ## Outputs and reuse
 
-Each invocation creates a new `rq2-input-merge-pilot-v1-<UTC timestamp>` directory
-and a sibling ZIP/log under `/kaggle/working`. Normal handled runner failures also
+Each pilot invocation creates a new `rq2-input-merge-pilot-v1-<UTC timestamp>`
+directory; diagnostic mode uses `rq2-native-parity-diagnostic-v1-<UTC timestamp>`.
+Both create sibling ZIP/log files under `/kaggle/working`. Normal handled runner failures also
 write evidence. If the process exits before creating its archive, the notebook
 creates a clearly labeled fallback ZIP of whatever evidence exists; that fallback
 does **not** establish that the run completed. A hard kernel/session termination
@@ -107,7 +173,8 @@ each run setup; attaching the same input Dataset does not share a virtualenv.
 ## Validation and next scope
 
 Kaggle setup explicitly imports Torch, then executes
-`python -m unittest research.tests.test_rq2_native -v`. A zero-test run or any skipped
+`python -m unittest research.tests.test_rq2_native research.tests.test_rq2_parity_diagnostic.DiagnosticPolicyTests research.tests.test_rq2_parity_diagnostic.DiagnosticTensorTests -v`.
+A zero-test run or any skipped
 native test fails the notebook prerequisite. The native tests use tiny models and
 do not download pretrained weights. Pretrained parity and answer checks still
 belong to the actual GPU pilot; local CPU checks cannot establish those results.

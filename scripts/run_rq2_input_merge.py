@@ -252,6 +252,18 @@ def run_panel(args, report, profile, manifests, records, loaded):
 
 
 def write_review(output, report):
+    if report.get('diagnostic_only'):
+        detail = html.escape(json.dumps(report.get('diagnostic', {}), indent=2))
+        (output / 'index.html').write_text(
+            '<!doctype html><meta charset="utf-8"><title>RQ2 native parity diagnostic</title>'
+            '<style>body{font:16px system-ui;max-width:1200px;margin:2em auto;padding:1em}pre{white-space:pre-wrap}</style>'
+            '<h1>One-question native parity diagnostic</h1><p>Execution status: '+html.escape(report['status'])+'</p>'
+            '<p>This records native numerical differences. A completed diagnostic does not establish a passed RQ2 pilot '
+            'or authorize changing its feature-parity tolerance. Original gates and native code remain unchanged.</p>'
+            '<p><a href="report.json">Report/provenance</a>'+ \
+            (' · <a href="parity-diagnostic.json">Stage comparisons</a>' if (output/'parity-diagnostic.json').is_file() else '')+'</p>'
+            '<pre>'+detail+'</pre>', encoding='utf-8')
+        return
     rows = []
     for path in sorted((output / 'questions').glob('*.json')):
         q = json.loads(path.read_text())
@@ -311,6 +323,8 @@ def main(argv=None):
     p.add_argument('--expected-gpus', type=int, default=2)
     p.add_argument('--setup-log', type=Path)
     p.add_argument('--runtime-report', type=Path)
+    p.add_argument('--diagnose-native-parity', action='store_true',
+                   help='Only first frozen question; measure raw/observed encoding drift, not the 30-case pilot')
     args = p.parse_args(argv)
     for field in ('inputs', 'output', 'cache_dir', 'setup_log', 'runtime_report'):
         value = getattr(args, field)
@@ -329,8 +343,11 @@ def main(argv=None):
     signal.signal(signal.SIGTERM, interrupt_run)
     args.output.mkdir(parents=True)
     started = time.perf_counter()
-    report = {'version': VERSION, 'status': 'running', 'arguments': {
+    report = {'version': 'rq2-native-parity-diagnostic-v1' if args.diagnose_native_parity else VERSION,
+        'status': 'running', 'arguments': {
         k: str(v) if isinstance(v, Path) else v for k, v in vars(args).items()}}
+    if args.diagnose_native_parity:
+        report.update(diagnostic_only=True, scientific_pilot_passed=False)
     try:
         report.update(provenance('RQ2 native input merge/no-merge generation pilot; selection+basis fixed'))
         report['status'] = 'running'
@@ -342,17 +359,26 @@ def main(argv=None):
         profile, index, manifests, records = validate_bundle(args.inputs)
         report.update(profile=profile, profile_sha256=sha256(PROFILE), arms=ARMS,
             measurement_sources_sha256=source_hashes(extra=[
-                'scripts/run_rq2_input_merge.py', 'scripts/rq2_native.py',
+                'scripts/run_rq2_input_merge.py', 'scripts/rq2_native.py', 'scripts/rq2_parity_diagnostic.py',
                 'research/tests/test_rq2_protocol.py', 'research/tests/test_rq2_native.py',
-                'research/tests/test_rq2_runner.py', 'research/notebooks/kaggle_rq2_input_merge_pilot.ipynb',
+                'research/tests/test_rq2_runner.py', 'research/tests/test_rq2_parity_diagnostic.py',
+                'research/notebooks/kaggle_rq2_input_merge_pilot.ipynb',
                 'research/RQ2_INPUT_MERGE_PILOT.md']),
             scope='Outcome-enriched diagnostic panel, not benchmark accuracy; only merging omitted in the variant',
             timing_note='Hashing, controls and snapshots affect runtime; not a performance benchmark')
         copy_evidence(args, report)
         write_json(args.output / 'report.json', report)
-        print(f'Validated fixed inputs. Loading LLaVA once for {args.questions} questions.', flush=True)
+        if args.diagnose_native_parity:
+            report.update(diagnostic_only=True, scientific_pilot_passed=False,
+                scope='One-question numerical diagnostic; no RQ2 pilot outcome or gate relaxation')
+        print('Validated fixed inputs. Loading LLaVA once for '+
+              ('one-question parity diagnostic.' if args.diagnose_native_parity else f'{args.questions} questions.'), flush=True)
         loaded = load_model(args, report)
-        run_panel(args, report, profile, manifests, records, loaded)
+        if args.diagnose_native_parity:
+            from rq2_parity_diagnostic import run_diagnostic
+            run_diagnostic(args, report, profile, manifests, records, loaded)
+        else:
+            run_panel(args, report, profile, manifests, records, loaded)
         report['status'] = 'passed'
     except KeyboardInterrupt:
         report['status'], report['error'] = 'interrupted', 'Partial evidence preserved'

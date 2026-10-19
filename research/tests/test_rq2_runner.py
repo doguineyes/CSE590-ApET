@@ -307,6 +307,42 @@ class RQ2RunnerTests(unittest.TestCase):
                 self.assertEqual(detail["controls"]["selection_and_basis"]["status"], "passed")
                 self.assertEqual(detail["controls"]["baseline_reference_max_delta"], 0)
 
+    def test_diagnostic_mode_cannot_be_exported_as_a_passed_scientific_pilot(self):
+        """CLI dispatch/export only; a synthetic probe is not model evidence."""
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            inputs = fixture_inputs(root)
+            output = root / "synthetic-diagnostic"
+            fake_torch = SimpleNamespace(cuda=SimpleNamespace(is_available=lambda: True, device_count=lambda: 2))
+
+            def probe(args, report, profile, manifests, records, loaded):
+                report.update(diagnostic_only=True, scientific_pilot_passed=False,
+                    expected_case_ids=[profile['case_ids'][0]],
+                    progress={'completed_passes': 9, 'expected_passes': 9},
+                    diagnostic={'status': 'passed', 'synthetic_cpu_test': True,
+                        'completion_meaning': 'Probe executed; not passed scientific parity'})
+                write_json(args.output / 'parity-diagnostic.json', report['diagnostic'])
+
+            fake_module = SimpleNamespace(run_diagnostic=probe)
+            with patch.dict(sys.modules, {'torch': fake_torch, 'rq2_parity_diagnostic': fake_module}), \
+                    patch.object(runner, 'provenance', return_value={'synthetic_cpu_test': True}), \
+                    patch.object(runner, 'validate_runtime'), patch.object(runner, 'verify_native_reference'), \
+                    patch.object(runner, 'validate_bundle', return_value=(copy.deepcopy(self.profile), {}, {}, [])), \
+                    patch.object(runner, 'source_hashes', return_value={}), \
+                    patch.object(runner, 'load_model', return_value=(None, None, None)), \
+                    patch.object(runner, 'run_panel') as panel, patch.object(runner.signal, 'signal'), \
+                    patch.dict(os.environ), contextlib.redirect_stdout(io.StringIO()):
+                status = runner.main(['--inputs', str(inputs), '--output', str(output), '--diagnose-native-parity'])
+            self.assertEqual(status, 0)
+            panel.assert_not_called()
+            report, _ = self.verify_zip(output)
+            self.assertEqual(report['version'], 'rq2-native-parity-diagnostic-v1')
+            self.assertTrue(report['diagnostic_only'])
+            self.assertFalse(report['scientific_pilot_passed'])
+            self.assertEqual(report['expected_case_ids'], [self.profile['case_ids'][0]])
+            self.assertNotIn('summaries', report)
+            self.assertIn('does not establish a passed RQ2 pilot', (output/'index.html').read_text())
+
     def test_actual_panel_preserves_partial_records_when_same_image_gate_fails(self):
         with tempfile.TemporaryDirectory() as directory:
             output, report = self.run_two_question_gates(Path(directory), change_same_image_mapping=True)

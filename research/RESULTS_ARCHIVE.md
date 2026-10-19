@@ -159,6 +159,18 @@ and `results/rq1-input-ih-synthesis-v1-2026-10-18/`. No raw source was overwritt
 no inference was repeated locally and the primary cohort is unchanged. The dated
 October 16 inventory above does not include these later files.
 
+### October 19 first RQ2 failure
+
+`rq2-input-merge-pilot-v1-20261019T185452294158Z.zip` and matching `.log` are
+preserved byte-for-byte from Downloads. All 109 members pass CRC; 108 artifact
+hashes and 101 evidence hashes verify. The embedded Kaggle setup passed ten
+native prerequisite tests. The first case stopped on separate-execution projected
+feature hashes, with zero admitted completed pilot cases. Selection/basis/source
+identities match; numeric feature magnitudes were not retained in this archive.
+The [failure review](notes/2026-10-19-rq2-first-parity-failure.md) records raw hashes,
+exact checks, limitations and the bounded next diagnostic. Derived review records
+are separate in `results/rq2-input-merge-failed-review-v1-2026-10-19/`.
+
 ### Subsequent downloads
 
 1. Download the run's `.zip` **and** `.log` from Kaggle before ending its session.
