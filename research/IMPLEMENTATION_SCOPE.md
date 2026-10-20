@@ -89,8 +89,13 @@ the native merge call: count-preserving destination shuffles, or nearest-eligibl
 routing excluding 28 high-E/random protected ordinary targets. Original source
 selection, basis placement, FP16 accumulation/normalization and projection run
 unchanged. Actual routing graphs, protected pre/post identities, fixed replay and
-fresh numerical repeats are saved. A new seven-question calibration gates full30;
-native/pretrained tests await Kaggle. This is separate from random retained-token
+fresh numerical repeats are saved. The native prerequisites and
+[seven-question calibration passed](notes/2026-10-19-rq2-routing-calibration-review.md),
+followed by the [full30 comparison](notes/2026-10-19-rq2-routing-full-review.md).
+High-E protection has little routing activity in this cohort; policy efficacy
+remains a separate question from execution validity. All primary graphs/answers,
+fixed/fresh repeats and the embedded calibration evidence verify in CPU review.
+This is separate from random retained-token
 selection and the gold-informed Brolio oracle. No native source or dependency lock
 was edited.
 

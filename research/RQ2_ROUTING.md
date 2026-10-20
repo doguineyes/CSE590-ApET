@@ -1,9 +1,21 @@
 # RQ2: fixed selection, merge routing and target protection
 
+The [full30 run passed](notes/2026-10-19-rq2-routing-full-review.md): native 19/30,
+no-merge 21/30, shuffled 19–20/30, high-E protection 19/30 and random protection 19–20/30.
+All 30 fixed replays and 40 fresh answer repeats are stable. High-E protection
+redirects only 21 of 6,912 sources and changes no assignments on 15/24 images.
+The first bounded comparison is complete; its efficacy limits and next steps are
+recorded in the review.
+
+The [seven-question calibration passed](notes/2026-10-19-rq2-routing-calibration-review.md).
+All 30 fixed replays are exact and 40 fresh repeats preserve answers. Policy effects
+are mixed; high-E protection changes only 7 source assignments across 6 images,
+with no change on 4 images. That calibration gated the completed full30 above.
+
 This is step 4 of the [RQ2 plan](notes/2026-10-19-rq2-plan.md). The
 [E/random-selection comparison](RQ2_CROSSED.md) and optional Brolio restoration
-remain separate experiments. This runner needs its own calibration; none of its
-pretrained outcomes has been measured yet.
+remain separate experiments. This runner has its own passed calibration and full30
+pretrained results.
 
 ## Frozen comparison
 
