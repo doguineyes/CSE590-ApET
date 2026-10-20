@@ -73,7 +73,26 @@ Three fixed seeds retain native basis spatial placement, with exact pair and
 replay controls. A separate gold-informed Brolio single-target restoration is an
 oracle diagnostic, excluded from the main summaries. Native files, existing v2
 measurement code, runtime lock and old results remain unchanged. The new native
-tests and seven-question calibration await Kaggle.
+tests and [seven-question calibration](notes/2026-10-19-rq2-crossed-calibration-review.md)
+passed on Kaggle, followed by the [full30 comparison](notes/2026-10-19-rq2-crossed-full-review.md).
+The cohort is enriched for known compression failures and does not establish
+general random-selection superiority. The separate
+[Brolio oracle](notes/2026-10-19-rq2-brolio-oracle-review.md) also passed: target317
+restoration recovers the name, sham and control141 do not. It remains post-hoc
+single-case evidence, excluded from primary method summaries. All native sources
+and the lock remain pinned.
+
+The separate `rq2_routing_protocol.py`, `rq2_routing_native.py` and
+`run_rq2_routing.py` implement [fixed-selection routing/protection](RQ2_ROUTING.md).
+Project-owned scoped cosine-result interventions change destination choice inside
+the native merge call: count-preserving destination shuffles, or nearest-eligible
+routing excluding 28 high-E/random protected ordinary targets. Original source
+selection, basis placement, FP16 accumulation/normalization and projection run
+unchanged. Actual routing graphs, protected pre/post identities, fixed replay and
+fresh numerical repeats are saved. A new seven-question calibration gates full30;
+native/pretrained tests await Kaggle. This is separate from random retained-token
+selection and the gold-informed Brolio oracle. No native source or dependency lock
+was edited.
 
 The loader points the vision configuration to the separately pinned local CLIP
 snapshot. Standalone scripts force Matplotlib `Agg`. These are operational choices.

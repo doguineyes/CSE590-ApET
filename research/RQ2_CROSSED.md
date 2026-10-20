@@ -1,5 +1,17 @@
 # RQ2: E/random selection × merge/no-merge
 
+The [full30 run passed](notes/2026-10-19-rq2-crossed-full-review.md): E selection
+preserves 19/30 with merging and 21/30 without; random seeds preserve 23–26/30
+with merging and 24–27/30 without. Paired gains/losses depend on the seed and merge
+rule. The full review records checks, numerical repeat limits and cohort bias.
+The next separate experiment is [routing/protection](RQ2_ROUTING.md).
+
+The [seven-question calibration passed](notes/2026-10-19-rq2-crossed-calibration-review.md):
+all source/selection/replay checks and fresh answer repeats passed. Its saved
+report gated the full30 panel reported above. Its literal-text
+recoveries are informative, but the calibration is enriched for known E-merge
+failures and does not estimate general random-versus-E performance.
+
 This extends the passed [first merge/no-merge experiment](notes/2026-10-19-rq2-v2-full-review.md).
 Use the same 30 questions / 24 images, original locked runtime, weights, prompts,
 scorers and 288-token input budget. Decoder compression remains off. No native
@@ -65,8 +77,8 @@ random seeds are not given extra fresh repetitions.
    Review that result before the full30 run. Original native Torch prerequisites
    and the new random/oracle tests run first, with zero allowed skips.
 
-Both execution and random-control correctness still require Kaggle validation.
-The previous v2 calibration cannot gate this new experiment: it did not exercise
+Execution and random-control correctness passed the Kaggle calibration and full30.
+The previous v2 calibration cannot gate this experiment: it did not exercise
 the random selector. Calibration uses the same seven predeclared cross-dataset
 cases, including the GQA pair, Brolio and other TextVQA controls.
 
@@ -129,6 +141,11 @@ Feature evidence makes archives larger; GPU feature caches are released after
 each image's last question. Nothing is committed or uploaded automatically.
 
 ## Optional Brolio single-target restoration
+
+The [one-question diagnostic passed](notes/2026-10-19-rq2-brolio-oracle-review.md):
+restoring only317 recovers Brolio; sham and count-matched target141 remain Bottoli.
+The recorded non-target features and mask stay exact. This is a selected
+conditional rescue, not a deployable protection rule or full experiment result.
 
 This is **separate, post-hoc oracle evidence**, not an adaptive compression method.
 It does not affect the main crossed summary or satisfy its calibration gate.

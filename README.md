@@ -77,8 +77,14 @@ It reuses captured features and records native numerical variation separately.
 The [Kaggle full-panel review](research/notes/2026-10-19-rq2-v2-full-review.md)
 records 19/30 correct with merging and 21/30 without it, including recovery of
 Brolio. This selected diagnostic panel is not a benchmark accuracy estimate.
-The next [E/random × merge comparison](research/RQ2_CROSSED.md) and optional
-Brolio restoration diagnostic are implemented; their Kaggle calibration is next.
+The [E/random × merge comparison](research/RQ2_CROSSED.md) passed calibration and
+full30; see the [review](research/notes/2026-10-19-rq2-crossed-full-review.md).
+Random controls recover several known failures, with seed-dependent merge effects.
+The separate [Brolio restoration diagnostic](research/notes/2026-10-19-rq2-brolio-oracle-review.md)
+recovers the correct name by restoring one merged state, while a matched control does not.
+The separate [routing and target-protection comparison](research/RQ2_ROUTING.md)
+is also implemented, with fixed native selection, count-preserving shuffled
+destinations and high-E/random protected targets. Its Kaggle calibration is pending.
 
 ## Code layout
 
