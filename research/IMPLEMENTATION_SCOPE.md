@@ -115,14 +115,25 @@ controls are recorded separately. Ten CPU tests passed locally; all 26 Kaggle
 prerequisites and the [six-question calibration](notes/2026-10-20-rq2-pure-random-calibration-review.md)
 now passed. Native64 uses exactly 64 decoder-input visual states. Native scores 2/6
 versus 2–4/6 for pure random; this selected calibration is not a population estimate.
-The [staged calibration](RQ2_STAGED_CALIBRATION.md) is the next priority. Native
+The [staged calibration](RQ2_STAGED_CALIBRATION.md) passed on Kaggle. Native
 96→32/288→96 call the original input and decoder methods; the random adapter changes
 only retention masks/gathers at the same boundaries. Input replay also preserves
 post-encoding RNG continuation for native decoder FPS. Original forward/cache and
 position updates stay unchanged. Full576 no-op, frozen replays, first/late-block
 cache probes and separate fresh native runs are controls. This is a selected
 six-question execution calibration, not a full paper reproduction or benchmark
-ranking. Pretrained validation is pending on Kaggle.
+ranking. The [review](notes/2026-10-21-rq2-staged-calibration-review.md) verifies54
+primary predictions and all bounded controls.
+The [staged TextVQA100 extension](RQ2_STAGED_TEXTVQA100.md) adds
+`rq2_staged_textvqa_protocol.py` and `run_rq2_staged_textvqa100.py`: all100 unchanged
+screening questions, nine calibrated conditions,900 generated-answer predictions,
+bounded identity/replay/cache/fresh-native controls and compact evidence. The
+passed calibration metadata is pinned in a separate project-owned reference;
+the original raw calibration stays archived. Existing staged adapters/native
+methods/random streams are reused unchanged. Partial consensus credit, per-seed
+paired comparisons, baseline preservation/gains/losses and the94-question
+complement are exported. No accuracy threshold admits or excludes questions.
+New pretrained execution remains pending; CPU orchestration/scoring tests passed.
 The [TextVQA100 extension](RQ2_TEXTVQA100.md), now deferred as an optional input-only
 ablation, reuses this calibrated capture/replay
 code for all100 existing screening questions, without baseline-correct filtering.

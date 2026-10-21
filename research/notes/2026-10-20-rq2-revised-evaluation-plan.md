@@ -7,12 +7,14 @@ The input-only TextVQA100 runner is implemented but **deferred as an optional
 ablation**. The staged runner is implemented and its
 [October 21 Kaggle calibration passed](2026-10-21-rq2-staged-calibration-review.md):
 54 primary predictions, both actual stage schedules and all bounded controls
-verify. The broader staged runner remains to be implemented.
+verify. The [staged TextVQA100 runner](../RQ2_STAGED_TEXTVQA100.md) is now
+implemented; its pretrained Kaggle execution remains pending.
 
 After it passes: broaden the matched staged comparison to TextVQA100 and GQA
 development, then confirm on MMStar. A small input-merge on/off × decoder-merge
 on/off study can connect the completed component analysis to the staged system.
-This is proposed, not yet an implemented factorial or broad staged runner.
+The staged TextVQA100 runner is implemented. The factorial and broader GQA/MMStar
+runners remain proposed.
 Keep reserved GQA evaluation untouched; a new compressor improvement is optional.
 
 This update supersedes the earlier **priority order** below. Preserve its

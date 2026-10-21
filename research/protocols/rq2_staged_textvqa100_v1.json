@@ -1,0 +1,239 @@
+{
+  "version": "rq2-staged-textvqa100-v1",
+  "manifest_sha256": "d01ad107653ba9d0b215d927d35037464c39f1309756fd27329a82649812ab0f",
+  "reference_sha256": "47dfc35d0508d8c46be798a86d4e280273f6fa7d11de37a22e100f9bc17c2426",
+  "calibration_reference_sha256": "8f26f3d1030e67bd18c826441b9430b7860b7686e187b5d33a7c43889b77ace0",
+  "case_ids": [
+    "textvqa:37109",
+    "textvqa:35670",
+    "textvqa:34764",
+    "textvqa:35121",
+    "textvqa:35000",
+    "textvqa:37908",
+    "textvqa:37533",
+    "textvqa:36780",
+    "textvqa:38806",
+    "textvqa:37999",
+    "textvqa:37945",
+    "textvqa:38384",
+    "textvqa:36584",
+    "textvqa:35316",
+    "textvqa:37680",
+    "textvqa:37306",
+    "textvqa:37479",
+    "textvqa:39007",
+    "textvqa:37085",
+    "textvqa:35241",
+    "textvqa:37455",
+    "textvqa:38665",
+    "textvqa:37034",
+    "textvqa:39182",
+    "textvqa:39308",
+    "textvqa:39184",
+    "textvqa:35187",
+    "textvqa:39513",
+    "textvqa:37278",
+    "textvqa:39009",
+    "textvqa:39327",
+    "textvqa:38407",
+    "textvqa:37573",
+    "textvqa:37586",
+    "textvqa:35802",
+    "textvqa:36502",
+    "textvqa:35508",
+    "textvqa:39323",
+    "textvqa:37272",
+    "textvqa:35250",
+    "textvqa:35259",
+    "textvqa:36400",
+    "textvqa:37615",
+    "textvqa:35962",
+    "textvqa:35410",
+    "textvqa:38487",
+    "textvqa:39236",
+    "textvqa:36001",
+    "textvqa:37815",
+    "textvqa:38025",
+    "textvqa:35415",
+    "textvqa:34775",
+    "textvqa:36332",
+    "textvqa:35925",
+    "textvqa:34759",
+    "textvqa:35653",
+    "textvqa:35990",
+    "textvqa:36773",
+    "textvqa:36527",
+    "textvqa:37481",
+    "textvqa:38591",
+    "textvqa:36302",
+    "textvqa:39279",
+    "textvqa:37845",
+    "textvqa:38355",
+    "textvqa:35520",
+    "textvqa:36632",
+    "textvqa:39215",
+    "textvqa:36884",
+    "textvqa:34700",
+    "textvqa:38830",
+    "textvqa:37511",
+    "textvqa:38250",
+    "textvqa:34870",
+    "textvqa:37534",
+    "textvqa:39313",
+    "textvqa:35564",
+    "textvqa:34924",
+    "textvqa:37936",
+    "textvqa:36995",
+    "textvqa:39485",
+    "textvqa:35093",
+    "textvqa:37566",
+    "textvqa:37127",
+    "textvqa:39305",
+    "textvqa:39001",
+    "textvqa:35257",
+    "textvqa:38925",
+    "textvqa:36730",
+    "textvqa:35356",
+    "textvqa:35383",
+    "textvqa:35297",
+    "textvqa:37899",
+    "textvqa:36838",
+    "textvqa:39482",
+    "textvqa:38986",
+    "textvqa:35891",
+    "textvqa:38939",
+    "textvqa:38104",
+    "textvqa:37148"
+  ],
+  "questions": 100,
+  "images": 100,
+  "conditions": {
+    "baseline576": {
+      "method": "baseline",
+      "input_tokens": 576,
+      "decoder_tokens": null,
+      "layer": null,
+      "random_seed": null
+    },
+    "native-96-to-32": {
+      "method": "native",
+      "input_tokens": 96,
+      "decoder_tokens": 32,
+      "layer": 16,
+      "random_seed": null
+    },
+    "pure-random-96-to-32-s101": {
+      "method": "pure-random",
+      "input_tokens": 96,
+      "decoder_tokens": 32,
+      "layer": 16,
+      "random_seed": 101
+    },
+    "pure-random-96-to-32-s202": {
+      "method": "pure-random",
+      "input_tokens": 96,
+      "decoder_tokens": 32,
+      "layer": 16,
+      "random_seed": 202
+    },
+    "pure-random-96-to-32-s303": {
+      "method": "pure-random",
+      "input_tokens": 96,
+      "decoder_tokens": 32,
+      "layer": 16,
+      "random_seed": 303
+    },
+    "native-288-to-96": {
+      "method": "native",
+      "input_tokens": 288,
+      "decoder_tokens": 96,
+      "layer": 16,
+      "random_seed": null
+    },
+    "pure-random-288-to-96-s101": {
+      "method": "pure-random",
+      "input_tokens": 288,
+      "decoder_tokens": 96,
+      "layer": 16,
+      "random_seed": 101
+    },
+    "pure-random-288-to-96-s202": {
+      "method": "pure-random",
+      "input_tokens": 288,
+      "decoder_tokens": 96,
+      "layer": 16,
+      "random_seed": 202
+    },
+    "pure-random-288-to-96-s303": {
+      "method": "pure-random",
+      "input_tokens": 288,
+      "decoder_tokens": 96,
+      "layer": 16,
+      "random_seed": 303
+    }
+  },
+  "random_policy_version": "rq2-staged-calibration-v1",
+  "schedules": [
+    [
+      96,
+      32
+    ],
+    [
+      288,
+      96
+    ]
+  ],
+  "layer": 16,
+  "native_basis_tokens": 10,
+  "random_seeds": [
+    101,
+    202,
+    303
+  ],
+  "seed": 590,
+  "identity_condition": "pure-random-576-to-576-s101",
+  "identity_case_ids": [
+    "textvqa:37533",
+    "textvqa:35670",
+    "textvqa:35962",
+    "textvqa:39323",
+    "textvqa:36001",
+    "textvqa:38025"
+  ],
+  "fixed_repeat_case_ids": [
+    "textvqa:37109",
+    "textvqa:37533"
+  ],
+  "tensor_case_ids": [
+    "textvqa:37533",
+    "textvqa:35670"
+  ],
+  "cache_probe_case_id": "textvqa:35670",
+  "probe_conditions": [
+    "native-96-to-32",
+    "pure-random-96-to-32-s101",
+    "native-288-to-96",
+    "pure-random-288-to-96-s101"
+  ],
+  "fresh_raw_native_case_id": "textvqa:37533",
+  "fresh_repeats_per_schedule": 2,
+  "primary_generation": {
+    "conversation": "vicuna_v1",
+    "do_sample": false,
+    "use_cache": true,
+    "batch_size": 1,
+    "max_new_tokens": 16,
+    "min_new_tokens": 0
+  },
+  "probe_generation": {
+    "max_new_tokens": 4,
+    "min_new_tokens": 4
+  },
+  "bootstrap": {
+    "unit": "question/image",
+    "replicates": 2000,
+    "seed": 59021,
+    "interval": "paired percentile 95%; conditional on three random seeds"
+  },
+  "scope": "All 100 existing TextVQA screening questions. Nine matched-stage arms, not baseline-correct filtering or full-paper reproduction. First realizations; bounded controls excluded from summaries. Input-only ablation unchanged."
+}

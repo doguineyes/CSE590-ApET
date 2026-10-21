@@ -1,6 +1,6 @@
 # RQ2: TextVQA100, native ApET and pure random
 
-**Deferred optional ablation.** Run the [small staged calibration](RQ2_STAGED_CALIBRATION.md)
+**Deferred optional ablation.** Use the [staged TextVQA100 experiment](RQ2_STAGED_TEXTVQA100.md)
 first. The next main system comparison uses native ApET and random retention with
 matched two-stage schedules. This input-only runner remains available separately.
 

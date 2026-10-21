@@ -1,8 +1,11 @@
 # RQ2: native staged ApET versus matched pure random
 
-**Current next experiment.** Defer broad input-only TextVQA100 as an optional
-ablation. First calibrate native ApET and random retention with identical input
-and decoder compression boundaries/counts.
+**Calibration passed on October21.** See the
+[review](notes/2026-10-21-rq2-staged-calibration-review.md). The next experiment is
+the [staged TextVQA100 comparison](RQ2_STAGED_TEXTVQA100.md), now implemented.
+Broad input-only TextVQA100 remains an optional ablation. The instructions below
+preserve the six-question calibration workflow; no rerun is needed for the
+unchanged adapter before the broader experiment.
 
 ## Fixed panel and conditions
 
@@ -77,8 +80,9 @@ No I interventions, target-format audit, new libraries or native source edits.
    Preserve failed/partial archives or a failed prerequisite's setup log too.
 
 The model loads once; conditions run sequentially. Default False prevents accidental
-background inference. Wall time and ZIP size remain to be measured. Review this
-calibration before implementing broader staged TextVQA100/GQA/MMStar runs.
+background inference. The passed run took6.6 minutes and produced a140.4MiB ZIP,
+including controls/loading/evidence. This is not a speed benchmark. Broader staged
+TextVQA100 is now implemented; GQA/MMStar expansion remains planned.
 
 ## Existing live session
 

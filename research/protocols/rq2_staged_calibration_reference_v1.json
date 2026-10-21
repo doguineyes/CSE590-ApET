@@ -1,0 +1,151 @@
+{
+  "version": "rq2-staged-calibration-reference-v1",
+  "source_archive": "rq2-staged-calibration-v1-20261021T130721550505Z.zip",
+  "source_archive_sha256": "8ec5c16997e80cf6051436e9c511f5f77b592441cfede9238ddd428843c3943a",
+  "source_console_log_sha256": "ef1c2ee48d5b2e8ef81afb8d029e83f1a83309a967dc27dc59ce26e629c832c4",
+  "source_report_sha256": "ba0daf06eb9606f8b7cb63ce941770a1b97edf27e9ca11d5aeb654a145037885",
+  "calibration_version": "rq2-staged-calibration-v1",
+  "status": "passed",
+  "calibration_passed": true,
+  "profile_sha256": "d396fb002ca21baf6a51f384a03eb50650063d2d9f0859ae6a4a8320dfadad3a",
+  "conditions": {
+    "baseline576": {
+      "method": "baseline",
+      "input_tokens": 576,
+      "decoder_tokens": null,
+      "layer": null,
+      "random_seed": null
+    },
+    "native-96-to-32": {
+      "method": "native",
+      "input_tokens": 96,
+      "decoder_tokens": 32,
+      "layer": 16,
+      "random_seed": null
+    },
+    "pure-random-96-to-32-s101": {
+      "method": "pure-random",
+      "input_tokens": 96,
+      "decoder_tokens": 32,
+      "layer": 16,
+      "random_seed": 101
+    },
+    "pure-random-96-to-32-s202": {
+      "method": "pure-random",
+      "input_tokens": 96,
+      "decoder_tokens": 32,
+      "layer": 16,
+      "random_seed": 202
+    },
+    "pure-random-96-to-32-s303": {
+      "method": "pure-random",
+      "input_tokens": 96,
+      "decoder_tokens": 32,
+      "layer": 16,
+      "random_seed": 303
+    },
+    "native-288-to-96": {
+      "method": "native",
+      "input_tokens": 288,
+      "decoder_tokens": 96,
+      "layer": 16,
+      "random_seed": null
+    },
+    "pure-random-288-to-96-s101": {
+      "method": "pure-random",
+      "input_tokens": 288,
+      "decoder_tokens": 96,
+      "layer": 16,
+      "random_seed": 101
+    },
+    "pure-random-288-to-96-s202": {
+      "method": "pure-random",
+      "input_tokens": 288,
+      "decoder_tokens": 96,
+      "layer": 16,
+      "random_seed": 202
+    },
+    "pure-random-288-to-96-s303": {
+      "method": "pure-random",
+      "input_tokens": 288,
+      "decoder_tokens": 96,
+      "layer": 16,
+      "random_seed": 303
+    }
+  },
+  "progress": {
+    "completed_questions": 6,
+    "expected_questions": 6,
+    "completed_primary_predictions": 54,
+    "expected_primary_predictions": 54
+  },
+  "measurement_sources_sha256": {
+    "bootstrap/setup_original_linux.sh": "79b06c0f2c45cfc2a18cd8f0ed11fe19ae7520dea6ccc82f70ab36319a890329",
+    "environments/original/.python-version": "4ee0294af0ad8c61611c47a83247e45dda02221b6e477c8342132af64dcc9fc9",
+    "environments/original/pyproject.toml": "53f7712e4ceb16a181330b8fd37ddd527b2ef74ea799888829106a190b80d986",
+    "environments/original/uv.lock": "6458cb0ab526857c483b41c19cb87e63179507ebaf6e48f4e9020d18d261f3a2",
+    "llava/conversation.py": "5afd26fa231082cb6fdc100c3887d663f72d8c99a93dcdd285dac303ca72e45c",
+    "llava/eval/m4c_evaluator.py": "8b49e1033e29d551c0bdd86d9149e2b54370e4cd17e52176ac9061b3521f0774",
+    "llava/mm_utils.py": "d6ab102f7e45f524775b28af46a675ee9a5da38905b6d0b88967dbb78efecc57",
+    "llava/model/builder.py": "3047f7562061e0e12924dd2c2425e50dbe8610801584dae3947c2dd1e64de089",
+    "llava/model/language_model/llava_llama_x.py": "12e89c11dbe0f3ce4b7f73568b3d82810e4e2902e389a2d0fb17c90dc58ce087",
+    "llava/model/llava_arch.py": "60aed3c033754625d3f5ee34b633c12b1d8f59ae2eda0f00471d3f1bc33fe3a3",
+    "llava/model/modeling_llama_x.py": "1c7c8c947045d65d193c3ec5ee4b849f285081f93b1edf15a1bd469ccccf79c8",
+    "llava/model/multimodal_encoder/clip_encoder.py": "1b45c404cabdd11b706c940582daf321e70387c5e4611779dfb0206b9c9d19d4",
+    "llava/model/utils.py": "a861abc58d7323893ef36347c7030c4659d846ff5d156e49789e4b2983a03edb",
+    "research/protocols/rq1_input_ih_v1.json": "e38192675b6b40be630f9875b2f03a1edaa9c9ab0d9f91bc259ac550e9cade0c",
+    "research/protocols/rq1_score_reanalysis_v1.json": "cf2fad3320264a5cfbe4db1a56ecd52c3e7bb1a3939bc2b170d93e2027191e19",
+    "research/protocols/rq2_input_merge_v1.json": "b9c8ba77c601e9227c8bd111c50e6252b5e9691182c960af5caae51b8034cb92",
+    "research/protocols/rq2_input_merge_v2.json": "86591283846d3d83767b6a317e0591b39e332e421bfc26ef327ddfae2e243be5",
+    "research/protocols/rq2_staged_calibration_v1.json": "d396fb002ca21baf6a51f384a03eb50650063d2d9f0859ae6a4a8320dfadad3a",
+    "research/provenance/original_llava_reference.json": "a35e9fb4cdaf7ceb14aa61181f7b2b62d7bdf4c50bce7521ee2c043e38cd7237",
+    "scripts/analyze_rq1_validity.py": "80d803ceb89a91861d616993933b90aa2095f9136b609c75cbc014e86531ef0b",
+    "scripts/check_original_env.py": "8913e0a2635c9c615ddf53b4e128e87c092ed2e7d5b13c3c693178ede8ca216e",
+    "scripts/eval_mmstar.py": "16c618842d2e7c887557f1df2225d8853ae04e68919b6ba118a89f6d7a179b29",
+    "scripts/gqa_scoring.py": "ce5f1b61a95465207c908a6de0047e10e4ffa05e1f4907b3b385757cfe41335d",
+    "scripts/mmstar_scoring.py": "df624c3f3f2edc486d561c9c19f04b6fb339b3f5b2dde73843b3e44831494663",
+    "scripts/original_diagnostics.py": "fe7d3a2755fd2d2470550c5e10969ed302f86d56b4fde176d195e6c3c891a15b",
+    "scripts/rq1_input_ih.py": "8306a1d6470e8ee5b4f9ae0dd5eb85d1ace8de3ce6f50a55f89533cb76bd2b8c",
+    "scripts/rq1_input_ih_native.py": "b2f5a18e9839a0cccfcc4f06098350eb12edfaea791563a93b62eced43b7672a",
+    "scripts/rq1_layer.py": "40872409ee9b2fff6bd504f6eac65d2742f6957ea4d0ff216b27962c24b33839",
+    "scripts/rq1_layer_ih.py": "8f89c8d7a09e7ac0e0e9a230b8fc8b994fd0a84ed4ddd56f757fb90f670d4fc1",
+    "scripts/rq1_native.py": "e9ff15a2a11852e356a670246c0b899976858fbbeaaa41e095a52f4e4b94c86f",
+    "scripts/rq1_protocol.py": "5565e7ec17fa7d57a5a0f3d4bc00dfe19f9cb741c1bf56e5f9ab83affacc1d65",
+    "scripts/rq2_frozen_protocol.py": "c8c3d92274abf43895f38ddd879e79839494dc45d04f75a567ac4966d7962309",
+    "scripts/rq2_native.py": "4187905d5401f374b88bf2c03252ae714eeb5aaa89fe61cd00dc08d5ecaeab28",
+    "scripts/rq2_parity_diagnostic.py": "c9331833b24f1371f2dca7a93dd758432e8b9be41d0d9486d5d068d794113009",
+    "scripts/rq2_protocol.py": "0c258a58e1b6f67becdac0975a9c8a98c5434301be5f150258c43243d1673f9b",
+    "scripts/rq2_random_native.py": "9b4fdbc389b9f6de2728a2c5e9f8bf83e0e729113722debb79fece81bbb75308",
+    "scripts/rq2_random_protocol.py": "03e18016f031fe0990cc9c8d087915b791743396039092d499cae683a8a74baa",
+    "scripts/rq2_staged_native.py": "9f51c01864576b6f3ad4fdbd6b69025710dcc80efc901170acb644a6641e479b",
+    "scripts/rq2_staged_protocol.py": "0ee04542069ba50bcaf6e4d42de9c9cc8659d16e39181113b61b438dbfb60c8a",
+    "scripts/run_rq1_input.py": "5c25f7b202911f14f4c0e6e8d44831a81509db1e553eef5f8e49f12e409a9fab",
+    "scripts/run_rq1_input_ih.py": "e44a079510bb396051d938d4ae11b7c88aa9ad167ddd96cd5c306680185d0b4d",
+    "scripts/run_rq2_input_merge.py": "721d92993cc52afe4963d9d6c8fdaaf22d03deb08fce9750b6395af36a18a095",
+    "scripts/run_rq2_random_calibration.py": "15ea4c5b7a20d006136f8432dae22ad561d44c19f3544c1315a7872fe19e1a4a",
+    "scripts/run_rq2_staged_calibration.py": "2fefb9a193657141287b8927022c1071b407ac7653898ef46f4419b0509619a9",
+    "scripts/smoke_original_apet.py": "df3202f3aeb5a7ac956378e8d84cde7d83f097642ef573ea6a7c3f87fea2edc5"
+  },
+  "prerequisites": {
+    "tests_run": 26,
+    "skipped": 0,
+    "status": "passed"
+  },
+  "controls": {
+    "identity576": 6,
+    "fixed_replay": 18,
+    "forced_cache_probe": 4,
+    "fresh_raw_native": 4
+  },
+  "question_sha256": {
+    "questions/gqa-201636988.json": "a3ac61f27d4a2fc4efdf7c5f88bfb3bebe16c59bd2cd437e87908704398aafe7",
+    "questions/gqa-201637316.json": "7b5ebcfc6fad3352023513b286e890f5f212495f723fc37f65011f034f602d46",
+    "questions/mmstar-136.json": "4579384bc75b85684d71cfc48f1c2a49572647744140df6699ddce5321004230",
+    "questions/textvqa-37533.json": "aeec41bacf89575912051242aa28eef05aaba29920695e1366ca0fdf8ae767f9",
+    "questions/textvqa-35670.json": "d66f4b3bb4b1c81ce1c3d4959ffea8c521e81146866793cc42ac279c9a71a9f8",
+    "questions/textvqa-35962.json": "0b6ffbaf273c08781e915dd578cb5bd98e9e9a71da91ae218f9f06efa6293992"
+  },
+  "commit": "3ed3fdd46a1dba489852fd1d359911ca674ec87b",
+  "review": "research/notes/2026-10-21-rq2-staged-calibration-review.md",
+  "scope": "Compact project-owned reference to reviewed raw calibration, distributed with code. Raw ZIP/log remain unchanged in the separate local archive. Not a new calibration or a scientific method ranking."
+}
