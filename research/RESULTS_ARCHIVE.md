@@ -245,6 +245,23 @@ CSV/JSON and an extracted non-tensor gallery are separate in
 missing. No tensors were loaded or inference performed locally. Earlier inventory
 counts remain dated snapshots, not totals including this addition.
 
+## October 21 staged TextVQA100
+
+`rq2-staged-textvqa100-v1-20261021T134751714241Z.zip` and matching `.log`
+are saved byte-for-byte from Downloads; both originals remain there. All488
+members pass CRC, with487 artifact hashes,64 evidence hashes and18 tensor-file
+byte hashes verified. All900 primary predictions rescore exactly;40 prerequisites
+and32 declared controls pass. Baseline raw answers/scores reproduce all100
+historical references. No supplied companion is missing and no inference rerun
+is needed.
+
+The [review](notes/2026-10-21-rq2-staged-textvqa100-review.md) records16.1-minute
+execution, a131.0MiB ZIP, native consensus41.5%/44.2% versus random seed means
+20.63%/34.77% at96→32/288→96, paired uncertainty, the94-case complement and exact-text
+failures. Derived CPU audit/CSV/JSON and a local gallery are separate in
+`results/rq2-staged-textvqa100-review-v1-2026-10-21/`. Raw archives and original
+source/lock remain unchanged. Earlier inventory counts are dated snapshots.
+
 ## TextVQA baseline (completed)
 
 **No GitHub pull, environment reinstall or input re-upload is required in the

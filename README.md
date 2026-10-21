@@ -96,7 +96,10 @@ is available as an optional input-only ablation. The
 native96→32 and288→96 versus three random seeds at identical boundaries/counts.
 Next is the [staged TextVQA100 comparison](research/RQ2_STAGED_TEXTVQA100.md), now
 implemented for all100 questions with900 primary predictions, compact evidence
-and paired preservation/score summaries. Its pretrained Kaggle run is pending.
+and paired preservation/score summaries. Its
+[Kaggle run passed](research/notes/2026-10-21-rq2-staged-textvqa100-review.md): native
+ApET outperforms all three random seeds at both schedules in this fixed cohort,
+while exact-text failures remain.
 The following [GQA development800 comparison](research/RQ2_STAGED_GQA800.md) is
 also prepared, using the same schedules, shared image inputs and four optional
 image-based parts. Reserved evaluation remains untouched; GPU validation is pending.

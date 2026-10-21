@@ -133,7 +133,11 @@ the original raw calibration stays archived. Existing staged adapters/native
 methods/random streams are reused unchanged. Partial consensus credit, per-seed
 paired comparisons, baseline preservation/gains/losses and the94-question
 complement are exported. No accuracy threshold admits or excludes questions.
-New pretrained execution remains pending; CPU orchestration/scoring tests passed.
+The [TextVQA100 Kaggle run passed](notes/2026-10-21-rq2-staged-textvqa100-review.md):
+900 primary predictions and all32 controls verify. Native consensus means are
+41.5%/44.2% versus random seed means20.63%/34.77% at96→32/288→96. The94-case
+complement preserves this direction. This compares complete staged procedures
+on a fixed screening set and does not attribute the gain to E alone.
 The [GQA development800 extension](RQ2_STAGED_GQA800.md) adds a separate protocol,
 runner, notebook and saved-ZIP combiner. All800 original development questions
 retain their image seeds, task metadata, prompts and existing scorer. Input

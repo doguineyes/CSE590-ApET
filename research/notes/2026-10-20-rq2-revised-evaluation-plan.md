@@ -14,8 +14,10 @@ After it passes: broaden the matched staged comparison to TextVQA100 and GQA
 development, then confirm on MMStar. A small input-merge on/off × decoder-merge
 on/off study can connect the completed component analysis to the staged system.
 The staged TextVQA100 runner and the following
-[GQA development800 runner](../RQ2_STAGED_GQA800.md) are implemented. Their broader
-pretrained results remain pending. The factorial and MMStar runner remain proposed.
+[GQA development800 runner](../RQ2_STAGED_GQA800.md) are implemented.
+[TextVQA100 passed](2026-10-21-rq2-staged-textvqa100-review.md), with a native
+advantage over all three random seeds at both schedules. GQA pretrained results
+remain pending. The factorial and MMStar runner remain proposed.
 Keep reserved GQA evaluation untouched; a new compressor improvement is optional.
 
 This update supersedes the earlier **priority order** below. Preserve its
