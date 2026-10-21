@@ -115,6 +115,23 @@ controls are recorded separately. Ten CPU tests passed locally; all 26 Kaggle
 prerequisites and the [six-question calibration](notes/2026-10-20-rq2-pure-random-calibration-review.md)
 now passed. Native64 uses exactly 64 decoder-input visual states. Native scores 2/6
 versus 2–4/6 for pure random; this selected calibration is not a population estimate.
+The [staged calibration](RQ2_STAGED_CALIBRATION.md) is the next priority. Native
+96→32/288→96 call the original input and decoder methods; the random adapter changes
+only retention masks/gathers at the same boundaries. Input replay also preserves
+post-encoding RNG continuation for native decoder FPS. Original forward/cache and
+position updates stay unchanged. Full576 no-op, frozen replays, first/late-block
+cache probes and separate fresh native runs are controls. This is a selected
+six-question execution calibration, not a full paper reproduction or benchmark
+ranking. Pretrained validation is pending on Kaggle.
+The [TextVQA100 extension](RQ2_TEXTVQA100.md), now deferred as an optional input-only
+ablation, reuses this calibrated capture/replay
+code for all100 existing screening questions, without baseline-correct filtering.
+Its new project-owned protocol/runner/notebook score generated answers and report
+consensus, preservation, paired score intervals and the 94-question complement of
+the studied six. It adds no token-intervention or teacher-forced-target metric.
+Large tensor banks are limited to two declared diagnostic images. Historical
+responses are references for drift reporting, not a gate for question inclusion.
+Pretrained execution remains to be checked on Kaggle.
 The earlier MMStar1014 soccer description was corrected: it is an already-flagged
 bar-chart case, and its frozen identity/flag remain unchanged. No native source,
 original lock or earlier frozen RQ2 protocol is edited.

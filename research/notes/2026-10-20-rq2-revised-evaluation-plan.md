@@ -1,12 +1,29 @@
 # RQ2 revision: pure random retention and compression severity — 2026-10-20
 
+**Priority update, agreed with the user:** first run the
+[small staged calibration](../RQ2_STAGED_CALIBRATION.md), using full576 and native
+96→32/288→96 versus three pure-random seeds at identical boundaries/counts.
+The input-only TextVQA100 runner is implemented but **deferred as an optional
+ablation**. The staged runner is implemented; pretrained validation is pending.
+
+After it passes: broaden the matched staged comparison to TextVQA100 and GQA
+development, then confirm on MMStar. A small input-merge on/off × decoder-merge
+on/off study can connect the completed component analysis to the staged system.
+This is proposed, not yet an implemented factorial or broad staged runner.
+Keep reserved GQA evaluation untouched; a new compressor improvement is optional.
+
+This update supersedes the earlier **priority order** below. Preserve its
+input-only design/results as a scoped component experiment; input-only64 does
+not reproduce the released96→32 schedule or support claims against the paper's
+reported64 setting. Native sources and previous frozen results remain intact.
+
 Implementation update: the first [six-question calibration](../RQ2_PURE_RANDOM_CALIBRATION.md)
 is now implemented and its [Kaggle run passed](2026-10-20-rq2-pure-random-calibration-review.md).
 Actual 64-token inputs, 26 prerequisites and 66 primary predictions verify. Native64
 gets 2/6 correct versus 2–4/6 for pure random in this selected panel, providing no
-evidence yet of an ApET advantage under stronger compression. The broader
-TextVQA100/multi-dataset runner remains a later
-step. Existing native sources, frozen protocols and old results are unchanged.
+evidence yet of an ApET advantage under stronger compression. The broader input-only
+TextVQA100 runner is available but deferred. Broad staged/multi-dataset execution
+follows the new calibration. Existing native sources, protocols and results are unchanged.
 
 This note records the revised design. It supersedes the earlier
 recommendation to make the existing basis-fixed random arm the principal broad
@@ -48,7 +65,7 @@ protection activity are already recorded in the
 
 No completed panel requires repetition merely because this plan changes.
 
-## Primary new comparison
+## Earlier input-only comparison — retained as optional ablation
 
 Use one full 576-token reference and these methods at **K = 288 and K = 64**:
 
@@ -127,7 +144,9 @@ random input pruning at 64 in our setup.
    identity, unchanged native source hashes, same-image reuse and bounded repeats.
    New pure-random and 64-token paths need a small calibration; old passed experiments
    are not retroactively rerun. Measure cost before choosing broader run sizes.
-2. Run the core comparison on the entire existing **TextVQA100** at both budgets.
+2. Optional/deferred: run the input-only comparison on the existing **TextVQA100**.
+   The [runner and Kaggle notebook](../RQ2_TEXTVQA100.md) are now implemented;
+   broader pretrained results remain pending.
    This is a screening/development cohort, including the previously studied six
    cases, not an independent held-out or full-TextVQA evaluation. Keep all cases,
    not just baseline-correct examples or known spelling failures. Export the

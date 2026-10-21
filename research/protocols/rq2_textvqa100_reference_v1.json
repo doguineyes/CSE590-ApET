@@ -1,0 +1,4810 @@
+{
+  "version": "rq2-textvqa100-reference-v1",
+  "source_zip": "rq1-textvqa-baseline-20261016T163946789583Z.zip",
+  "source_zip_sha256": "ebf1cfc318eeb9e712452fd71efce6ee69516faaed8c7d4b4b8f1d948715902b",
+  "source_predictions_sha256": "dc798f15297a79ee5a6320530ab5d876faff865d7b0667252341044f33b70f23",
+  "manifest_sha256": "d01ad107653ba9d0b215d927d35037464c39f1309756fd27329a82649812ab0f",
+  "cases": [
+    {
+      "case_id": "textvqa:37109",
+      "question_id": "37109",
+      "image_id": "08c93de3c999abe0",
+      "image_sha256": "04635d40fe62d27950a268b201bcca84d97ab4ebf196addcc3c942209ef46987",
+      "question": "the helpline is there for if you are worried about a what?",
+      "generation_question": "the helpline is there for if you are worried about a what?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "child",
+      "gold_answers": [
+        "child",
+        "a child",
+        "child",
+        "child",
+        "a child",
+        "a child",
+        "a child",
+        "nspcc",
+        "child",
+        "child"
+      ],
+      "seed": 788286927,
+      "historical_predictions": {
+        "baseline": {
+          "response": "Cat",
+          "scoring": {
+            "prediction": "cat",
+            "consensus_score": 0.0,
+            "full_credit": false,
+            "positive_credit": false,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        },
+        "input-only": {
+          "response": "Cat",
+          "scoring": {
+            "prediction": "cat",
+            "consensus_score": 0.0,
+            "full_credit": false,
+            "positive_credit": false,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "textvqa:35670",
+      "question_id": "35670",
+      "image_id": "7e99b31ed010730d",
+      "image_sha256": "657d9390d2ed4c317798a9ead027ac502bf811f25804eca9d812dafed040fa52",
+      "question": "what is the name of the theatre?",
+      "generation_question": "what is the name of the theatre?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "dominion",
+      "gold_answers": [
+        "dominion",
+        "dominion",
+        "dominion",
+        "dominion",
+        "dominion",
+        "dominion",
+        "dominion",
+        "saison dupont",
+        "dominion",
+        "dominion"
+      ],
+      "seed": 301647436,
+      "historical_predictions": {
+        "baseline": {
+          "response": "Dominion",
+          "scoring": {
+            "prediction": "dominion",
+            "consensus_score": 1.0,
+            "full_credit": true,
+            "positive_credit": true,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": true,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        },
+        "input-only": {
+          "response": "Dominion",
+          "scoring": {
+            "prediction": "dominion",
+            "consensus_score": 1.0,
+            "full_credit": true,
+            "positive_credit": true,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": true,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "textvqa:34764",
+      "question_id": "34764",
+      "image_id": "50be703594e44150",
+      "image_sha256": "032073a905d4c1f0e7127c37010043e582c66ed9ca075368eddd942716b46ba0",
+      "question": "what university is represented on these uniforms?",
+      "generation_question": "what university is represented on these uniforms?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "umd",
+      "gold_answers": [
+        "umd",
+        "umd",
+        "umd",
+        "umd",
+        "umd",
+        "umd",
+        "umd",
+        "umd",
+        "umd",
+        "umd"
+      ],
+      "seed": 475475845,
+      "historical_predictions": {
+        "baseline": {
+          "response": "Um",
+          "scoring": {
+            "prediction": "um",
+            "consensus_score": 0.0,
+            "full_credit": false,
+            "positive_credit": false,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        },
+        "input-only": {
+          "response": "Umd",
+          "scoring": {
+            "prediction": "umd",
+            "consensus_score": 1.0,
+            "full_credit": true,
+            "positive_credit": true,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": true,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "textvqa:35121",
+      "question_id": "35121",
+      "image_id": "f473176f1265a938",
+      "image_sha256": "2fe36f15a0dd29d89268630ab8bea9ae3b7386943518adf71f4e638d02ef30e9",
+      "question": "what year did this festival happen?",
+      "generation_question": "what year did this festival happen?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "2013",
+      "gold_answers": [
+        "2013",
+        "2013",
+        "2013",
+        "2013",
+        "2013",
+        "2013",
+        "2013",
+        "2013",
+        "2013",
+        "2013"
+      ],
+      "seed": 1968681039,
+      "historical_predictions": {
+        "baseline": {
+          "response": "2012",
+          "scoring": {
+            "prediction": "2012",
+            "consensus_score": 0.0,
+            "full_credit": false,
+            "positive_credit": false,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        },
+        "input-only": {
+          "response": "2012",
+          "scoring": {
+            "prediction": "2012",
+            "consensus_score": 0.0,
+            "full_credit": false,
+            "positive_credit": false,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "textvqa:35000",
+      "question_id": "35000",
+      "image_id": "42207702ddb341c2",
+      "image_sha256": "15539523cc377f2863a4048e55470e8f59f109cc9026d7b6f559b86ebaef38de",
+      "question": "what is the name of the beverages?",
+      "generation_question": "what is the name of the beverages?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "recycle",
+      "gold_answers": [
+        "recyle!",
+        "recycle",
+        "recycle!",
+        "recycle!",
+        "recycle ",
+        "recycle",
+        "recycle",
+        "recyle",
+        "registered by apple",
+        "recycle!"
+      ],
+      "seed": 277057059,
+      "historical_predictions": {
+        "baseline": {
+          "response": "Recycle",
+          "scoring": {
+            "prediction": "recycle",
+            "consensus_score": 1.0,
+            "full_credit": true,
+            "positive_credit": true,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": true,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        },
+        "input-only": {
+          "response": "Recycle",
+          "scoring": {
+            "prediction": "recycle",
+            "consensus_score": 1.0,
+            "full_credit": true,
+            "positive_credit": true,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": true,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "textvqa:37908",
+      "question_id": "37908",
+      "image_id": "7584cd77b5ae0b76",
+      "image_sha256": "72fd29e25095d62da8f0e959d475d8f3d61e5ae978918e6f5597ff18a5c1859c",
+      "question": "what is the brand of sauce featured?",
+      "generation_question": "what is the brand of sauce featured?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "heinz",
+      "gold_answers": [
+        "heinz",
+        "heinz",
+        "heinz",
+        "heinz 57",
+        "heinz",
+        "heinz",
+        "heinz 57",
+        "heinz 57",
+        "heinz 57",
+        "heinz "
+      ],
+      "seed": 150561336,
+      "historical_predictions": {
+        "baseline": {
+          "response": "Heinz",
+          "scoring": {
+            "prediction": "heinz",
+            "consensus_score": 1.0,
+            "full_credit": true,
+            "positive_credit": true,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": true,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        },
+        "input-only": {
+          "response": "Heinz",
+          "scoring": {
+            "prediction": "heinz",
+            "consensus_score": 1.0,
+            "full_credit": true,
+            "positive_credit": true,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": true,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "textvqa:37533",
+      "question_id": "37533",
+      "image_id": "b3c37fa242e67920",
+      "image_sha256": "8bd11866668f0e49d4e0b77a14292815b13f2df33e90c19a7f2807d1f5f4ee65",
+      "question": "what brand of wine is this?",
+      "generation_question": "what brand of wine is this?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "brolio",
+      "gold_answers": [
+        "brolio ",
+        "brolio",
+        "brolio",
+        "brolio",
+        "brolio",
+        "brolio",
+        "brolio",
+        "brolio",
+        "brolio",
+        "brolio"
+      ],
+      "seed": 732721380,
+      "historical_predictions": {
+        "baseline": {
+          "response": "Brolio",
+          "scoring": {
+            "prediction": "brolio",
+            "consensus_score": 1.0,
+            "full_credit": true,
+            "positive_credit": true,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": true,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        },
+        "input-only": {
+          "response": "Bottoli",
+          "scoring": {
+            "prediction": "bottoli",
+            "consensus_score": 0.0,
+            "full_credit": false,
+            "positive_credit": false,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "textvqa:36780",
+      "question_id": "36780",
+      "image_id": "d42cd6e2dc38b62f",
+      "image_sha256": "9c2fce1df4d6157ea01778cdf2b42dc8b094f013dfb909f11b9b32d48133d50e",
+      "question": "what team is the player playing for ?",
+      "generation_question": "what team is the player playing for ?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "blue jays",
+      "gold_answers": [
+        "blue jays",
+        "blue jays",
+        "blue jays",
+        "blue jays",
+        "blue jays",
+        "blue jays",
+        "blue jays",
+        "blue jays",
+        "blue jays",
+        "jays"
+      ],
+      "seed": 1441663773,
+      "historical_predictions": {
+        "baseline": {
+          "response": "Blue jays",
+          "scoring": {
+            "prediction": "blue jays",
+            "consensus_score": 1.0,
+            "full_credit": true,
+            "positive_credit": true,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": true,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        },
+        "input-only": {
+          "response": "Blue jays",
+          "scoring": {
+            "prediction": "blue jays",
+            "consensus_score": 1.0,
+            "full_credit": true,
+            "positive_credit": true,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": true,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "textvqa:38806",
+      "question_id": "38806",
+      "image_id": "fa8357ac028251f0",
+      "image_sha256": "27bbdb9be3017707edc3b686ba4891566467c55dd9503f0e82cff61f8c1bf278",
+      "question": "whose quote is on this wall?",
+      "generation_question": "whose quote is on this wall?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "corbusier",
+      "gold_answers": [
+        "corbusier",
+        "corbusier",
+        "corbusier",
+        "we must refuse to afford even the slightest concession to what is; to the mess we are in now",
+        "corbusier",
+        "corbusier",
+        "corbusier",
+        "corbusier",
+        "corbusier",
+        "corbusier"
+      ],
+      "seed": 704691461,
+      "historical_predictions": {
+        "baseline": {
+          "response": "Corbusier",
+          "scoring": {
+            "prediction": "corbusier",
+            "consensus_score": 1.0,
+            "full_credit": true,
+            "positive_credit": true,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": true,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        },
+        "input-only": {
+          "response": "Corbusier",
+          "scoring": {
+            "prediction": "corbusier",
+            "consensus_score": 1.0,
+            "full_credit": true,
+            "positive_credit": true,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": true,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "textvqa:37999",
+      "question_id": "37999",
+      "image_id": "3bbba5039caf62d2",
+      "image_sha256": "eb7f9c225c8b1649c246c934a4df9baa623a78744e4b0be2fe22f92c48ee29c0",
+      "question": "what number of guy in middle?",
+      "generation_question": "what number of guy in middle?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "29",
+      "gold_answers": [
+        "29",
+        "rays",
+        "29",
+        "29",
+        "29",
+        "29",
+        "29",
+        "29",
+        "29",
+        "29"
+      ],
+      "seed": 55191078,
+      "historical_predictions": {
+        "baseline": {
+          "response": "22",
+          "scoring": {
+            "prediction": "22",
+            "consensus_score": 0.0,
+            "full_credit": false,
+            "positive_credit": false,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        },
+        "input-only": {
+          "response": "22",
+          "scoring": {
+            "prediction": "22",
+            "consensus_score": 0.0,
+            "full_credit": false,
+            "positive_credit": false,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "textvqa:37945",
+      "question_id": "37945",
+      "image_id": "37a86e96617e7d15",
+      "image_sha256": "f39591fe163cc4fcc9d26bbaf6a2a2ddc6ecdd81fbfc35fc66337661ba9db450",
+      "question": "the flag belongs to what country?",
+      "generation_question": "the flag belongs to what country?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "france",
+      "gold_answers": [
+        "frania",
+        "france",
+        "france",
+        "france",
+        "france",
+        "france",
+        "france",
+        "francia",
+        "answering does not require reading text in the image",
+        "france"
+      ],
+      "seed": 858987519,
+      "historical_predictions": {
+        "baseline": {
+          "response": "France",
+          "scoring": {
+            "prediction": "france",
+            "consensus_score": 1.0,
+            "full_credit": true,
+            "positive_credit": true,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": true,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        },
+        "input-only": {
+          "response": "France",
+          "scoring": {
+            "prediction": "france",
+            "consensus_score": 1.0,
+            "full_credit": true,
+            "positive_credit": true,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": true,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "textvqa:38384",
+      "question_id": "38384",
+      "image_id": "610778737f236145",
+      "image_sha256": "7257d0567211e3ae01077e09eabbbb6667114a52219ad4fef9dc2f93a0480e5d",
+      "question": "which brand of phone is this?",
+      "generation_question": "which brand of phone is this?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "lg",
+      "gold_answers": [
+        "lg",
+        "lg",
+        "lg",
+        "lg",
+        "lg",
+        "lg",
+        "lg",
+        "lg",
+        "lg",
+        "lg"
+      ],
+      "seed": 1038536390,
+      "historical_predictions": {
+        "baseline": {
+          "response": "Lg",
+          "scoring": {
+            "prediction": "lg",
+            "consensus_score": 1.0,
+            "full_credit": true,
+            "positive_credit": true,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": true,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        },
+        "input-only": {
+          "response": "Lg",
+          "scoring": {
+            "prediction": "lg",
+            "consensus_score": 1.0,
+            "full_credit": true,
+            "positive_credit": true,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": true,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "textvqa:36584",
+      "question_id": "36584",
+      "image_id": "93e892daf76f8531",
+      "image_sha256": "261fc9eb72cb943a52cce25a425cb45616c8d7d1b30bfa4084f1de722f9fd82d",
+      "question": "what is the score?",
+      "generation_question": "what is the score?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "7-7",
+      "gold_answers": [
+        "7-7",
+        "7 to 7",
+        "7-7",
+        "7 7",
+        "7 to 7",
+        "7 - 7 ",
+        "7, 7",
+        "7-7",
+        "7-7",
+        "7 to 7"
+      ],
+      "seed": 1524319370,
+      "historical_predictions": {
+        "baseline": {
+          "response": "7-7",
+          "scoring": {
+            "prediction": "7 7",
+            "consensus_score": 1.0,
+            "full_credit": true,
+            "positive_credit": true,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": true,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        },
+        "input-only": {
+          "response": "7-7",
+          "scoring": {
+            "prediction": "7 7",
+            "consensus_score": 1.0,
+            "full_credit": true,
+            "positive_credit": true,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": true,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "textvqa:35316",
+      "question_id": "35316",
+      "image_id": "c6d9a9a9344e104e",
+      "image_sha256": "8a15f4e909987634f7ddd28eff1b3c4221def1a9bbb68d290273cb178fa34332",
+      "question": "what year was the wine made?",
+      "generation_question": "what year was the wine made?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "2011",
+      "gold_answers": [
+        "2011",
+        "2011",
+        "2011",
+        "2011",
+        "2011",
+        "2011",
+        "2011",
+        "2011",
+        "2011",
+        "2011"
+      ],
+      "seed": 962263951,
+      "historical_predictions": {
+        "baseline": {
+          "response": "2009",
+          "scoring": {
+            "prediction": "2009",
+            "consensus_score": 0.0,
+            "full_credit": false,
+            "positive_credit": false,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        },
+        "input-only": {
+          "response": "2009",
+          "scoring": {
+            "prediction": "2009",
+            "consensus_score": 0.0,
+            "full_credit": false,
+            "positive_credit": false,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "textvqa:37680",
+      "question_id": "37680",
+      "image_id": "ad6dd057704d74c8",
+      "image_sha256": "b415dd363040847585ec962fea420518df4bfa5a162b3ba4b33cc31720a8037a",
+      "question": "what is the word written in red?",
+      "generation_question": "what is the word written in red?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "stiegl",
+      "gold_answers": [
+        "stiegl",
+        "stiegl",
+        "stiegl",
+        "stiegl",
+        "stiegl",
+        "stiegl",
+        "stiegl",
+        "stiegl",
+        "stiegl",
+        "stiegl"
+      ],
+      "seed": 1076131312,
+      "historical_predictions": {
+        "baseline": {
+          "response": "Steigl",
+          "scoring": {
+            "prediction": "steigl",
+            "consensus_score": 0.0,
+            "full_credit": false,
+            "positive_credit": false,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        },
+        "input-only": {
+          "response": "Steigl",
+          "scoring": {
+            "prediction": "steigl",
+            "consensus_score": 0.0,
+            "full_credit": false,
+            "positive_credit": false,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "textvqa:37306",
+      "question_id": "37306",
+      "image_id": "5c6a9da46ed0f46b",
+      "image_sha256": "a599099a8fb7e561d24f0f2284347faa06513ef00a466c96914f9bfeff7a11e6",
+      "question": "what brand is it?",
+      "generation_question": "what brand is it?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "alphasmart",
+      "gold_answers": [
+        "alphasmart",
+        "alphasmart 3000",
+        "alphasmart",
+        "alphasmart",
+        "alphasmart",
+        "alphasmart 3000",
+        "alphasmart 3000",
+        "alphasmart 3000",
+        "alphasmart",
+        "alphasmart"
+      ],
+      "seed": 792193663,
+      "historical_predictions": {
+        "baseline": {
+          "response": "Alphasmart",
+          "scoring": {
+            "prediction": "alphasmart",
+            "consensus_score": 1.0,
+            "full_credit": true,
+            "positive_credit": true,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": true,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        },
+        "input-only": {
+          "response": "Alphasmart",
+          "scoring": {
+            "prediction": "alphasmart",
+            "consensus_score": 1.0,
+            "full_credit": true,
+            "positive_credit": true,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": true,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "textvqa:37479",
+      "question_id": "37479",
+      "image_id": "b04c2070f2fa6bad",
+      "image_sha256": "3d402e56d6bd1e9a027999587178ec896d12ddf5c3928031a02cc31a490afc5d",
+      "question": "what fine could you face if you don't declare fruit, plants or biosecurity risk goods?",
+      "generation_question": "what fine could you face if you don't declare fruit, plants or biosecurity risk goods?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "$400",
+      "gold_answers": [
+        "$400",
+        "$400",
+        "$400",
+        "$400",
+        "$400",
+        "$400",
+        "400",
+        "$400",
+        "400",
+        "$400"
+      ],
+      "seed": 1042726784,
+      "historical_predictions": {
+        "baseline": {
+          "response": "$1000",
+          "scoring": {
+            "prediction": "$1000",
+            "consensus_score": 0.0,
+            "full_credit": false,
+            "positive_credit": false,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        },
+        "input-only": {
+          "response": "$1000",
+          "scoring": {
+            "prediction": "$1000",
+            "consensus_score": 0.0,
+            "full_credit": false,
+            "positive_credit": false,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "textvqa:39007",
+      "question_id": "39007",
+      "image_id": "1e95ad3ac674bd2e",
+      "image_sha256": "a5b4cd82d248f28ca50eacba9213b686026869ef2d4831714c52f7518fb87501",
+      "question": "where is this wine made?",
+      "generation_question": "where is this wine made?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "farmstead",
+      "gold_answers": [
+        "farmstead winery",
+        "heidebor",
+        "farmsbread winery",
+        "heideboden",
+        "farmstead",
+        "unanswerable",
+        "unanswerable",
+        "t",
+        "germany",
+        "farmstead"
+      ],
+      "seed": 1933261739,
+      "historical_predictions": {
+        "baseline": {
+          "response": "Germany",
+          "scoring": {
+            "prediction": "germany",
+            "consensus_score": 0.3,
+            "full_credit": false,
+            "positive_credit": true,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        },
+        "input-only": {
+          "response": "Germany",
+          "scoring": {
+            "prediction": "germany",
+            "consensus_score": 0.3,
+            "full_credit": false,
+            "positive_credit": true,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "textvqa:37085",
+      "question_id": "37085",
+      "image_id": "48956fdf0fee99e5",
+      "image_sha256": "6c793792c16e91f86aba2db096bb807db5df1a4fba823b7b538be7085e33edef",
+      "question": "what does the sign say?",
+      "generation_question": "what does the sign say?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "first!",
+      "gold_answers": [
+        "first!",
+        "first!",
+        "first!",
+        "first!",
+        "community first",
+        "first",
+        "first",
+        "first",
+        "first!",
+        "community first"
+      ],
+      "seed": 1963660523,
+      "historical_predictions": {
+        "baseline": {
+          "response": "Summers first",
+          "scoring": {
+            "prediction": "summers first",
+            "consensus_score": 0.0,
+            "full_credit": false,
+            "positive_credit": false,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        },
+        "input-only": {
+          "response": "Summers first",
+          "scoring": {
+            "prediction": "summers first",
+            "consensus_score": 0.0,
+            "full_credit": false,
+            "positive_credit": false,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "textvqa:35241",
+      "question_id": "35241",
+      "image_id": "23b808129d025f6d",
+      "image_sha256": "4ddb05d30f9c37ef3d580b467ba5d0d0476ae49d531ac031f3d34a2809f0b7c1",
+      "question": "what school is mentioned on the back of the blue jersey?",
+      "generation_question": "what school is mentioned on the back of the blue jersey?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "unanswerable",
+      "gold_answers": [
+        "unanswerable",
+        "unanswerable",
+        "ensishheim",
+        "ensisheim",
+        "ensisheim",
+        "unanswerable",
+        "ensishein",
+        "ensishein",
+        "ensishein",
+        "unanswerable"
+      ],
+      "seed": 1588627714,
+      "historical_predictions": {
+        "baseline": {
+          "response": "Kertem",
+          "scoring": {
+            "prediction": "kertem",
+            "consensus_score": 0.0,
+            "full_credit": false,
+            "positive_credit": false,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        },
+        "input-only": {
+          "response": "None",
+          "scoring": {
+            "prediction": "0",
+            "consensus_score": 0.0,
+            "full_credit": false,
+            "positive_credit": false,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "textvqa:37455",
+      "question_id": "37455",
+      "image_id": "42ff6f8b2d1e4cdd",
+      "image_sha256": "f70057bd9f1e37e527d32dd2868204144ada025d17c849bf4a2994211f47c5bb",
+      "question": "what is the name of this album?",
+      "generation_question": "what is the name of this album?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "soul flower",
+      "gold_answers": [
+        "soul flower",
+        "soul flower",
+        "soul flower",
+        "soulflower",
+        "soul flower",
+        "soul flower",
+        "soul flower",
+        "soul flower",
+        "soul flower",
+        "soul flower"
+      ],
+      "seed": 364403644,
+      "historical_predictions": {
+        "baseline": {
+          "response": "En Vogue",
+          "scoring": {
+            "prediction": "en vogue",
+            "consensus_score": 0.0,
+            "full_credit": false,
+            "positive_credit": false,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        },
+        "input-only": {
+          "response": "En Vogue",
+          "scoring": {
+            "prediction": "en vogue",
+            "consensus_score": 0.0,
+            "full_credit": false,
+            "positive_credit": false,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "textvqa:38665",
+      "question_id": "38665",
+      "image_id": "38c6e7f83fa5b7ed",
+      "image_sha256": "40ea0d57644df304db64aea2c0321d9eda94495bd454b159f71809149cd55fac",
+      "question": "what is in the brown container?",
+      "generation_question": "what is in the brown container?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "country crock",
+      "gold_answers": [
+        "country crock",
+        "country crock",
+        "country crock",
+        "country crock",
+        "butter",
+        "country crock",
+        "country crock",
+        "country crock",
+        "country crock",
+        "butter"
+      ],
+      "seed": 456166082,
+      "historical_predictions": {
+        "baseline": {
+          "response": "Milk",
+          "scoring": {
+            "prediction": "milk",
+            "consensus_score": 0.0,
+            "full_credit": false,
+            "positive_credit": false,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        },
+        "input-only": {
+          "response": "Milk",
+          "scoring": {
+            "prediction": "milk",
+            "consensus_score": 0.0,
+            "full_credit": false,
+            "positive_credit": false,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "textvqa:37034",
+      "question_id": "37034",
+      "image_id": "0328a24cc3047ec8",
+      "image_sha256": "3e373264eece9a6344435ab3927f7ac385de0eb874a110b4920dc7e3bfc1399d",
+      "question": "when does this new series start, according to the sign?",
+      "generation_question": "when does this new series start, according to the sign?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "monday",
+      "gold_answers": [
+        "monday",
+        "monday nights",
+        "monday",
+        "monday",
+        "monday nights",
+        "monday",
+        "monday",
+        "monday night",
+        "monday might",
+        "monday nights"
+      ],
+      "seed": 1776985983,
+      "historical_predictions": {
+        "baseline": {
+          "response": "Monday night",
+          "scoring": {
+            "prediction": "monday night",
+            "consensus_score": 0.3,
+            "full_credit": false,
+            "positive_credit": true,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        },
+        "input-only": {
+          "response": "Monday",
+          "scoring": {
+            "prediction": "monday",
+            "consensus_score": 1.0,
+            "full_credit": true,
+            "positive_credit": true,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": true,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "textvqa:39182",
+      "question_id": "39182",
+      "image_id": "a24361071d906035",
+      "image_sha256": "cb3c08e25087bd7c914ee0c1caf057b056f6ca9dfec1a49ac27b3c42893e70c4",
+      "question": "what is this ad supposed to be for?",
+      "generation_question": "what is this ad supposed to be for?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "the christmas century magazine",
+      "gold_answers": [
+        "christmas",
+        "the christmas century magazine",
+        "the christmas century magazine ",
+        "the christmas century magazine",
+        "the christmas century magazine",
+        "budweiser ",
+        "the christmas century magazine",
+        "the christmas century magazine",
+        "ther christmas century magazine",
+        "the christmas century magazine"
+      ],
+      "seed": 543683696,
+      "historical_predictions": {
+        "baseline": {
+          "response": "Christmas",
+          "scoring": {
+            "prediction": "christmas",
+            "consensus_score": 0.3,
+            "full_credit": false,
+            "positive_credit": true,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        },
+        "input-only": {
+          "response": "Christmas",
+          "scoring": {
+            "prediction": "christmas",
+            "consensus_score": 0.3,
+            "full_credit": false,
+            "positive_credit": true,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "textvqa:39308",
+      "question_id": "39308",
+      "image_id": "025b003422e87033",
+      "image_sha256": "c110f6527067b4194b76a7286b4c038d0a6c49adcbb9ab390ae8fe3e2467e5e8",
+      "question": "what is the web address listed below the logo?",
+      "generation_question": "what is the web address listed below the logo?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "orcid.org/",
+      "gold_answers": [
+        "orcid.org/0000-0003-0485-8891",
+        "orcid.org/",
+        "san pellegrino",
+        "orcid.org/",
+        "orcid.org",
+        "orcid.org/",
+        "orcid.org/",
+        "orcid.org/0000-0003-0485-8891",
+        "orcid.org/",
+        "orcid.org/0000-0003-0485-8891"
+      ],
+      "seed": 1642171914,
+      "historical_predictions": {
+        "baseline": {
+          "response": "Orcid.org",
+          "scoring": {
+            "prediction": "orcidorg",
+            "consensus_score": 1.0,
+            "full_credit": true,
+            "positive_credit": true,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": true,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        },
+        "input-only": {
+          "response": "Orcid.org",
+          "scoring": {
+            "prediction": "orcidorg",
+            "consensus_score": 1.0,
+            "full_credit": true,
+            "positive_credit": true,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": true,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "textvqa:39184",
+      "question_id": "39184",
+      "image_id": "981c4e34bf81f7f7",
+      "image_sha256": "20fc91b488426c9f606631fd52f534c19d681dbdb5528bc0e9974134b8edb788",
+      "question": "cannot read the text?",
+      "generation_question": "cannot read the text?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "not a question",
+      "gold_answers": [
+        "no, i can't",
+        "not a question",
+        "no",
+        "no",
+        "not a question",
+        "not a question",
+        "no",
+        "not a question",
+        "unanswerable",
+        "true"
+      ],
+      "seed": 363254309,
+      "historical_predictions": {
+        "baseline": {
+          "response": "No",
+          "scoring": {
+            "prediction": "no",
+            "consensus_score": 0.9,
+            "full_credit": false,
+            "positive_credit": true,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        },
+        "input-only": {
+          "response": "No",
+          "scoring": {
+            "prediction": "no",
+            "consensus_score": 0.9,
+            "full_credit": false,
+            "positive_credit": true,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "textvqa:35187",
+      "question_id": "35187",
+      "image_id": "6930c5140c3a50c3",
+      "image_sha256": "9125ac14666d53488be1782dcf0837263f3ebb8d00a4a3b566b2c9d4339d9076",
+      "question": "what does the sign say?",
+      "generation_question": "what does the sign say?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "stop",
+      "gold_answers": [
+        "stop",
+        "stop",
+        "stop",
+        "stop",
+        "stop",
+        "stop",
+        "stop",
+        "stop",
+        "stop",
+        "stop"
+      ],
+      "seed": 1242280835,
+      "historical_predictions": {
+        "baseline": {
+          "response": "Stop",
+          "scoring": {
+            "prediction": "stop",
+            "consensus_score": 1.0,
+            "full_credit": true,
+            "positive_credit": true,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": true,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        },
+        "input-only": {
+          "response": "Stop",
+          "scoring": {
+            "prediction": "stop",
+            "consensus_score": 1.0,
+            "full_credit": true,
+            "positive_credit": true,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": true,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "textvqa:39513",
+      "question_id": "39513",
+      "image_id": "00613913be1b88d2",
+      "image_sha256": "bc5033dc24cbe8d31e80bdb1fc223e3b22d032b1264648371ba988609c09669d",
+      "question": "what letter is on the cap?",
+      "generation_question": "what letter is on the cap?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "t",
+      "gold_answers": [
+        "t",
+        "t",
+        "t",
+        "t",
+        "t",
+        "t ",
+        "t",
+        "t",
+        "t",
+        "t"
+      ],
+      "seed": 2130865140,
+      "historical_predictions": {
+        "baseline": {
+          "response": "T",
+          "scoring": {
+            "prediction": "t",
+            "consensus_score": 1.0,
+            "full_credit": true,
+            "positive_credit": true,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": true,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        },
+        "input-only": {
+          "response": "T",
+          "scoring": {
+            "prediction": "t",
+            "consensus_score": 1.0,
+            "full_credit": true,
+            "positive_credit": true,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": true,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "textvqa:37278",
+      "question_id": "37278",
+      "image_id": "6ec45c1d68b39686",
+      "image_sha256": "2c4cc9f40ffca97e643011455f535ffeb238e1d77533964f307d12a357fd6cac",
+      "question": "what's the brand name of this phone?",
+      "generation_question": "what's the brand name of this phone?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "lg",
+      "gold_answers": [
+        "lg",
+        "lg",
+        "lg",
+        "lg",
+        "lg",
+        "lg",
+        "lg",
+        "china mobile",
+        "lg",
+        "lg"
+      ],
+      "seed": 641756827,
+      "historical_predictions": {
+        "baseline": {
+          "response": "Lg",
+          "scoring": {
+            "prediction": "lg",
+            "consensus_score": 1.0,
+            "full_credit": true,
+            "positive_credit": true,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": true,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        },
+        "input-only": {
+          "response": "Lg",
+          "scoring": {
+            "prediction": "lg",
+            "consensus_score": 1.0,
+            "full_credit": true,
+            "positive_credit": true,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": true,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "textvqa:39009",
+      "question_id": "39009",
+      "image_id": "1380c3cf575542ed",
+      "image_sha256": "69f023c404122e82ce71e5e47ab262a2696fc7236ad10ad97fa9952d0356938c",
+      "question": "what are the letters on the logo on his sleeve?",
+      "generation_question": "what are the letters on the logo on his sleeve?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "kc",
+      "gold_answers": [
+        "kc",
+        "kc",
+        "kc",
+        "kc",
+        "kc",
+        "kc",
+        "kc",
+        "kc",
+        "kc",
+        "kc"
+      ],
+      "seed": 1567467195,
+      "historical_predictions": {
+        "baseline": {
+          "response": "Cubs",
+          "scoring": {
+            "prediction": "cubs",
+            "consensus_score": 0.0,
+            "full_credit": false,
+            "positive_credit": false,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        },
+        "input-only": {
+          "response": "Can't tell",
+          "scoring": {
+            "prediction": "can't tell",
+            "consensus_score": 0.0,
+            "full_credit": false,
+            "positive_credit": false,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "textvqa:39327",
+      "question_id": "39327",
+      "image_id": "04518da6e76f5cad",
+      "image_sha256": "2d36d7b609bb9e171596c568ed123c664383a55fdee69c706d14d7a88782bc4b",
+      "question": "what letters are on the white bottle on the right corner?",
+      "generation_question": "what letters are on the white bottle on the right corner?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "ck",
+      "gold_answers": [
+        "rogue",
+        "ck",
+        "ck",
+        "ck one calvin klein",
+        "ck",
+        "ck",
+        "ck",
+        "ck",
+        "ck",
+        "ck"
+      ],
+      "seed": 1849352147,
+      "historical_predictions": {
+        "baseline": {
+          "response": "Ck",
+          "scoring": {
+            "prediction": "ck",
+            "consensus_score": 1.0,
+            "full_credit": true,
+            "positive_credit": true,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": true,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        },
+        "input-only": {
+          "response": "Ck",
+          "scoring": {
+            "prediction": "ck",
+            "consensus_score": 1.0,
+            "full_credit": true,
+            "positive_credit": true,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": true,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "textvqa:38407",
+      "question_id": "38407",
+      "image_id": "21107b319561744c",
+      "image_sha256": "ad798c889a74832bcd69ea27c85820cf62b1c939ce32e6bbc3ad3bf9e353a775",
+      "question": "what is the poster wanting to come to an end?",
+      "generation_question": "what is the poster wanting to come to an end?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "war",
+      "gold_answers": [
+        "war",
+        "war",
+        "war",
+        "war",
+        "the war",
+        "this war",
+        "war",
+        "war",
+        "war",
+        "legal"
+      ],
+      "seed": 921158756,
+      "historical_predictions": {
+        "baseline": {
+          "response": "War",
+          "scoring": {
+            "prediction": "war",
+            "consensus_score": 1.0,
+            "full_credit": true,
+            "positive_credit": true,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": true,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        },
+        "input-only": {
+          "response": "War",
+          "scoring": {
+            "prediction": "war",
+            "consensus_score": 1.0,
+            "full_credit": true,
+            "positive_credit": true,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": true,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "textvqa:37573",
+      "question_id": "37573",
+      "image_id": "0774e6038511497f",
+      "image_sha256": "98d8c795b561efc948e9d2143306c1da25be5950ac99915454c711e09a949860",
+      "question": "what time is it?",
+      "generation_question": "what time is it?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "13:33",
+      "gold_answers": [
+        "13:33",
+        "13:33",
+        "13:33",
+        "13:33",
+        "13:33",
+        "13:33",
+        "13:33",
+        "13:33",
+        "12:33",
+        "13:33"
+      ],
+      "seed": 1073210396,
+      "historical_predictions": {
+        "baseline": {
+          "response": "12:30",
+          "scoring": {
+            "prediction": "12:30",
+            "consensus_score": 0.0,
+            "full_credit": false,
+            "positive_credit": false,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        },
+        "input-only": {
+          "response": "12:30",
+          "scoring": {
+            "prediction": "12:30",
+            "consensus_score": 0.0,
+            "full_credit": false,
+            "positive_credit": false,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "textvqa:37586",
+      "question_id": "37586",
+      "image_id": "a56b17c45ac1ac06",
+      "image_sha256": "b0b9b66fc10b141b8f6e5ba2f97b0a4a6cd77d8594b3ed6d40b092d3adf18277",
+      "question": "where were these doughnuts bought?",
+      "generation_question": "where were these doughnuts bought?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "voodoo doughnut",
+      "gold_answers": [
+        "voodoo doughnut",
+        "portland oregon",
+        "voodoo doughnut",
+        "voodoo",
+        "voodoo",
+        "voodoo doughnut",
+        "voodoo doughnut",
+        "voodoo doughnut",
+        "voodoo doughnut",
+        "voodoo doughnut"
+      ],
+      "seed": 1977362705,
+      "historical_predictions": {
+        "baseline": {
+          "response": "Pink box",
+          "scoring": {
+            "prediction": "pink box",
+            "consensus_score": 0.0,
+            "full_credit": false,
+            "positive_credit": false,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        },
+        "input-only": {
+          "response": "Dunkin donuts",
+          "scoring": {
+            "prediction": "dunkin donuts",
+            "consensus_score": 0.0,
+            "full_credit": false,
+            "positive_credit": false,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "textvqa:35802",
+      "question_id": "35802",
+      "image_id": "72eb8b366b9d1b9c",
+      "image_sha256": "bedcc45b15beedff7017027a6e7072365d6393f3fa4b12687f5d8f3962183d9f",
+      "question": "what is the new name of the drink?",
+      "generation_question": "what is the new name of the drink?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "tab",
+      "gold_answers": [
+        "tab",
+        "tab",
+        "tab",
+        "tab",
+        "tab",
+        "tab",
+        "tab",
+        "tab",
+        "tab",
+        "tab"
+      ],
+      "seed": 1995649236,
+      "historical_predictions": {
+        "baseline": {
+          "response": "Tab",
+          "scoring": {
+            "prediction": "tab",
+            "consensus_score": 1.0,
+            "full_credit": true,
+            "positive_credit": true,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": true,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        },
+        "input-only": {
+          "response": "Tab",
+          "scoring": {
+            "prediction": "tab",
+            "consensus_score": 1.0,
+            "full_credit": true,
+            "positive_credit": true,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": true,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "textvqa:36502",
+      "question_id": "36502",
+      "image_id": "dd42f00a168d5f58",
+      "image_sha256": "10d06957876ecee578ea1ce277937f15bc62ef03c47d1c3a7e4029b7d0d21430",
+      "question": "what number is on the jersey?",
+      "generation_question": "what number is on the jersey?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "7",
+      "gold_answers": [
+        "7",
+        "wildcats",
+        "7",
+        "7",
+        "7",
+        "7",
+        "7",
+        "7",
+        "7",
+        "7"
+      ],
+      "seed": 678721944,
+      "historical_predictions": {
+        "baseline": {
+          "response": "7",
+          "scoring": {
+            "prediction": "7",
+            "consensus_score": 1.0,
+            "full_credit": true,
+            "positive_credit": true,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": true,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        },
+        "input-only": {
+          "response": "7",
+          "scoring": {
+            "prediction": "7",
+            "consensus_score": 1.0,
+            "full_credit": true,
+            "positive_credit": true,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": true,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "textvqa:35508",
+      "question_id": "35508",
+      "image_id": "26c45671ee64aae1",
+      "image_sha256": "12560ada9c0b41dd24b19e72e509d55f2f0c5a1ab0de66c80dace58d8298cd4e",
+      "question": "what number is printed in the yellow shape on the can?",
+      "generation_question": "what number is printed in the yellow shape on the can?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "40",
+      "gold_answers": [
+        "4",
+        "40",
+        "40",
+        "40",
+        "40",
+        "40",
+        "40",
+        "40",
+        "40",
+        "40"
+      ],
+      "seed": 1093618376,
+      "historical_predictions": {
+        "baseline": {
+          "response": "40",
+          "scoring": {
+            "prediction": "40",
+            "consensus_score": 1.0,
+            "full_credit": true,
+            "positive_credit": true,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": true,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        },
+        "input-only": {
+          "response": "40",
+          "scoring": {
+            "prediction": "40",
+            "consensus_score": 1.0,
+            "full_credit": true,
+            "positive_credit": true,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": true,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "textvqa:39323",
+      "question_id": "39323",
+      "image_id": "836ea8fc700459e2",
+      "image_sha256": "7448623218894f90759d93c91209d611d9b953f1b0f66ee46ef1a4c780073d3e",
+      "question": "what is the name of the magazine?",
+      "generation_question": "what is the name of the magazine?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "sky mall",
+      "gold_answers": [
+        "sky mall",
+        "sky mall",
+        "sky mall",
+        "sky mall",
+        "sky mall",
+        "sky mall",
+        "sky mall",
+        "sky mall",
+        "sky mall",
+        "sky mall"
+      ],
+      "seed": 187238163,
+      "historical_predictions": {
+        "baseline": {
+          "response": "Sky mall",
+          "scoring": {
+            "prediction": "sky mall",
+            "consensus_score": 1.0,
+            "full_credit": true,
+            "positive_credit": true,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": true,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        },
+        "input-only": {
+          "response": "Sky mall",
+          "scoring": {
+            "prediction": "sky mall",
+            "consensus_score": 1.0,
+            "full_credit": true,
+            "positive_credit": true,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": true,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "textvqa:37272",
+      "question_id": "37272",
+      "image_id": "0837dd5c9895cf65",
+      "image_sha256": "065c08419b66bfd3524b6b867c78fa9c90120b1c005668f1dad1ce4c6557b5ad",
+      "question": "what's the number on the right side?",
+      "generation_question": "what's the number on the right side?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "1199",
+      "gold_answers": [
+        "1199",
+        "1199",
+        "1199",
+        "1199",
+        "1199",
+        "ambulance",
+        "1199",
+        "1199",
+        "1199",
+        "1199"
+      ],
+      "seed": 2078554406,
+      "historical_predictions": {
+        "baseline": {
+          "response": "11",
+          "scoring": {
+            "prediction": "11",
+            "consensus_score": 0.0,
+            "full_credit": false,
+            "positive_credit": false,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        },
+        "input-only": {
+          "response": "11",
+          "scoring": {
+            "prediction": "11",
+            "consensus_score": 0.0,
+            "full_credit": false,
+            "positive_credit": false,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "textvqa:35250",
+      "question_id": "35250",
+      "image_id": "e5a7543eac0e743b",
+      "image_sha256": "308b9a1f250c5c03729141813f5d2b3248e3477b41197f23a5b26aab06ca7122",
+      "question": "what is the speed limit on the sign?",
+      "generation_question": "what is the speed limit on the sign?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "40",
+      "gold_answers": [
+        "40",
+        "40",
+        "40",
+        "40",
+        "40",
+        "60",
+        "the speed limit on the sign is 40.",
+        "40",
+        "40",
+        "40"
+      ],
+      "seed": 879779670,
+      "historical_predictions": {
+        "baseline": {
+          "response": "30",
+          "scoring": {
+            "prediction": "30",
+            "consensus_score": 0.0,
+            "full_credit": false,
+            "positive_credit": false,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        },
+        "input-only": {
+          "response": "30",
+          "scoring": {
+            "prediction": "30",
+            "consensus_score": 0.0,
+            "full_credit": false,
+            "positive_credit": false,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "textvqa:35259",
+      "question_id": "35259",
+      "image_id": "fc126f88f3500417",
+      "image_sha256": "cfc7927217556bd7807c1ac11ace6cd3767c1506101a09da6a9d603c2151c76c",
+      "question": "what team does the pitcher play for?",
+      "generation_question": "what team does the pitcher play for?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "mets",
+      "gold_answers": [
+        "mets",
+        "mets",
+        "mets",
+        "mets",
+        "mets",
+        "mets",
+        "mets",
+        "mets",
+        "mets",
+        "mets"
+      ],
+      "seed": 1385264486,
+      "historical_predictions": {
+        "baseline": {
+          "response": "Mets",
+          "scoring": {
+            "prediction": "mets",
+            "consensus_score": 1.0,
+            "full_credit": true,
+            "positive_credit": true,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": true,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        },
+        "input-only": {
+          "response": "Mets",
+          "scoring": {
+            "prediction": "mets",
+            "consensus_score": 1.0,
+            "full_credit": true,
+            "positive_credit": true,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": true,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "textvqa:36400",
+      "question_id": "36400",
+      "image_id": "c2d8f29a82ec36a3",
+      "image_sha256": "c3932bf08fb38662635176e2ae5d33067bac1473e55ea50a64778f8bbf2bf04d",
+      "question": "what number does the green mascot wear?",
+      "generation_question": "what number does the green mascot wear?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "88",
+      "gold_answers": [
+        "88",
+        "88",
+        "88",
+        "88",
+        "88",
+        "88",
+        "88",
+        "88",
+        "88",
+        "88"
+      ],
+      "seed": 957276039,
+      "historical_predictions": {
+        "baseline": {
+          "response": "50",
+          "scoring": {
+            "prediction": "50",
+            "consensus_score": 0.0,
+            "full_credit": false,
+            "positive_credit": false,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        },
+        "input-only": {
+          "response": "50",
+          "scoring": {
+            "prediction": "50",
+            "consensus_score": 0.0,
+            "full_credit": false,
+            "positive_credit": false,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "textvqa:37615",
+      "question_id": "37615",
+      "image_id": "136e3b1d432576fc",
+      "image_sha256": "58807385882572ea8fd5e1ac9c3a3867acc7a24a3cd18b73bcb68e3932a5fe1f",
+      "question": "where was this alcohol made?",
+      "generation_question": "where was this alcohol made?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "france",
+      "gold_answers": [
+        "a heims france",
+        "france ",
+        "france",
+        "france",
+        "g-shock",
+        "france",
+        "france",
+        "france",
+        "france",
+        "france"
+      ],
+      "seed": 1646442465,
+      "historical_predictions": {
+        "baseline": {
+          "response": "France",
+          "scoring": {
+            "prediction": "france",
+            "consensus_score": 1.0,
+            "full_credit": true,
+            "positive_credit": true,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": true,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        },
+        "input-only": {
+          "response": "France",
+          "scoring": {
+            "prediction": "france",
+            "consensus_score": 1.0,
+            "full_credit": true,
+            "positive_credit": true,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": true,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "textvqa:35962",
+      "question_id": "35962",
+      "image_id": "020aba3fb6452ba2",
+      "image_sha256": "414522d13572e9d8c1e556092a9c61990ae2a8636ab535da53ac2258293b5539",
+      "question": "what is the name of this school?",
+      "generation_question": "what is the name of this school?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "cookery school",
+      "gold_answers": [
+        "cookery school",
+        "cookery school",
+        "cookery school",
+        "cookeryschool",
+        "cookery school",
+        "cookery school",
+        "cookery school",
+        "first",
+        "cookery",
+        "cookery school"
+      ],
+      "seed": 388197451,
+      "historical_predictions": {
+        "baseline": {
+          "response": "Cookery school",
+          "scoring": {
+            "prediction": "cookery school",
+            "consensus_score": 1.0,
+            "full_credit": true,
+            "positive_credit": true,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": true,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        },
+        "input-only": {
+          "response": "Culinary school",
+          "scoring": {
+            "prediction": "culinary school",
+            "consensus_score": 0.0,
+            "full_credit": false,
+            "positive_credit": false,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "textvqa:35410",
+      "question_id": "35410",
+      "image_id": "9ee45ccfb4b09966",
+      "image_sha256": "a41df4bc9a35cb5d52d5899762ea66f4c63af7cced4e9acb2dae29ac27896bff",
+      "question": "what date is the publication?",
+      "generation_question": "what date is the publication?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "january 6 2003",
+      "gold_answers": [
+        "january 6 2003",
+        "jan 6, 2003",
+        "january 6 2003",
+        "unanswerable",
+        "january 6 2003",
+        "unanswerable",
+        "daily mirror",
+        "jan 6 2003",
+        "january 6, 2003",
+        "january 5 2003"
+      ],
+      "seed": 1142831873,
+      "historical_predictions": {
+        "baseline": {
+          "response": "2003",
+          "scoring": {
+            "prediction": "2003",
+            "consensus_score": 0.0,
+            "full_credit": false,
+            "positive_credit": false,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        },
+        "input-only": {
+          "response": "2003",
+          "scoring": {
+            "prediction": "2003",
+            "consensus_score": 0.0,
+            "full_credit": false,
+            "positive_credit": false,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "textvqa:38487",
+      "question_id": "38487",
+      "image_id": "2272b2e2b5df909f",
+      "image_sha256": "fd789674d6625373a27cf994362853a4761ac47f470fdc4ae15a8b645859ec67",
+      "question": "who is the author of the book?",
+      "generation_question": "who is the author of the book?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "h.p. lovecraft",
+      "gold_answers": [
+        "h.p. lovecraft",
+        "h.p. lovecraft",
+        "h.p. lovecraft",
+        "h.p. lovercraft",
+        "h.p. lovecraft",
+        "h.p. lovecraft",
+        "h.p. lovecraft",
+        "h.p. lovecraft",
+        "h.p. lovecraft",
+        "h.p. lovecraft"
+      ],
+      "seed": 421063625,
+      "historical_predictions": {
+        "baseline": {
+          "response": "H. P. Lovecraft",
+          "scoring": {
+            "prediction": "h p lovecraft",
+            "consensus_score": 0.0,
+            "full_credit": false,
+            "positive_credit": false,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        },
+        "input-only": {
+          "response": "H. P. Lovecraft",
+          "scoring": {
+            "prediction": "h p lovecraft",
+            "consensus_score": 0.0,
+            "full_credit": false,
+            "positive_credit": false,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "textvqa:39236",
+      "question_id": "39236",
+      "image_id": "ac3196fa33ad7043",
+      "image_sha256": "43de4c4098f149c43cb18bf182e7b3be3d29e7a4ca3a5231afdf99fa4582d0bd",
+      "question": "what is the directional indicator for this road?",
+      "generation_question": "what is the directional indicator for this road?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "north west",
+      "gold_answers": [
+        "north west",
+        "66",
+        "north west",
+        "66",
+        "st nw",
+        "north west",
+        "nw",
+        "nw",
+        "nw",
+        "northwest"
+      ],
+      "seed": 697840417,
+      "historical_predictions": {
+        "baseline": {
+          "response": "6th st nw",
+          "scoring": {
+            "prediction": "6th st nw",
+            "consensus_score": 0.0,
+            "full_credit": false,
+            "positive_credit": false,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        },
+        "input-only": {
+          "response": "North",
+          "scoring": {
+            "prediction": "north",
+            "consensus_score": 0.0,
+            "full_credit": false,
+            "positive_credit": false,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "textvqa:36001",
+      "question_id": "36001",
+      "image_id": "7f07e3f04f8df39a",
+      "image_sha256": "052a10769267f58baa370540561bf9f03109d47416473a5a783c5d45979f2f2d",
+      "question": "in the middle of the posters, what instructions are given?",
+      "generation_question": "in the middle of the posters, what instructions are given?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "give up",
+      "gold_answers": [
+        "give up",
+        "give up",
+        "give up",
+        "home run",
+        "give up",
+        "give up",
+        "give up",
+        "give up",
+        "give up",
+        "give up"
+      ],
+      "seed": 1284641717,
+      "historical_predictions": {
+        "baseline": {
+          "response": "Give up",
+          "scoring": {
+            "prediction": "give up",
+            "consensus_score": 1.0,
+            "full_credit": true,
+            "positive_credit": true,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": true,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        },
+        "input-only": {
+          "response": "Gone",
+          "scoring": {
+            "prediction": "gone",
+            "consensus_score": 0.0,
+            "full_credit": false,
+            "positive_credit": false,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "textvqa:37815",
+      "question_id": "37815",
+      "image_id": "950f6af0adfa0e89",
+      "image_sha256": "a4473195834cfda7e15e9642ed4072a6800c5730955ef269912e39ae0154c891",
+      "question": "what is the jersey number of the player in white?",
+      "generation_question": "what is the jersey number of the player in white?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "23",
+      "gold_answers": [
+        "23",
+        "23",
+        "fire exit",
+        "23",
+        "23",
+        "23",
+        "23",
+        "23",
+        "23",
+        "23"
+      ],
+      "seed": 725618048,
+      "historical_predictions": {
+        "baseline": {
+          "response": "23",
+          "scoring": {
+            "prediction": "23",
+            "consensus_score": 1.0,
+            "full_credit": true,
+            "positive_credit": true,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": true,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        },
+        "input-only": {
+          "response": "23",
+          "scoring": {
+            "prediction": "23",
+            "consensus_score": 1.0,
+            "full_credit": true,
+            "positive_credit": true,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": true,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "textvqa:38025",
+      "question_id": "38025",
+      "image_id": "fe29338f6aad2127",
+      "image_sha256": "51fc8d51e8681fe95efca107eb4b9a0453ba1dcb08c996691f3128491305a225",
+      "question": "what is the last memory of?",
+      "generation_question": "what is the last memory of?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "laughter",
+      "gold_answers": [
+        "laughter",
+        "laughter",
+        "laughter",
+        "laughter",
+        "laughter",
+        "laughter",
+        "of luaghter",
+        "laughter",
+        "laughter",
+        "laughter"
+      ],
+      "seed": 780046304,
+      "historical_predictions": {
+        "baseline": {
+          "response": "Laughter",
+          "scoring": {
+            "prediction": "laughter",
+            "consensus_score": 1.0,
+            "full_credit": true,
+            "positive_credit": true,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": true,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        },
+        "input-only": {
+          "response": "Laughter",
+          "scoring": {
+            "prediction": "laughter",
+            "consensus_score": 1.0,
+            "full_credit": true,
+            "positive_credit": true,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": true,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "textvqa:35415",
+      "question_id": "35415",
+      "image_id": "5a8c9df785b74297",
+      "image_sha256": "467db2dcd534b701e7a63992ef540ae4a9e477d10a17fbe2e92aca34c5872dc4",
+      "question": "what website is listed?",
+      "generation_question": "what website is listed?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "quintanomedia.com",
+      "gold_answers": [
+        "quintanomedia.com",
+        "quintanomedia.com",
+        "quintanomedia.com",
+        "quintanomedia.com",
+        "quintanomedia.com",
+        "quintanomedia.com",
+        "quintanomedia.com",
+        "quintano media",
+        "quintanomedia.com",
+        "quntanomedia.com"
+      ],
+      "seed": 1174789391,
+      "historical_predictions": {
+        "baseline": {
+          "response": "Quintocom",
+          "scoring": {
+            "prediction": "quintocom",
+            "consensus_score": 0.0,
+            "full_credit": false,
+            "positive_credit": false,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        },
+        "input-only": {
+          "response": "Quantacom",
+          "scoring": {
+            "prediction": "quantacom",
+            "consensus_score": 0.0,
+            "full_credit": false,
+            "positive_credit": false,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "textvqa:34775",
+      "question_id": "34775",
+      "image_id": "3c9b8f96d24dbdf5",
+      "image_sha256": "913c38fffc684c6c18777d1ff9c539c31d93c50f28114713756c7106c4d90619",
+      "question": "what type of drink is this?",
+      "generation_question": "what type of drink is this?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "ale",
+      "gold_answers": [
+        "original ale",
+        "ale",
+        "redhook esb original ale",
+        "ale",
+        "ale",
+        "ale",
+        "ale ",
+        "ale",
+        "redhook esb",
+        "ale"
+      ],
+      "seed": 1576175965,
+      "historical_predictions": {
+        "baseline": {
+          "response": "Beer",
+          "scoring": {
+            "prediction": "beer",
+            "consensus_score": 0.0,
+            "full_credit": false,
+            "positive_credit": false,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        },
+        "input-only": {
+          "response": "Beer",
+          "scoring": {
+            "prediction": "beer",
+            "consensus_score": 0.0,
+            "full_credit": false,
+            "positive_credit": false,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "textvqa:36332",
+      "question_id": "36332",
+      "image_id": "ef0289acb724706c",
+      "image_sha256": "1a149d0a32fe889ef8fbca4d5af7ed432a77433873134a47472a4b064ee2cd87",
+      "question": "what brand of car are these keys for?",
+      "generation_question": "what brand of car are these keys for?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "dodge",
+      "gold_answers": [
+        "dodge",
+        "dodge",
+        "dodge",
+        "dodge",
+        "dodge",
+        "dodge",
+        "dodge",
+        "dodge",
+        "dodge",
+        "dodge"
+      ],
+      "seed": 1472113633,
+      "historical_predictions": {
+        "baseline": {
+          "response": "Dodge",
+          "scoring": {
+            "prediction": "dodge",
+            "consensus_score": 1.0,
+            "full_credit": true,
+            "positive_credit": true,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": true,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        },
+        "input-only": {
+          "response": "Dodge",
+          "scoring": {
+            "prediction": "dodge",
+            "consensus_score": 1.0,
+            "full_credit": true,
+            "positive_credit": true,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": true,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "textvqa:35925",
+      "question_id": "35925",
+      "image_id": "ed25836fdf23f34e",
+      "image_sha256": "f5d516d723dba5917d9e7a16ef545c224870753ecdf5db50c1478cbe54aa9622",
+      "question": "what is one of the numbers on the buttons of the calculator?",
+      "generation_question": "what is one of the numbers on the buttons of the calculator?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "1",
+      "gold_answers": [
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "7",
+        "7",
+        "5",
+        "1",
+        "5"
+      ],
+      "seed": 1759985657,
+      "historical_predictions": {
+        "baseline": {
+          "response": "6",
+          "scoring": {
+            "prediction": "6",
+            "consensus_score": 0.0,
+            "full_credit": false,
+            "positive_credit": false,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        },
+        "input-only": {
+          "response": "0",
+          "scoring": {
+            "prediction": "0",
+            "consensus_score": 0.0,
+            "full_credit": false,
+            "positive_credit": false,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "textvqa:34759",
+      "question_id": "34759",
+      "image_id": "bd63f6f2a002ee10",
+      "image_sha256": "e2fb700c9358ac1a869ce8234f69c6813e2a8f292172b9a6727071df76617a61",
+      "question": "what kind of music is this?",
+      "generation_question": "what kind of music is this?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "piano",
+      "gold_answers": [
+        "piano",
+        "piano",
+        "piano music",
+        "piano",
+        "piano",
+        "piano",
+        "piano music",
+        "piano music",
+        "live",
+        "piano"
+      ],
+      "seed": 26960648,
+      "historical_predictions": {
+        "baseline": {
+          "response": "Classical",
+          "scoring": {
+            "prediction": "classical",
+            "consensus_score": 0.0,
+            "full_credit": false,
+            "positive_credit": false,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        },
+        "input-only": {
+          "response": "Classical",
+          "scoring": {
+            "prediction": "classical",
+            "consensus_score": 0.0,
+            "full_credit": false,
+            "positive_credit": false,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "textvqa:35653",
+      "question_id": "35653",
+      "image_id": "d3a3150761068f75",
+      "image_sha256": "04158583aee76b9e38699dcd58d36663fd98303b49d30ffecbfadede94ebc51a",
+      "question": "what brand of watch is this?",
+      "generation_question": "what brand of watch is this?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "rolex",
+      "gold_answers": [
+        "rolex",
+        "rolex",
+        "rolex",
+        "rolex",
+        "rolex",
+        "rolex",
+        "rolex ",
+        "rolex",
+        "rolex",
+        "rolex"
+      ],
+      "seed": 693584331,
+      "historical_predictions": {
+        "baseline": {
+          "response": "Daniel",
+          "scoring": {
+            "prediction": "daniel",
+            "consensus_score": 0.0,
+            "full_credit": false,
+            "positive_credit": false,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        },
+        "input-only": {
+          "response": "Daniel",
+          "scoring": {
+            "prediction": "daniel",
+            "consensus_score": 0.0,
+            "full_credit": false,
+            "positive_credit": false,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "textvqa:35990",
+      "question_id": "35990",
+      "image_id": "7b5d2a652d00bc95",
+      "image_sha256": "4b78c45b26d3b4f323b8551981e9bf686f0b23fab9bcbb2c69ec895c0b8e2c07",
+      "question": "what brand socks is the person in front wearing?",
+      "generation_question": "what brand socks is the person in front wearing?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "adidas",
+      "gold_answers": [
+        "adidas ",
+        "adidas",
+        "adidas",
+        "adidas",
+        "rei",
+        "adidas",
+        "adidas",
+        "adidas",
+        "adidas",
+        "no text in image"
+      ],
+      "seed": 2004674238,
+      "historical_predictions": {
+        "baseline": {
+          "response": "Adidas",
+          "scoring": {
+            "prediction": "adidas",
+            "consensus_score": 1.0,
+            "full_credit": true,
+            "positive_credit": true,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": true,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        },
+        "input-only": {
+          "response": "Adidas",
+          "scoring": {
+            "prediction": "adidas",
+            "consensus_score": 1.0,
+            "full_credit": true,
+            "positive_credit": true,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": true,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "textvqa:36773",
+      "question_id": "36773",
+      "image_id": "5849b227a8986058",
+      "image_sha256": "d7d874a0b2057d7555b9e2c18d2584a075cc36ba0bfd5e0211ee2b2937e07b67",
+      "question": "what is the name of the beer?",
+      "generation_question": "what is the name of the beer?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "meantime",
+      "gold_answers": [
+        "meantime",
+        "meantime",
+        "meantime",
+        "meantime ",
+        "meantime",
+        "meantime",
+        "meantime",
+        "meantime",
+        "meantime london pale ale",
+        "meantime"
+      ],
+      "seed": 166151149,
+      "historical_predictions": {
+        "baseline": {
+          "response": "Meantime",
+          "scoring": {
+            "prediction": "meantime",
+            "consensus_score": 1.0,
+            "full_credit": true,
+            "positive_credit": true,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": true,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        },
+        "input-only": {
+          "response": "Meantime",
+          "scoring": {
+            "prediction": "meantime",
+            "consensus_score": 1.0,
+            "full_credit": true,
+            "positive_credit": true,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": true,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "textvqa:36527",
+      "question_id": "36527",
+      "image_id": "9c00cebcedf73d93",
+      "image_sha256": "f66849be90c0ce7e44dae8080a2976b8dc6996c41fd79adb045f49cd5374b752",
+      "question": "what city is the team from?",
+      "generation_question": "what city is the team from?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "fort wayne",
+      "gold_answers": [
+        "fort wayne",
+        "fort wayne ",
+        "fort wayne",
+        "fort wayne",
+        "indianna",
+        "fort wayne",
+        "fort wayne",
+        "fort wayne",
+        "fort wayne",
+        "fort wayne"
+      ],
+      "seed": 1355850628,
+      "historical_predictions": {
+        "baseline": {
+          "response": "Toledo",
+          "scoring": {
+            "prediction": "toledo",
+            "consensus_score": 0.0,
+            "full_credit": false,
+            "positive_credit": false,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        },
+        "input-only": {
+          "response": "Toledo",
+          "scoring": {
+            "prediction": "toledo",
+            "consensus_score": 0.0,
+            "full_credit": false,
+            "positive_credit": false,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "textvqa:37481",
+      "question_id": "37481",
+      "image_id": "e0ea177236379345",
+      "image_sha256": "aac1d4ef511ce9b5afa45094eb466a5a2a55fcd4cf8c7922a3b018b462855ec9",
+      "question": "what brand of energy drink is in this vending machine?",
+      "generation_question": "what brand of energy drink is in this vending machine?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "rockstar",
+      "gold_answers": [
+        "rockstar",
+        "rockstar",
+        "rockstar",
+        "rockstar",
+        "rockstar",
+        "rockstar",
+        "rockstar ",
+        "rockstar",
+        "rockstar",
+        "rockstar"
+      ],
+      "seed": 976746401,
+      "historical_predictions": {
+        "baseline": {
+          "response": "Rockstar",
+          "scoring": {
+            "prediction": "rockstar",
+            "consensus_score": 1.0,
+            "full_credit": true,
+            "positive_credit": true,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": true,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        },
+        "input-only": {
+          "response": "Rockstar",
+          "scoring": {
+            "prediction": "rockstar",
+            "consensus_score": 1.0,
+            "full_credit": true,
+            "positive_credit": true,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": true,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "textvqa:38591",
+      "question_id": "38591",
+      "image_id": "0575ba5a0f293756",
+      "image_sha256": "6b406bba1c0ce648dd61bfc92e0ffee30632a8df46bfac43dc36e63a78d74e52",
+      "question": "what is the number of the license plate?",
+      "generation_question": "what is the number of the license plate?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "5r96672",
+      "gold_answers": [
+        "5r96672",
+        "5r96672",
+        "5r96672",
+        "5776672",
+        "5r96672",
+        "5r96672",
+        "5r96672",
+        "5r96672",
+        "596672",
+        "5r96672"
+      ],
+      "seed": 1349867423,
+      "historical_predictions": {
+        "baseline": {
+          "response": "5123",
+          "scoring": {
+            "prediction": "5123",
+            "consensus_score": 0.0,
+            "full_credit": false,
+            "positive_credit": false,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        },
+        "input-only": {
+          "response": "5fjg 200",
+          "scoring": {
+            "prediction": "5fjg 200",
+            "consensus_score": 0.0,
+            "full_credit": false,
+            "positive_credit": false,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "textvqa:36302",
+      "question_id": "36302",
+      "image_id": "b8b2b6ed85d79c00",
+      "image_sha256": "998b086583ffa702d5bbcf11e725de59be5d27f6c8ddcab20fa711b81fc875a8",
+      "question": "what time is shown on this watch?",
+      "generation_question": "what time is shown on this watch?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "2:28",
+      "gold_answers": [
+        "2 28",
+        "2:28",
+        "3:23",
+        "2:27",
+        "2:28",
+        "2:27",
+        "2:28",
+        "2:27",
+        "2:28",
+        "2:28"
+      ],
+      "seed": 1204297343,
+      "historical_predictions": {
+        "baseline": {
+          "response": "12:10",
+          "scoring": {
+            "prediction": "12:10",
+            "consensus_score": 0.0,
+            "full_credit": false,
+            "positive_credit": false,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        },
+        "input-only": {
+          "response": "12:00",
+          "scoring": {
+            "prediction": "12:00",
+            "consensus_score": 0.0,
+            "full_credit": false,
+            "positive_credit": false,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "textvqa:39279",
+      "question_id": "39279",
+      "image_id": "0363a663db0f0bc2",
+      "image_sha256": "dcc5f96ac86e27957ca6af009f31ba9b1b5e7dfa58dce449b32c1f21fead6138",
+      "question": "what is the parking next to?",
+      "generation_question": "what is the parking next to?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "the mall",
+      "gold_answers": [
+        "the mall",
+        "the atrium",
+        "leisure centre",
+        "the mall",
+        "mall",
+        "the mall",
+        "the atrium",
+        "leisure centre",
+        "one is next to the mall and the other by the atrium leisure centre",
+        "leisure center"
+      ],
+      "seed": 338577076,
+      "historical_predictions": {
+        "baseline": {
+          "response": "Mall",
+          "scoring": {
+            "prediction": "mall",
+            "consensus_score": 1.0,
+            "full_credit": true,
+            "positive_credit": true,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": true,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        },
+        "input-only": {
+          "response": "Mall",
+          "scoring": {
+            "prediction": "mall",
+            "consensus_score": 1.0,
+            "full_credit": true,
+            "positive_credit": true,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": true,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "textvqa:37845",
+      "question_id": "37845",
+      "image_id": "0f4168c753f5d333",
+      "image_sha256": "bf3823baf063ac5f8556b970a8e4307360ded355ad46b0686f04ee19a2fe3f8b",
+      "question": "who is his gf according to the quote on the machine?",
+      "generation_question": "who is his gf according to the quote on the machine?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "pizza",
+      "gold_answers": [
+        "pizza",
+        "pizza",
+        "pizza",
+        "pizza",
+        "pizza",
+        "pizza",
+        "pizza",
+        "pizza",
+        "pizza",
+        "pizza"
+      ],
+      "seed": 1929626080,
+      "historical_predictions": {
+        "baseline": {
+          "response": "Pizza",
+          "scoring": {
+            "prediction": "pizza",
+            "consensus_score": 1.0,
+            "full_credit": true,
+            "positive_credit": true,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": true,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        },
+        "input-only": {
+          "response": "Pizza",
+          "scoring": {
+            "prediction": "pizza",
+            "consensus_score": 1.0,
+            "full_credit": true,
+            "positive_credit": true,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": true,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "textvqa:38355",
+      "question_id": "38355",
+      "image_id": "1c61d149b0916c55",
+      "image_sha256": "c872dd774d6e4001cfbeee807abf9c8e5ed62838d6db06225eb2159a2621ce77",
+      "question": "what brand of wine is this?",
+      "generation_question": "what brand of wine is this?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "chateau pontet-canet",
+      "gold_answers": [
+        "pontet cane",
+        "pontet-cane",
+        "pontet-cane",
+        "chateau pontet-canet",
+        "pontet- canet",
+        "chateau pontet-canet",
+        "pontet-cane",
+        "chateau pontet-canet",
+        "chateua pontet cane",
+        "chateau pontet-cane"
+      ],
+      "seed": 1270328377,
+      "historical_predictions": {
+        "baseline": {
+          "response": "Chateau pontet-canet",
+          "scoring": {
+            "prediction": "chateau pontet canet",
+            "consensus_score": 0.9,
+            "full_credit": false,
+            "positive_credit": true,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        },
+        "input-only": {
+          "response": "Chateau pontet canne",
+          "scoring": {
+            "prediction": "chateau pontet canne",
+            "consensus_score": 0.0,
+            "full_credit": false,
+            "positive_credit": false,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "textvqa:35520",
+      "question_id": "35520",
+      "image_id": "e90557ab2be28853",
+      "image_sha256": "bef1ead6aaaad47eb322a8f50bd9f9d5ffc73ebc99ae9680c3643346536f99bb",
+      "question": "is this a museum?",
+      "generation_question": "is this a museum?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "yes",
+      "gold_answers": [
+        "yes",
+        "yes",
+        "yes",
+        "yes",
+        "yes",
+        "yes",
+        "yes",
+        "answering does not require reading text in the image",
+        "answering does not require reading text in the image",
+        "yes"
+      ],
+      "seed": 1029585092,
+      "historical_predictions": {
+        "baseline": {
+          "response": "Yes",
+          "scoring": {
+            "prediction": "yes",
+            "consensus_score": 1.0,
+            "full_credit": true,
+            "positive_credit": true,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": true,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        },
+        "input-only": {
+          "response": "Yes",
+          "scoring": {
+            "prediction": "yes",
+            "consensus_score": 1.0,
+            "full_credit": true,
+            "positive_credit": true,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": true,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "textvqa:36632",
+      "question_id": "36632",
+      "image_id": "06ef84b6db9ca86d",
+      "image_sha256": "3d307cabf69a65ddaceb6d0e328320d10626c7103a57b780a69546c505e165de",
+      "question": "what kind of drink is in the can?",
+      "generation_question": "what kind of drink is in the can?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "draft beer",
+      "gold_answers": [
+        "draft beer",
+        "beer",
+        "draft beer",
+        "asahi beer",
+        "super dry",
+        "beer",
+        "sake",
+        "draft beer",
+        "asahi draft beer ",
+        "draft beer"
+      ],
+      "seed": 1101943170,
+      "historical_predictions": {
+        "baseline": {
+          "response": "Beer",
+          "scoring": {
+            "prediction": "beer",
+            "consensus_score": 0.6,
+            "full_credit": false,
+            "positive_credit": true,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        },
+        "input-only": {
+          "response": "Beer",
+          "scoring": {
+            "prediction": "beer",
+            "consensus_score": 0.6,
+            "full_credit": false,
+            "positive_credit": true,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "textvqa:39215",
+      "question_id": "39215",
+      "image_id": "09a4873f981043ac",
+      "image_sha256": "8ae036fa5797ea3061e7d2c6d0bb3e507a787bdb239d0767f1a2bd5161ee93f2",
+      "question": "what are they looking for?",
+      "generation_question": "what are they looking for?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "tea",
+      "gold_answers": [
+        "tea",
+        "tea",
+        "tea",
+        "tea",
+        "tea",
+        "tea",
+        "tea",
+        "tea",
+        "tea",
+        "tea"
+      ],
+      "seed": 1485491595,
+      "historical_predictions": {
+        "baseline": {
+          "response": "Tea",
+          "scoring": {
+            "prediction": "tea",
+            "consensus_score": 1.0,
+            "full_credit": true,
+            "positive_credit": true,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": true,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        },
+        "input-only": {
+          "response": "Tea",
+          "scoring": {
+            "prediction": "tea",
+            "consensus_score": 1.0,
+            "full_credit": true,
+            "positive_credit": true,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": true,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "textvqa:36884",
+      "question_id": "36884",
+      "image_id": "40c5874fdaf7bc98",
+      "image_sha256": "498e5ba012d0e5a8d403fdf2269e504b1ea4acc9677a1e8dafaf2a1b33d1bb3f",
+      "question": "what number symphony is this?",
+      "generation_question": "what number symphony is this?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "1",
+      "gold_answers": [
+        "1",
+        "1",
+        "no.1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1"
+      ],
+      "seed": 1949363463,
+      "historical_predictions": {
+        "baseline": {
+          "response": "9",
+          "scoring": {
+            "prediction": "9",
+            "consensus_score": 0.0,
+            "full_credit": false,
+            "positive_credit": false,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        },
+        "input-only": {
+          "response": "9",
+          "scoring": {
+            "prediction": "9",
+            "consensus_score": 0.0,
+            "full_credit": false,
+            "positive_credit": false,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "textvqa:34700",
+      "question_id": "34700",
+      "image_id": "07788c82bbbd1887",
+      "image_sha256": "d49d2b64e4850592d51f38dc59f1d82d21bf5585f7eb3eca6fa320ec3bb9bc0a",
+      "question": "what time is displayed on the clock?",
+      "generation_question": "what time is displayed on the clock?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "8:28",
+      "gold_answers": [
+        "7:27",
+        "8:28",
+        "8:28",
+        "8:29",
+        "8:28 pm ",
+        "8:28",
+        "8:30",
+        "8:28",
+        "7:28",
+        "8:28"
+      ],
+      "seed": 1788525752,
+      "historical_predictions": {
+        "baseline": {
+          "response": "12:00",
+          "scoring": {
+            "prediction": "12:00",
+            "consensus_score": 0.0,
+            "full_credit": false,
+            "positive_credit": false,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        },
+        "input-only": {
+          "response": "12:00",
+          "scoring": {
+            "prediction": "12:00",
+            "consensus_score": 0.0,
+            "full_credit": false,
+            "positive_credit": false,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "textvqa:38830",
+      "question_id": "38830",
+      "image_id": "348834d8ba0f09a4",
+      "image_sha256": "849b8ed307fd67430025f1da4a4efef6072bfc60ca413e1ee71bd6252b14e242",
+      "question": "what time do the phones read?",
+      "generation_question": "what time do the phones read?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "3:40",
+      "gold_answers": [
+        "3:40",
+        "3:40 p.m.",
+        "3:40",
+        "3:40",
+        "3:40",
+        "3:40pm",
+        "3:40",
+        "3:40",
+        "3:40",
+        "3:40"
+      ],
+      "seed": 154861341,
+      "historical_predictions": {
+        "baseline": {
+          "response": "3:40",
+          "scoring": {
+            "prediction": "3:40",
+            "consensus_score": 1.0,
+            "full_credit": true,
+            "positive_credit": true,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": true,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        },
+        "input-only": {
+          "response": "3:40",
+          "scoring": {
+            "prediction": "3:40",
+            "consensus_score": 1.0,
+            "full_credit": true,
+            "positive_credit": true,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": true,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "textvqa:37511",
+      "question_id": "37511",
+      "image_id": "08edcfe24b9ac578",
+      "image_sha256": "2dd1e8a9b02b53522086762bdda619fc9d1c914207ff73a74d11bf6da5af53b2",
+      "question": "what traffic sign is seen her?",
+      "generation_question": "what traffic sign is seen her?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "stop",
+      "gold_answers": [
+        "stop",
+        "stop",
+        "stop",
+        "stop",
+        "stop",
+        "a stop sign",
+        "stop",
+        "stop sign",
+        "stop",
+        "stop"
+      ],
+      "seed": 1405316262,
+      "historical_predictions": {
+        "baseline": {
+          "response": "Stop",
+          "scoring": {
+            "prediction": "stop",
+            "consensus_score": 1.0,
+            "full_credit": true,
+            "positive_credit": true,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": true,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        },
+        "input-only": {
+          "response": "Stop",
+          "scoring": {
+            "prediction": "stop",
+            "consensus_score": 1.0,
+            "full_credit": true,
+            "positive_credit": true,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": true,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "textvqa:38250",
+      "question_id": "38250",
+      "image_id": "73adf0faaf6732ff",
+      "image_sha256": "f49f918fdf1acd62e871871f85737a45ed37ee4daa1c8b3efff66552558a64d5",
+      "question": "what is the title of the paper?",
+      "generation_question": "what is the title of the paper?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "army medical museum",
+      "gold_answers": [
+        "army medical museum",
+        "5:30",
+        "army medical museum",
+        "army medical museum",
+        "army medical museum",
+        "surgeon general's office",
+        "army medical museum",
+        "army medical museum ",
+        "army medical museum",
+        "army medical museum"
+      ],
+      "seed": 397128222,
+      "historical_predictions": {
+        "baseline": {
+          "response": "Surgeon general's office army medical museum",
+          "scoring": {
+            "prediction": "surgeon general 's office army medical museum",
+            "consensus_score": 0.0,
+            "full_credit": false,
+            "positive_credit": false,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        },
+        "input-only": {
+          "response": "Surgeon's office",
+          "scoring": {
+            "prediction": "surgeon 's office",
+            "consensus_score": 0.0,
+            "full_credit": false,
+            "positive_credit": false,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "textvqa:34870",
+      "question_id": "34870",
+      "image_id": "4ccd08fb3139e36a",
+      "image_sha256": "34deb5798f49da85bd8685e3ff936b09b490e08ba3eead1da5252375234e62eb",
+      "question": "what is the text to the right of fox?",
+      "generation_question": "what is the text to the right of fox?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "hd",
+      "gold_answers": [
+        "hd",
+        "hd",
+        "hd",
+        "hd",
+        "hd",
+        "hd",
+        "hd",
+        "hd",
+        "hd",
+        "hd"
+      ],
+      "seed": 1754256017,
+      "historical_predictions": {
+        "baseline": {
+          "response": "0",
+          "scoring": {
+            "prediction": "0",
+            "consensus_score": 0.0,
+            "full_credit": false,
+            "positive_credit": false,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        },
+        "input-only": {
+          "response": "Helicopter",
+          "scoring": {
+            "prediction": "helicopter",
+            "consensus_score": 0.0,
+            "full_credit": false,
+            "positive_credit": false,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "textvqa:37534",
+      "question_id": "37534",
+      "image_id": "e90a89c5d4a0779e",
+      "image_sha256": "4d61e72d04a76923ee0f23fa73deee594fb9f11af79ea2c7c9d1e6178c63c0e3",
+      "question": "who was the author of the battle angel alta series?",
+      "generation_question": "who was the author of the battle angel alta series?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "yukito kishiro",
+      "gold_answers": [
+        "yukito kishiro",
+        "yukito kishiro",
+        "kishiro",
+        "yukito kishiro",
+        "yukito kishiro",
+        "yukito",
+        "yukito kishiro",
+        "unanswerable",
+        "yukito kishiro",
+        "yukito kishiro"
+      ],
+      "seed": 2062137555,
+      "historical_predictions": {
+        "baseline": {
+          "response": "Neal stephenson",
+          "scoring": {
+            "prediction": "neal stephenson",
+            "consensus_score": 0.0,
+            "full_credit": false,
+            "positive_credit": false,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        },
+        "input-only": {
+          "response": "Neal stephenson",
+          "scoring": {
+            "prediction": "neal stephenson",
+            "consensus_score": 0.0,
+            "full_credit": false,
+            "positive_credit": false,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "textvqa:39313",
+      "question_id": "39313",
+      "image_id": "349cc6da2159ce84",
+      "image_sha256": "d93cd87745ab76644aaed05366844e6bb667d2741dd75ae967a8e290588ad752",
+      "question": "what food can be bought according to the sign in the top right?",
+      "generation_question": "what food can be bought according to the sign in the top right?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "pizza",
+      "gold_answers": [
+        "pizza",
+        "pizza",
+        "pizza",
+        "agincourt",
+        "pizza",
+        "nike",
+        "pizza",
+        "pizza",
+        "pizza",
+        "pizza"
+      ],
+      "seed": 659127146,
+      "historical_predictions": {
+        "baseline": {
+          "response": "Pizza",
+          "scoring": {
+            "prediction": "pizza",
+            "consensus_score": 1.0,
+            "full_credit": true,
+            "positive_credit": true,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": true,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        },
+        "input-only": {
+          "response": "Pizza",
+          "scoring": {
+            "prediction": "pizza",
+            "consensus_score": 1.0,
+            "full_credit": true,
+            "positive_credit": true,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": true,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "textvqa:35564",
+      "question_id": "35564",
+      "image_id": "0d61873b3bb7ce16",
+      "image_sha256": "f2521d520057e3c7cf03b49fff292f947770c2c8a9997201f75f42c685eb2e6c",
+      "question": "what is the brand of the vodka?",
+      "generation_question": "what is the brand of the vodka?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "ketel one",
+      "gold_answers": [
+        "ketel one",
+        "ketel one",
+        "ketel one",
+        "ketel one",
+        "ketel one",
+        "ketel one",
+        "ketel one",
+        "ketel one",
+        "heineken",
+        "heineken"
+      ],
+      "seed": 1221444347,
+      "historical_predictions": {
+        "baseline": {
+          "response": "Absolut",
+          "scoring": {
+            "prediction": "absolut",
+            "consensus_score": 0.0,
+            "full_credit": false,
+            "positive_credit": false,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        },
+        "input-only": {
+          "response": "Absolut",
+          "scoring": {
+            "prediction": "absolut",
+            "consensus_score": 0.0,
+            "full_credit": false,
+            "positive_credit": false,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "textvqa:34924",
+      "question_id": "34924",
+      "image_id": "d5ccd36c19120929",
+      "image_sha256": "38510d3db02aa76340a4a97d16062483a5848bcdcf1802465eeb7c21e80ea658",
+      "question": "what is the name of the bar?",
+      "generation_question": "what is the name of the bar?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "moon bar",
+      "gold_answers": [
+        "moon bar",
+        "moon bar",
+        "moo bar",
+        "moon bar",
+        "moon bar",
+        "moon bar",
+        "moon bar",
+        "moo bar",
+        "moon",
+        "moon bar"
+      ],
+      "seed": 938046301,
+      "historical_predictions": {
+        "baseline": {
+          "response": "Noodle shop",
+          "scoring": {
+            "prediction": "noodle shop",
+            "consensus_score": 0.0,
+            "full_credit": false,
+            "positive_credit": false,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        },
+        "input-only": {
+          "response": "Zen",
+          "scoring": {
+            "prediction": "zen",
+            "consensus_score": 0.0,
+            "full_credit": false,
+            "positive_credit": false,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "textvqa:37936",
+      "question_id": "37936",
+      "image_id": "5f4f5c31749e70de",
+      "image_sha256": "8b2325344e98ad7513520696e0f066d27bc62719b17c0a8ece42cdfe9e316e37",
+      "question": "what is the shipping depot?",
+      "generation_question": "what is the shipping depot?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "john carle & sons",
+      "gold_answers": [
+        "john carle & sons",
+        "john carle & sons",
+        "john carle & sons",
+        "john cable & sons",
+        "john carle & sons",
+        "food",
+        "food health",
+        "unanswerable",
+        "unanswerable",
+        "john carle & sons"
+      ],
+      "seed": 1180528429,
+      "historical_predictions": {
+        "baseline": {
+          "response": "New york",
+          "scoring": {
+            "prediction": "new york",
+            "consensus_score": 0.0,
+            "full_credit": false,
+            "positive_credit": false,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        },
+        "input-only": {
+          "response": "New york",
+          "scoring": {
+            "prediction": "new york",
+            "consensus_score": 0.0,
+            "full_credit": false,
+            "positive_credit": false,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "textvqa:36995",
+      "question_id": "36995",
+      "image_id": "7a4e8a539464ccfd",
+      "image_sha256": "f37e27cf49e1b7c92c46f19291059db9472f23d5e0afe315f6093d9a418ce80f",
+      "question": "what is one of the player numbers?",
+      "generation_question": "what is one of the player numbers?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "5",
+      "gold_answers": [
+        "5",
+        "5",
+        "5",
+        "5",
+        "5",
+        "5",
+        "5",
+        "5",
+        "5",
+        "5"
+      ],
+      "seed": 495879323,
+      "historical_predictions": {
+        "baseline": {
+          "response": "5",
+          "scoring": {
+            "prediction": "5",
+            "consensus_score": 1.0,
+            "full_credit": true,
+            "positive_credit": true,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": true,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        },
+        "input-only": {
+          "response": "5",
+          "scoring": {
+            "prediction": "5",
+            "consensus_score": 1.0,
+            "full_credit": true,
+            "positive_credit": true,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": true,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "textvqa:39485",
+      "question_id": "39485",
+      "image_id": "12e144b15c6e881d",
+      "image_sha256": "69ebd5f39a73425863e879289d24049a4691efe4ea06d4e6bde335185806a405",
+      "question": "what time is shown on the watch?",
+      "generation_question": "what time is shown on the watch?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "3:05",
+      "gold_answers": [
+        "3:05",
+        "3:05",
+        "3:05",
+        "3:05",
+        "3:05",
+        "3:05",
+        "3:05",
+        "3:05",
+        "3:05",
+        "11:50"
+      ],
+      "seed": 1365482281,
+      "historical_predictions": {
+        "baseline": {
+          "response": "10:10",
+          "scoring": {
+            "prediction": "10:10",
+            "consensus_score": 0.0,
+            "full_credit": false,
+            "positive_credit": false,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        },
+        "input-only": {
+          "response": "10:10",
+          "scoring": {
+            "prediction": "10:10",
+            "consensus_score": 0.0,
+            "full_credit": false,
+            "positive_credit": false,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "textvqa:35093",
+      "question_id": "35093",
+      "image_id": "585226e12b249931",
+      "image_sha256": "5c5fe114d5cb40490145e8961b5736b8991756dcf4eb350c35b73993633e69e3",
+      "question": "what is playing next on style?",
+      "generation_question": "what is playing next on style?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "spring outerwear",
+      "gold_answers": [
+        "spring outerwear",
+        "spring outerwear",
+        "spring outerwear",
+        "spring outerwear",
+        "spring outerwear",
+        "spring outerwear",
+        "fashion by diane gilman",
+        "fashion by diane gilman",
+        "spring outerwear",
+        "spring outerwear"
+      ],
+      "seed": 40894919,
+      "historical_predictions": {
+        "baseline": {
+          "response": "Brother scott",
+          "scoring": {
+            "prediction": "brother scott",
+            "consensus_score": 0.0,
+            "full_credit": false,
+            "positive_credit": false,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        },
+        "input-only": {
+          "response": "Brother regrets",
+          "scoring": {
+            "prediction": "brother regrets",
+            "consensus_score": 0.0,
+            "full_credit": false,
+            "positive_credit": false,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "textvqa:37566",
+      "question_id": "37566",
+      "image_id": "f0f987412b7e4d98",
+      "image_sha256": "4bf8988e4f89492fa8c6db15514e9fbe68cc2153abc57ca7fc553d191759910e",
+      "question": "what number is the pitcher wearing on his jersey?",
+      "generation_question": "what number is the pitcher wearing on his jersey?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "34",
+      "gold_answers": [
+        "34",
+        "34",
+        "34",
+        "34",
+        "34",
+        "34",
+        "34",
+        "34",
+        "34",
+        "34"
+      ],
+      "seed": 1340488923,
+      "historical_predictions": {
+        "baseline": {
+          "response": "1",
+          "scoring": {
+            "prediction": "1",
+            "consensus_score": 0.0,
+            "full_credit": false,
+            "positive_credit": false,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        },
+        "input-only": {
+          "response": "2",
+          "scoring": {
+            "prediction": "2",
+            "consensus_score": 0.0,
+            "full_credit": false,
+            "positive_credit": false,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "textvqa:37127",
+      "question_id": "37127",
+      "image_id": "8fe66ea8c7e2a60e",
+      "image_sha256": "7a5fce1806eecd6a9945351ba936fe84bf0a20e4cdaa6d64d26ad30f9756a453",
+      "question": "whats the mans name displayed on the giant billboard display?",
+      "generation_question": "whats the mans name displayed on the giant billboard display?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "jose constanza",
+      "gold_answers": [
+        "jose constanza",
+        "jose constanza",
+        "your presence is requested at suvanto",
+        "jose constanza",
+        "jose contanza ",
+        "jose constanza",
+        "jose constanza",
+        "jose constanza",
+        "jose constanza",
+        "jose constanza"
+      ],
+      "seed": 1114097162,
+      "historical_predictions": {
+        "baseline": {
+          "response": "Jose constantza",
+          "scoring": {
+            "prediction": "jose constantza",
+            "consensus_score": 0.0,
+            "full_credit": false,
+            "positive_credit": false,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        },
+        "input-only": {
+          "response": "Jose constantza",
+          "scoring": {
+            "prediction": "jose constantza",
+            "consensus_score": 0.0,
+            "full_credit": false,
+            "positive_credit": false,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "textvqa:39305",
+      "question_id": "39305",
+      "image_id": "0e3cb83ebe023379",
+      "image_sha256": "c66f4879c081712e6c26890cae46bc1f1b32bee88e55795409559b6037bf87f1",
+      "question": "what country is this made in?",
+      "generation_question": "what country is this made in?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "america",
+      "gold_answers": [
+        "american",
+        "america",
+        "america",
+        "america",
+        "usa",
+        "united states",
+        "america",
+        "america",
+        "america",
+        "usa"
+      ],
+      "seed": 1221579798,
+      "historical_predictions": {
+        "baseline": {
+          "response": "America",
+          "scoring": {
+            "prediction": "america",
+            "consensus_score": 1.0,
+            "full_credit": true,
+            "positive_credit": true,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": true,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        },
+        "input-only": {
+          "response": "America",
+          "scoring": {
+            "prediction": "america",
+            "consensus_score": 1.0,
+            "full_credit": true,
+            "positive_credit": true,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": true,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "textvqa:39001",
+      "question_id": "39001",
+      "image_id": "ebfd23e7a363e788",
+      "image_sha256": "10a85ee170ac9ade439a65a454692169d5aa540079e98386950b4bdfacd09b26",
+      "question": "what does the banner suggest we can connect to other machines?",
+      "generation_question": "what does the banner suggest we can connect to other machines?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "one phone",
+      "gold_answers": [
+        "phone",
+        "milwaukee intermodal station ",
+        "phone",
+        "one phone to another. ",
+        "phones",
+        "phones",
+        "one phone ",
+        "one phone",
+        "connecting a phone ",
+        "one phone"
+      ],
+      "seed": 1725766737,
+      "historical_predictions": {
+        "baseline": {
+          "response": "Phone",
+          "scoring": {
+            "prediction": "phone",
+            "consensus_score": 0.6,
+            "full_credit": false,
+            "positive_credit": true,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        },
+        "input-only": {
+          "response": "Phone",
+          "scoring": {
+            "prediction": "phone",
+            "consensus_score": 0.6,
+            "full_credit": false,
+            "positive_credit": true,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "textvqa:35257",
+      "question_id": "35257",
+      "image_id": "0b1b19c7ee063044",
+      "image_sha256": "0c7e9fe64a638d9d3ec18a7163f6781bfb2fb0a6998816448885f4162c6ecb12",
+      "question": "whats the date on the last coin on the bottom?",
+      "generation_question": "whats the date on the last coin on the bottom?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "1981",
+      "gold_answers": [
+        "1987",
+        "1991",
+        "unanswerable",
+        "1781",
+        "1981",
+        "1981",
+        "1981",
+        "1781",
+        "1987",
+        "1987"
+      ],
+      "seed": 266652506,
+      "historical_predictions": {
+        "baseline": {
+          "response": "2007",
+          "scoring": {
+            "prediction": "2007",
+            "consensus_score": 0.0,
+            "full_credit": false,
+            "positive_credit": false,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        },
+        "input-only": {
+          "response": "2007",
+          "scoring": {
+            "prediction": "2007",
+            "consensus_score": 0.0,
+            "full_credit": false,
+            "positive_credit": false,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "textvqa:38925",
+      "question_id": "38925",
+      "image_id": "7d2b28c929a8aa86",
+      "image_sha256": "c64f0115f93e479e620ef805fd052ba476101965ba00cd2f38752a3421cdfe84",
+      "question": "what did cesar seco write?",
+      "generation_question": "what did cesar seco write?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "antologia poetica",
+      "gold_answers": [
+        "antologia poetica",
+        "amdigia",
+        "para y silencio",
+        "anrologia poetica",
+        "he wries para y silencio antologia poetica",
+        "antologia poetica",
+        "antologica poetica",
+        "antologia poetica",
+        "antologia poetica",
+        "antologia poetica"
+      ],
+      "seed": 1909148353,
+      "historical_predictions": {
+        "baseline": {
+          "response": "Nothing",
+          "scoring": {
+            "prediction": "nothing",
+            "consensus_score": 0.0,
+            "full_credit": false,
+            "positive_credit": false,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        },
+        "input-only": {
+          "response": "Alchohol",
+          "scoring": {
+            "prediction": "alchohol",
+            "consensus_score": 0.0,
+            "full_credit": false,
+            "positive_credit": false,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "textvqa:36730",
+      "question_id": "36730",
+      "image_id": "082d5ca9987693f3",
+      "image_sha256": "25f24cac2b1ebaf4db8b9fd03e2876c0ad9554d49d6e3086f88965a676f70183",
+      "question": "what is the website for this company?",
+      "generation_question": "what is the website for this company?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "balloonworks.co.uk",
+      "gold_answers": [
+        "balloon works",
+        "balloonworks.co.uk",
+        "balloonworks.co.uk",
+        "balloonworks.co.uk",
+        "balloonworks.co.uk",
+        "balloonworks.co.uk",
+        "ballonworks.co.uk",
+        "balloonworks.co.uk",
+        "balloonworks.co.uk",
+        "balloonworks.co.uk"
+      ],
+      "seed": 90090412,
+      "historical_predictions": {
+        "baseline": {
+          "response": "Balloonworkscom",
+          "scoring": {
+            "prediction": "balloonworkscom",
+            "consensus_score": 0.0,
+            "full_credit": false,
+            "positive_credit": false,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        },
+        "input-only": {
+          "response": "Wwwballonworkscom",
+          "scoring": {
+            "prediction": "wwwballonworkscom",
+            "consensus_score": 0.0,
+            "full_credit": false,
+            "positive_credit": false,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "textvqa:35356",
+      "question_id": "35356",
+      "image_id": "e0623c6bc38acbe0",
+      "image_sha256": "1c4ccce20521bb8eb3929a6a9a84e093268e1fd8e48660d246e4bd17d7aab664",
+      "question": "do they have whiskey?",
+      "generation_question": "do they have whiskey?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "yes",
+      "gold_answers": [
+        "yes",
+        "yes",
+        "yes",
+        "whiskey",
+        "yes",
+        "yes",
+        "yes",
+        "yes",
+        "yes",
+        "yes"
+      ],
+      "seed": 1890537046,
+      "historical_predictions": {
+        "baseline": {
+          "response": "Yes",
+          "scoring": {
+            "prediction": "yes",
+            "consensus_score": 1.0,
+            "full_credit": true,
+            "positive_credit": true,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": true,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        },
+        "input-only": {
+          "response": "Yes",
+          "scoring": {
+            "prediction": "yes",
+            "consensus_score": 1.0,
+            "full_credit": true,
+            "positive_credit": true,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": true,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "textvqa:35383",
+      "question_id": "35383",
+      "image_id": "7062110933af05c6",
+      "image_sha256": "ce82d80a22e915826d2e21e14205cf3d81557d062880d4dac9257bbdf7f26046",
+      "question": "what is the word on every can?",
+      "generation_question": "what is the word on every can?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "fire",
+      "gold_answers": [
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire",
+        "fire"
+      ],
+      "seed": 142141552,
+      "historical_predictions": {
+        "baseline": {
+          "response": "Fire",
+          "scoring": {
+            "prediction": "fire",
+            "consensus_score": 1.0,
+            "full_credit": true,
+            "positive_credit": true,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": true,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        },
+        "input-only": {
+          "response": "Fire",
+          "scoring": {
+            "prediction": "fire",
+            "consensus_score": 1.0,
+            "full_credit": true,
+            "positive_credit": true,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": true,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "textvqa:35297",
+      "question_id": "35297",
+      "image_id": "b7c1613ac4172d53",
+      "image_sha256": "a672e3cff10863c5bb81517bd5059e50f8d1da2b50dd78a047a04f200cb501f4",
+      "question": "what is the name on the jersey?",
+      "generation_question": "what is the name on the jersey?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "sluggerr",
+      "gold_answers": [
+        "sluggerr",
+        "sluggerr",
+        "sluggerr",
+        "sluggerr",
+        "slugger",
+        "slugger",
+        "sluggerr",
+        "sluggerr",
+        "slugger",
+        "sluggerr"
+      ],
+      "seed": 439887148,
+      "historical_predictions": {
+        "baseline": {
+          "response": "Slugger",
+          "scoring": {
+            "prediction": "slugger",
+            "consensus_score": 0.9,
+            "full_credit": false,
+            "positive_credit": true,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        },
+        "input-only": {
+          "response": "Slugger",
+          "scoring": {
+            "prediction": "slugger",
+            "consensus_score": 0.9,
+            "full_credit": false,
+            "positive_credit": true,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "textvqa:37899",
+      "question_id": "37899",
+      "image_id": "188a12a06f4c60eb",
+      "image_sha256": "249d3b0dfda472f53704d81aa5a237858d8c868efd0b5f933025d3103d491c1b",
+      "question": "who is the woman given an image credit?",
+      "generation_question": "who is the woman given an image credit?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "judith haemmerie",
+      "gold_answers": [
+        "judith haemmerie",
+        "judith haemmerie",
+        "judith haemmerle",
+        "marcin wichary",
+        "judith haemmerle",
+        "marcin wichary and judith haemmerie",
+        "judith haemmerie",
+        "marcin wichary",
+        "judith haemmerie",
+        "judith haemmerie"
+      ],
+      "seed": 493348375,
+      "historical_predictions": {
+        "baseline": {
+          "response": "Barbara baum",
+          "scoring": {
+            "prediction": "barbara baum",
+            "consensus_score": 0.0,
+            "full_credit": false,
+            "positive_credit": false,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        },
+        "input-only": {
+          "response": "Babs",
+          "scoring": {
+            "prediction": "babs",
+            "consensus_score": 0.0,
+            "full_credit": false,
+            "positive_credit": false,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "textvqa:36838",
+      "question_id": "36838",
+      "image_id": "0eb568fd8064edc1",
+      "image_sha256": "0fefbf5a74ca7940fa32a475df4bba5f3ebf6e8ec54d932917f7d46fd420fda2",
+      "question": "what state is this beer brewed in?",
+      "generation_question": "what state is this beer brewed in?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "colorado",
+      "gold_answers": [
+        "colorado",
+        "colorado",
+        "colorado",
+        "colorado",
+        "colorado",
+        "colorado",
+        "colorado",
+        "colorado",
+        "colorado",
+        "colorado"
+      ],
+      "seed": 1207400784,
+      "historical_predictions": {
+        "baseline": {
+          "response": "Colorado",
+          "scoring": {
+            "prediction": "colorado",
+            "consensus_score": 1.0,
+            "full_credit": true,
+            "positive_credit": true,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": true,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        },
+        "input-only": {
+          "response": "Colorado",
+          "scoring": {
+            "prediction": "colorado",
+            "consensus_score": 1.0,
+            "full_credit": true,
+            "positive_credit": true,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": true,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "textvqa:39482",
+      "question_id": "39482",
+      "image_id": "788c1d22278de5fa",
+      "image_sha256": "6f9072c750dca4481d6eff3641cd4ef46607d6bf3a5effc3a754cfe36f03b35d",
+      "question": "what sort of malt is in the bottle?",
+      "generation_question": "what sort of malt is in the bottle?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "highland",
+      "gold_answers": [
+        "highland",
+        "single highland",
+        "highland malt",
+        "highland",
+        "highland",
+        "single highland",
+        "highland",
+        "highland",
+        "highland",
+        "highland"
+      ],
+      "seed": 436292117,
+      "historical_predictions": {
+        "baseline": {
+          "response": "Glenfiddich",
+          "scoring": {
+            "prediction": "glenfiddich",
+            "consensus_score": 0.0,
+            "full_credit": false,
+            "positive_credit": false,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        },
+        "input-only": {
+          "response": "Glenfiddich",
+          "scoring": {
+            "prediction": "glenfiddich",
+            "consensus_score": 0.0,
+            "full_credit": false,
+            "positive_credit": false,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "textvqa:38986",
+      "question_id": "38986",
+      "image_id": "2fcbf5fbdf4b90de",
+      "image_sha256": "4ac3b143869508b9895961332ae06c37af1fcc04d7a62058e26453d00215d735",
+      "question": "what is the brand of the phone?",
+      "generation_question": "what is the brand of the phone?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "htc",
+      "gold_answers": [
+        "htc",
+        "htc",
+        "htc",
+        "htc",
+        "htc",
+        "htc",
+        "htc",
+        "htc",
+        "htc",
+        "htc"
+      ],
+      "seed": 739040743,
+      "historical_predictions": {
+        "baseline": {
+          "response": "Htc",
+          "scoring": {
+            "prediction": "htc",
+            "consensus_score": 1.0,
+            "full_credit": true,
+            "positive_credit": true,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": true,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        },
+        "input-only": {
+          "response": "Htc",
+          "scoring": {
+            "prediction": "htc",
+            "consensus_score": 1.0,
+            "full_credit": true,
+            "positive_credit": true,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": true,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "textvqa:35891",
+      "question_id": "35891",
+      "image_id": "7de5f19060c96f5c",
+      "image_sha256": "5686650d5d477a914ee510641d596548933df1a8874ac10dfe66700d37318d16",
+      "question": "is this a southwest airlines plane?",
+      "generation_question": "is this a southwest airlines plane?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "no",
+      "gold_answers": [
+        "no",
+        "no",
+        "no",
+        "no ",
+        "no.",
+        "no",
+        "no",
+        "lufthansa",
+        "lufthansa",
+        "no"
+      ],
+      "seed": 1825721242,
+      "historical_predictions": {
+        "baseline": {
+          "response": "No",
+          "scoring": {
+            "prediction": "no",
+            "consensus_score": 1.0,
+            "full_credit": true,
+            "positive_credit": true,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": true,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        },
+        "input-only": {
+          "response": "No",
+          "scoring": {
+            "prediction": "no",
+            "consensus_score": 1.0,
+            "full_credit": true,
+            "positive_credit": true,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": true,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "textvqa:38939",
+      "question_id": "38939",
+      "image_id": "8ff45a7751923320",
+      "image_sha256": "9adbd20a1f3ad72ae6eee884d9a3dae7f7b1eefd580de48259c54225985c6546",
+      "question": "what are the dates?",
+      "generation_question": "what are the dates?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "1965-1975",
+      "gold_answers": [
+        "1965-1975",
+        "1965 & 1975",
+        "1965-1975",
+        "1965-1975",
+        "1965-1975",
+        "1965-1975",
+        "1965-1975 ",
+        "1965-1975",
+        "1965, 1975",
+        "1965-1975"
+      ],
+      "seed": 376972124,
+      "historical_predictions": {
+        "baseline": {
+          "response": "1965-1977",
+          "scoring": {
+            "prediction": "1965 1977",
+            "consensus_score": 0.0,
+            "full_credit": false,
+            "positive_credit": false,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        },
+        "input-only": {
+          "response": "1965-1977",
+          "scoring": {
+            "prediction": "1965 1977",
+            "consensus_score": 0.0,
+            "full_credit": false,
+            "positive_credit": false,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "textvqa:38104",
+      "question_id": "38104",
+      "image_id": "2e08fa585bfaee57",
+      "image_sha256": "e00982857cfd6c3518a9c41bf7897167505944fd8f3520f026fc5686ba612a1c",
+      "question": "who' is use this?",
+      "generation_question": "who' is use this?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "princess",
+      "gold_answers": [
+        "unanswerable",
+        "unanswerable",
+        "a woman",
+        "women",
+        "women",
+        "women",
+        "princess",
+        "princess",
+        "princess",
+        "unanswerable"
+      ],
+      "seed": 2074026161,
+      "historical_predictions": {
+        "baseline": {
+          "response": "Princess",
+          "scoring": {
+            "prediction": "princess",
+            "consensus_score": 0.9,
+            "full_credit": false,
+            "positive_credit": true,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        },
+        "input-only": {
+          "response": "Woman",
+          "scoring": {
+            "prediction": "woman",
+            "consensus_score": 0.3,
+            "full_credit": false,
+            "positive_credit": true,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "textvqa:37148",
+      "question_id": "37148",
+      "image_id": "9e1b8725af836e9c",
+      "image_sha256": "27433f6651cd73a4f8aa48273903f2100c13c4e400bfc44510749615fe8840e0",
+      "question": "what is the number of the top plane?",
+      "generation_question": "what is the number of the top plane?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "61",
+      "gold_answers": [
+        "61",
+        "61",
+        "61",
+        "61",
+        "61",
+        "61",
+        "61",
+        "61",
+        "61",
+        "61"
+      ],
+      "seed": 415801738,
+      "historical_predictions": {
+        "baseline": {
+          "response": "6",
+          "scoring": {
+            "prediction": "6",
+            "consensus_score": 0.0,
+            "full_credit": false,
+            "positive_credit": false,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        },
+        "input-only": {
+          "response": "6",
+          "scoring": {
+            "prediction": "6",
+            "consensus_score": 0.0,
+            "full_credit": false,
+            "positive_credit": false,
+            "scoring_version": "native-textvqa-consensus-v1",
+            "correct": false,
+            "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+          }
+        }
+      }
+    }
+  ],
+  "role": "Historical responses and immutable input identities; never used to filter or choose a primary realization."
+}

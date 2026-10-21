@@ -1,5 +1,9 @@
 # RQ2: pure random input retention at 288 and 64 tokens
 
+Current next priority: [native staged / matched random calibration](RQ2_STAGED_CALIBRATION.md).
+Completed input-only results remain component evidence; broad input-only100
+is deferred as an optional ablation.
+
 This is the first execution calibration for the
 [revised RQ2 plan](notes/2026-10-20-rq2-revised-evaluation-plan.md).
 The [six-question Kaggle calibration passed](notes/2026-10-20-rq2-pure-random-calibration-review.md):
@@ -59,7 +63,8 @@ identical baseline projected tensor, avoiding six redundant full tensor copies.
 Fresh native repeat tensors are also preserved with their numeric comparisons.
 The separate console log is also required. Failure/interruption preserves partial
 evidence, with its status explicit. These selected cases are not broad accuracy
-estimates. There is deliberately no TextVQA100/full-benchmark switch yet.
+estimates. The broader [TextVQA100 comparison](RQ2_TEXTVQA100.md) now has a separate
+runner and notebook; this frozen calibration is unchanged.
 
 ## Fresh Kaggle notebook
 

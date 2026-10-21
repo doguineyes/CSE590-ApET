@@ -90,7 +90,11 @@ The [pure-random calibration](research/RQ2_PURE_RANDOM_CALIBRATION.md) now adds
 an FPS/E-free random baseline and native merge/no-merge comparisons at 288 and
 64 input tokens. The [six-question calibration passed](research/notes/2026-10-20-rq2-pure-random-calibration-review.md),
 verifying actual 64-token inputs; native ApET does not outperform pure random on
-this small selected panel. Broader predefined-pool evaluation is next.
+this small selected panel. The [TextVQA100 comparison](research/RQ2_TEXTVQA100.md)
+is available as an optional input-only ablation. The next priority is the
+[small staged calibration](research/RQ2_STAGED_CALIBRATION.md): native96→32 and
+288→96 versus three random seeds using identical compression boundaries/counts.
+It is implemented and awaits Kaggle validation before broader staged evaluation.
 
 ## Code layout
 

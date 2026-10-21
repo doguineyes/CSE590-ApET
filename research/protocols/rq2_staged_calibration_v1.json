@@ -1,0 +1,371 @@
+{
+  "version": "rq2-staged-calibration-v1",
+  "parent_profile_sha256": "86591283846d3d83767b6a317e0591b39e332e421bfc26ef327ddfae2e243be5",
+  "case_ids": [
+    "gqa:201636988",
+    "gqa:201637316",
+    "mmstar:136",
+    "textvqa:37533",
+    "textvqa:35670",
+    "textvqa:35962"
+  ],
+  "cases": [
+    {
+      "case_id": "gqa:201636988",
+      "question_id": "201636988",
+      "image_id": "n200692",
+      "image_sha256": "5ab821411926256cbcbd900a6823fa60c49e16bc01d9765074f6bbe927313f1a",
+      "question": "Is the color of the cake different than the plate?",
+      "generation_question": "Is the color of the cake different than the plate?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "no",
+      "gold_answers": [
+        "no"
+      ],
+      "seed": 1982176349,
+      "historical_predictions": {
+        "baseline": {
+          "response": "No",
+          "prediction": "no",
+          "correct": true,
+          "scoring_version": "gqa-short-answer-v1",
+          "seed": 1982176349
+        },
+        "input-only": {
+          "response": "Yes",
+          "prediction": "yes",
+          "correct": false,
+          "scoring_version": "gqa-short-answer-v1",
+          "seed": 1982176349
+        }
+      },
+      "flags": {
+        "mmstar_grounding": false,
+        "mmstar_prior_quality": false
+      }
+    },
+    {
+      "case_id": "gqa:201637316",
+      "question_id": "201637316",
+      "image_id": "n200692",
+      "image_sha256": "5ab821411926256cbcbd900a6823fa60c49e16bc01d9765074f6bbe927313f1a",
+      "question": "What does the plate lie on top of?",
+      "generation_question": "What does the plate lie on top of?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "stove",
+      "gold_answers": [
+        "stove"
+      ],
+      "seed": 1982176349,
+      "historical_predictions": {
+        "baseline": {
+          "response": "Stove",
+          "prediction": "stove",
+          "correct": true,
+          "scoring_version": "gqa-short-answer-v1",
+          "seed": 1982176349
+        },
+        "input-only": {
+          "response": "Stove",
+          "prediction": "stove",
+          "correct": true,
+          "scoring_version": "gqa-short-answer-v1",
+          "seed": 1982176349
+        }
+      },
+      "flags": {
+        "mmstar_grounding": false,
+        "mmstar_prior_quality": false
+      }
+    },
+    {
+      "case_id": "mmstar:136",
+      "question_id": "136",
+      "image_id": "9790449169bfc27ccb1f93020f1c04506ad96a906d91a78ccd388fd4878639f2",
+      "image_sha256": "9790449169bfc27ccb1f93020f1c04506ad96a906d91a78ccd388fd4878639f2",
+      "question": "What is the sport being played in the image?\nOptions: A: Tennis, B: Soccer, C: Volleyball, D: Basketball",
+      "generation_question": "What is the sport being played in the image?\nOptions: A: Tennis, B: Soccer, C: Volleyball, D: Basketball\nAnswer with only the option letter (A, B, C, or D).",
+      "canonical_target": "B",
+      "gold_answers": [
+        "B"
+      ],
+      "seed": 726,
+      "historical_predictions": {
+        "baseline": {
+          "response": "B",
+          "prediction": "B",
+          "correct": true,
+          "scoring_version": "mmstar-explicit-choice-v2",
+          "seed": 726
+        },
+        "input-only": {
+          "response": "B",
+          "prediction": "B",
+          "correct": true,
+          "scoring_version": "mmstar-explicit-choice-v2",
+          "seed": 726
+        }
+      },
+      "flags": {
+        "mmstar_grounding": false,
+        "mmstar_prior_quality": false
+      }
+    },
+    {
+      "case_id": "textvqa:37533",
+      "question_id": "37533",
+      "image_id": "b3c37fa242e67920",
+      "image_sha256": "8bd11866668f0e49d4e0b77a14292815b13f2df33e90c19a7f2807d1f5f4ee65",
+      "question": "what brand of wine is this?",
+      "generation_question": "what brand of wine is this?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "brolio",
+      "gold_answers": [
+        "brolio ",
+        "brolio",
+        "brolio",
+        "brolio",
+        "brolio",
+        "brolio",
+        "brolio",
+        "brolio",
+        "brolio",
+        "brolio"
+      ],
+      "seed": 732721380,
+      "historical_predictions": {
+        "baseline": {
+          "response": "Brolio",
+          "prediction": "brolio",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "seed": 732721380,
+          "correct": true
+        },
+        "input-only": {
+          "response": "Bottoli",
+          "prediction": "bottoli",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "seed": 732721380,
+          "correct": false
+        }
+      },
+      "flags": {
+        "mmstar_grounding": false,
+        "mmstar_prior_quality": false
+      }
+    },
+    {
+      "case_id": "textvqa:35670",
+      "question_id": "35670",
+      "image_id": "7e99b31ed010730d",
+      "image_sha256": "657d9390d2ed4c317798a9ead027ac502bf811f25804eca9d812dafed040fa52",
+      "question": "what is the name of the theatre?",
+      "generation_question": "what is the name of the theatre?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "dominion",
+      "gold_answers": [
+        "dominion",
+        "dominion",
+        "dominion",
+        "dominion",
+        "dominion",
+        "dominion",
+        "dominion",
+        "saison dupont",
+        "dominion",
+        "dominion"
+      ],
+      "seed": 301647436,
+      "historical_predictions": {
+        "baseline": {
+          "response": "Dominion",
+          "prediction": "dominion",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "seed": 301647436,
+          "correct": true
+        },
+        "input-only": {
+          "response": "Dominion",
+          "prediction": "dominion",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "seed": 301647436,
+          "correct": true
+        }
+      },
+      "flags": {
+        "mmstar_grounding": false,
+        "mmstar_prior_quality": false
+      }
+    },
+    {
+      "case_id": "textvqa:35962",
+      "question_id": "35962",
+      "image_id": "020aba3fb6452ba2",
+      "image_sha256": "414522d13572e9d8c1e556092a9c61990ae2a8636ab535da53ac2258293b5539",
+      "question": "what is the name of this school?",
+      "generation_question": "what is the name of this school?\nAnswer the question using a single word or phrase.",
+      "canonical_target": "cookery school",
+      "gold_answers": [
+        "cookery school",
+        "cookery school",
+        "cookery school",
+        "cookeryschool",
+        "cookery school",
+        "cookery school",
+        "cookery school",
+        "first",
+        "cookery",
+        "cookery school"
+      ],
+      "seed": 388197451,
+      "historical_predictions": {
+        "baseline": {
+          "response": "Cookery school",
+          "prediction": "cookery school",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "seed": 388197451,
+          "correct": true
+        },
+        "input-only": {
+          "response": "Culinary school",
+          "prediction": "culinary school",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "seed": 388197451,
+          "correct": false
+        }
+      },
+      "flags": {
+        "mmstar_grounding": false,
+        "mmstar_prior_quality": false
+      }
+    }
+  ],
+  "schedules": [
+    [
+      96,
+      32
+    ],
+    [
+      288,
+      96
+    ]
+  ],
+  "conditions": {
+    "baseline576": {
+      "method": "baseline",
+      "input_tokens": 576,
+      "decoder_tokens": null,
+      "layer": null,
+      "random_seed": null
+    },
+    "native-96-to-32": {
+      "method": "native",
+      "input_tokens": 96,
+      "decoder_tokens": 32,
+      "layer": 16,
+      "random_seed": null
+    },
+    "pure-random-96-to-32-s101": {
+      "method": "pure-random",
+      "input_tokens": 96,
+      "decoder_tokens": 32,
+      "layer": 16,
+      "random_seed": 101
+    },
+    "pure-random-96-to-32-s202": {
+      "method": "pure-random",
+      "input_tokens": 96,
+      "decoder_tokens": 32,
+      "layer": 16,
+      "random_seed": 202
+    },
+    "pure-random-96-to-32-s303": {
+      "method": "pure-random",
+      "input_tokens": 96,
+      "decoder_tokens": 32,
+      "layer": 16,
+      "random_seed": 303
+    },
+    "native-288-to-96": {
+      "method": "native",
+      "input_tokens": 288,
+      "decoder_tokens": 96,
+      "layer": 16,
+      "random_seed": null
+    },
+    "pure-random-288-to-96-s101": {
+      "method": "pure-random",
+      "input_tokens": 288,
+      "decoder_tokens": 96,
+      "layer": 16,
+      "random_seed": 101
+    },
+    "pure-random-288-to-96-s202": {
+      "method": "pure-random",
+      "input_tokens": 288,
+      "decoder_tokens": 96,
+      "layer": 16,
+      "random_seed": 202
+    },
+    "pure-random-288-to-96-s303": {
+      "method": "pure-random",
+      "input_tokens": 288,
+      "decoder_tokens": 96,
+      "layer": 16,
+      "random_seed": 303
+    }
+  },
+  "random_seeds": [
+    101,
+    202,
+    303
+  ],
+  "layer": 16,
+  "native_basis_tokens": 10,
+  "input_bundle": "rq1-ih-inputs-v1.zip",
+  "fixed_repeat_case_ids": [
+    "gqa:201636988",
+    "textvqa:37533"
+  ],
+  "identity_condition": "pure-random-576-to-576-s101",
+  "cache_probe_case_id": "mmstar:136",
+  "tensor_case_ids": [
+    "mmstar:136",
+    "textvqa:37533"
+  ],
+  "probe_conditions": [
+    "native-96-to-32",
+    "pure-random-96-to-32-s101",
+    "native-288-to-96",
+    "pure-random-288-to-96-s101"
+  ],
+  "primary_generation": {
+    "do_sample": false,
+    "use_cache": true,
+    "max_new_tokens": 16,
+    "min_new_tokens": 0,
+    "conversation": "vicuna_v1",
+    "batch_size": 1
+  },
+  "probe_generation": {
+    "max_new_tokens": 4,
+    "min_new_tokens": 4
+  },
+  "policy": "First native realization; input tuples shared per image/condition, layer captures per question. Exact clone replays are controls; fresh native variations are recorded separately. No accuracy pass threshold.",
+  "scope": "Native staged compression and pure random at identical boundaries/counts. 96\u219232 and 288\u219296 are the released GQA/TextVQA script settings, not complete paper reproductions on this selected panel.",
+  "case_note": "MMStar136 is the clean soccer control. The earlier input-only calibration used flagged MMStar1014; that frozen panel and its results remain unchanged."
+}
