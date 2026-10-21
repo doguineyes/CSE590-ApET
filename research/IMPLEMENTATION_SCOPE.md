@@ -134,6 +134,15 @@ methods/random streams are reused unchanged. Partial consensus credit, per-seed
 paired comparisons, baseline preservation/gains/losses and the94-question
 complement are exported. No accuracy threshold admits or excludes questions.
 New pretrained execution remains pending; CPU orchestration/scoring tests passed.
+The [GQA development800 extension](RQ2_STAGED_GQA800.md) adds a separate protocol,
+runner, notebook and saved-ZIP combiner. All800 original development questions
+retain their image seeds, task metadata, prompts and existing scorer. Input
+captures are shared across each image's eight questions; decoder states remain
+question-conditioned. Four fixed disjoint image parts permit separate sessions;
+combining rejects overlap and incompatible code/runtime/checkpoint identities.
+Summaries resample whole images after averaging seeds within questions. Native
+files, calibrated adapters and all TextVQA execution sources remain unchanged.
+Pretrained GQA execution remains pending; reserved evaluation is rejected.
 The [TextVQA100 extension](RQ2_TEXTVQA100.md), now deferred as an optional input-only
 ablation, reuses this calibrated capture/replay
 code for all100 existing screening questions, without baseline-correct filtering.

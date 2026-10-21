@@ -97,6 +97,9 @@ native96→32 and288→96 versus three random seeds at identical boundaries/coun
 Next is the [staged TextVQA100 comparison](research/RQ2_STAGED_TEXTVQA100.md), now
 implemented for all100 questions with900 primary predictions, compact evidence
 and paired preservation/score summaries. Its pretrained Kaggle run is pending.
+The following [GQA development800 comparison](research/RQ2_STAGED_GQA800.md) is
+also prepared, using the same schedules, shared image inputs and four optional
+image-based parts. Reserved evaluation remains untouched; GPU validation is pending.
 
 ## Code layout
 
