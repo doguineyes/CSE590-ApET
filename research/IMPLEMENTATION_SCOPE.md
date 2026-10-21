@@ -141,12 +141,18 @@ on a fixed screening set and does not attribute the gain to E alone.
 The [GQA development800 extension](RQ2_STAGED_GQA800.md) adds a separate protocol,
 runner, notebook and saved-ZIP combiner. All800 original development questions
 retain their image seeds, task metadata, prompts and existing scorer. Input
-captures are shared across each image's eight questions; decoder states remain
-question-conditioned. Four fixed disjoint image parts permit separate sessions;
+captures are shared across each image's eight questions; decoder-stage captures
+are recorded per question. Four fixed disjoint image parts permit separate sessions;
 combining rejects overlap and incompatible code/runtime/checkpoint identities.
 Summaries resample whole images after averaging seeds within questions. Native
 files, calibrated adapters and all TextVQA execution sources remain unchanged.
-Pretrained GQA execution remains pending; reserved evaluation is rejected.
+The [full GQA Kaggle run passed](notes/2026-10-21-rq2-staged-gqa800-review.md):
+7,200 primary predictions rescore exactly, all fixed/no-op/cache controls verify,
+and all 800 historical baseline answers reproduce. Native accuracy is
+63.75%/68.00% versus random seed means 61.29%/66.83%. The moderate gap remains
+uncertain under image-clustered intervals. One of four declared fresh-native
+repeats changes correctness; its first primary remains unchanged. Reserved
+evaluation is rejected and receives no inference.
 The [staged MMStar1500 extension](RQ2_STAGED_MMSTAR1500.md) adds project-owned
 input preparation, a frozen full-dataset reference, protocol, runner, notebook
 and saved-ZIP combiner. It retains all 1,500 original questions, existing prompts,

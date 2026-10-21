@@ -16,8 +16,10 @@ on/off study can connect the completed component analysis to the staged system.
 The staged TextVQA100 runner and the following
 [GQA development800 runner](../RQ2_STAGED_GQA800.md) are implemented.
 [TextVQA100 passed](2026-10-21-rq2-staged-textvqa100-review.md), with a native
-advantage over all three random seeds at both schedules. GQA pretrained results
-remain pending. The [full staged MMStar1500 runner](../RQ2_STAGED_MMSTAR1500.md)
+advantage over all three random seeds at both schedules.
+[GQA development800 passed](2026-10-21-rq2-staged-gqa800-review.md): its native
+advantage is smaller and the moderate-schedule paired interval includes zero;
+fresh-native variation is preserved. The [full staged MMStar1500 runner](../RQ2_STAGED_MMSTAR1500.md)
 is now implemented for execution after GQA review. Its pretrained results remain
 pending. The merge factorial remains proposed.
 Keep reserved GQA evaluation untouched; a new compressor improvement is optional.

@@ -102,7 +102,10 @@ ApET outperforms all three random seeds at both schedules in this fixed cohort,
 while exact-text failures remain.
 The following [GQA development800 comparison](research/RQ2_STAGED_GQA800.md) is
 also prepared, using the same schedules, shared image inputs and four optional
-image-based parts. Reserved evaluation remains untouched; GPU validation is pending.
+image-based parts. Its [full Kaggle run passed](research/notes/2026-10-21-rq2-staged-gqa800-review.md):
+native accuracy is 63.75%/68.00% versus random seed means 61.29%/66.83%; the
+moderate-schedule paired interval includes zero. Reserved evaluation remains
+untouched, and bounded fresh-native answer variation is recorded separately.
 The [full staged MMStar comparison](research/RQ2_STAGED_MMSTAR1500.md) is prepared
 for the same nine conditions on all 1,500 questions, with six optional parts,
 category/format summaries and image-clustered paired comparisons. Run it after

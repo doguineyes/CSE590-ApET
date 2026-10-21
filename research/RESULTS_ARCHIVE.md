@@ -262,6 +262,26 @@ failures. Derived CPU audit/CSV/JSON and a local gallery are separate in
 `results/rq2-staged-textvqa100-review-v1-2026-10-21/`. Raw archives and original
 source/lock remain unchanged. Earlier inventory counts are dated snapshots.
 
+## October 21 staged GQA development800
+
+`rq2-staged-gqa800-v1-20261021T142303483991Z.zip` and matching `.log` are saved
+unchanged from Downloads; both originals remain there. All 1,201 members pass CRC,
+with 1,200 artifact hashes, 78 evidence hashes and 18 tensor-file byte hashes
+verified. All 7,200 primary predictions rescore exactly; 39 prerequisites and
+the declared no-op/fixed/cache checks verify. The four fresh-native controls
+are preserved: one changes its generated answer/correctness, as the protocol
+allows for reporting variation without replacing the primary realization.
+
+The [review](notes/2026-10-21-rq2-staged-gqa800-review.md) records the complete
+800-question/100-image cohort, 63.3-minute execution, a 150.6 MiB ZIP, native
+accuracy 63.75%/68.00% versus random seed means 61.29%/66.83%, image-clustered
+uncertainty and historical drift. All 800 baseline raw answers/scores reproduce;
+four native288→96 answers differ from the older combined run despite unchanged
+aggregate accuracy. No companion is missing and no full inference rerun is needed.
+Derived CPU verification/CSV/JSON and the unchanged exported gallery are in
+`results/rq2-staged-gqa800-review-v1-2026-10-21/`. Raw archives, original native
+files/lock and earlier measurement protocols remain unchanged.
+
 ## TextVQA baseline (completed)
 
 **No GitHub pull, environment reinstall or input re-upload is required in the
