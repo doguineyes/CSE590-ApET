@@ -20,8 +20,13 @@ advantage over all three random seeds at both schedules.
 [GQA development800 passed](2026-10-21-rq2-staged-gqa800-review.md): its native
 advantage is smaller and the moderate-schedule paired interval includes zero;
 fresh-native variation is preserved. The [full staged MMStar1500 runner](../RQ2_STAGED_MMSTAR1500.md)
-is now implemented for execution after GQA review. Its pretrained results remain
-pending. The merge factorial remains proposed.
+is implemented and its [Kaggle full run passed](2026-10-21-rq2-staged-mmstar1500-review.md).
+All 13,500 predictions verify; native and random have similar overall MMStar
+accuracy at both schedules, with paired intervals including zero. The planned
+TextVQA/GQA/MMStar broad comparison is now complete for the fixed cohorts.
+Next consolidate saved-data task/preservation/failure evidence, then decide the
+bounded staged merge ablation's cohort and selection policy. The merge factorial
+remains proposed; a new compressor improvement is optional.
 Keep reserved GQA evaluation untouched; a new compressor improvement is optional.
 
 This update supersedes the earlier **priority order** below. Preserve its

@@ -164,7 +164,13 @@ per question to preserve native seed differences without overwriting evidence.
 Fourteen new CPU tests cover preparation, orchestration, scoring, interruptions,
 source/runtime proof and saved ZIP validation. Native files, calibrated adapters,
 original dependency lock and earlier runners remain unchanged. Pretrained
-MMStar execution remains pending Kaggle.
+MMStar [execution passed](notes/2026-10-21-rq2-staged-mmstar1500-review.md):
+all 13,500 primary predictions and 32 controls verify. All 1,500 historical
+baseline raw answers reproduce. Native accuracy is 33.40%/35.00% versus random
+means 33.53%/35.20%, with both paired intervals including zero. Four fresh native
+repeats match their primaries; two historical native288→96 answers differ.
+The planned three-dataset broad staged comparison is complete for these fixed
+cohorts. Attribution to E or merging alone remains outside that comparison.
 The [TextVQA100 extension](RQ2_TEXTVQA100.md), now deferred as an optional input-only
 ablation, reuses this calibrated capture/replay
 code for all100 existing screening questions, without baseline-correct filtering.

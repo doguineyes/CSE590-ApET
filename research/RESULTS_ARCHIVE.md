@@ -282,6 +282,27 @@ Derived CPU verification/CSV/JSON and the unchanged exported gallery are in
 `results/rq2-staged-gqa800-review-v1-2026-10-21/`. Raw archives, original native
 files/lock and earlier measurement protocols remain unchanged.
 
+## October 21 staged MMStar1500
+
+`rq2-staged-mmstar1500-v1-20261021T153730115642Z.zip` and matching `.log` are
+saved unchanged from Downloads; both originals remain there. All 5,958 ZIP
+members pass CRC, with 5,957 artifact hashes, 74 evidence hashes and 18 tensor-file
+byte hashes verified. All 13,500 primary predictions rescore exactly and match
+question records. Forty prerequisites and 32 controls verify; four fresh-native
+repeats reproduce their primary generated IDs/answers. All 1,500 baseline raw
+answers/scores reproduce the older original run. No companion is missing.
+
+The [review](notes/2026-10-21-rq2-staged-mmstar1500-review.md) records full1500
+coverage, 168.2-minute execution, a 336.8 MiB ZIP, native accuracy33.40%/35.00%
+versus random means33.53%/35.20%, image-clustered uncertainty, category/format
+statistics and two historical compressed-answer changes. The downloaded log
+ends with completed1500, `Status: passed` and `EXIT 0`; a screenshot showing
+1272/1500 therefore displays older output than the completed archive. No inference
+rerun is needed. Derived audit/CSV/JSON, a separate original gallery export and
+the three-dataset score summary are in
+`results/rq2-staged-mmstar1500-review-v1-2026-10-21/`. Raw archives, original
+native files/lock and earlier measurement protocols remain unchanged.
+
 ## TextVQA baseline (completed)
 
 **No GitHub pull, environment reinstall or input re-upload is required in the

@@ -106,10 +106,12 @@ image-based parts. Its [full Kaggle run passed](research/notes/2026-10-21-rq2-st
 native accuracy is 63.75%/68.00% versus random seed means 61.29%/66.83%; the
 moderate-schedule paired interval includes zero. Reserved evaluation remains
 untouched, and bounded fresh-native answer variation is recorded separately.
-The [full staged MMStar comparison](research/RQ2_STAGED_MMSTAR1500.md) is prepared
-for the same nine conditions on all 1,500 questions, with six optional parts,
-category/format summaries and image-clustered paired comparisons. Run it after
-reviewing GQA; its pretrained execution remains pending.
+The [full staged MMStar comparison](research/RQ2_STAGED_MMSTAR1500.md)
+[passed on Kaggle](research/notes/2026-10-21-rq2-staged-mmstar1500-review.md):
+all 1,500 questions and 13,500 primary predictions verify. Native accuracy is
+33.40%/35.00% versus random means 33.53%/35.20%; paired intervals include zero.
+The review consolidates all three datasets: a substantial native advantage on
+TextVQA100, a smaller GQA effect, and no clear aggregate MMStar advantage.
 
 ## Code layout
 
