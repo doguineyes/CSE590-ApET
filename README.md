@@ -103,6 +103,10 @@ while exact-text failures remain.
 The following [GQA development800 comparison](research/RQ2_STAGED_GQA800.md) is
 also prepared, using the same schedules, shared image inputs and four optional
 image-based parts. Reserved evaluation remains untouched; GPU validation is pending.
+The [full staged MMStar comparison](research/RQ2_STAGED_MMSTAR1500.md) is prepared
+for the same nine conditions on all 1,500 questions, with six optional parts,
+category/format summaries and image-clustered paired comparisons. Run it after
+reviewing GQA; its pretrained execution remains pending.
 
 ## Code layout
 

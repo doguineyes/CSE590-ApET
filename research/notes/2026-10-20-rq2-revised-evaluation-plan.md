@@ -8,7 +8,7 @@ ablation**. The staged runner is implemented and its
 [October 21 Kaggle calibration passed](2026-10-21-rq2-staged-calibration-review.md):
 54 primary predictions, both actual stage schedules and all bounded controls
 verify. The [staged TextVQA100 runner](../RQ2_STAGED_TEXTVQA100.md) is now
-implemented; its pretrained Kaggle execution remains pending.
+implemented; its [Kaggle run passed](2026-10-21-rq2-staged-textvqa100-review.md).
 
 After it passes: broaden the matched staged comparison to TextVQA100 and GQA
 development, then confirm on MMStar. A small input-merge on/off × decoder-merge
@@ -17,7 +17,9 @@ The staged TextVQA100 runner and the following
 [GQA development800 runner](../RQ2_STAGED_GQA800.md) are implemented.
 [TextVQA100 passed](2026-10-21-rq2-staged-textvqa100-review.md), with a native
 advantage over all three random seeds at both schedules. GQA pretrained results
-remain pending. The factorial and MMStar runner remain proposed.
+remain pending. The [full staged MMStar1500 runner](../RQ2_STAGED_MMSTAR1500.md)
+is now implemented for execution after GQA review. Its pretrained results remain
+pending. The merge factorial remains proposed.
 Keep reserved GQA evaluation untouched; a new compressor improvement is optional.
 
 This update supersedes the earlier **priority order** below. Preserve its

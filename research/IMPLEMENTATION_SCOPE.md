@@ -147,6 +147,18 @@ combining rejects overlap and incompatible code/runtime/checkpoint identities.
 Summaries resample whole images after averaging seeds within questions. Native
 files, calibrated adapters and all TextVQA execution sources remain unchanged.
 Pretrained GQA execution remains pending; reserved evaluation is rejected.
+The [staged MMStar1500 extension](RQ2_STAGED_MMSTAR1500.md) adds project-owned
+input preparation, a frozen full-dataset reference, protocol, runner, notebook
+and saved-ZIP combiner. It retains all 1,500 original questions, existing prompts,
+per-index native seeds and explicit-choice-v2 scoring; 13,500 primary predictions
+compare the same nine conditions. Six fixed 250-question parts keep identical
+images together. Strict scoring, parsing failures, categories, APR and paired
+image-clustered intervals are reported. Reused-image input encodings are stored
+per question to preserve native seed differences without overwriting evidence.
+Fourteen new CPU tests cover preparation, orchestration, scoring, interruptions,
+source/runtime proof and saved ZIP validation. Native files, calibrated adapters,
+original dependency lock and earlier runners remain unchanged. Pretrained
+MMStar execution remains pending Kaggle.
 The [TextVQA100 extension](RQ2_TEXTVQA100.md), now deferred as an optional input-only
 ablation, reuses this calibrated capture/replay
 code for all100 existing screening questions, without baseline-correct filtering.
