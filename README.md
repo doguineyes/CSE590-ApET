@@ -88,7 +88,9 @@ protected targets. Its [Kaggle full30 passed](research/notes/2026-10-19-rq2-rout
 Policy effects are small and high-E protection rarely changes routing in this cohort.
 The [pure-random calibration](research/RQ2_PURE_RANDOM_CALIBRATION.md) now adds
 an FPS/E-free random baseline and native merge/no-merge comparisons at 288 and
-64 input tokens. Its six-question notebook is ready for Kaggle execution checks.
+64 input tokens. The [six-question calibration passed](research/notes/2026-10-20-rq2-pure-random-calibration-review.md),
+verifying actual 64-token inputs; native ApET does not outperform pure random on
+this small selected panel. Broader predefined-pool evaluation is next.
 
 ## Code layout
 

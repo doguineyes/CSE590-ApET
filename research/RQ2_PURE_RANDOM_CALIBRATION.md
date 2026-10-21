@@ -2,7 +2,9 @@
 
 This is the first execution calibration for the
 [revised RQ2 plan](notes/2026-10-20-rq2-revised-evaluation-plan.md).
-It is implemented but has not yet passed pretrained Kaggle execution. Old native,
+The [six-question Kaggle calibration passed](notes/2026-10-20-rq2-pure-random-calibration-review.md):
+native input64 is verified, with 2/6 correct versus 2–4/6 for pure random seeds.
+This is a selected execution panel, not broad benchmark evidence. Old native,
 basis-fixed random, routing/protection and oracle protocols/results are unchanged.
 The locked original environment and native model files stay unchanged.
 
@@ -11,7 +13,10 @@ The locked original environment and native model files stay unchanged.
 Six questions / five images from the existing accepted RQ1/RQ2 input bundle:
 
 - GQA 201636988 / 201637316: same image, different questions.
-- MMStar 1014: the existing soccer case, rather than a flagged diagram shortcut.
+- MMStar 1014: a bar-chart count with an existing grounding flag. An earlier
+  description mistakenly called it soccer; the actual soccer control is 136.
+  The frozen case and its flag remain unchanged. Its all-A answers do not establish
+  preserved visual understanding.
 - TextVQA 37533 / 35670 / 35962: Brolio, Dominion and Cookery school.
 
 Each question has eleven primary conditions:

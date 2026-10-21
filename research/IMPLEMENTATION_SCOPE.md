@@ -111,8 +111,12 @@ insertion. Full projection remains in the calibration; timings are not estimates
 of an optimized random compressor's overhead. Native64 uses unchanged native
 compression at a temporary input-budget setting. Frozen replay, full576 parity,
 same-image reuse, exact native merge/no-merge selections and fresh numerical
-controls are recorded separately. Ten CPU tests pass; tiny native/pretrained
-execution still requires the original Kaggle environment. No native source,
+controls are recorded separately. Ten CPU tests passed locally; all 26 Kaggle
+prerequisites and the [six-question calibration](notes/2026-10-20-rq2-pure-random-calibration-review.md)
+now passed. Native64 uses exactly 64 decoder-input visual states. Native scores 2/6
+versus 2–4/6 for pure random; this selected calibration is not a population estimate.
+The earlier MMStar1014 soccer description was corrected: it is an already-flagged
+bar-chart case, and its frozen identity/flag remain unchanged. No native source,
 original lock or earlier frozen RQ2 protocol is edited.
 
 Observation hooks call native methods without replacing their compression math.

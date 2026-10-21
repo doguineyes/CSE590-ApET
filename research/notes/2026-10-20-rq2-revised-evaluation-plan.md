@@ -1,9 +1,11 @@
 # RQ2 revision: pure random retention and compression severity — 2026-10-20
 
 Implementation update: the first [six-question calibration](../RQ2_PURE_RANDOM_CALIBRATION.md)
-is now implemented, with ten CPU tests passing and the existing input bundle
-verified. Native tiny-model and pretrained execution remain for Kaggle; no GPU
-result is claimed. The broader TextVQA100/multi-dataset runner remains a later
+is now implemented and its [Kaggle run passed](2026-10-20-rq2-pure-random-calibration-review.md).
+Actual 64-token inputs, 26 prerequisites and 66 primary predictions verify. Native64
+gets 2/6 correct versus 2–4/6 for pure random in this selected panel, providing no
+evidence yet of an ApET advantage under stronger compression. The broader
+TextVQA100/multi-dataset runner remains a later
 step. Existing native sources, frozen protocols and old results are unchanged.
 
 This note records the revised design. It supersedes the earlier

@@ -1,7 +1,9 @@
 # RQ2 pure random calibration implementation — 2026-10-20
 
-The first step of the revised RQ2 plan is ready for Kaggle. This is an
-implementation checkpoint, not a pretrained result.
+The first step of the revised RQ2 plan is implemented. Its
+[Kaggle calibration has now passed](2026-10-20-rq2-pure-random-calibration-review.md),
+with real 64-token inputs and 66 primary predictions verified. This note preserves
+the implementation checkpoint; the linked review records the pretrained results.
 
 New project-owned files provide a separate frozen protocol, budget-aware native
 capture/replay helper, six-question runner and
@@ -11,9 +13,13 @@ capture/replay helper, six-question runner and
 The primary calibration has six questions / five images and 66 predictions:
 one full576 reference; native input288/input64, each with/without merging; and
 pure random at both budgets with replicates101/202/303. Decoder pruning is off.
-GQA contributes a same-image question pair, MMStar its existing soccer case,
+GQA contributes a same-image question pair, MMStar the already-flagged bar-chart 1014,
 and TextVQA Brolio, Dominion and Cookery school. The original accepted
 `rq1-ih-inputs-v1.zip` is reused unchanged.
+
+Correction after archive review: the previous wording called 1014 the soccer
+control. Soccer is 136. The frozen protocol actually selected 1014 and retained its
+grounding flag throughout. Do not treat its all-A answers as grounded competence.
 
 Pure random samples uniformly over all576 original positions without replacement,
 with a per-image/replicate permutation shared across budgets. It runs only the
@@ -51,12 +57,11 @@ Local verification:
 - All eight pinned native model sources match the original reference; the
   original lock and older experiment protocols are unchanged.
 
-Six additional native tests require the original Torch environment. They exercise
+Six additional native tests use the original Torch environment. They exercise
 the actual native64 implementation, forbid FPS/solve during pure capture, check
 restoration and tuple mutation rejection, and run tiny native generation/scoring
-including full576 parity. The notebook runs these and CPU/source prerequisites
-with zero allowed skips before loading pretrained weights.
+including full576 parity. These now passed as part of the 26-test Kaggle
+prerequisite run, with zero skips, before loading pretrained weights.
 
-Next: push, attach the same private Dataset in the new editable notebook, enable
-Internet/T4×2, set `RUN_RANDOM_CALIBRATION = True`, and send the ZIP/log for review.
-Only after this calibration should broader TextVQA100 evaluation be implemented.
+Next: implement the broader TextVQA100 comparison at288 and64. The six-question
+calibration does not need repetition; its ZIP/log and detailed review are saved.
