@@ -86,6 +86,9 @@ The separate [routing and target-protection comparison](research/RQ2_ROUTING.md)
 uses fixed native selection, count-preserving shuffled destinations and high-E/random
 protected targets. Its [Kaggle full30 passed](research/notes/2026-10-19-rq2-routing-full-review.md).
 Policy effects are small and high-E protection rarely changes routing in this cohort.
+The [pure-random calibration](research/RQ2_PURE_RANDOM_CALIBRATION.md) now adds
+an FPS/E-free random baseline and native merge/no-merge comparisons at 288 and
+64 input tokens. Its six-question notebook is ready for Kaggle execution checks.
 
 ## Code layout
 

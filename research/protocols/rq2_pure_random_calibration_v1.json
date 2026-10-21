@@ -1,0 +1,116 @@
+{
+  "version": "rq2-pure-random-calibration-v1",
+  "dated_local": "2026-10-20",
+  "parent_profile": "research/protocols/rq2_input_merge_v2.json",
+  "parent_profile_sha256": "86591283846d3d83767b6a317e0591b39e332e421bfc26ef327ddfae2e243be5",
+  "input_bundle": "rq1-ih-inputs-v1.zip",
+  "case_ids": [
+    "gqa:201636988",
+    "gqa:201637316",
+    "mmstar:1014",
+    "textvqa:37533",
+    "textvqa:35670",
+    "textvqa:35962"
+  ],
+  "budgets": [
+    288,
+    64
+  ],
+  "random_seeds": [
+    101,
+    202,
+    303
+  ],
+  "basis_tokens_native": 10,
+  "decoder_layers": [],
+  "conditions": {
+    "baseline576": {
+      "method": "baseline",
+      "budget": 576,
+      "merge": false,
+      "random_seed": null
+    },
+    "native-288-merge": {
+      "method": "native",
+      "budget": 288,
+      "merge": true,
+      "random_seed": null
+    },
+    "native-288-no-merge": {
+      "method": "native",
+      "budget": 288,
+      "merge": false,
+      "random_seed": null
+    },
+    "pure-random-288-s101": {
+      "method": "pure-random",
+      "budget": 288,
+      "merge": false,
+      "random_seed": 101
+    },
+    "pure-random-288-s202": {
+      "method": "pure-random",
+      "budget": 288,
+      "merge": false,
+      "random_seed": 202
+    },
+    "pure-random-288-s303": {
+      "method": "pure-random",
+      "budget": 288,
+      "merge": false,
+      "random_seed": 303
+    },
+    "native-64-merge": {
+      "method": "native",
+      "budget": 64,
+      "merge": true,
+      "random_seed": null
+    },
+    "native-64-no-merge": {
+      "method": "native",
+      "budget": 64,
+      "merge": false,
+      "random_seed": null
+    },
+    "pure-random-64-s101": {
+      "method": "pure-random",
+      "budget": 64,
+      "merge": false,
+      "random_seed": 101
+    },
+    "pure-random-64-s202": {
+      "method": "pure-random",
+      "budget": 64,
+      "merge": false,
+      "random_seed": 202
+    },
+    "pure-random-64-s303": {
+      "method": "pure-random",
+      "budget": 64,
+      "merge": false,
+      "random_seed": 303
+    }
+  },
+  "parity_condition": "pure-random-576-s101",
+  "fixed_repeat_case_ids": [
+    "gqa:201636988",
+    "textvqa:37533"
+  ],
+  "fresh_native_case_id": "textvqa:37533",
+  "fresh_native_captures_per_budget": 2,
+  "generation": {
+    "conversation": "vicuna_v1",
+    "max_new_tokens": 16,
+    "do_sample": false,
+    "use_cache": true,
+    "batch_size": 1
+  },
+  "random_policy": {
+    "pool": "All 576 original spatial positions; no basis slots or E eligibility",
+    "sampling": "One isolated Python Random permutation per image and replicate; prefix K, then spatial sort",
+    "seed": "SHA256(version|image_sha256|replicate); independent of K, answers and Torch RNG",
+    "compression": "Native uncompressed CLIP/projector branch followed by a pure selection mask; no FPS/E/basis/merge",
+    "scope": "Input only; native multimodal insertion and compact position policy; no decoder pruning"
+  },
+  "limits": "Execution calibration on six reviewed baseline-correct questions, not a population benchmark. No accuracy threshold for compressed arms."
+}

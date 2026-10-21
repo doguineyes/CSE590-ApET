@@ -101,6 +101,20 @@ was edited.
 
 The loader points the vision configuration to the separately pinned local CLIP
 snapshot. Standalone scripts force Matplotlib `Agg`. These are operational choices.
+
+The separate `rq2_random_protocol.py`, `rq2_random_native.py` and
+`run_rq2_random_calibration.py` implement the
+[pure-random / native 288-versus-64 calibration](RQ2_PURE_RANDOM_CALIBRATION.md).
+Pure random invokes the native full576 vision/projector branch and selects K
+original states by a random boolean mask, with no FPS, reconstruction or basis
+insertion. Full projection remains in the calibration; timings are not estimates
+of an optimized random compressor's overhead. Native64 uses unchanged native
+compression at a temporary input-budget setting. Frozen replay, full576 parity,
+same-image reuse, exact native merge/no-merge selections and fresh numerical
+controls are recorded separately. Ten CPU tests pass; tiny native/pretrained
+execution still requires the original Kaggle environment. No native source,
+original lock or earlier frozen RQ2 protocol is edited.
+
 Observation hooks call native methods without replacing their compression math.
 Scoring is our policy, not upstream ApET or the official MMStar evaluation procedure.
 

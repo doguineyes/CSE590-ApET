@@ -1,7 +1,12 @@
 # RQ2 revision: pure random retention and compression severity — 2026-10-20
 
-Status: research design only. This note implements no runner, changes no frozen
-protocol or native source, and starts no GPU experiment. It supersedes the earlier
+Implementation update: the first [six-question calibration](../RQ2_PURE_RANDOM_CALIBRATION.md)
+is now implemented, with ten CPU tests passing and the existing input bundle
+verified. Native tiny-model and pretrained execution remain for Kaggle; no GPU
+result is claimed. The broader TextVQA100/multi-dataset runner remains a later
+step. Existing native sources, frozen protocols and old results are unchanged.
+
+This note records the revised design. It supersedes the earlier
 recommendation to make the existing basis-fixed random arm the principal broad
 random baseline.
 
