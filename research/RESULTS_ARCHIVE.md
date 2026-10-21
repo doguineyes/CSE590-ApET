@@ -227,6 +227,24 @@ the correction and rerun instructions. No calibration inference result was lost.
    from generated review galleries and maintain a second backup outside this
    ignored directory.
 
+## October 21 staged RQ2 calibration
+
+`rq2-staged-calibration-v1-20261021T130721550505Z.zip` and matching `.log`
+are preserved byte-for-byte from the supplied Downloads paths; both originals
+remain in Downloads. All 163 members pass CRC, with 162 artifact hashes, 116
+evidence hashes and 21 tensor-file byte hashes verified. All 54 primary predictions
+rescore exactly. The 26 Kaggle prerequisites, six full576 no-op controls, 18 fixed
+replays, four cached-decoding probes and four fresh native controls pass their
+declared checks. Both actual schedules, 96→32 and 288→96 after block16, verify;
+the eight pinned native source files and environment lock remain unchanged.
+
+The [review note](notes/2026-10-21-rq2-staged-calibration-review.md) records hashes,
+selected-case findings and the planned TextVQA100 expansion. Derived audit,
+CSV/JSON and an extracted non-tensor gallery are separate in
+`results/rq2-staged-calibration-review-v1-2026-10-21/`. No supplied companion is
+missing. No tensors were loaded or inference performed locally. Earlier inventory
+counts remain dated snapshots, not totals including this addition.
+
 ## TextVQA baseline (completed)
 
 **No GitHub pull, environment reinstall or input re-upload is required in the

@@ -4,7 +4,10 @@
 [small staged calibration](../RQ2_STAGED_CALIBRATION.md), using full576 and native
 96→32/288→96 versus three pure-random seeds at identical boundaries/counts.
 The input-only TextVQA100 runner is implemented but **deferred as an optional
-ablation**. The staged runner is implemented; pretrained validation is pending.
+ablation**. The staged runner is implemented and its
+[October 21 Kaggle calibration passed](2026-10-21-rq2-staged-calibration-review.md):
+54 primary predictions, both actual stage schedules and all bounded controls
+verify. The broader staged runner remains to be implemented.
 
 After it passes: broaden the matched staged comparison to TextVQA100 and GQA
 development, then confirm on MMStar. A small input-merge on/off × decoder-merge
