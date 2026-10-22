@@ -1,5 +1,14 @@
 # Stage-one closeout and future ideas — October 21, 2026
 
+**October 22 clarification:** the user wants the midterm to describe ongoing
+research rather than a nearly completed project. RQ1's bounded diagnostics are
+largely complete, RQ2 has substantial experimental progress but unresolved
+interpretation, and no concrete RQ3 direction has been chosen. Read the
+[new report outline](../reports/midterm/midterm_outline.md) for the current
+framing. The October 21 closeout decision below records a pause in the present
+GPU phase for writing, not completion of the full RQ2 explanation or selection
+of a future algorithm.
+
 ## Decision and immediate deliverable
 
 The user chose to close the current RQ1/RQ2 experimental phase and begin the

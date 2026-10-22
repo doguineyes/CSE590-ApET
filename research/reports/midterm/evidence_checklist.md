@@ -4,6 +4,15 @@ Prepared October 21, 2026. Start with [the report draft](midterm_draft.md).
 The report closes the **current experimental phase**, not every causal question
 in the proposal. No new inference was run to prepare these materials.
 
+**October 22 scope clarification:** use the [revised outline](midterm_outline.md)
+for the next draft. RQ1's bounded diagnostics are largely complete; substantial
+RQ2 experiments are done but interpretation remains ongoing; no concrete RQ3
+implementation direction has been selected. The earlier phase-closeout wording
+must not suggest that the project is nearly finished. The new
+[saved-data review](materials/2026-10-22_saved_data_review.json) confirms the
+unchanged main-table sources and checks the additional MMStar descriptive counts.
+Page layout is deferred while the narrative is revised.
+
 ## Requirements and scope
 
 - **User-confirmed requirement:** 3–4 pages, preliminary experiments, results and

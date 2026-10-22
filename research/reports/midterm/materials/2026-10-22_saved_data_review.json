@@ -1,0 +1,50 @@
+{
+  "review_date": "2026-10-22",
+  "scope": "CPU saved-data review for a conservative report outline. No new inference, tensor recomputation, raw-archive integrity rerun, or page-layout check.",
+  "prior_report_source_hash_matches": {
+    "research/results/rq1-input-ih-synthesis-v1-2026-10-18/question-synthesis.csv": true,
+    "research/results/rq1-input-ih-synthesis-v1-2026-10-18/cohort-summary.json": true,
+    "research/results/rq1-input-ih-synthesis-v1-2026-10-18/same-image-pairs.csv": true,
+    "research/results/rq1-input-ih-synthesis-v1-2026-10-18/depth-comparison.csv": true,
+    "research/results/rq2-staged-mmstar1500-review-v1-2026-10-21/cross-dataset-staged-summary.json": true
+  },
+  "recorded_prior_audit_statuses": {
+    "research/results/rq2-crossed-full-v1-review-2026-10-19/verification.json": "verified",
+    "research/results/rq2-routing-full-v1-review-2026-10-19/verification.json": "verified",
+    "research/results/rq2-crossed-oracle-v1-review-2026-10-19/verification.json": "verified",
+    "research/results/rq2-staged-textvqa100-review-v1-2026-10-21/verification.json": "passed",
+    "research/results/rq2-staged-gqa800-review-v1-2026-10-21/verification.json": "passed",
+    "research/results/rq2-staged-mmstar1500-review-v1-2026-10-21/verification.json": "passed"
+  },
+  "mmstar_descriptive_checks": {
+    "source": "research/results/rq2-staged-mmstar1500-review-v1-2026-10-21/predictions-compact.jsonl",
+    "source_sha256": "2a860a624a1e6fab707deb52e9ecd83197d80c6dd0858c0dc7b7643a9a913d91",
+    "reference": "research/protocols/rq2_staged_mmstar1500_reference_v1.json",
+    "reference_sha256": "917486e1f1a70c39a352d64c35b82a650dd81e916d87dd589ff406aaf3107e8d",
+    "questions": 1500,
+    "primary_predictions": 13500,
+    "baseline_parsed_option_counts": {
+      "A": 1059,
+      "B": 170,
+      "C": 184,
+      "D": 87
+    },
+    "gold_option_counts": {
+      "A": 429,
+      "B": 447,
+      "C": 309,
+      "D": 315
+    },
+    "moderate_comparison_conditions": [
+      "baseline576",
+      "native-288-to-96",
+      "pure-random-288-to-96-s101",
+      "pure-random-288-to-96-s202",
+      "pure-random-288-to-96-s303"
+    ],
+    "same_parsed_option_all_five": 1248,
+    "same_parsed_option_and_all_wrong": 798,
+    "definition": "Agreement uses the frozen scorer parsed option, not necessarily byte-identical generated strings. These counts do not prove visual independence or identify causes."
+  },
+  "rerun_assessment": "No blocking inconsistency found in this saved-data review. No mandatory new GPU run for the proposed preliminary claims; numerical repeatability and mechanism attribution remain limitations."
+}
