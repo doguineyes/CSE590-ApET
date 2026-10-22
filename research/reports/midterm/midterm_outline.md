@@ -1,6 +1,19 @@
 # Midterm report outline — conservative progress framing
 
+**Drafting status, October 22:** the [written draft](midterm_draft.md) has now
+been revised under the instructor's seven-part template, retaining the scope
+below. Dates and risk judgments are provisional for review; no PDF or deck has
+been produced in this drafting step.
+
 **Updated October 22, 2026, following the user's scope clarification.**
+
+**Detailed requirements received later October 22:** retain this scientific
+framing, but organize the next draft using the instructor's seven-part template.
+RQ1/RQ2 fit under preliminary results; risks and dated milestones must both be
+explicit. A report PDF and approximately five-slide deck are due October 30 at
+11:59 PM as displayed in the portal. See the
+[requirement-by-requirement gap review](requirements_gap_analysis.md). It
+supersedes the free-form structural and submission assumptions below.
 
 This is the plan for revising the [October 21 draft](midterm_draft.md), not a
 submission-ready report. It supersedes the earlier closeout language as the

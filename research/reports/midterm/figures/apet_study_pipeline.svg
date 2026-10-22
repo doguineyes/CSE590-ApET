@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="458" viewBox="0 0 1080 458" role="img" aria-labelledby="title desc">
+  <title id="title">Native ApET evaluation pipeline and RQ1 measurement boundaries</title>
+  <desc id="desc">An image is encoded into 576 CLIP states, compressed to K1 before projection, processed through decoder blocks 1 to 16, compressed to K2, and processed through blocks 17 to 32 to generate an answer. The evaluated schedules are 96 to 32 and 288 to 96. RQ1 uses separate uncompressed passes: input reconstruction error precedes projection, input response interventions follow projection, and the second measurement boundary is after block 16.</desc>
+  <defs>
+    <style>
+      text { font-family: Arial, Helvetica, sans-serif; fill: #172534; }
+      .box { fill: #ffffff; stroke: #6b7785; stroke-width: 1.7; }
+      .compression { fill: #eaf2fa; stroke: #34658c; stroke-width: 1.9; }
+      .heading { font-size: 21px; font-weight: 700; }
+      .label { font-size: 20px; text-anchor: middle; }
+      .detail { font-size: 17px; text-anchor: middle; fill: #34485a; }
+      .note { font-size: 16px; }
+      .probe { font-size: 15px; fill: #295b83; text-anchor: middle; font-weight: 700; }
+      .flow { fill: none; stroke: #3e4b59; stroke-width: 2.1; }
+    </style>
+  </defs>
+  <rect width="1080" height="458" fill="white"/>
+  <text x="30" y="29" class="heading">Native staged evaluation</text>
+
+  <rect x="30" y="70" width="95" height="84" rx="7" class="box"/>
+  <text x="77.5" y="118" class="label">Image</text>
+  <rect x="165" y="70" width="160" height="84" rx="7" class="box"/>
+  <text x="245" y="105" class="label">CLIP encoder</text>
+  <text x="245" y="132" class="detail">576 states</text>
+  <rect x="370" y="70" width="220" height="84" rx="7" class="compression"/>
+  <text x="480" y="104" class="label">Input compression</text>
+  <text x="480" y="132" class="detail">K1 = 96 or 288</text>
+  <rect x="640" y="70" width="150" height="84" rx="7" class="box"/>
+  <text x="715" y="118" class="label">Projector</text>
+  <rect x="835" y="70" width="210" height="84" rx="7" class="box"/>
+  <text x="940" y="105" class="label">Decoder</text>
+  <text x="940" y="132" class="detail">blocks 1-16</text>
+
+  <path d="M125,112 H165" class="flow"/>
+  <path d="M325,112 H370" class="flow"/>
+  <path d="M590,112 H640" class="flow"/>
+  <path d="M790,112 H835" class="flow"/>
+  <polygon points="165,112 153,106 153,118" fill="#3e4b59"/>
+  <polygon points="370,112 358,106 358,118" fill="#3e4b59"/>
+  <polygon points="640,112 628,106 628,118" fill="#3e4b59"/>
+  <polygon points="835,112 823,106 823,118" fill="#3e4b59"/>
+  <text x="348" y="55" class="probe">input E</text>
+  <text x="813" y="55" class="probe">input I</text>
+
+  <path d="M940,154 V245" class="flow"/>
+  <text x="940" y="202" class="probe" text-anchor="end" transform="translate(-90,0)">layer16 E / I</text>
+  <rect x="780" y="245" width="265" height="84" rx="7" class="compression"/>
+  <polygon points="940,245 934,233 946,233" fill="#3e4b59"/>
+  <text x="912.5" y="279" class="label">Decoder compression</text>
+  <text x="912.5" y="307" class="detail">K2 = 32 or 96</text>
+  <rect x="420" y="245" width="260" height="84" rx="7" class="box"/>
+  <text x="550" y="280" class="label">Decoder</text>
+  <text x="550" y="307" class="detail">blocks 17-32</text>
+  <rect x="100" y="245" width="200" height="84" rx="7" class="box"/>
+  <text x="200" y="280" class="label">Answer / score</text>
+  <text x="200" y="307" class="detail">generation or reference</text>
+  <path d="M780,287 H680" class="flow"/>
+  <path d="M420,287 H300" class="flow"/>
+  <polygon points="680,287 692,281 692,293" fill="#3e4b59"/>
+  <polygon points="300,287 312,281 312,293" fill="#3e4b59"/>
+
+  <line x1="30" y1="353" x2="1045" y2="353" stroke="#d1d8df"/>
+  <text x="30" y="380" class="note">Native: FPS basis + E ranking + basis placement + nearest-target merging at both compression stages.</text>
+  <text x="30" y="409" class="note">Controls: full576 bypasses compression; pure random gathers states at the same K1 / K2 counts.</text>
+  <text x="30" y="438" class="note">RQ1 uses separate full576 passes; E / I labels locate measurement boundaries, not pixel-level causes.</text>
+</svg>

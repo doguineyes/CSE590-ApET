@@ -1,8 +1,10 @@
 # Midterm draft: evidence and submission checklist
 
-Prepared October 21, 2026. Start with [the report draft](midterm_draft.md).
-The report closes the **current experimental phase**, not every causal question
-in the proposal. No new inference was run to prepare these materials.
+Prepared October 21; updated October 22, 2026. Start with the
+[revised report draft](midterm_draft.md), now organized under the instructor's
+seven-part template. RQ1's bounded diagnostics are largely complete; RQ2
+interpretation is ongoing and RQ3 has no chosen implementation. No new inference
+was run to revise the report.
 
 **October 22 scope clarification:** use the [revised outline](midterm_outline.md)
 for the next draft. RQ1's bounded diagnostics are largely complete; substantial
@@ -11,17 +13,27 @@ implementation direction has been selected. The earlier phase-closeout wording
 must not suggest that the project is nearly finished. The new
 [saved-data review](materials/2026-10-22_saved_data_review.json) confirms the
 unchanged main-table sources and checks the additional MMStar descriptive counts.
-Page layout is deferred while the narrative is revised.
+Page layout remains deferred while the revised narrative is reviewed.
+
+**October 22 detailed assignment update:** the instructor has now supplied a
+seven-part content template and requires a report PDF plus an approximately
+five-slide deck. The portal deadline is **October 30, 2026, 11:59 PM**, extended
+from the older syllabus date. Use the
+[requirements and gap review](requirements_gap_analysis.md) for the current
+submission checklist; it supersedes the earlier free-form structural advice.
 
 ## Requirements and scope
 
-- **User-confirmed requirement:** 3–4 pages, preliminary experiments, results and
-  roadblocks; a short in-class presentation accompanies the report. No special
-  template or citation style has been supplied as of October 21.
-- The current Fall 2026 course syllabus repeats this requirement and lists the
-  midterm report beside October 27. The schedule is tentative; check any later
-  instructor announcement before submission. The 6–8-page requirement concerns
-  the final report, not this deliverable.
+- **Current assignment:** 3–4-page PDF report using the instructor's seven-part
+  [template](<requirements/Mid-Term Report_ Progress Update (3–4 pages).pdf>),
+  plus an approximately five-slide deck. The detailed material arrived after
+  the October 21 draft. No particular font, column layout or citation style is
+  stated in the supplied material.
+- The [October 22 announcement](<requirements/Screenshot 2026-10-22 at 10.17.07.png>)
+  extends the deadline to October 30; the
+  [assignment page](<requirements/Screenshot 2026-10-22 at 10.17.43.png>) shows
+  **11:59 PM**. This supersedes October 27 in the older syllabus. The 6–8-page
+  requirement concerns the final report, not this deliverable.
 - Title, author, email and the three research questions follow the
   [submitted proposal](../Peng_Chen_CSE590_ApET_Project_Proposal_v2.pdf).
 - RQ1: completed for the specified diagnostic cohort and two boundaries. RQ2:
@@ -33,7 +45,7 @@ Page layout is deferred while the narrative is revised.
   evidence where wording needs qualification, especially operator identity,
   depth-score definitions and whole-procedure versus component comparisons.
 
-## Numeric claims in the draft
+## Numerical claims and supporting evidence
 
 All paths below are relative to the repository root. Detailed raw data under
 `research/results/` are intentionally ignored by Git. The compact
@@ -48,10 +60,12 @@ travel with the report; they include source hashes and the preparation commit.
 | Six same-image pairs; between-question retention rho −0.443 to +0.655 | `research/results/rq1-input-ih-synthesis-v1-2026-10-18/same-image-pairs.csv` | Exact input-feature/E match for each pair; question, target and confidence all change |
 | Six matched depth questions; input/layer retention rho −0.038 to +0.198 | `research/results/rq1-input-ih-synthesis-v1-2026-10-18/depth-comparison.csv` | [Layer review](../../notes/2026-10-17-rq1-layer-ih-full-review.md); first-piece retention score, two boundaries only |
 | Dominion best retained first-piece probability 20.2% / 98.1% | Same `depth-comparison.csv`, row `textvqa:35670` | Post-hoc maxima over 576 contextual states; not full-word generation accuracy |
-| Table 2: six rows of scores, paired differences and intervals | `research/results/rq2-staged-mmstar1500-review-v1-2026-10-21/cross-dataset-staged-summary.json` | [TextVQA review](../../notes/2026-10-21-rq2-staged-textvqa100-review.md), [GQA review](../../notes/2026-10-21-rq2-staged-gqa800-review.md), [MMStar review](../../notes/2026-10-21-rq2-staged-mmstar1500-review.md); [compact table](materials/rq2_staged_results.csv) |
+| Table 3: six rows of scores, paired differences and intervals | `research/results/rq2-staged-mmstar1500-review-v1-2026-10-21/cross-dataset-staged-summary.json` | [TextVQA review](../../notes/2026-10-21-rq2-staged-textvqa100-review.md), [GQA review](../../notes/2026-10-21-rq2-staged-gqa800-review.md), [MMStar review](../../notes/2026-10-21-rq2-staged-mmstar1500-review.md); [compact table](materials/rq2_staged_results.csv) |
+| Table 3 random mean ± sample SD | The three staged review directories' `condition-summary.csv`, seeds 101/202/303 | [Seed summary](materials/rq2_random_seed_summary.json); sample SD across three seed scores, not paired CI or fresh-native variability |
 | RQ2: 2,400 question evaluations / 21,600 primary predictions; nine arms | Same cross-dataset JSON: `question_evaluations`, `primary_predictions`; 100 + 800 + 1,500 questions | Controls/repeats are outside primary denominators; seeds are not extra independent questions |
 | MMStar native 288→96 loses 36, gains 40; APR 485/521 = 93.09%; severe APR 442/521 = 84.84% | Cross-dataset JSON and `condition-summary.csv` in the same review directory | Accuracy can mask turnover. APR is conditional on baseline correctness |
-| Input-only, selected 30-case panel: native merge 19/30, same selection/no-merge 21/30 | `research/results/rq2-crossed-full-v1-review-2026-10-19/summaries.json` and `paired-selection-outcomes.csv` | [Crossed review](../../notes/2026-10-19-rq2-crossed-full-review.md); failure-enriched and baseline-correct, not broad evaluation |
+| Table 2, input-only 30-case panel: E merge/no-merge 19/21; random101 25/24, random202 23/27, random303 26/26 | `research/results/rq2-crossed-full-v1-review-2026-10-19/answers.csv`, `summaries.json` and `paired-selection-outcomes.csv` | [Crossed review](../../notes/2026-10-19-rq2-crossed-full-review.md); failure-enriched and baseline-correct, not broad evaluation |
+| MMStar baseline A prediction/gold counts 1,059/429; 798 stable wrong questions across five moderate conditions | `research/results/rq2-staged-mmstar1500-review-v1-2026-10-21/predictions-compact.jsonl` and the frozen MMStar reference | [Saved-data review](materials/2026-10-22_saved_data_review.json); agreement is parsed-option agreement, not necessarily identical raw strings or proof of image independence |
 | High-E target protection barely changes routing | `research/results/rq2-routing-full-v1-review-2026-10-19/routing-activity.csv` and `native-rank-activity.json` | [Routing review](../../notes/2026-10-19-rq2-routing-full-review.md): only 21/6,912 incoming assignments rerouted; a largely inactive test |
 | Brolio → Bottoli with input-only merge; no-merge and target317 restoration recover Brolio; sham/control141 do not | `research/results/rq2-crossed-oracle-v1-review-2026-10-19/answers.csv` and `oracle-summary.json` | [Oracle review](../../notes/2026-10-19-rq2-brolio-oracle-review.md); fixed native tuple, post-hoc selected target, conditional rescue only |
 
@@ -59,6 +73,13 @@ The build script checks the RQ1 reductions, counts, ranges, pair/depth identitie
 and RQ2 summary arithmetic. It relies on the prior archive audits rather than
 rehashing the large raw ZIPs again. Component/oracle claims were checked against
 their saved review records separately.
+
+Figure 1 is a [project-authored vector schematic](figures/apet_study_pipeline.svg),
+not a measured result. It was rendered and visually inspected. Risk likelihoods
+and impacts are qualitative planning estimates. The October/November milestone
+dates and two-schedule follow-up criterion are **provisional proposals for user
+review**, not completed experiments or a commitment to a particular RQ3 method.
+The abstract is 131 whitespace-delimited words; no page count has been verified.
 
 ## Definitions that must survive editing
 
@@ -132,16 +153,25 @@ three compact material files, and does not install dependencies or use a GPU.
   original paper pages.
 - [x] Completed work, limitations and future hypotheses separated.
 - [ ] User review of the scientific narrative and any instructor updates.
+- [x] Draft includes the required method diagram, first-half objective recap,
+  risk/likelihood/impact/contingency information, proposed dated milestones,
+  completion criteria and a final evaluation plan.
+- [x] Integrate random-seed SD and the selected component results, keeping all
+  scoring/cohort qualifications visible.
 - [ ] Typeset to 3–4 pages and inspect the final layout. **The Markdown draft is
   not a verified page count or submission-ready PDF.** Assume references count
   toward the limit unless the instructor says otherwise.
-- [ ] Prepare the short presentation after choosing the final report narrative;
-  a slide deck has not been created in this step.
+- [ ] Prepare the approximately five-slide deck: title/motivation; method diagram;
+  one key result; roadblock/fix/status; three next-step bullets including one
+  quantified success criterion. A slide deck has not been created yet.
+- [ ] Submit both the report PDF and deck by October 30, 11:59 PM as displayed
+  in the portal. Submission has not been performed.
 
-The two tables are sufficient for the first layout. If space permits, one
-compact Brolio merge/restoration example is more useful than a large experiment
-inventory. Existing local galleries and raw images are evidence sources; a
-contextual token's grid coordinate must not be labeled a causal pixel region.
+The draft contains three scientific tables, a risk table, a milestone table and
+one pipeline figure. Their final sizing and possible condensation remain layout
+work. Brolio is presented as a short text case study. Existing galleries and raw
+images remain evidence sources; a contextual token's grid coordinate must not be
+labeled a causal pixel region.
 
 Possible future experiments are recorded separately in the
 [stage-one closeout note](../../notes/2026-10-21-stage1-closeout-and-future-ideas.md).

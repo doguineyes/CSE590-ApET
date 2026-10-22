@@ -1,0 +1,145 @@
+{
+  "prepared": "2026-10-22",
+  "source_sha256": {
+    "research/results/rq2-staged-textvqa100-review-v1-2026-10-21/condition-summary.csv": "690fcdf250990941996ca771ff71693b70e0a2cee5df5fb5cf98f465abebf1df",
+    "research/results/rq2-staged-gqa800-review-v1-2026-10-21/condition-summary.csv": "6144caf47c2f197aa88c6bf54e7daa91ebc0eb8ead71cd6f0cfe096d152dd430",
+    "research/results/rq2-staged-mmstar1500-review-v1-2026-10-21/condition-summary.csv": "e2a7539e4db383d4847b571aa8e6b452973236dedc47e2f7b58d03164e6a759a"
+  },
+  "std_definition": "Sample standard deviation across the three prespecified random-selection seeds, denominator n-1. It is not a standard error, paired confidence interval, or estimate of native fresh-run numerical variability.",
+  "baseline_and_native": "One primary realization per question/arm. No across-seed SD was invented; native_seed_std is null, not zero.",
+  "new_gpu_runs": 0,
+  "rows": [
+    {
+      "dataset": "TextVQA100",
+      "metric": "mean_consensus_score",
+      "schedule": "96-to-32",
+      "seeds": [
+        101,
+        202,
+        303
+      ],
+      "per_seed_scores": [
+        0.17099999999999999,
+        0.23000000000000004,
+        0.21799999999999997
+      ],
+      "n_seeds": 3,
+      "random_mean": 0.20633333333333334,
+      "random_sample_std": 0.03118225991382495,
+      "mean_percent": 20.633333333333333,
+      "sample_std_percentage_points": 3.118225991382495,
+      "native_primary_score": 0.415,
+      "native_seed_std": null
+    },
+    {
+      "dataset": "TextVQA100",
+      "metric": "mean_consensus_score",
+      "schedule": "288-to-96",
+      "seeds": [
+        101,
+        202,
+        303
+      ],
+      "per_seed_scores": [
+        0.35600000000000004,
+        0.391,
+        0.296
+      ],
+      "n_seeds": 3,
+      "random_mean": 0.3476666666666667,
+      "random_sample_std": 0.04804511768466527,
+      "mean_percent": 34.766666666666666,
+      "sample_std_percentage_points": 4.804511768466527,
+      "native_primary_score": 0.44199999999999995,
+      "native_seed_std": null
+    },
+    {
+      "dataset": "GQA800",
+      "metric": "accuracy",
+      "schedule": "96-to-32",
+      "seeds": [
+        101,
+        202,
+        303
+      ],
+      "per_seed_scores": [
+        0.60375,
+        0.6175,
+        0.6175
+      ],
+      "n_seeds": 3,
+      "random_mean": 0.6129166666666667,
+      "random_sample_std": 0.007938566201357378,
+      "mean_percent": 61.291666666666664,
+      "sample_std_percentage_points": 0.7938566201357378,
+      "native_primary_score": 0.6375,
+      "native_seed_std": null
+    },
+    {
+      "dataset": "GQA800",
+      "metric": "accuracy",
+      "schedule": "288-to-96",
+      "seeds": [
+        101,
+        202,
+        303
+      ],
+      "per_seed_scores": [
+        0.66125,
+        0.67125,
+        0.6725
+      ],
+      "n_seeds": 3,
+      "random_mean": 0.6683333333333333,
+      "random_sample_std": 0.006166103577895305,
+      "mean_percent": 66.83333333333333,
+      "sample_std_percentage_points": 0.6166103577895305,
+      "native_primary_score": 0.68,
+      "native_seed_std": null
+    },
+    {
+      "dataset": "MMStar1500",
+      "metric": "accuracy",
+      "schedule": "96-to-32",
+      "seeds": [
+        101,
+        202,
+        303
+      ],
+      "per_seed_scores": [
+        0.3353333333333333,
+        0.3406666666666667,
+        0.33
+      ],
+      "n_seeds": 3,
+      "random_mean": 0.3353333333333333,
+      "random_sample_std": 0.005333333333333329,
+      "mean_percent": 33.53333333333333,
+      "sample_std_percentage_points": 0.5333333333333329,
+      "native_primary_score": 0.334,
+      "native_seed_std": null
+    },
+    {
+      "dataset": "MMStar1500",
+      "metric": "accuracy",
+      "schedule": "288-to-96",
+      "seeds": [
+        101,
+        202,
+        303
+      ],
+      "per_seed_scores": [
+        0.3506666666666667,
+        0.35533333333333333,
+        0.35
+      ],
+      "n_seeds": 3,
+      "random_mean": 0.352,
+      "random_sample_std": 0.0029059326290271203,
+      "mean_percent": 35.199999999999996,
+      "sample_std_percentage_points": 0.29059326290271204,
+      "native_primary_score": 0.35,
+      "native_seed_std": null
+    }
+  ]
+}
