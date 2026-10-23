@@ -1,0 +1,35 @@
+{
+  "review_date": "2026-10-23",
+  "status": "passed",
+  "new_gpu_runs": 0,
+  "original_draft_unchanged_from_HEAD": true,
+  "original_draft_sha256": "82334800b0d7034e2dd0c14abb509c9caf0fe954d2e99f78a98e3e3c3f6ed692",
+  "markdown": "research/reports/midterm/midterm_readable_v2.md",
+  "markdown_sha256": "7b0295dc598f1ba7950a608a7b7cd16628025f5c7c6042214c233b2090677247",
+  "pdf": "research/reports/midterm/midterm_readable_v2.pdf",
+  "canonical_pdf": "output/pdf/midterm_readable_v2.pdf",
+  "pdf_sha256": "637bc4b6282068733510bbe536f896191eef7b157aa0447e05f9464f975fa573",
+  "pdf_pages": 4,
+  "body_font_points": 11,
+  "table_font_points": 9.3,
+  "abstract_whitespace_words": 131,
+  "markdown_whitespace_words": 1929,
+  "prose_words_excluding_headings_tables_captions_references_metadata": 1211,
+  "checks": [
+    "seven template sections",
+    "all RQ1 table medians",
+    "six staged score/SD/CI rows",
+    "component count/range summaries",
+    "current data-source hashes",
+    "local links and eight references",
+    "SVG XML and PDF build source syntax",
+    "both PDF copies identical",
+    "selectable PDF text",
+    "four rendered pages visually inspected for layout/legibility"
+  ],
+  "limits": [
+    "No new inference, raw archive re-audit or measurement protocol change.",
+    "Milestones/risk ratings are provisional planning content.",
+    "December 15 final date follows the tentative local Fall 2026 syllabus, page 6; October 30 extension follows the newer portal announcement."
+  ]
+}

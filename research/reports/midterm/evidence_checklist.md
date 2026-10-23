@@ -1,5 +1,13 @@
 # Midterm draft: evidence and submission checklist
 
+**October 23 readable version:** review [readable v2](midterm_readable_v2.md) and
+its [four-page PDF](midterm_readable_v2.pdf). The original detailed draft below
+remains unchanged. Its Table 3 becomes readable v2's Table 2; component counts
+are summarized in prose. The
+[change summary](readable_v2_changes.md) records retained qualifications and PDF
+checks. The page limit is verified for readable v2, including references; user
+review and the slide deck remain pending.
+
 Prepared October 21; updated October 22, 2026. Start with the
 [revised report draft](midterm_draft.md), now organized under the instructor's
 seven-part template. RQ1's bounded diagnostics are largely complete; RQ2
@@ -158,9 +166,9 @@ three compact material files, and does not install dependencies or use a GPU.
   completion criteria and a final evaluation plan.
 - [x] Integrate random-seed SD and the selected component results, keeping all
   scoring/cohort qualifications visible.
-- [ ] Typeset to 3–4 pages and inspect the final layout. **The Markdown draft is
-  not a verified page count or submission-ready PDF.** Assume references count
-  toward the limit unless the instructor says otherwise.
+- [x] Readable v2 is typeset to **four pages including references** and its
+  rendered pages were visually inspected. The original detailed draft remains
+  a separate Markdown source; user review is still pending before submission.
 - [ ] Prepare the approximately five-slide deck: title/motivation; method diagram;
   one key result; roadblock/fix/status; three next-step bullets including one
   quantified success criterion. A slide deck has not been created yet.
