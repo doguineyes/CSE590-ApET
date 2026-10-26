@@ -6,7 +6,7 @@
 
 ## 1. Abstract
 
-This project asks when and why reconstruction-based visual token compression preserves a vision-language model's answers. We study ApET [1] with LLaVA-1.5-7B [3] on GQA, MMStar and TextVQA. We built a reproducible evaluation pipeline. On GQA, our runs keep the same share of uncompressed accuracy as the ApET paper at matched token budgets. On a 30-question diagnostic panel, ApET's reconstruction error does not consistently rank individual visual tokens by their effect on the answer: median per-question correlations range from −0.14 to +0.01. Yet at an average budget of 64 tokens, complete ApET beats random pruning by 20.9 points on TextVQA and 2.5 points on GQA. On MMStar, where the uncompressed model is near chance, there is no detectable difference. Almost all of ApET's advantage comes from losing fewer correct answers, not from gaining new ones. It is still unclear which part of ApET produces this advantage: error ranking, its basis tokens, or merging. In the second half, we will test this with matched random controls before deciding whether any modification to ApET is justified.
+This project asks when and why reconstruction-based visual token compression preserves a vision-language model's answers. We study ApET [1] with LLaVA-1.5-7B [3] on GQA, MMStar and TextVQA. We built a reproducible evaluation pipeline. On GQA, our runs keep the same share of uncompressed accuracy as the ApET paper at matched token budgets. On a 30-question diagnostic panel, ApET's reconstruction error does not consistently rank individual visual tokens by their effect on the answer: median per-question correlations range from −0.14 to +0.01. Yet at an average budget of 64 tokens, complete ApET beats random pruning by 20.9 points on TextVQA and 2.5 points on GQA. On MMStar, where the uncompressed model is near chance, there is no detectable difference. Almost all of ApET's advantage comes from losing fewer correct answers, not from gaining new ones. It is still unclear which part of ApET produces this advantage: error ranking, its basis tokens, or merging. The second half will first decide, after further analysis, how best to investigate this, and then whether any modification to ApET is justified.
 
 ## 2. Problem Statement and Goal Recap
 
@@ -122,28 +122,29 @@ Dependency drift on Kaggle was the main early roadblock. The locked environment 
 | Answer-sensitivity measures disagree | High / High | Yellow: two measures reported side by side | Restrict claims to each defined measure |
 | Selection bias in diagnostic panels | High / High | Yellow: identified; panel used only for RQ1 and case studies | Run all component comparisons on unselected cohorts |
 | Fresh-run variation | Medium / Medium | Yellow: replays exact; fresh changes logged | Repeat only cases a conclusion depends on |
-| RQ2 attribution stays unclear; no RQ3 candidate | Medium / Medium | Yellow: candidate controls named (Sec. 6) | Report a well-controlled negative result |
+| RQ2 attribution stays unclear; no RQ3 candidate | Medium / Medium | Yellow: candidate directions listed (Sec. 6) | Report a well-controlled negative result |
 
 ## 6. Updated Plan and Milestones
 
-The main comparisons ran earlier than planned. The next step is to separate H1 from H2 using controls on unselected cohorts. Candidate arms, each with three seeds at both schedules:
+The main comparisons ran earlier than planned. The second half therefore begins with a decision rather than a fixed experiment: which open question to pursue next, and with what method. Making that choice well requires more analysis of the existing results. Directions currently under consideration include:
 
-- **Basis-fixed random:** keep ApET's basis and merging, and randomize the other retained tokens. This removes only E-ranking.
-- **Content-only random:** random pruning restricted to non-padding positions, with no basis or merging. This tests whether ApET's advantage is mostly avoiding padding.
+- **Separating H1 and H2 (RQ2).** One option is a basis-fixed random arm, which keeps ApET's basis and merging but randomizes the other retained tokens, so only E-ranking is removed. Another is a content-only random arm, which prunes randomly among non-padding positions. TextVQA would be the natural main cohort, because the ApET–random gap there is large enough to detect.
+- **Question-dependent failures.** Finding 1 and Section 4.5 both suggest that failures depend on the question, not only the image. Analyzing which kinds of questions ApET loses may point to a different RQ3 direction than an image-level budget.
+- **Merge-induced failures.** Estimating how often Brolio-type failures occur in unselected cohorts would show whether changes to merging are worth pursuing.
 
-TextVQA is the main cohort because the ApET–random gap is large enough to detect. We will expand it beyond 100 questions if compute allows, and add GQA as a secondary cohort.
+None of these is committed. Whichever direction is chosen will be run on unselected cohorts, with its conditions and analysis fixed in writing before any runs.
 
 **Table 4.** Milestones.
 
 | Target | Deliverable and completion criterion |
 |---|---|
 | Oct 30 | Submit report PDF and ~five-slide deck |
-| Nov 6 | Fix the arms, cohorts and analysis for the H1/H2 comparison in writing before running |
-| Nov 13 | Complete the comparison at both schedules: scores, APR, losses/gains, paired intervals, replay checks |
+| Nov 6 | Choose the next-stage direction and method after further analysis of existing results; record the choice and rationale, or why existing evidence is insufficient |
+| Nov 13 | Run the chosen comparison, if feasible: scores, APR, losses/gains, paired intervals, replay checks |
 | Nov 20 | RQ3 go/no-go: justify one modification, or document why none is supported |
 | Dec 15 (tentative) | Final presentation and report/code submission |
 
-Success criterion for the next phase: a component is credited with part of ApET's advantage only if the paired interval between its arm and complete ApET, or pure random, excludes zero on the main cohort. If an RQ3 modification is chosen, it will be compared with fixed-budget ApET at the same average token count on held-out GQA questions not used during development. An informative negative result is an acceptable outcome. No accuracy improvement is promised.
+Whichever direction is chosen, the same evaluation standards apply: matched token counts at both schedules, three random seeds where applicable, paired intervals, and losses and gains reported alongside accuracy. If an RQ3 modification is chosen, it will be compared with fixed-budget ApET at the same average token count on held-out GQA questions not used during development. An informative negative result is an acceptable outcome. No accuracy improvement is promised.
 
 ## 7. References
 
