@@ -1,0 +1,28 @@
+dataset,condition,questions,baseline_correct,correct,score_percent,preserved,losses,gains,apr_percent,both_wrong,correct_definition
+textvqa,baseline576,100,44,44,49.7,44,0,0,100.0,56,Full ten-annotator consensus credit
+textvqa,native-96-to-32,100,44,37,41.5,34,10,3,77.27272727272727,53,Full ten-annotator consensus credit
+textvqa,pure-random-96-to-32-s101,100,44,15,17.1,13,31,2,29.545454545454547,54,Full ten-annotator consensus credit
+textvqa,pure-random-96-to-32-s202,100,44,20,23.0,15,29,5,34.09090909090909,51,Full ten-annotator consensus credit
+textvqa,pure-random-96-to-32-s303,100,44,20,21.8,18,26,2,40.90909090909091,54,Full ten-annotator consensus credit
+textvqa,native-288-to-96,100,44,40,44.2,37,7,3,84.0909090909091,53,Full ten-annotator consensus credit
+textvqa,pure-random-288-to-96-s101,100,44,32,35.599999999999994,28,16,4,63.63636363636363,52,Full ten-annotator consensus credit
+textvqa,pure-random-288-to-96-s202,100,44,34,39.099999999999994,32,12,2,72.72727272727273,54,Full ten-annotator consensus credit
+textvqa,pure-random-288-to-96-s303,100,44,26,29.600000000000005,24,20,2,54.54545454545455,54,Full ten-annotator consensus credit
+gqa,baseline576,800,552,552,69.0,552,0,0,100.0,248,Frozen project scorer
+gqa,native-96-to-32,800,552,510,63.74999999999999,474,78,36,85.8695652173913,212,Frozen project scorer
+gqa,pure-random-96-to-32-s101,800,552,483,60.375,448,104,35,81.15942028985508,213,Frozen project scorer
+gqa,pure-random-96-to-32-s202,800,552,494,61.75000000000001,460,92,34,83.33333333333333,214,Frozen project scorer
+gqa,pure-random-96-to-32-s303,800,552,494,61.75000000000001,456,96,38,82.6086956521739,210,Frozen project scorer
+gqa,native-288-to-96,800,552,544,68.0,518,34,26,93.84057971014492,222,Frozen project scorer
+gqa,pure-random-288-to-96-s101,800,552,529,66.125,501,51,28,90.76086956521739,220,Frozen project scorer
+gqa,pure-random-288-to-96-s202,800,552,537,67.125,511,41,26,92.57246376811594,222,Frozen project scorer
+gqa,pure-random-288-to-96-s303,800,552,538,67.25,510,42,28,92.3913043478261,220,Frozen project scorer
+mmstar,baseline576,1500,521,521,34.733333333333334,521,0,0,100.0,979,Frozen project scorer
+mmstar,native-96-to-32,1500,521,501,33.4,442,79,59,84.83685220729366,920,Frozen project scorer
+mmstar,pure-random-96-to-32-s101,1500,521,503,33.53333333333333,442,79,61,84.83685220729366,918,Frozen project scorer
+mmstar,pure-random-96-to-32-s202,1500,521,511,34.06666666666667,448,73,63,85.98848368522073,916,Frozen project scorer
+mmstar,pure-random-96-to-32-s303,1500,521,495,33.0,445,76,50,85.4126679462572,929,Frozen project scorer
+mmstar,native-288-to-96,1500,521,525,35.0,485,36,40,93.09021113243762,939,Frozen project scorer
+mmstar,pure-random-288-to-96-s101,1500,521,526,35.06666666666667,480,41,46,92.13051823416507,933,Frozen project scorer
+mmstar,pure-random-288-to-96-s202,1500,521,533,35.53333333333333,484,37,49,92.89827255278311,930,Frozen project scorer
+mmstar,pure-random-288-to-96-s303,1500,521,525,35.0,482,39,43,92.51439539347409,936,Frozen project scorer

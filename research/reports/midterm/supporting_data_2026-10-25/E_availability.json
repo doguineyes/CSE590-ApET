@@ -1,0 +1,66 @@
+[
+  {
+    "dataset": "textvqa",
+    "archive": "rq2-staged-textvqa100-v1-20261021T134751714241Z.zip",
+    "archive_sha256": "52e593236faac3f22bd20da85a1dcf7e8f0508d7dd1ff0a036e176fca8089f76",
+    "questions": 100,
+    "distinct_images": 100,
+    "encoding_records": 100,
+    "input_E_records": 200,
+    "input_positions_per_record": 576,
+    "basis_positions_per_record": 10,
+    "decoder_E_records": 200,
+    "decoder_positions": [
+      96,
+      288
+    ],
+    "input_errors_exact_between_schedules": 100,
+    "input_basis_exact_between_schedules": 100,
+    "max_input_error_delta_between_schedules": 0.0,
+    "text_prompt_checks": {
+      "arms": 900,
+      "generation_question_matches": 900,
+      "prompt_matches": 900
+    }
+  },
+  {
+    "dataset": "gqa",
+    "archive": "rq2-staged-gqa800-v1-20261021T142303483991Z.zip",
+    "archive_sha256": "58ef6ea2228fdcb38d3cb6bdee2f67dccf5e9ee9d8cda3fab9c67a1b69fe3c73",
+    "questions": 800,
+    "distinct_images": 100,
+    "encoding_records": 100,
+    "input_E_records": 200,
+    "input_positions_per_record": 576,
+    "basis_positions_per_record": 10,
+    "decoder_E_records": 1600,
+    "decoder_positions": [
+      96,
+      288
+    ],
+    "input_errors_exact_between_schedules": 100,
+    "input_basis_exact_between_schedules": 100,
+    "max_input_error_delta_between_schedules": 0.0,
+    "text_prompt_checks": null
+  },
+  {
+    "dataset": "mmstar",
+    "archive": "rq2-staged-mmstar1500-v1-20261021T153730115642Z.zip",
+    "archive_sha256": "55896bafdb5d9d7ab51c3024b2465c2b0e73933adf08a86bc51aa41168ebe641",
+    "questions": 1500,
+    "distinct_images": 1430,
+    "encoding_records": 1500,
+    "input_E_records": 3000,
+    "input_positions_per_record": 576,
+    "basis_positions_per_record": 10,
+    "decoder_E_records": 3000,
+    "decoder_positions": [
+      96,
+      288
+    ],
+    "input_errors_exact_between_schedules": 1500,
+    "input_basis_exact_between_schedules": 1500,
+    "max_input_error_delta_between_schedules": 0.0,
+    "text_prompt_checks": null
+  }
+]

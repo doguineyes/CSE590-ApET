@@ -1,0 +1,68 @@
+{
+  "case_id": "textvqa:37533",
+  "archive": "rq2-staged-textvqa100-v1-20261021T134751714241Z.zip",
+  "member": "questions/textvqa-37533.json",
+  "question": "what brand of wine is this?",
+  "generation": {
+    "configuration": "rq2-staged-calibration-v1-baseline576",
+    "settings": {
+      "input_tokens": 576,
+      "layers": [],
+      "decoder_tokens": [],
+      "basis_tokens": 10
+    },
+    "seed": 732721380,
+    "status": "passed",
+    "question": "what brand of wine is this?\nAnswer the question using a single word or phrase.",
+    "prompt": "A chat between a curious user and an artificial intelligence assistant. The assistant gives helpful, detailed, and polite answers to the user's questions. USER: <image>\nwhat brand of wine is this?\nAnswer the question using a single word or phrase. ASSISTANT:",
+    "prompt_tokens_before_expansion": 61,
+    "expanded_prompt_tokens": 636,
+    "trace": {
+      "input": {
+        "before": 576,
+        "after": 576
+      }
+    },
+    "generation_seconds": 0.637,
+    "response": "Brolio",
+    "generated_tokens": 3,
+    "peak_allocated_gib": {
+      "0": 7.44,
+      "1": 7.314
+    }
+  },
+  "scoring": {
+    "prediction": "brolio",
+    "consensus_score": 1.0,
+    "full_credit": true,
+    "positive_credit": true,
+    "scoring_version": "native-textvqa-consensus-v1",
+    "correct": true,
+    "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+  },
+  "template": "<Vicuna-v1 system> USER: <image>\\n{question}\\nAnswer the question using a single word or phrase. ASSISTANT:",
+  "inputs": "Image and question; no added OCR transcript or reference answers",
+  "project_generation": {
+    "do_sample": false,
+    "max_new_tokens": 16,
+    "use_cache": true,
+    "dtype": "FP16",
+    "batch_size": 1
+  },
+  "reference_code": {
+    "shell": "scripts/llava1_5/textvqa.sh",
+    "loader": "llava/eval/model_vqa_loader.py",
+    "scorer": "llava/eval/eval_textvqa.py",
+    "question_file": "data/eval/textvqa/llava_textvqa_val_v051_ocr.jsonl",
+    "conv_mode": "vicuna_v1",
+    "temperature": 0,
+    "loader_default_max_new_tokens": 128,
+    "actual_question_file_available_locally": false
+  },
+  "paper_comparison": {
+    "paper_full576_TextVQA": 58.2,
+    "project_screening100_full576": 49.7,
+    "difference_pp": -8.5,
+    "warning": "Different evaluation cohort. The local reference launcher names an OCR question file, and the reference scorer supports OCR-formatted prompts, but that input file is absent. Exact paper prompt parity is unverified. Neither OCR nor length differences establish the cause of the score gap; no paired prompt ablation was run."
+  }
+}

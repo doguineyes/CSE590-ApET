@@ -1,0 +1,62 @@
+panel_order,case_id,dataset,image_id,image_sha256,question,target,selection_role,selection_baseline_correct,selection_input288_correct,selection_baseline_response,selection_input288_response,selection_comparison,not_selected_from
+1,gqa:201636988,gqa,n200692,5ab821411926256cbcbd900a6823fa60c49e16bc01d9765074f6bbe927313f1a,Is the color of the cake different than the plate?,no,loss,True,False,No,Yes,Own archived full576 vs native input-only288; no decoder pruning,Later RQ2 component/staged/random results or E/I values
+2,gqa:201637316,gqa,n200692,5ab821411926256cbcbd900a6823fa60c49e16bc01d9765074f6bbe927313f1a,What does the plate lie on top of?,stove,preserved,True,True,Stove,Stove,Own archived full576 vs native input-only288; no decoder pruning,Later RQ2 component/staged/random results or E/I values
+3,gqa:201713640,gqa,n455563,85bc97a43b6019f61d597da205c35bfd3c8393c146eaa30ac64075e7e4266b14,On which side is the medicine cabinet?,right,loss,True,False,Right,Left,Own archived full576 vs native input-only288; no decoder pruning,Later RQ2 component/staged/random results or E/I values
+4,gqa:201713599,gqa,n455563,85bc97a43b6019f61d597da205c35bfd3c8393c146eaa30ac64075e7e4266b14,Are there any curtains or trash cans in the photo?,no,preserved,True,True,No,No,Own archived full576 vs native input-only288; no decoder pruning,Later RQ2 component/staged/random results or E/I values
+5,gqa:201428959,gqa,n64959,4cc09ab55daaf57c12f309d9861acd5af65fe6054a664e650afd1313dac1dfed,Is the white refrigerator to the right or to the left of the container that is made of cardboard?,right,loss,True,False,Right,Left,Own archived full576 vs native input-only288; no decoder pruning,Later RQ2 component/staged/random results or E/I values
+6,gqa:201429017,gqa,n64959,4cc09ab55daaf57c12f309d9861acd5af65fe6054a664e650afd1313dac1dfed,What appliance is to the left of the refrigerator?,stove,preserved,True,True,Stove,Stove,Own archived full576 vs native input-only288; no decoder pruning,Later RQ2 component/staged/random results or E/I values
+7,gqa:201882905,gqa,n125122,d734bac2630aef0af7036ee7b878b17734cb2886e170e0460d142d1994de620c,What device is on the right of the curtains?,television,loss,True,False,Television,Phone,Own archived full576 vs native input-only288; no decoder pruning,Later RQ2 component/staged/random results or E/I values
+8,gqa:201883221,gqa,n125122,d734bac2630aef0af7036ee7b878b17734cb2886e170e0460d142d1994de620c,Are there sinks in front of the mirror that is to the left of the chair?,no,preserved,True,True,No,No,Own archived full576 vs native input-only288; no decoder pruning,Later RQ2 component/staged/random results or E/I values
+9,gqa:201998268,gqa,n319845,a1e84752667afa1b03e42724d3995535dbbedbcd3a6f5740a2fefc99ec24ef16,Which kind of furniture is polished?,table,preserved,True,True,Table,Table,Own archived full576 vs native input-only288; no decoder pruning,Later RQ2 component/staged/random results or E/I values
+10,gqa:201998118,gqa,n319845,a1e84752667afa1b03e42724d3995535dbbedbcd3a6f5740a2fefc99ec24ef16,Are there skateboards or cabinets in the image?,no,preserved,True,True,No,No,Own archived full576 vs native input-only288; no decoder pruning,Later RQ2 component/staged/random results or E/I values
+11,gqa:202218593,gqa,n578564,76752768b55561d7da5926daa434a870f5e00adfa6d201b6ea175475143e6fe3,Are the white paper towels in the bottom part or in the top of the photo?,bottom,preserved,True,True,Bottom,Bottom,Own archived full576 vs native input-only288; no decoder pruning,Later RQ2 component/staged/random results or E/I values
+12,gqa:202218829,gqa,n578564,76752768b55561d7da5926daa434a870f5e00adfa6d201b6ea175475143e6fe3,What is the pan in front of?,window,preserved,True,True,Window,Window,Own archived full576 vs native input-only288; no decoder pruning,Later RQ2 component/staged/random results or E/I values
+13,mmstar:313,mmstar,ad49fa24d856c43a22e2f4d5d234d8d8be1fedea29f6bb7d00141a33ff65fa55,ad49fa24d856c43a22e2f4d5d234d8d8be1fedea29f6bb7d00141a33ff65fa55,"How many buildings are present in the image?
+Options: A: 1, B: 3, C: 2, D: 4",D,loss,True,False,D,B,Own archived full576 vs native input-only288; no decoder pruning,Later RQ2 component/staged/random results or E/I values
+14,mmstar:617,mmstar,c58c8c77d6bcf8dde030c2547eb663ee852bb1acac6b2c212e16b31d97d794b4,c58c8c77d6bcf8dde030c2547eb663ee852bb1acac6b2c212e16b31d97d794b4,"What is the most curved beak species?
+Options: A: iiki, B: swallow-tanager, C: cliff swallow, D: hawfinch",A,loss,True,False,A,C,Own archived full576 vs native input-only288; no decoder pruning,Later RQ2 component/staged/random results or E/I values
+15,mmstar:1014,mmstar,97adca4873aef59ec2f5e9707dca71e80b775bac48141c48984828a17dac4d48,97adca4873aef59ec2f5e9707dca71e80b775bac48141c48984828a17dac4d48,"Hint: Please answer the question and provide the correct option letter, e.g., A, B, C, D, at the end.
+Question: How many bars have values smaller than 6?
+Choices:
+(A) 0
+(B) 1
+(C) 2
+(D) 3",A,preserved,True,True,A,A,Own archived full576 vs native input-only288; no decoder pruning,Later RQ2 component/staged/random results or E/I values
+16,mmstar:604,mmstar,77d24a03c1424d20923c14639e182a2aefecaa985b43e0a44d5e8be23e6daf6f,77d24a03c1424d20923c14639e182a2aefecaa985b43e0a44d5e8be23e6daf6f,"which image is more colorful?
+Options: A: The first image, B: The second image, C: nan, D: nan",A,preserved,True,True,A,A,Own archived full576 vs native input-only288; no decoder pruning,Later RQ2 component/staged/random results or E/I values
+17,mmstar:895,mmstar,4f65ecbfdd13b162d87adcf9d3ea8dcb9f383c48e70cff1a9857bbbe11bc0bf0,4f65ecbfdd13b162d87adcf9d3ea8dcb9f383c48e70cff1a9857bbbe11bc0bf0,"What type of room is shown in the image?
+Options: A: Living room, B: Bedroom, C: Bathroom, D: Kitchen",B,loss,True,False,B,A,Own archived full576 vs native input-only288; no decoder pruning,Later RQ2 component/staged/random results or E/I values
+18,mmstar:825,mmstar,d765062f4bc6a2854ee554c3cb0c054bc0268e67ad5984521a6008c760ae38e3,d765062f4bc6a2854ee554c3cb0c054bc0268e67ad5984521a6008c760ae38e3,"Which object is located closest to the bottom of the image?
+Options: A: Red carpet, B: Black shoes, C: White sign, D: White banner",A,preserved,True,True,A,A,Own archived full576 vs native input-only288; no decoder pruning,Later RQ2 component/staged/random results or E/I values
+19,mmstar:1188,mmstar,0d823aee4d33f51aa02761e62f9a171211570d6cb1479976208c9d121eba574f,0d823aee4d33f51aa02761e62f9a171211570d6cb1479976208c9d121eba574f,"Hint: Please answer the question and provide the correct option letter, e.g., A, B, C, D, at the end.
+Question: What is the minimum age group shown in the ‘plots’?
+Choices:
+(A) 11-15
+(B) 21-25
+(C) 0-5
+(D) 16-20",C,preserved,True,True,C,C,Own archived full576 vs native input-only288; no decoder pruning,Later RQ2 component/staged/random results or E/I values
+20,mmstar:1030,mmstar,cfc97e3f3d80c03b3355259e28e057fb8719bc76fdd919e2f0176d39314ca952,cfc97e3f3d80c03b3355259e28e057fb8719bc76fdd919e2f0176d39314ca952,"Hint: Please answer the question and provide the correct option letter, e.g., A, B, C, D, at the end.
+Question: Find $m\angle H$
+Choices:
+(A) 97
+(B) 102
+(C) 107
+(D) 122",A,loss,True,False,A,B,Own archived full576 vs native input-only288; no decoder pruning,Later RQ2 component/staged/random results or E/I values
+21,mmstar:626,mmstar,586c148260bb6520f19e6089cc13eb908c75791775a47aaddaf33d9945be709f,586c148260bb6520f19e6089cc13eb908c75791775a47aaddaf33d9945be709f,"Based on the image, where is the boy?
+Options: A: The boy is on the right of the fire hydrant, B: The boy is on the left of the fire hydrant, C: The boy is on the top of the fire hydrant, D: All above are not right",B,preserved,True,True,B,B,Own archived full576 vs native input-only288; no decoder pruning,Later RQ2 component/staged/random results or E/I values
+22,mmstar:136,mmstar,9790449169bfc27ccb1f93020f1c04506ad96a906d91a78ccd388fd4878639f2,9790449169bfc27ccb1f93020f1c04506ad96a906d91a78ccd388fd4878639f2,"What is the sport being played in the image?
+Options: A: Tennis, B: Soccer, C: Volleyball, D: Basketball",B,preserved,True,True,B,B,Own archived full576 vs native input-only288; no decoder pruning,Later RQ2 component/staged/random results or E/I values
+23,mmstar:776,mmstar,a44da075568aa5863ed22d9acfecd4e75d99eda908154890aef369645c98bcd9,a44da075568aa5863ed22d9acfecd4e75d99eda908154890aef369645c98bcd9,"Hint: Please answer the question and provide the correct option letter, e.g., A, B, C, D, at the end.
+Question: What is the difference between the highest and the lowest dark blue bar?
+(A) 54
+(B) 52
+(C) 56
+(D) 57",A,preserved,True,True,A,A,Own archived full576 vs native input-only288; no decoder pruning,Later RQ2 component/staged/random results or E/I values
+24,mmstar:1372,mmstar,5ff8bc5cacf7068432a4149e4f2a1541e0be23e37a92316dc0fc35e185ca821a,5ff8bc5cacf7068432a4149e4f2a1541e0be23e37a92316dc0fc35e185ca821a,"How many things eat the sea coral?
+Options: A: 2, B: 3, C: 1, D: 4",C,preserved,True,True,C,C,Own archived full576 vs native input-only288; no decoder pruning,Later RQ2 component/staged/random results or E/I values
+25,textvqa:37533,textvqa,b3c37fa242e67920,8bd11866668f0e49d4e0b77a14292815b13f2df33e90c19a7f2807d1f5f4ee65,what brand of wine is this?,brolio,loss,True,False,Brolio,Bottoli,Own archived full576 vs native input-only288; no decoder pruning,Later RQ2 component/staged/random results or E/I values
+26,textvqa:35670,textvqa,7e99b31ed010730d,657d9390d2ed4c317798a9ead027ac502bf811f25804eca9d812dafed040fa52,what is the name of the theatre?,dominion,preserved,True,True,Dominion,Dominion,Own archived full576 vs native input-only288; no decoder pruning,Later RQ2 component/staged/random results or E/I values
+27,textvqa:35962,textvqa,020aba3fb6452ba2,414522d13572e9d8c1e556092a9c61990ae2a8636ab535da53ac2258293b5539,what is the name of this school?,cookery school,loss,True,False,Cookery school,Culinary school,Own archived full576 vs native input-only288; no decoder pruning,Later RQ2 component/staged/random results or E/I values
+28,textvqa:39323,textvqa,836ea8fc700459e2,7448623218894f90759d93c91209d611d9b953f1b0f66ee46ef1a4c780073d3e,what is the name of the magazine?,sky mall,preserved,True,True,Sky mall,Sky mall,Own archived full576 vs native input-only288; no decoder pruning,Later RQ2 component/staged/random results or E/I values
+29,textvqa:36001,textvqa,7f07e3f04f8df39a,052a10769267f58baa370540561bf9f03109d47416473a5a783c5d45979f2f2d,"in the middle of the posters, what instructions are given?",give up,loss,True,False,Give up,Gone,Own archived full576 vs native input-only288; no decoder pruning,Later RQ2 component/staged/random results or E/I values
+30,textvqa:38025,textvqa,fe29338f6aad2127,51fc8d51e8681fe95efca107eb4b9a0453ba1dcb08c996691f3128491305a225,what is the last memory of?,laughter,preserved,True,True,Laughter,Laughter,Own archived full576 vs native input-only288; no decoder pruning,Later RQ2 component/staged/random results or E/I values

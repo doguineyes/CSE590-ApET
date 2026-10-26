@@ -1,0 +1,14 @@
+{
+  "recomputed_spearman_values": 90,
+  "maximum_absolute_difference_from_saved_synthesis": 1.1102230246251565e-16,
+  "transition_identity": "All 27 conditions satisfy correct = baseline_correct - losses + gains",
+  "fold_image_leakage": 0,
+  "input_output_rows": {
+    "panel_cases.csv": 30,
+    "table2_preservation.csv": 6,
+    "large_cohort_input_E.csv": 3400,
+    "large_cohort_question_E_outcomes.csv": 4800,
+    "decoder_E_statistics.csv": 4800,
+    "e_loss_oof_predictions.csv": 2234
+  }
+}

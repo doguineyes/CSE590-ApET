@@ -1,0 +1,26 @@
+{
+  "date": "2026-10-25",
+  "status": "Exploratory saved-data analysis plan fixed before computing E/outcome associations; the source cohorts and outcomes were already reviewed. Not a confirmatory preregistration.",
+  "no_new_gpu_runs": true,
+  "outcome": "Among questions correct in full576, does the first captured native staged condition lose correctness? TextVQA uses full consensus credit; GQA/MMStar use their frozen correct flags.",
+  "datasets_separate": ["TextVQA100 screening/development", "GQA800 development", "MMStar1500 pinned full set"],
+  "schedules": ["96-to-32", "288-to-96"],
+  "feature_boundary": "Input CLIP reconstruction errors before projection/compression; omit the ten FPS basis source positions for primary summaries. Export all-position summaries too. Decoder E is inventoried/exported but not used to predict an input-budget decision.",
+  "descriptive_features": ["nonbasis_mean", "nonbasis_std", "nonbasis_cv", "nonbasis_p90", "nonbasis_p90_over_median", "nonbasis_top10_mass"],
+  "primary_predictor": {
+    "type": "Three-feature ridge logistic regression",
+    "features": ["log1p(nonbasis_mean)", "nonbasis_cv", "nonbasis_top10_mass"],
+    "penalty": "L2 coefficient 1.0 on standardized slope coefficients, summed log likelihood; intercept unpenalized",
+    "validation": "Five folds assigned by seeded deterministic image-byte-hash grouping, independent of outcome. Same image never crosses train/test. Standardize using training folds only; no feature/hyperparameter search.",
+    "seed": 59025
+  },
+  "metrics": ["AUROC of fixed higher-E-feature directions (descriptive)", "out-of-fold AUROC of the three-feature model", "out-of-fold Brier score versus training-fold prevalence predictor"],
+  "uncertainty": "1000 image-cluster bootstrap resamples of fixed scores/out-of-fold predictions; question-weighted estimand. Intervals do not include refitting/split choice, fresh native numerical variation, or independent external validation.",
+  "scope_limits": [
+    "Do not pool datasets or count questions sharing images as independent images.",
+    "Small TextVQA baseline-correct denominator and few losses limit precision.",
+    "Image-only E cannot distinguish differently affected questions on the same image when their encoding is shared.",
+    "Association is not causation, a deployed adaptive-budget policy, or evidence of an improved accuracy-token tradeoff.",
+    "All outcomes remain first primary captures; no samples are retried, relabeled or removed based on prediction success."
+  ]
+}
