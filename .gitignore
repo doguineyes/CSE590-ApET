@@ -225,3 +225,8 @@ video-llava/videollava/eval/table/results/
 !.vscode/
 .vscode/*
 !.vscode/settings.json
+
+*.mov
+*.mp4
+*.avi
+*.mkv
