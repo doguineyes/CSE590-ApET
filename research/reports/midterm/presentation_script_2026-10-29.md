@@ -1,0 +1,82 @@
+# Midterm presentation script
+
+For the five-slide deck in `submit/`. Read the paragraphs aloud; headings and timing notes are not spoken. The plain-text companion contains the same narration.
+
+Aim for about six minutes. The narration is about 680 words: roughly 5.6–6.6 minutes at 110–130 words per minute, including short pauses. Speak slowly, pause between the three findings on slide 3, and do not read every number or table cell. Timing is an estimate until you rehearse once.
+
+| Slide | Approximate time in the video |
+|---|---|
+| 1. Motivation | 0:00–0:55 |
+| 2. Method and research questions | 0:55–2:05 |
+| 3. Three findings | 2:05–4:10 |
+| 4. Roadblocks | 4:10–5:05 |
+| 5. Next steps | 5:05–6:05 |
+
+## Slide 1 — Motivation
+
+Hello, I’m Peng Chen. My project asks when and why ApET preserves a vision-language model’s answers.
+
+Many visual tokens make inference expensive. ApET compresses them without training. It keeps tokens that are difficult to reconstruct from a small set of basis tokens. It combines the other tokens with similar retained tokens.
+
+The original paper reports about ninety-five percent of its average benchmark performance at a much smaller token budget. The speedup shown here also comes from that paper, not my Kaggle measurements.
+
+My goal is to understand this result. Does preserving visual features also preserve the information needed for a particular answer?
+
+## Slide 2 — Method and research questions
+
+I use LLaVA one point five, with seven billion parameters, and the native ApET implementation. The model starts with five hundred and seventy-six visual tokens.
+
+ApET compresses twice: before the language model, and after decoder block sixteen. The two schedules average sixty-four or one hundred and ninety-two visual tokens across the decoder layers.
+
+I built a locked environment on Kaggle with two T4 GPUs. The larger comparisons use eight hundred GQA questions, fifteen hundred MMStar questions, and one hundred TextVQA questions.
+
+There are three research questions. RQ1 compares reconstruction error with measured answer sensitivity. RQ2 asks how selection and merging contribute to the result. RQ3 asks whether the evidence supports a lightweight improvement.
+
+RQ1’s small diagnostic study is largely complete. RQ2 still needs deeper interpretation, and RQ3 remains exploratory.
+
+## Slide 3 — Three findings
+
+The first finding concerns individual tokens. I used a retain-one test inspired by Information Horizon.
+
+For thirty selected questions that the uncompressed model answered correctly, I kept one visual token at a time. I measured the probability of the first token of the reference answer, compared with removing all visual tokens.
+
+Reconstruction error did not consistently agree with this sensitivity measure. The median correlations were slightly negative, although individual questions differed. This describes our selected set and this particular test, rather than proving which tokens are truly important. Zeroing one token also gave different rankings.
+
+On six questions, checking after block sixteen also gave no consistent improvement.
+
+The second finding concerns the complete compression method. At the sixty-four-token average budget, ApET scores forty-one point five on TextVQA, versus twenty point six for random pruning. The gap is about twenty-one percentage points. On GQA, it is about two and a half points. MMStar shows no clear difference.
+
+The token counts match, and random results average three seeds. TextVQA uses partial credit, while GQA and MMStar use accuracy. The whole-method comparison does not yet tell us which component causes the advantage.
+
+The third finding is answer turnover. At the larger budget, GQA loses thirty-four previously correct answers and gains twenty-six. Overall accuracy drops by just one point. MMStar loses thirty-six and gains forty, so accuracy rises slightly.
+
+That is why I record individual losses and gains alongside the overall score.
+
+## Slide 4 — Roadblocks and fixes
+
+The first roadblock was dependency compatibility. Kaggle updates caused problems with the older ApET code. A locked environment now makes the setup reproducible.
+
+The second issue is numerical variation. Some fresh compressed runs change answers, while replaying saved features gives identical outputs. One diagnostic located feature differences after merging. Floating-point accumulation is a possible cause, but the exact cause is still unconfirmed. I preserve the first runs and repeat critical cases.
+
+The third issue is selection bias. The small diagnostic set includes known ApET failures. It is useful for studying cases, but cannot establish that random selection is generally better.
+
+## Slide 5 — Next steps
+
+Next, I will focus on RQ2. One candidate is to change selection while keeping the merging rule fixed. Another is to compare merging with dropping under the same selection. Reconstructed-feature replacement is a possible diagnostic, not a finished improvement.
+
+I will first choose one comparison and write its protocol. The target is at least one hundred questions selected without using ApET’s outcomes, with matched budgets, three seeds where relevant, and paired confidence intervals.
+
+RQ3 remains conditional on what this analysis shows. A clear negative result will also be useful.
+
+At midterm, the pipeline and preliminary evidence are ready. The main remaining task is explaining the component effects. Thank you.
+
+---
+
+## Recording notes — not spoken
+
+- Use the same five slides. Pause briefly when changing slides.
+- On slide 3, guide the audience from left to middle to right. Spend the most time here.
+- “Sixty-four tokens” means the average over decoder layers, not sixty-four tokens at both stages.
+- The ninety-five-percent performance and speedup on slide 1 are published results; the later dataset scores are our results.
+- Avoid saying that IH measures true importance, that random is generally better, or that the numerical root cause is confirmed.
+- If you run long, omit the reconstructed-feature sentence on slide 5 and the zeroing sentence on slide 3. Keep the result definitions and selection-bias qualification.
