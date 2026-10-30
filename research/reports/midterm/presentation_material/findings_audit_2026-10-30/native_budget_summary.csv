@@ -1,0 +1,4 @@
+dataset,questions,both_wrong,both_correct,recovered_at_larger,lost_at_larger,baseline_correct_lost_at_larger,baseline_correct_recovered_at_larger
+textvqa,100,56,33,7,4,3,6
+gqa,800,228,482,62,28,11,55
+mmstar,1500,932,458,67,43,8,51

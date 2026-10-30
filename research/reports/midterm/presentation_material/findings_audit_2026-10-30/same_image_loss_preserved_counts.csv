@@ -1,0 +1,7 @@
+dataset,schedule,baseline_correct_image_groups,images_with_both_lost_and_preserved
+textvqa,96-to-32,44,0
+textvqa,288-to-96,44,0
+gqa,96-to-32,100,56
+gqa,288-to-96,100,27
+mmstar,96-to-32,513,1
+mmstar,288-to-96,513,1

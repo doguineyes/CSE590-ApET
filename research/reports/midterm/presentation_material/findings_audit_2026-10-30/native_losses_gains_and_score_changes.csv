@@ -1,0 +1,691 @@
+dataset,case_id,image_sha256,schedule,question,gold,baseline_response,native_response,baseline_score,native_score,transition
+textvqa,textvqa:34764,032073a905d4c1f0e7127c37010043e582c66ed9ca075368eddd942716b46ba0,96-to-32,what university is represented on these uniforms?,umd | umd | umd | umd | umd | umd | umd | umd | umd | umd,Um,Umd,0.0,1.0,gain
+textvqa,textvqa:34764,032073a905d4c1f0e7127c37010043e582c66ed9ca075368eddd942716b46ba0,288-to-96,what university is represented on these uniforms?,umd | umd | umd | umd | umd | umd | umd | umd | umd | umd,Um,Umd,0.0,1.0,gain
+textvqa,textvqa:34924,38510d3db02aa76340a4a97d16062483a5848bcdcf1802465eeb7c21e80ea658,96-to-32,what is the name of the bar?,moon bar | moon bar | moo bar | moon bar | moon bar | moon bar | moon bar | moo bar | moon | moon bar,Noodle shop,Moon,0.0,0.3,both_wrong
+textvqa,textvqa:35670,657d9390d2ed4c317798a9ead027ac502bf811f25804eca9d812dafed040fa52,96-to-32,what is the name of the theatre?,dominion | dominion | dominion | dominion | dominion | dominion | dominion | saison dupont | dominion | dominion,Dominion,Will,1.0,0.0,loss
+textvqa,textvqa:35962,414522d13572e9d8c1e556092a9c61990ae2a8636ab535da53ac2258293b5539,96-to-32,what is the name of this school?,cookery school | cookery school | cookery school | cookeryschool | cookery school | cookery school | cookery school | first | cookery | cookery school,Cookery school,Cooking school,1.0,0.0,loss
+textvqa,textvqa:35962,414522d13572e9d8c1e556092a9c61990ae2a8636ab535da53ac2258293b5539,288-to-96,what is the name of this school?,cookery school | cookery school | cookery school | cookeryschool | cookery school | cookery school | cookery school | first | cookery | cookery school,Cookery school,Culinary,1.0,0.0,loss
+textvqa,textvqa:36001,052a10769267f58baa370540561bf9f03109d47416473a5a783c5d45979f2f2d,96-to-32,"in the middle of the posters, what instructions are given?",give up | give up | give up | home run | give up | give up | give up | give up | give up | give up,Give up,Gonna,1.0,0.0,loss
+textvqa,textvqa:36001,052a10769267f58baa370540561bf9f03109d47416473a5a783c5d45979f2f2d,288-to-96,"in the middle of the posters, what instructions are given?",give up | give up | give up | home run | give up | give up | give up | give up | give up | give up,Give up,Gone,1.0,0.0,loss
+textvqa,textvqa:36584,261fc9eb72cb943a52cce25a425cb45616c8d7d1b30bfa4084f1de722f9fd82d,96-to-32,what is the score?,"7-7 | 7 to 7 | 7-7 | 7 7 | 7 to 7 | 7 - 7  | 7, 7 | 7-7 | 7-7 | 7 to 7",7-7,Harvard 7 yale 0,1.0,0.0,loss
+textvqa,textvqa:36773,d7d874a0b2057d7555b9e2c18d2584a075cc36ba0bfd5e0211ee2b2937e07b67,96-to-32,what is the name of the beer?,meantime | meantime | meantime | meantime  | meantime | meantime | meantime | meantime | meantime london pale ale | meantime,Meantime,Meant,1.0,0.0,loss
+textvqa,textvqa:37034,3e373264eece9a6344435ab3927f7ac385de0eb874a110b4920dc7e3bfc1399d,96-to-32,"when does this new series start, according to the sign?",monday | monday nights | monday | monday | monday nights | monday | monday | monday night | monday might | monday nights,Monday night,Monday,0.3,1.0,gain
+textvqa,textvqa:37034,3e373264eece9a6344435ab3927f7ac385de0eb874a110b4920dc7e3bfc1399d,288-to-96,"when does this new series start, according to the sign?",monday | monday nights | monday | monday | monday nights | monday | monday | monday night | monday might | monday nights,Monday night,Monday,0.3,1.0,gain
+textvqa,textvqa:37085,6c793792c16e91f86aba2db096bb807db5df1a4fba823b7b538be7085e33edef,96-to-32,what does the sign say?,first! | first! | first! | first! | community first | first | first | first | first! | community first,Summers first,First,0.0,1.0,gain
+textvqa,textvqa:37533,8bd11866668f0e49d4e0b77a14292815b13f2df33e90c19a7f2807d1f5f4ee65,96-to-32,what brand of wine is this?,brolio  | brolio | brolio | brolio | brolio | brolio | brolio | brolio | brolio | brolio,Brolio,Travel,1.0,0.0,loss
+textvqa,textvqa:37533,8bd11866668f0e49d4e0b77a14292815b13f2df33e90c19a7f2807d1f5f4ee65,288-to-96,what brand of wine is this?,brolio  | brolio | brolio | brolio | brolio | brolio | brolio | brolio | brolio | brolio,Brolio,Castello di rivoli,1.0,0.0,loss
+textvqa,textvqa:37680,b415dd363040847585ec962fea420518df4bfa5a162b3ba4b33cc31720a8037a,288-to-96,what is the word written in red?,stiegl | stiegl | stiegl | stiegl | stiegl | stiegl | stiegl | stiegl | stiegl | stiegl,Steigl,Stiegl,0.0,1.0,gain
+textvqa,textvqa:37815,a4473195834cfda7e15e9642ed4072a6800c5730955ef269912e39ae0154c891,96-to-32,what is the jersey number of the player in white?,23 | 23 | fire exit | 23 | 23 | 23 | 23 | 23 | 23 | 23,23,10,1.0,0.0,loss
+textvqa,textvqa:38104,e00982857cfd6c3518a9c41bf7897167505944fd8f3520f026fc5686ba612a1c,288-to-96,who' is use this?,unanswerable | unanswerable | a woman | women | women | women | princess | princess | princess | unanswerable,Princess,Woman,0.9,0.3,both_wrong
+textvqa,textvqa:38355,c872dd774d6e4001cfbeee807abf9c8e5ed62838d6db06225eb2159a2621ce77,96-to-32,what brand of wine is this?,pontet cane | pontet-cane | pontet-cane | chateau pontet-canet | pontet- canet | chateau pontet-canet | pontet-cane | chateau pontet-canet | chateua pontet cane | chateau pontet-cane,Chateau pontet-canet,Pontet-cand,0.9,0.0,both_wrong
+textvqa,textvqa:38355,c872dd774d6e4001cfbeee807abf9c8e5ed62838d6db06225eb2159a2621ce77,288-to-96,what brand of wine is this?,pontet cane | pontet-cane | pontet-cane | chateau pontet-canet | pontet- canet | chateau pontet-canet | pontet-cane | chateau pontet-canet | chateua pontet cane | chateau pontet-cane,Chateau pontet-canet,Pontet canet,0.9,0.3,both_wrong
+textvqa,textvqa:38806,27bbdb9be3017707edc3b686ba4891566467c55dd9503f0e82cff61f8c1bf278,96-to-32,whose quote is on this wall?,corbusier | corbusier | corbusier | we must refuse to afford even the slightest concession to what is; to the mess we are in now | corbusier | corbusier | corbusier | corbusier | corbusier | corbusier,Corbusier,Martin luther king,1.0,0.0,loss
+textvqa,textvqa:38830,849b8ed307fd67430025f1da4a4efef6072bfc60ca413e1ee71bd6252b14e242,96-to-32,what time do the phones read?,3:40 | 3:40 p.m. | 3:40 | 3:40 | 3:40 | 3:40pm | 3:40 | 3:40 | 3:40 | 3:40,3:40,1:55,1.0,0.0,loss
+textvqa,textvqa:38830,849b8ed307fd67430025f1da4a4efef6072bfc60ca413e1ee71bd6252b14e242,288-to-96,what time do the phones read?,3:40 | 3:40 p.m. | 3:40 | 3:40 | 3:40 | 3:40pm | 3:40 | 3:40 | 3:40 | 3:40,3:40,1:55,1.0,0.0,loss
+textvqa,textvqa:39182,cb3c08e25087bd7c914ee0c1caf057b056f6ca9dfec1a49ac27b3c42893e70c4,96-to-32,what is this ad supposed to be for?,christmas | the christmas century magazine | the christmas century magazine  | the christmas century magazine | the christmas century magazine | budweiser  | the christmas century magazine | the christmas century magazine | ther christmas century magazine | the christmas century magazine,Christmas,Magazine,0.3,0.0,both_wrong
+textvqa,textvqa:39215,8ae036fa5797ea3061e7d2c6d0bb3e507a787bdb239d0767f1a2bd5161ee93f2,288-to-96,what are they looking for?,tea | tea | tea | tea | tea | tea | tea | tea | tea | tea,Tea,Hello,1.0,0.0,loss
+textvqa,textvqa:39279,dcc5f96ac86e27957ca6af009f31ba9b1b5e7dfa58dce449b32c1f21fead6138,288-to-96,what is the parking next to?,the mall | the atrium | leisure centre | the mall | mall | the mall | the atrium | leisure centre | one is next to the mall and the other by the atrium leisure centre | leisure center,Mall,Building,1.0,0.0,loss
+textvqa,textvqa:39308,c110f6527067b4194b76a7286b4c038d0a6c49adcbb9ab390ae8fe3e2467e5e8,288-to-96,what is the web address listed below the logo?,orcid.org/0000-0003-0485-8891 | orcid.org/ | san pellegrino | orcid.org/ | orcid.org | orcid.org/ | orcid.org/ | orcid.org/0000-0003-0485-8891 | orcid.org/ | orcid.org/0000-0003-0485-8891,Orcid.org,Wwwidcom,1.0,0.0,loss
+textvqa,textvqa:39323,7448623218894f90759d93c91209d611d9b953f1b0f66ee46ef1a4c780073d3e,96-to-32,what is the name of the magazine?,sky mall | sky mall | sky mall | sky mall | sky mall | sky mall | sky mall | sky mall | sky mall | sky mall,Sky mall,Sky,1.0,0.0,loss
+gqa,gqa:201065567,a196182f9cdecee6fe0400ced83f695213dddea8271197b3bda0f8d5cf7ccb31,96-to-32,What is the piece of clothing that is black?,suit,Suit,Jacket,1.0,0.0,loss
+gqa,gqa:201065567,a196182f9cdecee6fe0400ced83f695213dddea8271197b3bda0f8d5cf7ccb31,288-to-96,What is the piece of clothing that is black?,suit,Suit,Jacket,1.0,0.0,loss
+gqa,gqa:201068716,4402b903e93462e3d646fd20992753c219b7a84ba198f3cc5f0beda9560886f4,96-to-32,On which side of the image is the water bottle?,right,Right,Left,1.0,0.0,loss
+gqa,gqa:201185031,77f7b0e10ebd59576e80fabebf5d01764425f3e56c83e58485e7700ac39daca7,96-to-32,Is the material of the ground the same as the fence post?,no,No,Yes,1.0,0.0,loss
+gqa,gqa:20118949,0c840f1e09b0d57b81f55b3a274b800da09ed7c30e1f6841bcf8e5b4148449c2,96-to-32,Does the necktie have a different color than the shoe?,no,No,Yes,1.0,0.0,loss
+gqa,gqa:20118949,0c840f1e09b0d57b81f55b3a274b800da09ed7c30e1f6841bcf8e5b4148449c2,288-to-96,Does the necktie have a different color than the shoe?,no,No,Yes,1.0,0.0,loss
+gqa,gqa:20119066,0c840f1e09b0d57b81f55b3a274b800da09ed7c30e1f6841bcf8e5b4148449c2,96-to-32,The man to the right of the woman is wearing what?,suit,Tie,Suit,0.0,1.0,gain
+gqa,gqa:20119066,0c840f1e09b0d57b81f55b3a274b800da09ed7c30e1f6841bcf8e5b4148449c2,288-to-96,The man to the right of the woman is wearing what?,suit,Tie,Suit,0.0,1.0,gain
+gqa,gqa:201301948,7dec2b76fe45e67a6729ce53da09f2e573985691249d6be3e39e28893c2b6bdd,288-to-96,Who is wearing the pants?,woman,Woman,Girl,1.0,0.0,loss
+gqa,gqa:201301953,7dec2b76fe45e67a6729ce53da09f2e573985691249d6be3e39e28893c2b6bdd,96-to-32,What is the woman holding?,racket,Racket,Tennis racket,1.0,0.0,loss
+gqa,gqa:201302009,7dec2b76fe45e67a6729ce53da09f2e573985691249d6be3e39e28893c2b6bdd,96-to-32,Are there white rackets in this image?,yes,No,Yes,0.0,1.0,gain
+gqa,gqa:201302009,7dec2b76fe45e67a6729ce53da09f2e573985691249d6be3e39e28893c2b6bdd,288-to-96,Are there white rackets in this image?,yes,No,Yes,0.0,1.0,gain
+gqa,gqa:201302044,7dec2b76fe45e67a6729ce53da09f2e573985691249d6be3e39e28893c2b6bdd,96-to-32,What color is the shirt the person is playing?,black,Black,Red,1.0,0.0,loss
+gqa,gqa:201302074,7dec2b76fe45e67a6729ce53da09f2e573985691249d6be3e39e28893c2b6bdd,96-to-32,Are the shorts clean and blue?,yes,Yes,No,1.0,0.0,loss
+gqa,gqa:201303235,907b8540f4486ead5d7dbd9fbd2f8f569f6a0ebf7f701bffcb8b5abd8f2950bb,96-to-32,What kind of furniture is on top of the floor?,chair,Chair,Table,1.0,0.0,loss
+gqa,gqa:201303361,907b8540f4486ead5d7dbd9fbd2f8f569f6a0ebf7f701bffcb8b5abd8f2950bb,96-to-32,What is the man standing beside of?,chair,Chair,Table,1.0,0.0,loss
+gqa,gqa:201303362,907b8540f4486ead5d7dbd9fbd2f8f569f6a0ebf7f701bffcb8b5abd8f2950bb,96-to-32,What item of furniture is the old man standing beside of?,chair,Chair,Table,1.0,0.0,loss
+gqa,gqa:201336940,af104e152d80b4390471490c0adf6762cc1d10e81d7ad3b849abef09e5fbdbef,288-to-96,What is the man in front of?,bench,Tree,Bench,0.0,1.0,gain
+gqa,gqa:201337154,af104e152d80b4390471490c0adf6762cc1d10e81d7ad3b849abef09e5fbdbef,96-to-32,Do the shoes have white color?,yes,Yes,No,1.0,0.0,loss
+gqa,gqa:201407228,27129cdd96ed2e5e058d40f360c6f81c9bfa5c60a6deedaa45b1938fca5977a8,96-to-32,What is in front of the man?,net,Net,Ball,1.0,0.0,loss
+gqa,gqa:201428716,4cc09ab55daaf57c12f309d9861acd5af65fe6054a664e650afd1313dac1dfed,96-to-32,Does the pipe have a different color than the fridge?,no,No,Yes,1.0,0.0,loss
+gqa,gqa:201428716,4cc09ab55daaf57c12f309d9861acd5af65fe6054a664e650afd1313dac1dfed,288-to-96,Does the pipe have a different color than the fridge?,no,No,Yes,1.0,0.0,loss
+gqa,gqa:201428795,4cc09ab55daaf57c12f309d9861acd5af65fe6054a664e650afd1313dac1dfed,96-to-32,Which side of the picture is the plastic appliance on?,left,Left,Right,1.0,0.0,loss
+gqa,gqa:201428959,4cc09ab55daaf57c12f309d9861acd5af65fe6054a664e650afd1313dac1dfed,288-to-96,Is the white refrigerator to the right or to the left of the container that is made of cardboard?,right,Right,Left,1.0,0.0,loss
+gqa,gqa:201429017,4cc09ab55daaf57c12f309d9861acd5af65fe6054a664e650afd1313dac1dfed,96-to-32,What appliance is to the left of the refrigerator?,stove,Stove,Dishwasher,1.0,0.0,loss
+gqa,gqa:201479334,ab0cb29532a8234719dc23435552de531256e18d60d7c9651dc12d658356f29d,96-to-32,Are there either any tablecloths or forks?,yes,No,Yes,0.0,1.0,gain
+gqa,gqa:201479357,ab0cb29532a8234719dc23435552de531256e18d60d7c9651dc12d658356f29d,288-to-96,Is the fork covered?,yes,Yes,No,1.0,0.0,loss
+gqa,gqa:201479444,ab0cb29532a8234719dc23435552de531256e18d60d7c9651dc12d658356f29d,96-to-32,Which kind of food isn't soft?,orange,Orange,Chicken,1.0,0.0,loss
+gqa,gqa:201498360,d96ddad6b04a34dddb99a6ee4ab508b67aab86ace13976de0faf29fe854b6a26,288-to-96,Does the device to the right of the keyboard look smooth and large?,no,No,Yes,1.0,0.0,loss
+gqa,gqa:201504901,c63135fc68b999c8c7f8d5ecefb85f14520ccbcf2e682880bf10e9326fe02982,96-to-32,Who is in front of the jagged mountains?,woman,Woman,Girl,1.0,0.0,loss
+gqa,gqa:201504901,c63135fc68b999c8c7f8d5ecefb85f14520ccbcf2e682880bf10e9326fe02982,288-to-96,Who is in front of the jagged mountains?,woman,Woman,Girl,1.0,0.0,loss
+gqa,gqa:201570615,51270a39fcdb5b6424dd8780e5ae09f22b713a7c8600869fdce45b344fef9a44,96-to-32,What is this item of furniture called?,cabinet,Cabinet,Shelf,1.0,0.0,loss
+gqa,gqa:201570615,51270a39fcdb5b6424dd8780e5ae09f22b713a7c8600869fdce45b344fef9a44,288-to-96,What is this item of furniture called?,cabinet,Cabinet,Shelf,1.0,0.0,loss
+gqa,gqa:201570646,51270a39fcdb5b6424dd8780e5ae09f22b713a7c8600869fdce45b344fef9a44,96-to-32,What is the cabinet made of?,glass,Wood,Glass,0.0,1.0,gain
+gqa,gqa:201570646,51270a39fcdb5b6424dd8780e5ae09f22b713a7c8600869fdce45b344fef9a44,288-to-96,What is the cabinet made of?,glass,Wood,Glass,0.0,1.0,gain
+gqa,gqa:201570944,51270a39fcdb5b6424dd8780e5ae09f22b713a7c8600869fdce45b344fef9a44,96-to-32,Is she to the left or to the right of the bag that is made of leather?,right,Left,Right,0.0,1.0,gain
+gqa,gqa:201570944,51270a39fcdb5b6424dd8780e5ae09f22b713a7c8600869fdce45b344fef9a44,288-to-96,Is she to the left or to the right of the bag that is made of leather?,right,Left,Right,0.0,1.0,gain
+gqa,gqa:201571136,51270a39fcdb5b6424dd8780e5ae09f22b713a7c8600869fdce45b344fef9a44,96-to-32,What color is the suitcase that is not large?,brown,Brown,Black,1.0,0.0,loss
+gqa,gqa:201571136,51270a39fcdb5b6424dd8780e5ae09f22b713a7c8600869fdce45b344fef9a44,288-to-96,What color is the suitcase that is not large?,brown,Brown,Silver,1.0,0.0,loss
+gqa,gqa:201593399,6638d346df1966aa0a0af78e018fa58ccd419ca0f34e6ec48ea4559b13f29505,96-to-32,Are there any cows or goats that are walking?,no,No,Yes,1.0,0.0,loss
+gqa,gqa:201593481,6638d346df1966aa0a0af78e018fa58ccd419ca0f34e6ec48ea4559b13f29505,96-to-32,Are the mountains both snowy and tall?,no,No,Yes,1.0,0.0,loss
+gqa,gqa:201593499,6638d346df1966aa0a0af78e018fa58ccd419ca0f34e6ec48ea4559b13f29505,96-to-32,Do the mountains that are not short look grassy or rocky?,rocky,Rocky,Grassy,1.0,0.0,loss
+gqa,gqa:201593499,6638d346df1966aa0a0af78e018fa58ccd419ca0f34e6ec48ea4559b13f29505,288-to-96,Do the mountains that are not short look grassy or rocky?,rocky,Rocky,Grassy,1.0,0.0,loss
+gqa,gqa:201621788,7a419e9e7956e55ea7d3507111d16e37c340a1b0c240178a33a23f744de9730b,288-to-96,Is there a silver television or speaker?,yes,No,Yes,0.0,1.0,gain
+gqa,gqa:20162311,88f7d6f53ec179e1656937e0396c6aca78aa84f0a71ed3f00c34d7921f1661f5,96-to-32,Who is standing?,boy,Boy,Player,1.0,0.0,loss
+gqa,gqa:20162446,88f7d6f53ec179e1656937e0396c6aca78aa84f0a71ed3f00c34d7921f1661f5,96-to-32,What is the fence in front of?,trees,Trees,Field,1.0,0.0,loss
+gqa,gqa:20162446,88f7d6f53ec179e1656937e0396c6aca78aa84f0a71ed3f00c34d7921f1661f5,288-to-96,What is the fence in front of?,trees,Trees,Field,1.0,0.0,loss
+gqa,gqa:20162488,88f7d6f53ec179e1656937e0396c6aca78aa84f0a71ed3f00c34d7921f1661f5,96-to-32,Are there both a fence and a hat in the image?,yes,Yes,No,1.0,0.0,loss
+gqa,gqa:201636988,5ab821411926256cbcbd900a6823fa60c49e16bc01d9765074f6bbe927313f1a,96-to-32,Is the color of the cake different than the plate?,no,No,Yes,1.0,0.0,loss
+gqa,gqa:201637316,5ab821411926256cbcbd900a6823fa60c49e16bc01d9765074f6bbe927313f1a,96-to-32,What does the plate lie on top of?,stove,Stove,Counter,1.0,0.0,loss
+gqa,gqa:201640426,8fe7eaae0b629a9c3264abdd44f2eb886e14eaf254b4ac16b0ee64a633b78317,96-to-32,What drink is the large glass filled with?,wine,Water,Wine,0.0,1.0,gain
+gqa,gqa:201640426,8fe7eaae0b629a9c3264abdd44f2eb886e14eaf254b4ac16b0ee64a633b78317,288-to-96,What drink is the large glass filled with?,wine,Water,Wine,0.0,1.0,gain
+gqa,gqa:201641308,5245aa2937503521e80183f24c3ca8b9bc9c4131a058cda472c5471a608a02bc,288-to-96,Is the street narrow?,no,Yes,No,0.0,1.0,gain
+gqa,gqa:201654231,e51426bedbd071367944c16f57c182b197673eddb437a0793ca4588d9a8c57d5,96-to-32,Is the color of the fence different than the car?,no,Yes,No,0.0,1.0,gain
+gqa,gqa:201654231,e51426bedbd071367944c16f57c182b197673eddb437a0793ca4588d9a8c57d5,288-to-96,Is the color of the fence different than the car?,no,Yes,No,0.0,1.0,gain
+gqa,gqa:201654400,e51426bedbd071367944c16f57c182b197673eddb437a0793ca4588d9a8c57d5,96-to-32,Are there both a horse and a fence in the image?,yes,Yes,No,1.0,0.0,loss
+gqa,gqa:20171085,b64b15a50f05cea74ddd8d01e766bff8044453e5861bb619bc66f8a90ad9db33,96-to-32,Is the long pen white and thin?,no,No,Yes,1.0,0.0,loss
+gqa,gqa:201713417,85bc97a43b6019f61d597da205c35bfd3c8393c146eaa30ac64075e7e4266b14,96-to-32,What is in front of the woman?,mirror,Coffee cup,Mirror,0.0,1.0,gain
+gqa,gqa:201713417,85bc97a43b6019f61d597da205c35bfd3c8393c146eaa30ac64075e7e4266b14,288-to-96,What is in front of the woman?,mirror,Coffee cup,Mirror,0.0,1.0,gain
+gqa,gqa:201713529,85bc97a43b6019f61d597da205c35bfd3c8393c146eaa30ac64075e7e4266b14,96-to-32,What is the woman using?,brush,Cup,Brush,0.0,1.0,gain
+gqa,gqa:201713529,85bc97a43b6019f61d597da205c35bfd3c8393c146eaa30ac64075e7e4266b14,288-to-96,What is the woman using?,brush,Cup,Brush,0.0,1.0,gain
+gqa,gqa:201713640,85bc97a43b6019f61d597da205c35bfd3c8393c146eaa30ac64075e7e4266b14,96-to-32,On which side is the medicine cabinet?,right,Right,Left,1.0,0.0,loss
+gqa,gqa:201713640,85bc97a43b6019f61d597da205c35bfd3c8393c146eaa30ac64075e7e4266b14,288-to-96,On which side is the medicine cabinet?,right,Right,Left,1.0,0.0,loss
+gqa,gqa:201739240,d780c1ccc38276e1388e850b7a1765e96baa54efbfa0d144e74d6f1cccacfa80,96-to-32,Is the hat that is red and white made of paper or cloth?,cloth,Cloth,Paper,1.0,0.0,loss
+gqa,gqa:201756771,1bd51d4b5ba50d18abe60b51513e9de236a1fd7e13ea332444bd155a481d168c,96-to-32,Does the yellow fruit look unpeeled and ripe?,yes,Yes,No,1.0,0.0,loss
+gqa,gqa:201759264,5185bde3ff2815561229f2922422d2eab4a0ca25b0ebba59526f1b643937fbc9,96-to-32,"In which part of the picture is the pot, the top or the bottom?",bottom,Bottom,Top,1.0,0.0,loss
+gqa,gqa:201822286,58db02aee72cb962bf206d0d66a872c026d9e0374e24719e61bea3a51d69f07c,96-to-32,What size is the toilet seat that is white?,small,Small,Large,1.0,0.0,loss
+gqa,gqa:201832276,7c97d5c95cd463ca7494efeec02da05917ebd6316e9e47267e1db44f03caf139,96-to-32,Is the color of the blanket different than the color of the lamp?,no,No,Yes,1.0,0.0,loss
+gqa,gqa:20183340,1d3cd3b6b4917ff125d2946b56bb300d5ff0ba9c71a9021cdf3db51d4c9bde36,96-to-32,Is that cane white and long?,no,No,Yes,1.0,0.0,loss
+gqa,gqa:201882512,d734bac2630aef0af7036ee7b878b17734cb2886e170e0460d142d1994de620c,96-to-32,What color do you think these curtains are?,white,Brown,White,0.0,1.0,gain
+gqa,gqa:201882614,d734bac2630aef0af7036ee7b878b17734cb2886e170e0460d142d1994de620c,288-to-96,Is the lamp on the right or on the left of the photo?,left,Left,Right,1.0,0.0,loss
+gqa,gqa:201882905,d734bac2630aef0af7036ee7b878b17734cb2886e170e0460d142d1994de620c,96-to-32,What device is on the right of the curtains?,television,Television,Phone,1.0,0.0,loss
+gqa,gqa:201882905,d734bac2630aef0af7036ee7b878b17734cb2886e170e0460d142d1994de620c,288-to-96,What device is on the right of the curtains?,television,Television,Screen,1.0,0.0,loss
+gqa,gqa:201885430,542a8a6eea5c7912c2b29defe11af51e2d2d1881f3cd23e5b20a2158d1825e4d,288-to-96,What's the man doing?,jumping,Swimming,Jumping,0.0,1.0,gain
+gqa,gqa:201889229,359cf6c90d7a4b51d13b6c4694fa967e9af12446358edb37351f134b679ba3ed,96-to-32,How is the weather?,cloudy,Cloudy,Cold,1.0,0.0,loss
+gqa,gqa:201889233,359cf6c90d7a4b51d13b6c4694fa967e9af12446358edb37351f134b679ba3ed,96-to-32,Do the mountain side and the pole have the same color?,no,Yes,No,0.0,1.0,gain
+gqa,gqa:201889233,359cf6c90d7a4b51d13b6c4694fa967e9af12446358edb37351f134b679ba3ed,288-to-96,Do the mountain side and the pole have the same color?,no,Yes,No,0.0,1.0,gain
+gqa,gqa:201896041,077f86261e162270ba89c32aec7d94ae9d6720043d79f76e76c4da88310bb896,96-to-32,Is the table to the left or to the right of the lady that is standing behind the cake?,right,Right,Left,1.0,0.0,loss
+gqa,gqa:201935401,3b8c4fe13a04304f88f8fbbf171ba602e17af2c7ae479ebde2905b802070dbfd,96-to-32,How big do you think is the man on the left?,large,Small,Large,0.0,1.0,gain
+gqa,gqa:201951600,d8a0f7fab23c6b4f10194bf67ae0adeeedb51ba2f79e102ebe001904df374673,96-to-32,Who wears jeans?,girl,Girl,Child,1.0,0.0,loss
+gqa,gqa:201951616,d8a0f7fab23c6b4f10194bf67ae0adeeedb51ba2f79e102ebe001904df374673,96-to-32,Are the tents made of cloth large or small?,large,Large,Small,1.0,0.0,loss
+gqa,gqa:201972699,4a5a1d3b875e08ec40d261d108e878183e10779b7b75d19ad5c2e5a1e2af4a21,96-to-32,Does the scarf have a different color than the bush?,yes,No,Yes,0.0,1.0,gain
+gqa,gqa:201972699,4a5a1d3b875e08ec40d261d108e878183e10779b7b75d19ad5c2e5a1e2af4a21,288-to-96,Does the scarf have a different color than the bush?,yes,No,Yes,0.0,1.0,gain
+gqa,gqa:201972880,4a5a1d3b875e08ec40d261d108e878183e10779b7b75d19ad5c2e5a1e2af4a21,96-to-32,What color is the scarf?,white,Black,White,0.0,1.0,gain
+gqa,gqa:201972880,4a5a1d3b875e08ec40d261d108e878183e10779b7b75d19ad5c2e5a1e2af4a21,288-to-96,What color is the scarf?,white,Black,White,0.0,1.0,gain
+gqa,gqa:201998309,a1e84752667afa1b03e42724d3995535dbbedbcd3a6f5740a2fefc99ec24ef16,96-to-32,What is in front of the statue in the middle of the picture?,table,Vase,Table,0.0,1.0,gain
+gqa,gqa:201998309,a1e84752667afa1b03e42724d3995535dbbedbcd3a6f5740a2fefc99ec24ef16,288-to-96,What is in front of the statue in the middle of the picture?,table,Vase,Table,0.0,1.0,gain
+gqa,gqa:201998397,a1e84752667afa1b03e42724d3995535dbbedbcd3a6f5740a2fefc99ec24ef16,288-to-96,How big is the rug that is under the table?,large,Large,Small,1.0,0.0,loss
+gqa,gqa:202012396,fac477f57fd11543daef01f2c3a70bdcc252fdb7f06141296ced81542260f8ff,96-to-32,On which side is the doll?,right,Right,Left,1.0,0.0,loss
+gqa,gqa:202036836,ca19f89644597f15fda605a7b5f0c8c08fd5bb995e463b1955f6bfa4c0beef84,96-to-32,Do you see a red pepper or tomato?,no,Yes,No,0.0,1.0,gain
+gqa,gqa:202042033,ae2911ad06d6ec9fe5595733e7d1c50268751974ecc853908e445cdba123a045,96-to-32,Who is riding?,policeman,Policeman,Man,1.0,0.0,loss
+gqa,gqa:202049137,b06bdf775f5dbacec8f6e08d1ee848ab0578faa52170677f4e221b06d36c0c59,96-to-32,What is located on top of the table that is not narrow?,plate,Cake,Plate,0.0,1.0,gain
+gqa,gqa:202060005,551005a47e8125d925a5bf4be66e7cdf6d0a971b9fa68b0dfcd8d2c2a48445bd,96-to-32,Which kind of furniture is the dog in front of?,couch,Couch,Chair,1.0,0.0,loss
+gqa,gqa:202060045,551005a47e8125d925a5bf4be66e7cdf6d0a971b9fa68b0dfcd8d2c2a48445bd,96-to-32,What kind of furniture is it?,couch,Couch,Chair,1.0,0.0,loss
+gqa,gqa:202102551,ee9e27db033d48163585410cb951b4c77d09688566d6381a527836aa55a2fc3c,96-to-32,Does the sink look small and rectangular?,no,Yes,No,0.0,1.0,gain
+gqa,gqa:202102551,ee9e27db033d48163585410cb951b4c77d09688566d6381a527836aa55a2fc3c,288-to-96,Does the sink look small and rectangular?,no,Yes,No,0.0,1.0,gain
+gqa,gqa:202110134,69c5e865676fc77245d9d84c7d660f8567d9984b3f0c600f55afd7d13333e4ea,96-to-32,Is the metal fence in the bottom part or in the top of the picture?,bottom,Bottom,Top,1.0,0.0,loss
+gqa,gqa:202116785,cf2fad5e9a64c6e05c75f563872bf10168c58fc5cff34fe4cbe9541573cddd83,96-to-32,Does the blue sky look cloudless?,no,Yes,No,0.0,1.0,gain
+gqa,gqa:202116854,cf2fad5e9a64c6e05c75f563872bf10168c58fc5cff34fe4cbe9541573cddd83,96-to-32,Is the train near the train station red or yellow?,red,Yellow,Red,0.0,1.0,gain
+gqa,gqa:202116964,cf2fad5e9a64c6e05c75f563872bf10168c58fc5cff34fe4cbe9541573cddd83,96-to-32,Is the river low and wavy?,no,Yes,No,0.0,1.0,gain
+gqa,gqa:202116964,cf2fad5e9a64c6e05c75f563872bf10168c58fc5cff34fe4cbe9541573cddd83,288-to-96,Is the river low and wavy?,no,Yes,No,0.0,1.0,gain
+gqa,gqa:202218593,76752768b55561d7da5926daa434a870f5e00adfa6d201b6ea175475143e6fe3,96-to-32,Are the white paper towels in the bottom part or in the top of the photo?,bottom,Bottom,Top,1.0,0.0,loss
+gqa,gqa:202218897,76752768b55561d7da5926daa434a870f5e00adfa6d201b6ea175475143e6fe3,96-to-32,Is the glass container in front of the paper towels made of paper?,yes,No,Yes,0.0,1.0,gain
+gqa,gqa:202228377,6b24452c8e72be00a9773fe48b9639dc454ecdd1317fb910cdbb3022e0814d22,96-to-32,Is the rectangular device to the right or to the left of the TV?,left,Left,Right,1.0,0.0,loss
+gqa,gqa:202257086,61aaabccffe4b4ce4689b4086e58cf11976eb1e3a465bd34210088ec683d3cc1,96-to-32,Which place is it?,beach,Beach,Park,1.0,0.0,loss
+gqa,gqa:202257086,61aaabccffe4b4ce4689b4086e58cf11976eb1e3a465bd34210088ec683d3cc1,288-to-96,Which place is it?,beach,Beach,Park,1.0,0.0,loss
+gqa,gqa:202257164,61aaabccffe4b4ce4689b4086e58cf11976eb1e3a465bd34210088ec683d3cc1,96-to-32,The person to the left of the bicyclist is riding what?,bicycle,Bike,Bicycle,0.0,1.0,gain
+gqa,gqa:202257439,61aaabccffe4b4ce4689b4086e58cf11976eb1e3a465bd34210088ec683d3cc1,96-to-32,Is the bicycle to the left or to the right of the person that is wearing a jacket?,right,Right,Left,1.0,0.0,loss
+gqa,gqa:20247907,33822494b6bc954bba634dcc431e67af05fc8ee887a3482fdd877771bf962350,96-to-32,What is the ethnicity of the person that is sitting next to the man?,caucasian,Caucasian,White,1.0,0.0,loss
+gqa,gqa:20247907,33822494b6bc954bba634dcc431e67af05fc8ee887a3482fdd877771bf962350,288-to-96,What is the ethnicity of the person that is sitting next to the man?,caucasian,Caucasian,White,1.0,0.0,loss
+gqa,gqa:20300360,5bfffac36d3046c4968c09ca5611587eeda56e77ab37014e1ac3b74eac79edc9,96-to-32,Is the weather cloudy?,yes,Yes,No,1.0,0.0,loss
+gqa,gqa:20300360,5bfffac36d3046c4968c09ca5611587eeda56e77ab37014e1ac3b74eac79edc9,288-to-96,Is the weather cloudy?,yes,Yes,No,1.0,0.0,loss
+gqa,gqa:20302648,79f7f4d0f01383b07cd87423329127513415bdcd15ddd3b7d42ae1cb16a87f48,96-to-32,Are both the bench and the fence made of the same material?,no,Yes,No,0.0,1.0,gain
+gqa,gqa:20303026,79f7f4d0f01383b07cd87423329127513415bdcd15ddd3b7d42ae1cb16a87f48,96-to-32,Is there an umbrella in the picture that is not closed?,yes,Yes,No,1.0,0.0,loss
+gqa,gqa:20412437,bf69c5bd91f03547c0bcca8642f3f2772be4ef5fdf97699a353301a900a682c1,96-to-32,Is the glass vase in the top part or in the bottom of the image?,bottom,Bottom,Top,1.0,0.0,loss
+gqa,gqa:20412459,bf69c5bd91f03547c0bcca8642f3f2772be4ef5fdf97699a353301a900a682c1,288-to-96,The vase holds what?,flowers,Flowers,Roses,1.0,0.0,loss
+gqa,gqa:20414336,600b2ac1294ad8f9e3768ea8efb95aea7b2ff68adba6e1469c0eb9e12a2774c9,96-to-32,Which place is it?,skate park,Park,Skate park,0.0,1.0,gain
+gqa,gqa:20414336,600b2ac1294ad8f9e3768ea8efb95aea7b2ff68adba6e1469c0eb9e12a2774c9,288-to-96,Which place is it?,skate park,Park,Skate park,0.0,1.0,gain
+gqa,gqa:20414341,600b2ac1294ad8f9e3768ea8efb95aea7b2ff68adba6e1469c0eb9e12a2774c9,288-to-96,Does the skateboard have a different color than the helmet?,no,Yes,No,0.0,1.0,gain
+gqa,gqa:20416717,ab468025ff4937b1a83da2f786ebf42ca52e5099a3f5f64512c2e1d709f98278,96-to-32,What kind of furniture isn't clean?,chair,Chair,Table,1.0,0.0,loss
+gqa,gqa:20416784,ab468025ff4937b1a83da2f786ebf42ca52e5099a3f5f64512c2e1d709f98278,96-to-32,What is under the pan?,table,Table,Counter,1.0,0.0,loss
+gqa,gqa:20434790,ec53ec385a083cb69c68c76575bc249798221c2a5d8a9e087f522137e13ea410,96-to-32,Where is the chair?,restaurant,Restaurant,Left,1.0,0.0,loss
+gqa,gqa:20468832,1e24c4cc6785f65e0b5166540676a0e2e1d9b6ae6acb97044d4d773d04d075f0,96-to-32,Which kind of vehicle is right of the man?,trailer,Trailer,Car,1.0,0.0,loss
+gqa,gqa:20479971,ae37e98e48056647fc2a82869ebe49c9e8311853961fbbc9ed532e01c0b4cb32,96-to-32,Which piece of furniture is large?,desk,Bookshelf,Desk,0.0,1.0,gain
+gqa,gqa:20479971,ae37e98e48056647fc2a82869ebe49c9e8311853961fbbc9ed532e01c0b4cb32,288-to-96,Which piece of furniture is large?,desk,Bookshelf,Desk,0.0,1.0,gain
+gqa,gqa:20518371,fd64ade87dd056b6a96c3781c1896a56018619a776276083af849577c9f2dbfb,96-to-32,On which side is the white towel?,left,Left,Right,1.0,0.0,loss
+gqa,gqa:20536035,68e7d1c48ff1fd02def218ca1cfe75b14cfaebcee0083bb91348376197342769,96-to-32,Which place is it?,plain,Field,Plain,0.0,1.0,gain
+gqa,gqa:20543021,d14ac5db6dbeb4cec3bb9d6bd5fa6c4325979dcdeafe1529658b7d8fe5b66c1d,96-to-32,Is the fence behind the elephant tall and wooden?,no,Yes,No,0.0,1.0,gain
+gqa,gqa:2055924,0b31968114924e1e9209bbf3a64a3e62f235611aa154a3ef9bb70a692dd798f0,96-to-32,What is the vehicle that is to the left of the building that is made of brick called?,bus,Bus,Car,1.0,0.0,loss
+gqa,gqa:2055924,0b31968114924e1e9209bbf3a64a3e62f235611aa154a3ef9bb70a692dd798f0,288-to-96,What is the vehicle that is to the left of the building that is made of brick called?,bus,Bus,Car,1.0,0.0,loss
+gqa,gqa:2058428,c0965ec08a2a947adaf16c20b2a402013d0766b85782f69abf555a2c2d1dfd2c,288-to-96,Are there airplanes in this scene that are huge?,yes,Yes,No,1.0,0.0,loss
+gqa,gqa:20596219,8571e8bd3b1efbf6d4cd9ef1f643761a51373f9ecad332b418c6d02a4505933a,288-to-96,Is the color of the coat different than the color of the garbage bin?,no,Yes,No,0.0,1.0,gain
+gqa,gqa:20596312,8571e8bd3b1efbf6d4cd9ef1f643761a51373f9ecad332b418c6d02a4505933a,96-to-32,What is he doing?,standing,Standing,Waiting,1.0,0.0,loss
+gqa,gqa:20596327,8571e8bd3b1efbf6d4cd9ef1f643761a51373f9ecad332b418c6d02a4505933a,96-to-32,Is the Caucasian person male and happy?,yes,Yes,No,1.0,0.0,loss
+gqa,gqa:20596548,8571e8bd3b1efbf6d4cd9ef1f643761a51373f9ecad332b418c6d02a4505933a,96-to-32,Is the trash can on the right?,yes,Yes,No,1.0,0.0,loss
+gqa,gqa:20596548,8571e8bd3b1efbf6d4cd9ef1f643761a51373f9ecad332b418c6d02a4505933a,288-to-96,Is the trash can on the right?,yes,Yes,No,1.0,0.0,loss
+gqa,gqa:20600175,07c5001dd84eaf0407cb35ad19eaf0b6b7aaf94597f9bee5b923d32f2a491993,96-to-32,Do the zebras in front of the brush look large and black and white?,yes,No,Yes,0.0,1.0,gain
+gqa,gqa:20609189,95b6baa6edb4ce722b57e139673d9b90dcd098e6b7ddd3e4f4685f04831eb5b2,96-to-32,Is the color of the bowl the same as the table?,yes,Yes,No,1.0,0.0,loss
+gqa,gqa:20609189,95b6baa6edb4ce722b57e139673d9b90dcd098e6b7ddd3e4f4685f04831eb5b2,288-to-96,Is the color of the bowl the same as the table?,yes,Yes,No,1.0,0.0,loss
+gqa,gqa:20631365,0120a32f63e929ca9a855326fd97573be8a4261da23fcc7db567a13f8ea275f5,96-to-32,Which place is it?,field,Stadium,Field,0.0,1.0,gain
+gqa,gqa:20631365,0120a32f63e929ca9a855326fd97573be8a4261da23fcc7db567a13f8ea275f5,288-to-96,Which place is it?,field,Stadium,Field,0.0,1.0,gain
+gqa,gqa:20644644,41e7588df75b06a6e02e4dd34491629ada4fbb451fb3097313bfda136edbce2d,96-to-32,Which room is it?,bedroom,Living room,Bedroom,0.0,1.0,gain
+gqa,gqa:20656831,f0c476c92b094191b79feca00621139b746f7bf086b1de4668f9516d0ce97107,96-to-32,Which place is it?,street,City,Street,0.0,1.0,gain
+gqa,gqa:20656857,f0c476c92b094191b79feca00621139b746f7bf086b1de4668f9516d0ce97107,96-to-32,Is the new vehicle on the right or on the left side?,right,Right,Left,1.0,0.0,loss
+gqa,gqa:20656857,f0c476c92b094191b79feca00621139b746f7bf086b1de4668f9516d0ce97107,288-to-96,Is the new vehicle on the right or on the left side?,right,Right,Left,1.0,0.0,loss
+gqa,gqa:20657133,f0c476c92b094191b79feca00621139b746f7bf086b1de4668f9516d0ce97107,96-to-32,Does the traffic sign that is not antique look small and metallic?,yes,Yes,No,1.0,0.0,loss
+gqa,gqa:20657133,f0c476c92b094191b79feca00621139b746f7bf086b1de4668f9516d0ce97107,288-to-96,Does the traffic sign that is not antique look small and metallic?,yes,Yes,No,1.0,0.0,loss
+gqa,gqa:20673079,c9a3c23afa85e8eaadb4643b76d3eab1643782c1fbb8a325f81eff33b20b3f17,96-to-32,What is the bag resting on?,chair,Chair,Toilet,1.0,0.0,loss
+gqa,gqa:20673079,c9a3c23afa85e8eaadb4643b76d3eab1643782c1fbb8a325f81eff33b20b3f17,288-to-96,What is the bag resting on?,chair,Chair,Toilet,1.0,0.0,loss
+gqa,gqa:20692027,f4898fdc2fa0ac3988e4ffff60081e15055b35a1e2aae5778386c52105726f8e,96-to-32,Is the color of the sink the same as the color of the picture frame?,no,Yes,No,0.0,1.0,gain
+gqa,gqa:20692107,f4898fdc2fa0ac3988e4ffff60081e15055b35a1e2aae5778386c52105726f8e,96-to-32,The small sink has which shape?,square,Rectangular,Square,0.0,1.0,gain
+gqa,gqa:20692107,f4898fdc2fa0ac3988e4ffff60081e15055b35a1e2aae5778386c52105726f8e,288-to-96,The small sink has which shape?,square,Rectangular,Square,0.0,1.0,gain
+gqa,gqa:20711515,2522b66e891a0fefb24f8a49c5fb355f01a5ee2e78c8ca5a03c4de60362b011a,96-to-32,Does the counter have a different color than the cable?,yes,Yes,No,1.0,0.0,loss
+gqa,gqa:2075475,fa7218a22b51862682dab0930acb78cb6475764a1dffb423f27301407fe24b02,96-to-32,What kind of animal stands on the grass?,deer,Deer,Giraffe,1.0,0.0,loss
+gqa,gqa:2075475,fa7218a22b51862682dab0930acb78cb6475764a1dffb423f27301407fe24b02,288-to-96,What kind of animal stands on the grass?,deer,Deer,Giraffe,1.0,0.0,loss
+gqa,gqa:2075477,408ab89bf395a5550721456487ba33e10594feb50e03741c7287c1bdab4d51c3,96-to-32,Which place is it?,lake,Lake,Airport,1.0,0.0,loss
+gqa,gqa:2075477,408ab89bf395a5550721456487ba33e10594feb50e03741c7287c1bdab4d51c3,288-to-96,Which place is it?,lake,Lake,City,1.0,0.0,loss
+gqa,gqa:2075709,408ab89bf395a5550721456487ba33e10594feb50e03741c7287c1bdab4d51c3,96-to-32,Do you see any skis?,yes,Yes,No,1.0,0.0,loss
+gqa,gqa:20789886,70dbfebe51981359e3e336e7c6d1ed302b1d16c11fa330bc636991143f676cd8,96-to-32,Does the water look dark?,no,No,Yes,1.0,0.0,loss
+gqa,gqa:20865374,117beeae2de67d8fa7eb6f0b890a596b8cb14a7032302140385dbda78780e4a0,96-to-32,What is in front of the barn?,trees,Trees,Tree,1.0,0.0,loss
+gqa,gqa:20891295,420424866e613303503795611d59e9e02786767274ec1e36e53749a596f903d2,288-to-96,Does the blue dress look long?,yes,Yes,No,1.0,0.0,loss
+gqa,gqa:20891306,420424866e613303503795611d59e9e02786767274ec1e36e53749a596f903d2,96-to-32,What is located on top of the window?,sign,Sign,Fire hydrant,1.0,0.0,loss
+gqa,gqa:20891541,420424866e613303503795611d59e9e02786767274ec1e36e53749a596f903d2,96-to-32,Is the young child to the right or to the left of the person that is wearing a shirt?,left,Left,Right,1.0,0.0,loss
+gqa,gqa:20911181,3fef7569d71299e008fcee112dd711027bf9ec6e2b81f04d5f8a2410978dc4ed,96-to-32,Which place is it?,city,City,Skate park,1.0,0.0,loss
+gqa,gqa:20923159,77362acd618fa8dba7249eb4d7aa893b8ae0fd999d75709d16d70bdae90060b5,96-to-32,Are there either any steel fences or ambulances?,yes,No,Yes,0.0,1.0,gain
+gqa,gqa:20984152,bfefa2178db5f2c807a4b07e20aa9cce91c50b2cda3babd0198b04e18bb8fd0a,96-to-32,Which place is it?,street,Street,City,1.0,0.0,loss
+gqa,gqa:20984152,bfefa2178db5f2c807a4b07e20aa9cce91c50b2cda3babd0198b04e18bb8fd0a,288-to-96,Which place is it?,street,Street,City,1.0,0.0,loss
+gqa,gqa:20984167,bfefa2178db5f2c807a4b07e20aa9cce91c50b2cda3babd0198b04e18bb8fd0a,96-to-32,Are both the post and the hat the same color?,yes,Yes,No,1.0,0.0,loss
+gqa,gqa:20984167,bfefa2178db5f2c807a4b07e20aa9cce91c50b2cda3babd0198b04e18bb8fd0a,288-to-96,Are both the post and the hat the same color?,yes,Yes,No,1.0,0.0,loss
+gqa,gqa:20984271,bfefa2178db5f2c807a4b07e20aa9cce91c50b2cda3babd0198b04e18bb8fd0a,288-to-96,What color does the van have?,black,Black,Blue,1.0,0.0,loss
+gqa,gqa:20984336,bfefa2178db5f2c807a4b07e20aa9cce91c50b2cda3babd0198b04e18bb8fd0a,288-to-96,Are there cars to the right of the skateboard?,no,Yes,No,0.0,1.0,gain
+gqa,gqa:20984448,bfefa2178db5f2c807a4b07e20aa9cce91c50b2cda3babd0198b04e18bb8fd0a,96-to-32,Is the skater Caucasian and young?,yes,No,Yes,0.0,1.0,gain
+gqa,gqa:20984448,bfefa2178db5f2c807a4b07e20aa9cce91c50b2cda3babd0198b04e18bb8fd0a,288-to-96,Is the skater Caucasian and young?,yes,No,Yes,0.0,1.0,gain
+gqa,gqa:20984557,bfefa2178db5f2c807a4b07e20aa9cce91c50b2cda3babd0198b04e18bb8fd0a,288-to-96,Which kind of vehicle is parked on the street?,car,Car,Cars,1.0,0.0,loss
+mmstar,mmstar:1008,44e74637cf9855a5637499bdf2b3429413b7979fb6e966b34535f8f9705d7b95,96-to-32,"Calculate the value of bond D shown in the following table, all of which pay interest semiannually. <image 1>
+Options: A: 1249, B: Other Answers, C: nan, D: nan",A,A,B,1.0,0.0,loss
+mmstar,mmstar:1008,44e74637cf9855a5637499bdf2b3429413b7979fb6e966b34535f8f9705d7b95,288-to-96,"Calculate the value of bond D shown in the following table, all of which pay interest semiannually. <image 1>
+Options: A: 1249, B: Other Answers, C: nan, D: nan",A,A,B,1.0,0.0,loss
+mmstar,mmstar:1030,cfc97e3f3d80c03b3355259e28e057fb8719bc76fdd919e2f0176d39314ca952,288-to-96,"Hint: Please answer the question and provide the correct option letter, e.g., A, B, C, D, at the end.
+Question: Find $m\angle H$
+Choices:
+(A) 97
+(B) 102
+(C) 107
+(D) 122",A,A,B,1.0,0.0,loss
+mmstar,mmstar:1078,463b3fb812f9124d3354923e5bcc0415d4b72c82db3a7e06eeae39699639c108,96-to-32,"Hint: Please answer the question and provide the correct option letter, e.g., A, B, C, D, at the end.
+Question: What has been done to this letter?
+Choices:
+(A) slide
+(B) flip
+(C) turn
+(D) nan",A,B,A,0.0,1.0,gain
+mmstar,mmstar:1085,0e37f221726f4510dfd1fce408637ad781f4dac7365ad9c49226a27a95a4a686,96-to-32,"<image 1> A major food manufacturer is concerned that the sales for its skinny french fries have been decreasing. As a part of a feasibility study, the company conducts research into the types of fries sold across the country to determine if the type of fries sold is independent of the area of the country. The results of the study are shown in Table 11.43. Conduct a test of independence. At the 5% significance level, what can you conclude?
+Options: A: There is insufficient evidence that types of fries and location are dependent., B: There is sufficient evidence that types of fries and location are dependent., C: Not certain., D: nan",B,A,B,0.0,1.0,gain
+mmstar,mmstar:1086,a2130b696dd6e0d5a63cc0fdb3b8d60443630375627e8217b5a215aec11f1344,96-to-32,"<image 1> Ten individuals went on a low-fat diet for 12 weeks to lower their cholesterol. The data are recorded in Table 10.20. At the 5% significance level, do you think that their cholesterol levels were significantly lowered?
+Options: A: there is insufficient evidence to conclude that the medication lowered cholesterol levels after 12 weeks, B: there is sufficient evidence to conclude that the medication lowered cholesterol levels after 12 weeks, C: not certain, D: nan",A,A,B,1.0,0.0,loss
+mmstar,mmstar:109,bf05f01343e5ef35dd8a069ecddee97bf7b319a6414d7af4e976035596032d94,96-to-32,"How many different ""pointed"" kinds are there?
+Options: A: 2, B: 4, C: 1, D: 3",A,B,A,0.0,1.0,gain
+mmstar,mmstar:111,ccf3baae414fbb5bf54b6b78d02b71b08baeb99b3f15ba9cec82bd50c02ef96b,96-to-32,"What is the predominant color of the image?
+Options: A: Yellow, B: Black, C: White, D: Blue",B,B,D,1.0,0.0,loss
+mmstar,mmstar:1114,8425a61cc0cea058b4b385478ad6c58d31a047a7e8e91d1aee4d1ee36c346581,96-to-32,"Hint: Please answer the question and provide the correct option letter, e.g., A, B, C, D, at the end.
+Question: The derivative of f(x) at x=0 is ____ that at x=5
+Choices:
+(A) larger than
+(B) equal to
+(C) smaller than
+(D) nan",C,C,A,1.0,0.0,loss
+mmstar,mmstar:1118,aa92bb3bd6d963ddc967fd9043bd61fe5f3b9641bd3bc3b350037a1ac78ce8e6,96-to-32,"Hint: Please answer the question and provide the correct option letter, e.g., A, B, C, D, at the end.
+Question: As shown in the figure, in the diamond ABCD, two diagonal lines AC = 12.0, BD = 16.0, then the edge length of this diamond is ()
+Choices:
+(A) 10
+(B) 8
+(C) 6
+(D) 5",A,A,C,1.0,0.0,loss
+mmstar,mmstar:1118,aa92bb3bd6d963ddc967fd9043bd61fe5f3b9641bd3bc3b350037a1ac78ce8e6,288-to-96,"Hint: Please answer the question and provide the correct option letter, e.g., A, B, C, D, at the end.
+Question: As shown in the figure, in the diamond ABCD, two diagonal lines AC = 12.0, BD = 16.0, then the edge length of this diamond is ()
+Choices:
+(A) 10
+(B) 8
+(C) 6
+(D) 5",A,A,C,1.0,0.0,loss
+mmstar,mmstar:116,26373feebbc4a970e58112eed6a9049d3a9d6e8b42a99234dbbe8939c811d580,96-to-32,"What type of event is depicted in the image?
+Options: A: A political rally, B: A sports game, C: A protest march, D: A music festival",B,A,B,0.0,1.0,gain
+mmstar,mmstar:1170,95e5c461b63eccaea9bc4714941b843396e698af5e5f85a973108181e7352586,96-to-32,"Hint: Please answer the question and provide the correct option letter, e.g., A, B, C, D, at the end.
+Question: What is the average annual wage in Slovak Republic in the year 2019
+Choices:
+(A) 15000
+(B) 20010
+(C) 0
+(D) 15017",D,C,D,0.0,1.0,gain
+mmstar,mmstar:118,70b890c5c3ddaf4015226c7d19cca1e08861dd4ba2342787b2fc2b800be82bd8,96-to-32,"What is the occasion depicted in the image?
+Options: A: New Year's Eve celebration, B: Christmas Eve party, C: Birthday celebration, D: Wedding reception",B,A,B,0.0,1.0,gain
+mmstar,mmstar:1188,0d823aee4d33f51aa02761e62f9a171211570d6cb1479976208c9d121eba574f,96-to-32,"Hint: Please answer the question and provide the correct option letter, e.g., A, B, C, D, at the end.
+Question: What is the minimum age group shown in the ‘plots’?
+Choices:
+(A) 11-15
+(B) 21-25
+(C) 0-5
+(D) 16-20",C,C,A,1.0,0.0,loss
+mmstar,mmstar:12,8903201e86b0a157e337ff88e4b08dea62f63f5c9fd26ba02773bb253250805e,96-to-32,"What is the main focus of this image?
+Options: A: The grassy hill, B: The sculpture, C: The fence, D: The building",A,A,B,1.0,0.0,loss
+mmstar,mmstar:12,8903201e86b0a157e337ff88e4b08dea62f63f5c9fd26ba02773bb253250805e,288-to-96,"What is the main focus of this image?
+Options: A: The grassy hill, B: The sculpture, C: The fence, D: The building",A,A,B,1.0,0.0,loss
+mmstar,mmstar:120,40987cb70c920b16058fc3dec74bb2448c9e2ac0ad7366058a3e9ad8d4f1bd2a,96-to-32,"How many police officers are in the image?
+Options: A: 1, B: 0, C: 2, D: 3",A,C,A,0.0,1.0,gain
+mmstar,mmstar:1283,0166319ac86f48175a4b28b7b1989b45981dba9f9f48d17eedf233f4a50ebdc8,96-to-32,"<image 1> While the term ""natural enemies"" is often used to refer to insects that can decrease the population of pests, what about diseases that affect weeds? How should one handle weeds that have been infected by diseases?
+Options: A: Don't know and don't want to guess, B: Leave all the weeds so that the disease can spread to healthy weeds, C: Remove all weeds as they will impact on yield, D: The removal of the weed depends on the potential for the disease to spread to the crop",C,C,A,1.0,0.0,loss
+mmstar,mmstar:1283,0166319ac86f48175a4b28b7b1989b45981dba9f9f48d17eedf233f4a50ebdc8,288-to-96,"<image 1> While the term ""natural enemies"" is often used to refer to insects that can decrease the population of pests, what about diseases that affect weeds? How should one handle weeds that have been infected by diseases?
+Options: A: Don't know and don't want to guess, B: Leave all the weeds so that the disease can spread to healthy weeds, C: Remove all weeds as they will impact on yield, D: The removal of the weed depends on the potential for the disease to spread to the crop",C,C,A,1.0,0.0,loss
+mmstar,mmstar:1295,da0ccf93a61f24b2fee30ba6c05a39ec9c59195c768bb171e1e281f617cbc07c,96-to-32,"What do these calcifications represent? <image 1> 
+Options: A: Gallstones, B: Pancreatic calcifications, C: Calcified hematoma of the liver, D: Hepatic artery aneurysms",A,A,B,1.0,0.0,loss
+mmstar,mmstar:1295,da0ccf93a61f24b2fee30ba6c05a39ec9c59195c768bb171e1e281f617cbc07c,288-to-96,"What do these calcifications represent? <image 1> 
+Options: A: Gallstones, B: Pancreatic calcifications, C: Calcified hematoma of the liver, D: Hepatic artery aneurysms",A,A,B,1.0,0.0,loss
+mmstar,mmstar:1301,6a4a2a2503548d97fb3f42e006af212af3d27eb79d190e7d6e976ff1905a99a4,96-to-32,"What does a carnivore feed on?
+Options: A: interface feeder, B: nekton, C: phytoplankton, D: microphytobenthos",A,A,B,1.0,0.0,loss
+mmstar,mmstar:1301,6a4a2a2503548d97fb3f42e006af212af3d27eb79d190e7d6e976ff1905a99a4,288-to-96,"What does a carnivore feed on?
+Options: A: interface feeder, B: nekton, C: phytoplankton, D: microphytobenthos",A,A,D,1.0,0.0,loss
+mmstar,mmstar:1319,a5693bf50a3a04f8d068826c273bf5873fa9614e37785f22e55b957e1deb26a5,96-to-32,"What is E in the diagram?
+Options: A: crane fly, B: pupa, C: leatherjacket, D: eggs",A,A,B,1.0,0.0,loss
+mmstar,mmstar:1320,514229f09cc32057f130c8087ab94059003ac22eda42c172fc893b83084854f1,96-to-32,"What term is used to describe A in the diagram?
+Options: A: Egg, B: Adult, C: Pupa, D: Larva",C,C,A,1.0,0.0,loss
+mmstar,mmstar:1320,514229f09cc32057f130c8087ab94059003ac22eda42c172fc893b83084854f1,288-to-96,"What term is used to describe A in the diagram?
+Options: A: Egg, B: Adult, C: Pupa, D: Larva",C,C,A,1.0,0.0,loss
+mmstar,mmstar:133,69298cf43904b0ba607958c99048df7074ef4bac9ac9e393390bd42aebb79f39,96-to-32,"What is the intended mood of this living room?
+Options: A: Cozy and comfy, B: Bright and sunny, C: Dark and dramatic, D: Sleek and modern",D,A,D,0.0,1.0,gain
+mmstar,mmstar:133,69298cf43904b0ba607958c99048df7074ef4bac9ac9e393390bd42aebb79f39,288-to-96,"What is the intended mood of this living room?
+Options: A: Cozy and comfy, B: Bright and sunny, C: Dark and dramatic, D: Sleek and modern",D,A,D,0.0,1.0,gain
+mmstar,mmstar:135,e2144a0923645aeb76a3e5128a71ca72e0308ea4c528e5c41139f7142f0587ef,96-to-32,"What is the primary focal point of this image?
+Options: A: A dirt road lined with trees, B: A pathway through a park, C: A tree-lined pathway leading to a bench, D: A fence and gate leading to a driveway",A,A: A dirt road lined with trees,C,1.0,0.0,loss
+mmstar,mmstar:137,2e9cfb4a3236bb861b594e2ab892ada84aaccd1d761e59a48d5a81cde596d1fe,96-to-32,"What is the most dominant color in the image?
+Options: A: Black, B: Blue, C: Red, D: White",B,B,C,1.0,0.0,loss
+mmstar,mmstar:137,2e9cfb4a3236bb861b594e2ab892ada84aaccd1d761e59a48d5a81cde596d1fe,288-to-96,"What is the most dominant color in the image?
+Options: A: Black, B: Blue, C: Red, D: White",B,B,C,1.0,0.0,loss
+mmstar,mmstar:1383,573bd0ccba77797abd81642139818762641568a8c1779de505f318e123b797da,96-to-32,"What is a primary consumer?
+Options: A: turtle, B: sanderling, C: razor clam, D: plankton",C,D,C,0.0,1.0,gain
+mmstar,mmstar:1387,dca394f1cb7af0b4c33b0cd9ea9ff24b6519c1e18616ae8735b12fe85cbb27d1,96-to-32,"What is label H pointing to?
+Options: A: Golgi body, B: Endoplasmic reticulum, C: Nucleus, D: Mitochondrion",A,A,B,1.0,0.0,loss
+mmstar,mmstar:1398,bef623722fa980a6e59e887580f7e88f07bc80b09019f4c14cea75f3f9f633dc,96-to-32,"From the above food web diagram, name the species that have most predator
+Options: A: seaweed, B: lagae, C: crabs, D: jelly fish",B,B,A,1.0,0.0,loss
+mmstar,mmstar:140,efe84025d46dd2d2a203ad6698df7cc7e5ad36c7c3e05548d8a001f26747fae5,96-to-32,"Which of the following emotions is shown in this image?
+Options: A: weavy, B: lonely, C: happy, D: supportive",A,A,B,1.0,0.0,loss
+mmstar,mmstar:1402,c4c388f0bcd7caa44781bbe41c7d4fe69116f09bc76022e11254c0945c426ac5,96-to-32,"In the given diagram, what does the letter E represent?
+Options: A: Smaller Attraction, B: Earth, C: Bigger Attraction, D: Moon",C,C,A,1.0,0.0,loss
+mmstar,mmstar:1411,9c18afea6e83da8369d46705c4e73d65ce8025f69fc6f7e9ea2134ee76f1bdc4,96-to-32,"Which ocean is highlighted?
+Options: A: the Indian Ocean, B: the Atlantic Ocean, C: the Pacific Ocean, D: the Southern Ocean",A,A,D,1.0,0.0,loss
+mmstar,mmstar:1424,7c50f73b98bfc03a2c4805610c200d49ecbb200ebfdbed8ccb51af12a65534e8,96-to-32,"Think about the magnetic force between the magnets in each pair. Which of the following statements is true?
+Options: A: The magnitude of the magnetic force is smaller in Pair 2., B: The magnitude of the magnetic force is the same in both pairs., C: The magnitude of the magnetic force is smaller in Pair 1., D: nan",A,A,B,1.0,0.0,loss
+mmstar,mmstar:1430,d9e9927402d6b74a9995e5eddc27c35a0e612a37b70c0d493f9608222269f1f3,96-to-32,"Which solution has a higher concentration of green particles?
+Options: A: Solution B, B: neither; their concentrations are the same, C: Solution A, D: nan",A,C,A,0.0,1.0,gain
+mmstar,mmstar:1430,d9e9927402d6b74a9995e5eddc27c35a0e612a37b70c0d493f9608222269f1f3,288-to-96,"Which solution has a higher concentration of green particles?
+Options: A: Solution B, B: neither; their concentrations are the same, C: Solution A, D: nan",A,C,A,0.0,1.0,gain
+mmstar,mmstar:1437,0c1394a80c86453b0466b9fdb58dfc1ef0a81dc5308c8b23f20a3ce4d272fc11,96-to-32,"Which letter represents the process of infiltration?
+Options: A: B, B: D, C: G, D: E",B,B,A,1.0,0.0,loss
+mmstar,mmstar:1449,c90a482974e1d7a8369ff79060f26ab2e32145fd46aa6f85c4df3915c1ac1ce7,96-to-32,"The letter F is labeling which leaf?
+Options: A: Serrate, B: Crenate, C: Incised, D: Dentate",A,C,A,0.0,1.0,gain
+mmstar,mmstar:1449,c90a482974e1d7a8369ff79060f26ab2e32145fd46aa6f85c4df3915c1ac1ce7,288-to-96,"The letter F is labeling which leaf?
+Options: A: Serrate, B: Crenate, C: Incised, D: Dentate",A,C,A,0.0,1.0,gain
+mmstar,mmstar:1450,dbbf0d5e453dbdb133a62a905048c13b4a7e8f4654b30fe8c4db3b4cf659a945,96-to-32,"Sweet potato whitefly denotes ?
+Options: A: C, B: A, C: None of the above, D: B",A,B,A,0.0,1.0,gain
+mmstar,mmstar:1450,dbbf0d5e453dbdb133a62a905048c13b4a7e8f4654b30fe8c4db3b4cf659a945,288-to-96,"Sweet potato whitefly denotes ?
+Options: A: C, B: A, C: None of the above, D: B",A,B,A,0.0,1.0,gain
+mmstar,mmstar:1453,76e4ec1784adacf082bec4f5edd33a569452f134404beead0c8d4952b4500d67,96-to-32,"What represents flat feet in the diagram?
+Options: A: C, B: none of the above, C: A, D: B",A,A,C,1.0,0.0,loss
+mmstar,mmstar:1478,a9da9bcd5261678c6ae41cbe3a0cd3c76d769844531d9f2a58edda228d4acab0,288-to-96,"What is E in the diagram?
+Options: A: skin, B: bone, C: horny hoof, D: hair",B,B,C,1.0,0.0,loss
+mmstar,mmstar:1493,943cc0dd125be1fd1ced3189cedef79b778502c21596f476d7a6a40224f844bc,288-to-96,"What is H in the diagram?
+Options: A: pith, B: protoxylem, C: cambium, D: metaxylem",A,A,D,1.0,0.0,loss
+mmstar,mmstar:162,b68cb39159e6424bda9d315856b93619306b87875d9fcb3e951b5b077b13596b,96-to-32,"what style is depicted in this image?
+Options: A: impressionism, B: post-Impressionism, C: modernism, D: dadaism",A,B,A,0.0,1.0,gain
+mmstar,mmstar:162,b68cb39159e6424bda9d315856b93619306b87875d9fcb3e951b5b077b13596b,288-to-96,"what style is depicted in this image?
+Options: A: impressionism, B: post-Impressionism, C: modernism, D: dadaism",A,B,A,0.0,1.0,gain
+mmstar,mmstar:164,52901cadc09d6bcc13a30a4d3ab2bc177fc9b0335ca092968b0e6de559b2561e,96-to-32,"Which mood does this image convey?
+Options: A: Sad, B: Anxious, C: Happy, D: Angry",A,B,A,0.0,1.0,gain
+mmstar,mmstar:164,52901cadc09d6bcc13a30a4d3ab2bc177fc9b0335ca092968b0e6de559b2561e,288-to-96,"Which mood does this image convey?
+Options: A: Sad, B: Anxious, C: Happy, D: Angry",A,B,A,0.0,1.0,gain
+mmstar,mmstar:17,aa51652688a1fed6f66a20d8f08e912cacd5b372f4e672d8746610313ba7a791,288-to-96,"What is the overall theme of the image?
+Options: A: Beach vacation, B: Athletic lifestyle, C: Summer fashion, D: Urban street style",C,D,C,0.0,1.0,gain
+mmstar,mmstar:170,5566931d973dd4774ab8c23b5b036e776de3afd960757a64b266fdf36ec5e84b,288-to-96,"which image is more colorful?
+Options: A: The first image, B: The second image, C: nan, D: nan",B,A,B,0.0,1.0,gain
+mmstar,mmstar:172,64d4d35798cbdf89c716fca17a4f3c7ded772b70e7187ed4fe8a51978f9b8dcc,96-to-32,"is this place crowded?
+Options: A: yes, B: no, C: nan, D: nan",B,B,A,1.0,0.0,loss
+mmstar,mmstar:173,600f35862143c871ff8ab03966ce48997fd5ea8a4cc4caaa1d7183c66c25a5dc,96-to-32,"The image displays which art style?
+Options: A: watercolor, B: early renaissance, C: art nouveau, D: vector art",A,A,D,1.0,0.0,loss
+mmstar,mmstar:173,600f35862143c871ff8ab03966ce48997fd5ea8a4cc4caaa1d7183c66c25a5dc,288-to-96,"The image displays which art style?
+Options: A: watercolor, B: early renaissance, C: art nouveau, D: vector art",A,A,D,1.0,0.0,loss
+mmstar,mmstar:18,7e0d3535f4bb35f8ff27a4f0b6fe383b1f48539b2d0ff86c32aed90dd3fd6aae,96-to-32,"What emotion is illustrated in this image?
+Options: A: love, B: anger, C: happy, D: sad",A,C,A,0.0,1.0,gain
+mmstar,mmstar:185,a1c369c26a6873aceb656987494dbac2597db6cb75fc2d9b865f10c17be2dc10,96-to-32,"what style is this painting?
+Options: A: ink wash painting, B: watercolor painting, C: gouache painting, D: pen and ink",B,A,B,0.0,1.0,gain
+mmstar,mmstar:191,edb5f66af4689ecde1cdd2578dbe5a5dfbab24937dba458a1231471dcb147a50,96-to-32,"Which art style is showcased in this image?
+Options: A: depth of field, B: pencil, C: vector art, D: Baroque",B,B,C,1.0,0.0,loss
+mmstar,mmstar:195,40480419c26cae965ab5d8827c9fc4a29c5a095b415fd6a26236099b64647587,288-to-96,"which image is more colorful?
+Options: A: The first image, B: The second image, C: nan, D: nan",B,A,B,0.0,1.0,gain
+mmstar,mmstar:199,e22c25ac7da6d18122070c2c37709e94887cde41d91da1fb2b48f553c1e41329,96-to-32,"which image is more colorful?
+Options: A: The first image, B: The second image, C: nan, D: nan",B,B,A,1.0,0.0,loss
+mmstar,mmstar:204,58cf2a60316ca6e9de0da4247ad98b378be4008e4fd09ae8444882b3bc7de3a3,96-to-32,"Which is the main topic of the image
+Options: A: A woman is playing tennis, B: A man is playing tennis, C: A boy is playing soccer, D: A girl is playing volleyball",B,B,A,1.0,0.0,loss
+mmstar,mmstar:22,e42a3089b1fa66fe11447e5996990b4e3798289f72d6e70cbdd14edf9e15ce5d,96-to-32,"What is the main color scheme of the image?
+Options: A: Shades of blue and green, B: Bright oranges and pinks, C: Various shades of gray and black, D: A rainbow of vivid colors",C,C,A,1.0,0.0,loss
+mmstar,mmstar:256,2e3400f8c351608a1d848517b64afceb07c9ea8ff43ccb748692c12fec1d41b5,96-to-32,"Which scene category matches this image the best?
+Options: A: forest_path, B: museum/indoor, C: storage_room, D: alley",C,C,A,1.0,0.0,loss
+mmstar,mmstar:256,2e3400f8c351608a1d848517b64afceb07c9ea8ff43ccb748692c12fec1d41b5,288-to-96,"Which scene category matches this image the best?
+Options: A: forest_path, B: museum/indoor, C: storage_room, D: alley",C,C,B,1.0,0.0,loss
+mmstar,mmstar:257,2bad02910a8bc5f4185099baecc944be0340ac9936eda7f5e2be6ea1b4b5771f,96-to-32,"What is the position of the catcher relative to the home plate?
+Options: A: The catcher is to the left of the home plate., B: The catcher is to the right of the home plate., C: The catcher is behind the home plate., D: The catcher is in front of the home plate.",A,A,C,1.0,0.0,loss
+mmstar,mmstar:259,6fb6662b0e6ef50f31d0c83b7f47fd5149a360a1a722a16739c71f5171332e63,96-to-32,"In the given image, in which direction is the pier facing?
+Options: A: North, B: South, C: East, D: West",A,D,A,0.0,1.0,gain
+mmstar,mmstar:264,764b988a956374536aa88e7c4740f8871dde039353bb0adc49892ffd87ebe410,288-to-96,"Which woman has dark hair in the image?
+Options: A: Both women, B: The woman standing farther from the teddy bear, C: The woman standing closer to the teddy bear, D: Neither woman",A,C,A,0.0,1.0,gain
+mmstar,mmstar:295,b0382317a9e095b6b482b0a6537554d38aaf252d5011774bc18846c02fcd5cc8,96-to-32,"What is the color of the woman's hair?
+Options: A: Brown, B: Black, C: Blond, D: Red",C,A,C,0.0,1.0,gain
+mmstar,mmstar:298,11aba432c3e72218a4034245ff6156c766fb28d5e731fa25a3ed0ef822f0eca6,96-to-32,"How many mirrors are visible in the image?
+Options: A: 0, B: 2, C: 1, D: 3",B,C,B,0.0,1.0,gain
+mmstar,mmstar:300,c99948dbc785ab126eb8b89eafaa8035c664ee25b11ee293e213732784977d29,96-to-32,"How many people are visible in this picture?
+Options: A: three, B: six, C: seven, D: eight",D,D,A,1.0,0.0,loss
+mmstar,mmstar:305,f4c8d1f0e0fd77e1d938d6a542ec88afe34254ae52050f1d518660b3677aba47,96-to-32,"How many people are present in the image?
+Options: A: 1, B: 3, C: 2, D: 4",B,A,B,0.0,1.0,gain
+mmstar,mmstar:305,f4c8d1f0e0fd77e1d938d6a542ec88afe34254ae52050f1d518660b3677aba47,288-to-96,"How many people are present in the image?
+Options: A: 1, B: 3, C: 2, D: 4",B,A,B,0.0,1.0,gain
+mmstar,mmstar:313,ad49fa24d856c43a22e2f4d5d234d8d8be1fedea29f6bb7d00141a33ff65fa55,96-to-32,"How many buildings are present in the image?
+Options: A: 1, B: 3, C: 2, D: 4",D,D,B,1.0,0.0,loss
+mmstar,mmstar:313,ad49fa24d856c43a22e2f4d5d234d8d8be1fedea29f6bb7d00141a33ff65fa55,288-to-96,"How many buildings are present in the image?
+Options: A: 1, B: 3, C: 2, D: 4",D,D,B,1.0,0.0,loss
+mmstar,mmstar:323,c529c9cedd94893af32645a1d5cb85eaa5b179e4ac0ab3fd5b2e49b244d83df5,288-to-96,"What is the color of the couch in the living room?
+Options: A: Beige, B: Grey, C: Dark Brown, D: White",C,A,C,0.0,1.0,gain
+mmstar,mmstar:331,b6aa8e447a50e885cbb3a9f769793d40d94a301318af955a5456ede03ee28028,288-to-96,"How many people are present in the image?
+Options: A: One, B: Two, C: Three, D: Four",D,D,C,1.0,0.0,loss
+mmstar,mmstar:339,f112f26f9e7a3c6476e5201d6ad2e9ce1ac0412ba68d02381264fa690584edf1,288-to-96,"What is the shape of the window on the building in the image?
+Options: A: Square, B: Rectangle, C: Circle, D: Triangle",C,A,C,0.0,1.0,gain
+mmstar,mmstar:34,985a5c20356138f357db14025f1e854111c4ed4dc8f8d5f40104a18071bab81d,288-to-96,"What is the dominant color in the image?
+Options: A: Red, B: Blue, C: Green, D: Black",D,B,D,0.0,1.0,gain
+mmstar,mmstar:342,abd524a9e9b41b56cdb5a694669a6f0b24de914a27845bb1728cf74cc88bd5ee,96-to-32,"What is the color of the net behind the players in the image?
+Options: A: It is not visible in the image., B: Blue, C: Red, D: White",B,B,A,1.0,0.0,loss
+mmstar,mmstar:349,40b6d11bf5797a3285671d8e48e8c7a17ab1ac4b1f863a3393b688cf991abfbc,96-to-32,"How many paintings are in the image?
+Options: A: 0, B: 2, C: 1, D: 3",B,C,B,0.0,1.0,gain
+mmstar,mmstar:35,3cd82ce65f8972e60ebc049ed79f72953a96f3f86cba937852d9e8f228630324,96-to-32,"What is the dominant color in the image?
+Options: A: White, B: Blue, C: Brown, D: Black",A,A,B,1.0,0.0,loss
+mmstar,mmstar:354,6fe9c2ece3eac15b98d2b686291554694cbf00f6194ad1ddf88b381e54a1062f,288-to-96,"What piece of furniture is in the foreground of the picture?
+Options: A: A couch, B: A chair, C: A lamp, D: A table",A,B,A,0.0,1.0,gain
+mmstar,mmstar:356,3141fe373ca1d327300029682d169b92b32bfe604d886026e0aa63ab908b0ec4,96-to-32,"What is the most prominent color of the countertop?
+Options: A: Gray, B: White, C: Black, D: Brown",D,D,A,1.0,0.0,loss
+mmstar,mmstar:356,3141fe373ca1d327300029682d169b92b32bfe604d886026e0aa63ab908b0ec4,288-to-96,"What is the most prominent color of the countertop?
+Options: A: Gray, B: White, C: Black, D: Brown",D,D,A,1.0,0.0,loss
+mmstar,mmstar:358,b536531528ae0d80ceb57f180f351350ea7932420aca234083ead174784a12dc,96-to-32,"Which term matches the picture?
+Options: A: filtration, B: centrifugation, C: nan, D: nan",A,B,A,0.0,1.0,gain
+mmstar,mmstar:358,b536531528ae0d80ceb57f180f351350ea7932420aca234083ead174784a12dc,288-to-96,"Which term matches the picture?
+Options: A: filtration, B: centrifugation, C: nan, D: nan",A,B,A,0.0,1.0,gain
+mmstar,mmstar:36,d79ea3b70dafa5dbb813249dd8d327a71ad65e79ca882474012ac935b2f3a3ca,96-to-32,"What is the overall scene depicted in this image?
+Options: A: A group of people ice skating on a frozen lake surrounded by snowy trees and hills, B: A small town during a winter snowfall with snow-covered buildings and trees, C: A busy city street during Christmas time with decorated buildings and light displays, D: A ski resort town with snowy mountains and ski lifts visible in the background",B,B,A,1.0,0.0,loss
+mmstar,mmstar:363,123e3c0543c75d2a94f3a5e6b1b3c491f248c5ffad44ceaba9f04e0c33109141,96-to-32,"What color is the text in the image?
+Options: A: White, B: Blue, C: Black, D: Grey",A,B,A,0.0,1.0,gain
+mmstar,mmstar:37,388e09fc8ada395e799738c08ee2b68e265048c8d70eebe26adfe4fd89b7d1d6,96-to-32,"What is the predominant color in this image?
+Options: A: Blue, B: White, C: Brown, D: Green",B,B,C,1.0,0.0,loss
+mmstar,mmstar:375,ba166eba1f797a07c0b32ea9320dcc82ea7e8dca1f21fc1b193063656c30f026,96-to-32,"How many people are there in the image?
+Options: A: 0, B: 1, C: 2, D: 3",B,C,B,0.0,1.0,gain
+mmstar,mmstar:375,ba166eba1f797a07c0b32ea9320dcc82ea7e8dca1f21fc1b193063656c30f026,288-to-96,"How many people are there in the image?
+Options: A: 0, B: 1, C: 2, D: 3",B,C,B,0.0,1.0,gain
+mmstar,mmstar:38,87e76e5c5f298b699bd02cfc3faac1c3f00a7399d78d5621e145f8a3bdae8ad8,96-to-32,"Which of the following best describes the view from the deck?
+Options: A: A view of a forest, B: A view of the cityscape, C: A view of the mountains, D: A view of a body of water",A,A,B,1.0,0.0,loss
+mmstar,mmstar:388,fc302b2a7e8d95feb00657ed9d4b776ab5a117e7d1b5b094c3664d99f7ca0624,96-to-32,"The tiny shiny cylinder has what color?
+Options: A: red, B: cyan, C: purple, D: brown",D,D,C,1.0,0.0,loss
+mmstar,mmstar:388,fc302b2a7e8d95feb00657ed9d4b776ab5a117e7d1b5b094c3664d99f7ca0624,288-to-96,"The tiny shiny cylinder has what color?
+Options: A: red, B: cyan, C: purple, D: brown",D,D,C,1.0,0.0,loss
+mmstar,mmstar:39,d04abaf10fa441bf49175ea48b6806d0b97a3f37bf6d3a4bb74315d415c9f267,288-to-96,"What is the subject of the image?
+Options: A: A person on stage playing guitar, B: A group of people playing music on stage, C: A group of people on stage playing guitars and singing, D: A group of people on stage playing music at night",B,C,B,0.0,1.0,gain
+mmstar,mmstar:392,e0d1147b0e127f6809e6d55ebf872ac8b7dff944c51180bfdc252f60da25198b,96-to-32,"What type of pavement is the person with the dog walking on?
+Options: A: Concrete, B: Brick, C: Asphalt, D: Gravel",A,B,A,0.0,1.0,gain
+mmstar,mmstar:4,352465ee62afbecffcc28a5e606df1f3cd963dd0f8c0415dea71a5e830b3f967,96-to-32,"What is the center of focus in the image?
+Options: A: A man writing in a book, B: A boy with his head in his hands surrounded by books, C: A cluttered desk with books and a pen, D: A stack of books covering a young man's face",A,A: A man writing in a book,B,1.0,0.0,loss
+mmstar,mmstar:4,352465ee62afbecffcc28a5e606df1f3cd963dd0f8c0415dea71a5e830b3f967,288-to-96,"What is the center of focus in the image?
+Options: A: A man writing in a book, B: A boy with his head in his hands surrounded by books, C: A cluttered desk with books and a pen, D: A stack of books covering a young man's face",A,A: A man writing in a book,B,1.0,0.0,loss
+mmstar,mmstar:40,d91b2788f3ae4b3e1b55425d38b487f8733affc04f52d9f7c74b7a29a7a83df8,96-to-32,"What type of scene is depicted in this image?
+Options: A: A workspace, B: A beach vacation, C: A tropical restaurant, D: A desert oasis",A,B,A,0.0,1.0,gain
+mmstar,mmstar:40,d91b2788f3ae4b3e1b55425d38b487f8733affc04f52d9f7c74b7a29a7a83df8,288-to-96,"What type of scene is depicted in this image?
+Options: A: A workspace, B: A beach vacation, C: A tropical restaurant, D: A desert oasis",A,B,A,0.0,1.0,gain
+mmstar,mmstar:400,c2327383a067ebbeb3230205edc47ed7a5f6acea2d3284dfb2e634cc2efb5186,288-to-96,"What is the color of the man's tie in the image?
+Options: A: Blue, B: White, C: Black, D: Red",C,C,B,1.0,0.0,loss
+mmstar,mmstar:41,5c1aa9f09307173c80b23a8398e2ed8dd2bad86dd353514f56a20b7539dab8e3,96-to-32,"What is the general theme of this image?
+Options: A: Candy buffet, B: Ice cream sundae, C: Yogurt containers, D: Fruit desserts",B,B,A,1.0,0.0,loss
+mmstar,mmstar:417,95e488fc5f238c1b3a414856678dc31db5e7ae64c0b50b8a47ff01b2549aeceb,96-to-32,"What is the color of the hat in the image?
+Options: A: Black, B: Brown, C: Beige, D: White",B,B,A,1.0,0.0,loss
+mmstar,mmstar:426,58d2948c1e449e76ca2b5ce66397c561ae5e210d917d3aea0c9b83ccffe318fb,96-to-32,"Where is it?
+Options: A: Shanghai, B: Xi'an, C: Wuhan, D: Nanjing",B,B,A,1.0,0.0,loss
+mmstar,mmstar:43,15b64ec0afeb4712710514754487c666881a69613aba4f64a064bfe275be63a1,96-to-32,"Based on the image, which statement best describes the likely purpose of the setting?
+Options: A: A photoshoot for greeting cards, B: A scientific research site, C: A festive celebration, D: A picnic spot for a group of people",A,A,D,1.0,0.0,loss
+mmstar,mmstar:440,40b47494a9096b76dbce546240aaa3f92ea3d67d5016eeb5b16c17cdbbeba438,96-to-32,"What is the color of the waitress' apron?
+Options: A: Black, B: White, C: Red, D: Green",A,C,A,0.0,1.0,gain
+mmstar,mmstar:440,40b47494a9096b76dbce546240aaa3f92ea3d67d5016eeb5b16c17cdbbeba438,288-to-96,"What is the color of the waitress' apron?
+Options: A: Black, B: White, C: Red, D: Green",A,C,A,0.0,1.0,gain
+mmstar,mmstar:445,9fe9e12bca0acaa74a492cc37f00785c945a1191028e14a49c117dcfd6dc1c55,96-to-32,"What is the color of the shorts of the soccer player wearing a red and black uniform?
+Options: A: White and black, B: Yellow and green, C: Black and white, D: Blue and red",A,C,A,0.0,1.0,gain
+mmstar,mmstar:453,65f6c3c65e144cee9be1a7115602dca96e59864a2fc04e3162c0752ffc8a3a95,96-to-32,"How many plants are in the image?
+Options: A: 1, B: 2, C: 3, D: 4",A,B,A,0.0,1.0,gain
+mmstar,mmstar:453,65f6c3c65e144cee9be1a7115602dca96e59864a2fc04e3162c0752ffc8a3a95,288-to-96,"How many plants are in the image?
+Options: A: 1, B: 2, C: 3, D: 4",A,B,A,0.0,1.0,gain
+mmstar,mmstar:457,719df409f0b737efca26951cf411ef102496c1562583c724a9e1d8719636079a,288-to-96,"How many referees are present in the image?
+Options: A: 0, B: 1, C: 2, D: 3",D,C,D,0.0,1.0,gain
+mmstar,mmstar:466,c76a04230ef18751844975a834fb628a12daa055d0aed90450c6a0c7b3d18769,96-to-32,"What color is the sky in the image?
+Options: A: Blue, B: Yellow, C: Gray, D: Cannot be determined",C,A,C,0.0,1.0,gain
+mmstar,mmstar:470,a55d45a502b1dd333df80f43358b7ba3b26e3d81a5ce56e9712f6dd2402ff0c4,96-to-32,"How many musical instruments can be seen in the image?
+Options: A: One, B: Four, C: Three, D: Two",D,D,A,1.0,0.0,loss
+mmstar,mmstar:470,a55d45a502b1dd333df80f43358b7ba3b26e3d81a5ce56e9712f6dd2402ff0c4,288-to-96,"How many musical instruments can be seen in the image?
+Options: A: One, B: Four, C: Three, D: Two",D,D,A,1.0,0.0,loss
+mmstar,mmstar:473,9018459f5097fd934cf773e2aef481656c4a6210c5ffd0e442819291633e4c97,288-to-96,"How many people are present in the image?
+Options: A: Four, B: Ten, C: Eight, D: Six",C,A,C,0.0,1.0,gain
+mmstar,mmstar:477,e5c322d470ceb4ce4ae0756168acddf35c28f9c791f9e1726e9f73daa62b2c9a,96-to-32,"How many people are on stage in the image?
+Options: A: One, B: Four, C: Three, D: Two",B,C,B,0.0,1.0,gain
+mmstar,mmstar:48,11e2e22712c578a7e32eb1c7ae371817badff04d78260d5b2ede84c9022dcae6,96-to-32,"What is the main focus of the image?
+Options: A: The sidewalk, B: The shoes, C: The ballerina, D: The studio",B,C,B,0.0,1.0,gain
+mmstar,mmstar:48,11e2e22712c578a7e32eb1c7ae371817badff04d78260d5b2ede84c9022dcae6,288-to-96,"What is the main focus of the image?
+Options: A: The sidewalk, B: The shoes, C: The ballerina, D: The studio",B,C,B,0.0,1.0,gain
+mmstar,mmstar:493,c3cb9b4fdab4226e8323fcc1965b5b14dc2e728371bd0320181a5d5f9670d48b,96-to-32,"Where is it located?
+Options: A: Xi'an, B: Shanghai, C: Beijing, D: Nanjing",A,C,A,0.0,1.0,gain
+mmstar,mmstar:493,c3cb9b4fdab4226e8323fcc1965b5b14dc2e728371bd0320181a5d5f9670d48b,288-to-96,"Where is it located?
+Options: A: Xi'an, B: Shanghai, C: Beijing, D: Nanjing",A,C,A,0.0,1.0,gain
+mmstar,mmstar:496,476fa9456016dd33f8aa3d6abd2322181c0b8b998a2a5c15458326f9a83bcd55,96-to-32,"What color is the hair of the woman in the image?
+Options: A: Black, B: Brown, C: Red, D: Blonde",A,A,C,1.0,0.0,loss
+mmstar,mmstar:499,c4fa8c0406c12521b3c1d103b9036b4bb13e5d57ed3e4975dbd0cecb87e6e44f,96-to-32,"How can you best describe the pillow on the chair?
+Options: A: Plain white, B: Colorful and striped, C: Solid blue, D: Floral pattern",B,C,B,0.0,1.0,gain
+mmstar,mmstar:523,7742d15c5c81c34eeb65aed3db520c7cf7dd0e6583d661da5813af65cf2fd3b8,96-to-32,"What is the material of the shower in the bathroom?
+Options: A: Metal, B: Glass, C: Plastic, D: Wood",A,D,A,0.0,1.0,gain
+mmstar,mmstar:524,3a25827a8763d4f9769e77d31a3edc695f49e8f5cbea2481c1671f832f31f3bf,96-to-32,"What is the dominant material of the cabinets in the image?
+Options: A: Ceramic, B: Metal, C: Wood, D: Glass",A,C,A,0.0,1.0,gain
+mmstar,mmstar:524,3a25827a8763d4f9769e77d31a3edc695f49e8f5cbea2481c1671f832f31f3bf,288-to-96,"What is the dominant material of the cabinets in the image?
+Options: A: Ceramic, B: Metal, C: Wood, D: Glass",A,C,A,0.0,1.0,gain
+mmstar,mmstar:529,8bd9d1d761847fcdb7e59d1cd55d1d707e0a878f4377ab1a45d83be82d1e7113,96-to-32,"The object shown in this figure:
+Options: A: Is a highly corrosive liquid, B: Has a boiling point of 337°C, C: Is used to make many types of fertilizers, D: None of these options are correct.",A,A,C,1.0,0.0,loss
+mmstar,mmstar:529,8bd9d1d761847fcdb7e59d1cd55d1d707e0a878f4377ab1a45d83be82d1e7113,288-to-96,"The object shown in this figure:
+Options: A: Is a highly corrosive liquid, B: Has a boiling point of 337°C, C: Is used to make many types of fertilizers, D: None of these options are correct.",A,A,D,1.0,0.0,loss
+mmstar,mmstar:535,69e0b7b64979f6d00ea58bb2c8494d3d7a2d22750c637851fa722580420825b7,96-to-32,"Think about the magnetic force between the magnets in each pair. Which of the following statements is true?
+Options: A: The magnitude of the magnetic force is smaller in Pair 2., B: The magnitude of the magnetic force is smaller in Pair 1., C: The magnitude of the magnetic force is the same in both pairs., D: nan",B,A,B,0.0,1.0,gain
+mmstar,mmstar:544,a5c89cf2b3b1f6c862ffd6ab25698c9fb1bab61d318aee754bddb122dc84ff86,288-to-96,"What is the material of the cage-like object in this image?
+Options: A: Plastic, B: Wire, C: Metal, D: Glass",A,A,B,1.0,0.0,loss
+mmstar,mmstar:557,8e5e74356b205974e5ff0ef10f1ec135428ee05db36f838562668000b8884a93,96-to-32,"What's the function of the demonstrated object?
+Options: A: Write, B: compute, C: binding, D: copy",D,D,C,1.0,0.0,loss
+mmstar,mmstar:557,8e5e74356b205974e5ff0ef10f1ec135428ee05db36f838562668000b8884a93,288-to-96,"What's the function of the demonstrated object?
+Options: A: Write, B: compute, C: binding, D: copy",D,D,C,1.0,0.0,loss
+mmstar,mmstar:562,b97d8b7a1a098b0a1240b2db02ca1023c81e9de7ea8ec9a3a8eb09ed43bfca78,96-to-32,"What type of television is present in the room?
+Options: A: Modern, wall-mounted, B: Old, tube TV, C: Modern, smart TV, D: Old, flat screen",A,B,A,0.0,1.0,gain
+mmstar,mmstar:562,b97d8b7a1a098b0a1240b2db02ca1023c81e9de7ea8ec9a3a8eb09ed43bfca78,288-to-96,"What type of television is present in the room?
+Options: A: Modern, wall-mounted, B: Old, tube TV, C: Modern, smart TV, D: Old, flat screen",A,B,A,0.0,1.0,gain
+mmstar,mmstar:571,a2d76968993e5dec5ff711d3ffd45a54791430fc4197d7aa75f62586988771d8,288-to-96,"What direction is Syria in the Mediterranean Sea?
+Options: A: east, B: south, C: west, D: north",A,A,C,1.0,0.0,loss
+mmstar,mmstar:573,f4a8d39b113cad2b3ee57aa6701a6df0c24227faa44fc5e8a76c14e1776e8fee,96-to-32,"What is the position of the sun in the image?
+Options: A: Hidden by storm clouds, B: Setting over a rocky area with rocks, C: Setting over a mountain range, D: Setting over a rocky mountain top",A,A,D,1.0,0.0,loss
+mmstar,mmstar:574,74a071183aeae31ee8cdb9df4f0e8d80e09ae5c414286e86796d6d7e938a653c,96-to-32,"What is most prominent in the image?
+Options: A: A building with a clock, B: A city skyline, C: A boat docked in the water., D: Water with boats and ships.",A,A,B,1.0,0.0,loss
+mmstar,mmstar:590,edee7301cc471914fb1942676771ab92c9a0a35024f3ca6e5343a6c22abc8371,96-to-32,"Are the two animals in the picture the same color?
+Options: A: same, B: Not the same, C: Can't judge, D: nan",B,A,B,0.0,1.0,gain
+mmstar,mmstar:592,2fef802db49318ffe26503ca57d1d9002714a3961461f558f374272cbf9d9559,96-to-32,"Which is the final stage of a plant growth?
+Options: A: D, B: E, C: C, D: A",A,D,A,0.0,1.0,gain
+mmstar,mmstar:596,463d251646e016400a518983cf0898fd089d14937fc52e08bba330673120d9a7,96-to-32,"Hint: Please answer the question and provide the correct option letter, e.g., A, B, C, D, at the end.
+Question: In the diagram of the food web shown what will most directly be affected by the loss of the trees?
+Choices:
+(A) horses
+(B) cats
+(C) nothing
+(D) bears",A,A,C,1.0,0.0,loss
+mmstar,mmstar:598,148135cc735faeb8110109df3fc9f565ab77f949489900319059dfed6914134c,96-to-32,"Where is the lamp in the living room?
+Options: A: On the coffee table, B: On the windowsill, C: On the end table, D: On the floor",A,A,C,1.0,0.0,loss
+mmstar,mmstar:601,1df71bf688f8ede34851e074a643127cbabb7e8c1c77d11217cc01bffc4aaf8a,288-to-96,"How is the sun appearing in the sky?
+Options: A: High and bright, B: Just rising, C: Behind the couple, D: Just going down",C,B,C,0.0,1.0,gain
+mmstar,mmstar:615,a0772b49c9e2f895a791c6f007ad447dbfcec1909c93470742dc5bc9bf877d43,96-to-32,"Which object is bigger, the Christmas tree or the hotel lobby?
+Options: A: They are about the same size, B: Hotel lobby, C: Christmas tree, D: Cannot be determined from the given information",B,C,B,0.0,1.0,gain
+mmstar,mmstar:615,a0772b49c9e2f895a791c6f007ad447dbfcec1909c93470742dc5bc9bf877d43,288-to-96,"Which object is bigger, the Christmas tree or the hotel lobby?
+Options: A: They are about the same size, B: Hotel lobby, C: Christmas tree, D: Cannot be determined from the given information",B,C,B,0.0,1.0,gain
+mmstar,mmstar:617,c58c8c77d6bcf8dde030c2547eb663ee852bb1acac6b2c212e16b31d97d794b4,96-to-32,"What is the most curved beak species?
+Options: A: iiki, B: swallow-tanager, C: cliff swallow, D: hawfinch",A,A,C,1.0,0.0,loss
+mmstar,mmstar:617,c58c8c77d6bcf8dde030c2547eb663ee852bb1acac6b2c212e16b31d97d794b4,288-to-96,"What is the most curved beak species?
+Options: A: iiki, B: swallow-tanager, C: cliff swallow, D: hawfinch",A,A,C,1.0,0.0,loss
+mmstar,mmstar:624,497a023e014611fbab494cd6fa67293c6ed9ec696318c01f7c344d95c735dac7,96-to-32,"In this picture, are the two dolphins the same size?
+Options: A: same, B: Not the same, C: Can't judge, D: nan",B,B,A,1.0,0.0,loss
+mmstar,mmstar:626,586c148260bb6520f19e6089cc13eb908c75791775a47aaddaf33d9945be709f,96-to-32,"Based on the image, where is the boy?
+Options: A: The boy is on the right of the fire hydrant, B: The boy is on the left of the fire hydrant, C: The boy is on the top of the fire hydrant, D: All above are not right",B,B,A,1.0,0.0,loss
+mmstar,mmstar:63,2fa6d245498bffa492f725fbb3b243da8f114dde97eb48c0af1c529e8cf4e17a,96-to-32,"What is the prominent color in the image?
+Options: A: Blue, B: Green, C: Grey, D: White",B,C,B,0.0,1.0,gain
+mmstar,mmstar:631,c0fe64087135fdf1d02bb930b94d634979a9bff24bee771929997f5f709810a3,96-to-32,"What is the relationship between the people in the image?
+Options: A: commercial, B: professional, C: friends, D: family",C,C,B,1.0,0.0,loss
+mmstar,mmstar:634,7e65d170b799a068b832faa112c34240da18ddd374698bb695cf4b4e84109ec4,96-to-32,"Which solution has a higher concentration of blue particles?
+Options: A: Solution B, B: neither; their concentrations are the same, C: Solution A, D: nan",A,C,A,0.0,1.0,gain
+mmstar,mmstar:64,65a11ea0a9c4a607de67465593c847df5e9fff6adc15980cf7883ff0d392d49d,96-to-32,"What is the main feature of the image?
+Options: A: People on the rooftop of a building, B: A large area of ferns, C: A garden with trees, plants and a building, D: A blue cloudy sky",B,B,C,1.0,0.0,loss
+mmstar,mmstar:64,65a11ea0a9c4a607de67465593c847df5e9fff6adc15980cf7883ff0d392d49d,288-to-96,"What is the main feature of the image?
+Options: A: People on the rooftop of a building, B: A large area of ferns, C: A garden with trees, plants and a building, D: A blue cloudy sky",B,B,C,1.0,0.0,loss
+mmstar,mmstar:646,875168817af5d152e7090fbe5c3ab3caa072e41c0a2b30db95d92c910fc5f7d1,96-to-32,"Who feeds on grass?
+Options: A: Deer, B: Moose, C: Cottontail, D: None of the above",C,C,A,1.0,0.0,loss
+mmstar,mmstar:648,2f28625966ad707926337029124e09d0daccfedd21d9fa5fb1e5c688d1238a03,96-to-32,"What is the main instrument being played on stage?
+Options: A: Saxophone, B: Drums, C: Guitar, D: Violin",B,C,B,0.0,1.0,gain
+mmstar,mmstar:648,2f28625966ad707926337029124e09d0daccfedd21d9fa5fb1e5c688d1238a03,288-to-96,"What is the main instrument being played on stage?
+Options: A: Saxophone, B: Drums, C: Guitar, D: Violin",B,C,B,0.0,1.0,gain
+mmstar,mmstar:655,9029ff73b009a36e5c70ad12942d312403e7fc56a249b17a0bf8e5eb6443d8ef,96-to-32,"How many kids of feet are there?
+Options: A: 4, B: 2, C: 6, D: 5",C,C,A,1.0,0.0,loss
+mmstar,mmstar:660,8a4b10108b582a2b8d4156506f341295f8f4de1ad80e44f32b6f9cf05bc24570,288-to-96,"There are two physical models in the picture, are the two square sliders the same size?
+Options: A: same, B: Not the same, C: Can't judge, D: nan",B,A,B,0.0,1.0,gain
+mmstar,mmstar:670,261926e35581544bb45d274d7c4ba853a37438581a8ffd83c2f5c98a72a148b7,96-to-32,"Where is the police officer located in the image?
+Options: A: In the crowd, B: In front of a crowd, C: Far away from the crowd, D: Not present in the image",A,A,B,1.0,0.0,loss
+mmstar,mmstar:672,cb530e0ea86db700559e7ca085e6632852c9f9a67dc2ed451080c90803b27e81,96-to-32,"What the nature relations of these animals
+Options: A: predation, B: mutualism, C: parasitism, D: nan",B,B,C,1.0,0.0,loss
+mmstar,mmstar:672,cb530e0ea86db700559e7ca085e6632852c9f9a67dc2ed451080c90803b27e81,288-to-96,"What the nature relations of these animals
+Options: A: predation, B: mutualism, C: parasitism, D: nan",B,B,C,1.0,0.0,loss
+mmstar,mmstar:673,31f90994683de2ea69aeb7fb5e3e9577f235a313350edb826afe47e2a910c096,96-to-32,"Which solution has a higher concentration of blue particles?
+Options: A: Solution B, B: neither; their concentrations are the same, C: Solution A, D: nan",A,C,A,0.0,1.0,gain
+mmstar,mmstar:683,ab552907307853effdc5009f20db6ae568e700d45f54b7fc93613b6f752a3bd1,96-to-32,"Which of the following statements match the image?
+Options: A: A triangle is to the right of an ellipse., B: A triangle is to the left of a red ellipse., C: A cyan shape is to the right of a red ellipse., D: A red square is to the left of a green triangle.",A,A,B,1.0,0.0,loss
+mmstar,mmstar:691,160a7a641331ef27995729e851837fc674720e945fcf283d95f4f4f8d20bc06a,96-to-32,"Which property do these two objects have in common?
+Options: A: yellow, B: salty, C: nan, D: nan",B,A,B,0.0,1.0,gain
+mmstar,mmstar:706,6af47eb21039e8dbc7e5c4a31188f3d809a416d2cb12aac9668bbe066568a965,96-to-32,"In nature, what's the relationship between these two creatures?
+Options: A: Predatory relationships, B: Competitive relationships, C: Parasitic relationships, D: Symbiotic relationship",D,D,C,1.0,0.0,loss
+mmstar,mmstar:706,6af47eb21039e8dbc7e5c4a31188f3d809a416d2cb12aac9668bbe066568a965,288-to-96,"In nature, what's the relationship between these two creatures?
+Options: A: Predatory relationships, B: Competitive relationships, C: Parasitic relationships, D: Symbiotic relationship",D,D,C,1.0,0.0,loss
+mmstar,mmstar:733,5566931d973dd4774ab8c23b5b036e776de3afd960757a64b266fdf36ec5e84b,288-to-96,"which image is more colorful?
+Options: A: The first image, B: The second image, C: nan, D: nan",B,A,B,0.0,1.0,gain
+mmstar,mmstar:734,9fe72a6a72042457d2cb4b80f410ea0ff75fc4ca096c8a4db7647428625fe62b,96-to-32,"Which option describe the object relationship in the image correctly?
+Options: A: The bed is beneath the suitcase., B: The car is behind the suitcase., C: The suitcase is beneath the bed., D: The cat is on the microwave.",A,C,A,0.0,1.0,gain
+mmstar,mmstar:734,9fe72a6a72042457d2cb4b80f410ea0ff75fc4ca096c8a4db7647428625fe62b,288-to-96,"Which option describe the object relationship in the image correctly?
+Options: A: The bed is beneath the suitcase., B: The car is behind the suitcase., C: The suitcase is beneath the bed., D: The cat is on the microwave.",A,C,A,0.0,1.0,gain
+mmstar,mmstar:735,e86ae89a5f95296ab0ee148b93dabeea08922bbc2073443f44e931bc57886697,96-to-32,"In nature, what's the relationship between these two creatures?
+Options: A: Predatory relationships, B: Competitive relationships, C: Parasitic relationships, D: Symbiotic relationship",B,B,A,1.0,0.0,loss
+mmstar,mmstar:738,800b5a62b02a1060d31dcc1cd599791697f0ac000c276852a8f7cd3c2d243a45,96-to-32,"The object shown in this figure:
+Options: A: Is a colorless, odorless gas., B: Can be ionized to produce a plasma., C: Has a high boiling point compared to other noble gases., D: Is the most abundant element in the universe.",A,B,A,0.0,1.0,gain
+mmstar,mmstar:738,800b5a62b02a1060d31dcc1cd599791697f0ac000c276852a8f7cd3c2d243a45,288-to-96,"The object shown in this figure:
+Options: A: Is a colorless, odorless gas., B: Can be ionized to produce a plasma., C: Has a high boiling point compared to other noble gases., D: Is the most abundant element in the universe.",A,B,A,0.0,1.0,gain
+mmstar,mmstar:745,0c23a79e20587d9e8f8b423e928f697891cecb8cb74ae341904932362ce06b8b,96-to-32,"In the picture, one is a bear doll and the other is a cat. Are they the same size?
+Options: A: same, B: Not the same, C: Can't judge, D: nan",B,B,A,1.0,0.0,loss
+mmstar,mmstar:748,0c23a79e20587d9e8f8b423e928f697891cecb8cb74ae341904932362ce06b8b,96-to-32,"In the picture, one is a bear doll and the other is a cat. Are they the same size?
+Options: A: same, B: Not the same, C: Can't judge, D: nan",B,B,A,1.0,0.0,loss
+mmstar,mmstar:75,96b11c1cbd1f69da78bcad84854e2d23c13ca349ee0950f904f7bec853feef2d,96-to-32,"What is the predominant feature of the forest in the image?
+Options: A: The ground is dry and covered in brown dirt, B: The trees are all tall and bare with no leaves, C: The trees are covered in green ivy and climbing vines, D: The bark on the trees is white and peeling",B,A,B,0.0,1.0,gain
+mmstar,mmstar:804,17151a428d2609cf2a8b94bbaeec9ce00201551216e7af82c6bd1c44bb312b3b,288-to-96,"What lies between G and C?
+Options: A: B, B: none of the above, C: E, D: I",A,B,A,0.0,1.0,gain
+mmstar,mmstar:830,d14ebf90cc25d736b9a550d4b818d1f36c7a62c33f5453b21518e0657739b79f,96-to-32,"In nature, what's the relationship between these two creatures?
+Options: A: Predatory relationships, B: Competitive relationships, C: Parasitic relationships, D: Symbiotic relationship",B,B,A,1.0,0.0,loss
+mmstar,mmstar:830,d14ebf90cc25d736b9a550d4b818d1f36c7a62c33f5453b21518e0657739b79f,288-to-96,"In nature, what's the relationship between these two creatures?
+Options: A: Predatory relationships, B: Competitive relationships, C: Parasitic relationships, D: Symbiotic relationship",B,B,A,1.0,0.0,loss
+mmstar,mmstar:834,2ec5cdcbdd2067ef72638cbab1db9b20e0cb6a477f0763390fded08b1074c721,288-to-96,"What is the referee doing in the image?
+Options: A: Blowing the whistle, B: Talking to the players, C: Watching the match from the sideline, D: Scoring the goal",C,A,C,0.0,1.0,gain
+mmstar,mmstar:835,fc4c0fbf38e15eb4707d5760f27acc30fa9a2fe4afed7a959d25fb1055a6d278,96-to-32,"In which direction is the sun shining in the image?
+Options: A: North, B: West, C: East, D: South",B,B,A,1.0,0.0,loss
+mmstar,mmstar:835,fc4c0fbf38e15eb4707d5760f27acc30fa9a2fe4afed7a959d25fb1055a6d278,288-to-96,"In which direction is the sun shining in the image?
+Options: A: North, B: West, C: East, D: South",B,B,D,1.0,0.0,loss
+mmstar,mmstar:836,1237de873fafb30d932770eda3ba077991f5620003dd872c709272c32a61b8e4,96-to-32,"What can be inferred from the position of the desk in the room?
+Options: A: It's in the center of the room., B: It's near the door., C: It's next to the window., D: It's close to the foot of the bed.",D,A,D,0.0,1.0,gain
+mmstar,mmstar:836,1237de873fafb30d932770eda3ba077991f5620003dd872c709272c32a61b8e4,288-to-96,"What can be inferred from the position of the desk in the room?
+Options: A: It's in the center of the room., B: It's near the door., C: It's next to the window., D: It's close to the foot of the bed.",D,A,D,0.0,1.0,gain
+mmstar,mmstar:837,1c39e97bb6bb7bbe9f1784ec264a39fa6fb69977bbcb052ff9ee7f58b2688a0b,96-to-32,"Which piece of clothing has a stripe on it?
+Options: A: Shirt, B: Sock, C: Pant, D: Shoe",C,A,C,0.0,1.0,gain
+mmstar,mmstar:837,1c39e97bb6bb7bbe9f1784ec264a39fa6fb69977bbcb052ff9ee7f58b2688a0b,288-to-96,"Which piece of clothing has a stripe on it?
+Options: A: Shirt, B: Sock, C: Pant, D: Shoe",C,A,C,0.0,1.0,gain
+mmstar,mmstar:843,79424d2983b4781d142414bbeae263502a8a7649c90a2e2877614e34168aee18,96-to-32,"In nature, what's the relationship between these two creatures?
+Options: A: Predatory relationships, B: Competitive relationships, C: Parasitic relationships, D: Symbiotic relationship",B,B,A,1.0,0.0,loss
+mmstar,mmstar:851,afbbda3de302b79b2924584f6d6fbd1d29da9fbbeb077959183c945aa1aec28c,96-to-32,"Two magnets are placed as shown. Hint: Magnets that attract pull together. Magnets that repel push apart. Will these magnets attract or repel each other?
+Options: A: Repel., B: Attract., C: nan, D: nan",A,A,B,1.0,0.0,loss
+mmstar,mmstar:851,afbbda3de302b79b2924584f6d6fbd1d29da9fbbeb077959183c945aa1aec28c,288-to-96,"Two magnets are placed as shown. Hint: Magnets that attract pull together. Magnets that repel push apart. Will these magnets attract or repel each other?
+Options: A: Repel., B: Attract., C: nan, D: nan",A,A,B,1.0,0.0,loss
+mmstar,mmstar:86,8d0f117e24c6a6bf0334b5db26e002755a81c81180189290050cf614bd450805,96-to-32,"What is the most prominent feature in the image?
+Options: A: a blue fence, B: a gate, C: a palm tree, D: a green wall",A,C,A,0.0,1.0,gain
+mmstar,mmstar:86,8d0f117e24c6a6bf0334b5db26e002755a81c81180189290050cf614bd450805,288-to-96,"What is the most prominent feature in the image?
+Options: A: a blue fence, B: a gate, C: a palm tree, D: a green wall",A,C,A,0.0,1.0,gain
+mmstar,mmstar:861,1b05c7d2db64bd1744f92c3818e1d22c86a1a8d805bcf5784bbaba2be97cda62,96-to-32,"Hint: Please answer the question and provide the correct option letter, e.g., A, B, C, D, at the end.
+Question: Is Sky Blue less than Chartreuse?
+Choices:
+(A) yes
+(B) no
+(C) nan
+(D) nan",A,B,A,0.0,1.0,gain
+mmstar,mmstar:886,29fb57fa76d277924a24041bffe851af898fd8b2854626e6ef7adb9ba02c9807,96-to-32,"In nature, what's the relationship between these two creatures?
+Options: A: Predatory relationships, B: Competitive relationships, C: Parasitic relationships, D: Symbiotic relationship",B,B,A,1.0,0.0,loss
+mmstar,mmstar:886,29fb57fa76d277924a24041bffe851af898fd8b2854626e6ef7adb9ba02c9807,288-to-96,"In nature, what's the relationship between these two creatures?
+Options: A: Predatory relationships, B: Competitive relationships, C: Parasitic relationships, D: Symbiotic relationship",B,B,A,1.0,0.0,loss
+mmstar,mmstar:890,fc5e70849d564f6ba93536f4c489571d61c4f5f5fb9eceb4997bc62e3a1a3b14,96-to-32,"What is the intended outcome in this image?
+Options: A: She will lose leg muscle, B: She will maintain her current leg muscle size, C: She will grow her leg muscle, D: She will undergo surgery to reduce leg muscle",C,B,C,0.0,1.0,gain
+mmstar,mmstar:893,68182634a4d51420853e106b04f521e4764ad0c46278f71ab4cfdc7495f2f608,96-to-32,"What is the predominant color of the furniture in the room?
+Options: A: brown, B: white, C: blue, D: gray",B,B,A,1.0,0.0,loss
+mmstar,mmstar:893,68182634a4d51420853e106b04f521e4764ad0c46278f71ab4cfdc7495f2f608,288-to-96,"What is the predominant color of the furniture in the room?
+Options: A: brown, B: white, C: blue, D: gray",B,B,A,1.0,0.0,loss
+mmstar,mmstar:895,4f65ecbfdd13b162d87adcf9d3ea8dcb9f383c48e70cff1a9857bbbe11bc0bf0,96-to-32,"What type of room is shown in the image?
+Options: A: Living room, B: Bedroom, C: Bathroom, D: Kitchen",B,B,A,1.0,0.0,loss
+mmstar,mmstar:895,4f65ecbfdd13b162d87adcf9d3ea8dcb9f383c48e70cff1a9857bbbe11bc0bf0,288-to-96,"What type of room is shown in the image?
+Options: A: Living room, B: Bedroom, C: Bathroom, D: Kitchen",B,B,A,1.0,0.0,loss
+mmstar,mmstar:908,fafe53e4f095ebc5237b4f3327af8b85de2a473365379c1c822568e4a37f5de5,96-to-32,"Hint: Please answer the question and provide the correct option letter, e.g., A, B, C, D, at the end.
+Question: What is the ratio of instagram to google?
+Choices:
+(A) 2
+(B) 0
+(C) 1
+(D) 3",A,C,A,0.0,1.0,gain
+mmstar,mmstar:910,5be35207497b2a924ae0babad5f69f14aca632f3ae0b65efc74f154cc06045ac,96-to-32,"What is a possible reason that the men in suits are dressed alike?
+Options: A: They are related, B: They are attending a themed party, C: They work together, D: They are in the same band",D,D,C,1.0,0.0,loss
+mmstar,mmstar:912,69047108335c4a52d51c10bb070b9f5b030ad777563f79d78a3a5f861840f2f5,96-to-32,"What direction is China in Kyrgyzstan?
+Options: A: east, B: south, C: west, D: north",A,A,D,1.0,0.0,loss
+mmstar,mmstar:912,69047108335c4a52d51c10bb070b9f5b030ad777563f79d78a3a5f861840f2f5,288-to-96,"What direction is China in Kyrgyzstan?
+Options: A: east, B: south, C: west, D: north",A,A,D,1.0,0.0,loss
+mmstar,mmstar:916,875168817af5d152e7090fbe5c3ab3caa072e41c0a2b30db95d92c910fc5f7d1,96-to-32,"How many things are predators of ermine?
+Options: A: 3, B: 1, C: 5, D: 4",A,B,A,0.0,1.0,gain
+mmstar,mmstar:935,6704565ccc11ef31b0c03c544feab2c453a1f7f4b73e7d72fa86097e33fbf6ac,96-to-32,"What is the name of the colony shown?
+Options: A: North Carolina, B: Mississippi, C: New York, D: Massachusetts",C,D,C,0.0,1.0,gain
+mmstar,mmstar:959,3efc231c1ac7a151a3fc26e86105c7bcf86a1198b12560b4c2d593a059f15185,96-to-32,"What would be the ideal complexity of the curve which can beused for separating the two classes shown in the image below?<image 1>
+Options: A: Linear, B: Quadratic, C: Cubic, D: insufficient data to draw conclusion",A,B,A,0.0,1.0,gain
+mmstar,mmstar:959,3efc231c1ac7a151a3fc26e86105c7bcf86a1198b12560b4c2d593a059f15185,288-to-96,"What would be the ideal complexity of the curve which can beused for separating the two classes shown in the image below?<image 1>
+Options: A: Linear, B: Quadratic, C: Cubic, D: insufficient data to draw conclusion",A,B,A,0.0,1.0,gain
+mmstar,mmstar:960,ab3400d9aa39b3f3df9bedd73e1248adbeb9f9ae9522465a8a7a6ebf86d712ca,96-to-32,"Think about the magnetic force between the magnets in each pair. Which of the following statements is true?
+Options: A: The magnitude of the magnetic force is smaller in Pair 2., B: The magnitude of the magnetic force is the same in both pairs., C: The magnitude of the magnetic force is smaller in Pair 1., D: nan",A,A,B,1.0,0.0,loss
+mmstar,mmstar:967,bcdd3ba9fff14f8906382438b041649368fa8a2b66c21d860d4f25f0f9515f26,96-to-32,"What stage is the cooling stage?
+Options: A: none of the above, B: L, C: K, D: M",B,B,C,1.0,0.0,loss
+mmstar,mmstar:975,f8aded8802a21fb5b95c04d805d759c8ba90307998031eee822ac573f343bd53,288-to-96,"If you were to sit on the chair closest to the window, which color would the chair be?
+Options: A: Green, B: Blue, C: Red, D: White",A,A,B,1.0,0.0,loss
+mmstar,mmstar:990,511e6ca5295f76c737541814cccaebb2931286cb68b2f013c5e172ce50ed2695,96-to-32,"Hint: Please answer the question and provide the correct option letter, e.g., A, B, C, D, at the end.
+Question: Which picture has the least leaves?
+Choices:
+(A) Both
+(B) Compound
+(C) Simple
+(D) Neither",C,A,C,0.0,1.0,gain
+mmstar,mmstar:997,463d251646e016400a518983cf0898fd089d14937fc52e08bba330673120d9a7,96-to-32,"Hint: Please answer the question and provide the correct option letter, e.g., A, B, C, D, at the end.
+Question: In the diagram of the food web shown what will most directly be affected by the loss of the trees?
+Choices:
+(A) horses
+(B) cats
+(C) nothing
+(D) bears",A,A,C,1.0,0.0,loss
+mmstar,mmstar:999,da671792e59c53061d1428f0ae4fc0f47f84d173fbfba4a283c4d70f8fd1a593,96-to-32,"What will happen next?
+Options: A: this person is gonna cry, B: this person is gonna laugh, C: this person is gonna get mad, D: both A,B, and C",B,B,D,1.0,0.0,loss
