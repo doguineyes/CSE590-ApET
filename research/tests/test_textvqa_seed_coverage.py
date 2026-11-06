@@ -1,5 +1,6 @@
 """CPU mask compatibility plus a real tiny-native test in the original runtime."""
 import json
+import os
 from pathlib import Path
 import sys
 import unittest
@@ -53,6 +54,13 @@ class SeedPolicyTests(unittest.TestCase):
             with self.assertRaises(ValueError): verify_calibration(p,{'a':'b'})
 
 class ExtendedSeedNativeTests(unittest.TestCase):
+    def setUp(self):
+        # Calling StagedNativeTests.fixture directly does not run its setUpClass,
+        # which normally selects the headless backend before importing LLaVA.
+        backend = patch.dict(os.environ, {'MPLBACKEND': 'Agg'})
+        backend.start()
+        self.addCleanup(backend.stop)
+
     def test_new_seed_actual_native_gather_and_cache(self):
         try:
             import torch

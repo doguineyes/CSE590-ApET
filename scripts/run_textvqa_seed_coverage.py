@@ -2,6 +2,7 @@
 import argparse
 from datetime import datetime, timezone
 import json
+import os
 from pathlib import Path
 import shutil
 import signal
@@ -9,6 +10,10 @@ import sys
 import time
 import traceback
 import zipfile
+
+# Kaggle exports its notebook-only backend to subprocesses. The locked runtime
+# runs headlessly and need not install or import matplotlib_inline.
+os.environ['MPLBACKEND'] = 'Agg'
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from check_original_env import REPO, provenance, validate_runtime, verify_native_reference
