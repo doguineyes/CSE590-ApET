@@ -32,6 +32,10 @@ TESTS=('research.tests.test_rq2_staged_native','research.tests.test_basis_locali
        'research.tests.test_rq2_staged_textvqa_protocol','research.tests.test_rq2_staged_gqa_protocol')
 
 
+def load_protocol():
+    return json.loads((REPO/'research/protocols/norm_intervention_v1.json').read_text())
+
+
 def signature():
     extra=('scripts/selector_grid_protocol.py','scripts/selector_grid_native.py','scripts/run_selector_grid.py',
            'scripts/textvqa_patch_properties.py','scripts/prepare_selector_grid_reference.py','research/tests/test_selector_grid.py',
@@ -228,7 +232,9 @@ def main(argv=None):
     try:
         report.update(provenance('Basis and stage localization'));report['status']='running'
         validate_runtime(report);verify_native_reference(report)
-        report['source_sha256']=signature();report['protocol']=json.loads((REPO/'research/protocols/norm_intervention_v1.json','research/protocols/norm_intervention_reference_v1.json').read_text());proof=json.loads(args.prerequisite_report.read_text())
+        report['source_sha256']=signature()
+        report['protocol']=load_protocol()
+        proof=json.loads(args.prerequisite_report.read_text())
         require(proof.get('status')=='passed' and proof.get('skipped')==0 and proof.get('modules')==list(TESTS) and proof.get('source_sha256')==signature(),'Run current zero-skip prerequisites')
         if args.mode=='full':report['calibration']=validate_calibration(args.calibration_report)
         data,args.manifest,cases=load_inputs(args)

@@ -6,6 +6,14 @@ sys.path.insert(0,str(Path(__file__).resolve().parents[2]/'scripts'))
 import numpy as np
 from norm_intervention_protocol import conditions,specification,swap_plan
 class PolicyTests(unittest.TestCase):
+    def test_runner_protocol_loading_and_signature(self):
+        from run_norm_intervention import load_protocol,signature
+        from norm_intervention_protocol import VERSION
+        self.assertEqual(load_protocol()['version'],VERSION)
+        files=signature()
+        for name in ('norm_intervention_v1.json','norm_intervention_reference_v1.json'):
+            self.assertIn('research/protocols/'+name,files)
+
     def test_grid(self):
         self.assertEqual(len(conditions()),31)
         self.assertEqual(len(set(conditions())),31)
