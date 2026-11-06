@@ -1,0 +1,147 @@
+{
+  "version": "textvqa-ocr-audit20-v1",
+  "reviewer": "assistant visual inspection",
+  "scope": "20 matched candidates selected by case-ID hash without model-outcome selection. Canvas/grid/box placement checked on four contact sheets; four small-text examples also inspected full size. Not certification of complete evidence or all OCR transcripts.",
+  "cases": [
+    {
+      "case_id": "textvqa:37533",
+      "status": "ambiguous_multiple_matches",
+      "review": "geometry_checked",
+      "note": "Four detected Brolio labels align with bottles; repeated answer text, incomplete occurrence detection possible. Keep ambiguous.",
+      "exclude_from_stricter_sensitivity": false
+    },
+    {
+      "case_id": "textvqa:36995",
+      "status": "unique_candidate",
+      "review": "geometry_checked",
+      "note": "Box aligns with jersey5, but question permits one of several player numbers. Other visible number is outside this matched region.",
+      "exclude_from_stricter_sensitivity": true
+    },
+    {
+      "case_id": "textvqa:36773",
+      "status": "unique_candidate",
+      "review": "geometry_checked",
+      "note": "Box aligns with Meantime bottle label.",
+      "exclude_from_stricter_sensitivity": false
+    },
+    {
+      "case_id": "textvqa:38806",
+      "status": "unique_candidate",
+      "review": "geometry_checked",
+      "note": "Box aligns with Corbusier attribution on wall.",
+      "exclude_from_stricter_sensitivity": false
+    },
+    {
+      "case_id": "textvqa:39001",
+      "status": "multiword_review",
+      "review": "geometry_checked",
+      "note": "Two boxes align with one phone on banner. OCR reading-order multiword candidate remains provisional.",
+      "exclude_from_stricter_sensitivity": false
+    },
+    {
+      "case_id": "textvqa:39279",
+      "status": "unique_candidate",
+      "review": "geometry_checked",
+      "note": "Box aligns with Mall on direction sign.",
+      "exclude_from_stricter_sensitivity": false
+    },
+    {
+      "case_id": "textvqa:37085",
+      "status": "unique_candidate",
+      "review": "geometry_checked",
+      "note": "Box aligns with First sign above player.",
+      "exclude_from_stricter_sensitivity": false
+    },
+    {
+      "case_id": "textvqa:35121",
+      "status": "unique_candidate",
+      "review": "geometry_checked",
+      "note": "Box aligns with small festival year region; digits difficult at model resolution. Placement checked, exact transcription not independently certified.",
+      "exclude_from_stricter_sensitivity": false
+    },
+    {
+      "case_id": "textvqa:38384",
+      "status": "ambiguous_multiple_matches",
+      "review": "geometry_checked",
+      "note": "LG boxes align with two phones; repeated logo evidence. Keep ambiguous.",
+      "exclude_from_stricter_sensitivity": false
+    },
+    {
+      "case_id": "textvqa:37615",
+      "status": "unique_candidate",
+      "review": "geometry_checked",
+      "note": "Box aligns with FRANCE at bottom of label; inspected full-size overlay.",
+      "exclude_from_stricter_sensitivity": false
+    },
+    {
+      "case_id": "textvqa:37999",
+      "status": "unique_candidate",
+      "review": "geometry_checked",
+      "note": "Box aligns with middle player jersey number; no claim that exact digits are readable in thumbnail.",
+      "exclude_from_stricter_sensitivity": false
+    },
+    {
+      "case_id": "textvqa:35415",
+      "status": "unique_candidate",
+      "review": "geometry_checked",
+      "note": "Box aligns with bottom website watermark; inspected full-size overlay.",
+      "exclude_from_stricter_sensitivity": false
+    },
+    {
+      "case_id": "textvqa:35093",
+      "status": "multiword_review",
+      "review": "geometry_checked",
+      "note": "Two boxes align with next-program text in TV guide; multiword candidate remains provisional.",
+      "exclude_from_stricter_sensitivity": false
+    },
+    {
+      "case_id": "textvqa:35508",
+      "status": "unique_candidate",
+      "review": "geometry_checked",
+      "note": "Box aligns with number on yellow can label; inspected full-size overlay.",
+      "exclude_from_stricter_sensitivity": false
+    },
+    {
+      "case_id": "textvqa:39513",
+      "status": "unique_candidate",
+      "review": "geometry_checked",
+      "note": "Box aligns with front-facing cap letter.",
+      "exclude_from_stricter_sensitivity": false
+    },
+    {
+      "case_id": "textvqa:35802",
+      "status": "unique_candidate",
+      "review": "geometry_checked",
+      "note": "Box aligns with large TaB heading, but another visible TaB label on bottle is unboxed. Coverage undercounts alternate evidence.",
+      "exclude_from_stricter_sensitivity": true
+    },
+    {
+      "case_id": "textvqa:39482",
+      "status": "unique_candidate",
+      "review": "geometry_checked",
+      "note": "Box aligns with Highland on bottle label.",
+      "exclude_from_stricter_sensitivity": false
+    },
+    {
+      "case_id": "textvqa:36502",
+      "status": "unique_candidate",
+      "review": "geometry_checked",
+      "note": "Box aligns with jersey7.",
+      "exclude_from_stricter_sensitivity": false
+    },
+    {
+      "case_id": "textvqa:35297",
+      "status": "unique_candidate",
+      "review": "geometry_checked",
+      "note": "Box aligns with name across mascot jersey.",
+      "exclude_from_stricter_sensitivity": false
+    },
+    {
+      "case_id": "textvqa:39308",
+      "status": "unique_candidate",
+      "review": "geometry_checked",
+      "note": "Box aligns with orcid.org address under logo.",
+      "exclude_from_stricter_sensitivity": false
+    }
+  ]
+}
