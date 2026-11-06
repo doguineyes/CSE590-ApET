@@ -10,7 +10,7 @@ from basis_localization_protocol import conditions,specification
 
 class PolicyTests(unittest.TestCase):
     def test_fixed_grid(self):
-        names=conditions();self.assertEqual(len(names),14);self.assertEqual(len(set(names)),14)
+        names=conditions();self.assertEqual(len(names),16);self.assertEqual(len(set(names)),16)
         for name in names:
             s=specification(name)
             if name!='baseline576':self.assertEqual((s['input_tokens'],s['decoder_tokens']),(96,32))
@@ -18,6 +18,12 @@ class PolicyTests(unittest.TestCase):
     def test_reject_unknown(self):
         with self.assertRaises(Exception):specification('loc-error-random-s999')
         with self.assertRaises(Exception):conditions('gqa')
+    def test_lineage_composes_replacements(self):
+        from basis_localization_native import compose_lineage
+        self.assertEqual(compose_lineage([70,11,90,13],[2,0,3]),[90,70,13])
+    def test_native_stage_factorial(self):
+        for name,expected in [('loc-native-drop',('native','native')),('loc-error-native',('error','native')),('loc-native-error',('native','error'))]:
+            s=specification(name);self.assertEqual((s['selector'],s['decoder_selector']),expected)
     def test_distinct_stages(self):
         s=specification('loc-detail-error');self.assertEqual(s['selector'],'detail');self.assertEqual(s['decoder_selector'],'error')
 
@@ -29,6 +35,17 @@ class NativeTests(unittest.TestCase):
         cls.torch=torch;cls.threads=torch.get_num_threads();torch.set_num_threads(1)
     @classmethod
     def tearDownClass(cls):cls.torch.set_num_threads(cls.threads)
+    def test_fps_overflow_diagnostic_is_observational(self):
+        from basis_localization_native import fps_numerical_audit
+        from llava.model.utils import fps
+        torch=self.torch
+        for x,overflow in [(torch.tensor([[[0.,0.],[1.,0.],[0.,1.]]]),False),
+                           (torch.tensor([[[0.,0.],[300.,0.],[0.,300.]]],dtype=torch.float16),True)]:
+            ids=fps(x,3)[0].tolist();before=x.clone();rng=torch.get_rng_state().clone()
+            audit=fps_numerical_audit(x[0],ids)
+            self.assertEqual(audit['any_inf'],overflow)
+            self.assertTrue(audit['selected_sequence_reproduced'])
+            self.assertTrue(torch.equal(before,x));self.assertTrue(torch.equal(rng,torch.get_rng_state()))
     def test_all_arms_replay_and_reference_parity(self):
         from PIL import Image
         from research.tests.test_rq2_staged_native import StagedNativeTests

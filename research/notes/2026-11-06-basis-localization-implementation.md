@@ -13,3 +13,7 @@ Validation locally:22 unittest tests ran successfully; two Torch-dependent class
 User workflow: finish GQA without updating its checkout during execution; push new files; use kaggle_basis_localization.ipynb with existing rq1-ih-inputs-v1. Set RUN_LOCALIZATION_CALIBRATION=True. Review ZIP/log before RUN_FULL_TEXTVQA=True. See research/BASIS_LOCALIZATION.md.
 
 Scientific scope: basis coverage enrichment motivates these tests. It does not yet prove that E adds nothing at stage2, that basis explains all ApET gains, or why detail behaves differently on GQA. Native-drop is a total pipeline merge ablation; crossed-stage comparisons localize conditional stage2 effects. No new arms chosen by calibration accuracy.
+
+## Pre-run review amendment
+
+Added E→native and native→E no-merge arms before first calibration. Current grid is16 conditions,80 calibration/1600 full predictions. Added composed direct-source lineage, exact native-input shared-state control and observational FPS finite/inf/nan/tie diagnostics (including native reference). Original GQA/grid files unchanged. Native Torch tests exercise all added arms plus deliberate fp16 overflow/RNG immutability. Local verification cannot execute these Torch checks.

@@ -2,7 +2,7 @@
   "version": "basis-localization-v1",
   "questions": 100,
   "calibration_questions": 5,
-  "conditions": 14,
+  "conditions": 16,
   "input_tokens": 96,
   "decoder_tokens": 32,
   "layer": 16,
@@ -16,5 +16,13 @@
   "native_drop": "Original basis assignment and ordering; input uses native premerge snapshot projected without averaging; decoder original layer_prune with identity merge.",
   "fps": "Original FPS in incoming dtype, same per-image case seed; unique96/32 required, fail on degeneracy.",
   "state_dump": "Save pre-prune layer16 states and norms for all compressed arms; content-hash deduplicated. No answer labels used for selection.",
-  "limits": "Interventions change downstream states; does not isolate additive causal contribution of basis or merging. Calibration/replay first; no superiority claims from point estimates."
+  "limits": "Interventions change downstream states; does not isolate additive causal contribution of basis or merging. Calibration/replay first; no superiority claims from point estimates.",
+  "basis_factorial": [
+    "grid-error-drop-s0",
+    "loc-error-native",
+    "loc-native-error",
+    "loc-native-drop"
+  ],
+  "fps_numerical_audit": "Replay distances at visited centroids in original incoming dtype/device; record inf, nan, finite maximum, ties and sequence reproduction; no random draws or changed selections.",
+  "lineage": "Compose input direct source positions with decoder compact direct source positions explicitly."
 }

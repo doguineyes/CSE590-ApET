@@ -55,7 +55,7 @@ def validate_calibration(path):
     require(path is not None,'Supply passed TextVQA grid calibration report')
     r=json.loads(path.read_text())
     require(r.get('version')==VERSION and r.get('status')=='passed' and r.get('mode')=='calibration'
-        and r.get('dataset')=='textvqa' and r.get('completed_questions')==5 and r.get('completed_predictions')==70
+        and r.get('dataset')=='textvqa' and r.get('completed_questions')==5 and r.get('completed_predictions')==80
         and r.get('source_sha256')==signature(),'Incomplete/outdated calibration')
     return r
 
@@ -150,7 +150,16 @@ def run(args,report,data,cases,loaded):
                     if previous:
                         q['historical_drift'][condition]=dict(generated_ids_equal=row['generation_tokens']['generated_token_ids']==previous['generated_ids'],
                             previous=previous['response'],current=row['response'],score_delta=score(row,'textvqa')-previous['scoring']['consensus_score'])
+                if condition.startswith(('loc-','grid-')):
+                    from basis_localization_native import compose_lineage
+                    row['decoder']['direct_source_original_positions']=compose_lineage(
+                        row['input_encoding']['direct_source_original_positions'],
+                        row['decoder']['direct_source_input_compact_positions'])
                 if layer is not None and 'source_visual' in layer:
+                    if condition=='native-96-to-32':
+                        from basis_localization_native import fps_numerical_audit
+                        row['input_encoding']['fps_numerics']=fps_numerical_audit(raw[0],native_obs['input']['basis_indices'])
+                        row['decoder']['fps_numerics']=fps_numerical_audit(layer['source_visual'][0],row['decoder']['E']['basis_indices'])
                     states=layer['source_visual'].detach().cpu().contiguous()
                     from rq2_native import tensor_fingerprint
                     fp=tensor_fingerprint(states);state_path=args.output/'states'/(fp['sha256']+'.pt')
@@ -168,7 +177,7 @@ def run(args,report,data,cases,loaded):
                 row,_=staged.generate_condition(tokenizer,model,processor,image,case,pixels,identity,snap,seed)
                 q['controls']['identity576']=compare_replay(q['arms']['baseline576'],row)
             q['shared_stage1_controls']={}
-            for anchor,members in [('grid-error-drop-s0',[n for n in names if n.startswith('loc-error-')]),('grid-detail-drop-s0',['loc-detail-error'])]:
+            for anchor,members in [('grid-error-drop-s0',[n for n in names if n.startswith('loc-error-')]),('grid-detail-drop-s0',['loc-detail-error']),('loc-native-drop',['loc-native-error'])]:
                 ref=q['arms'][anchor]
                 for member in members:
                     row=q['arms'][member]
