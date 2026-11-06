@@ -60,3 +60,25 @@ def source_paths(selected,basis_map,graph,upstream):
     for src,target in zip(graph['dropped_indices'],graph['assigned_target_indices']):
         combined[target].update(upstream[src])
     return direct,combined
+
+
+def detail_without_padding(pixels,width,height):
+    """Within-patch gradients with both pixel footprints wholly inside real image.
+
+    Geometric exclusion also avoids pad/image transition edges. Each direction is
+    averaged over its valid differences; patches with none receive zero.
+    """
+    if pixels.shape!=(1,3,336,336):raise ValueError('Wrong pixel shape')
+    rect=canvas_box(dict(top_left_x=0,top_left_y=0,width=1,height=1),width,height)
+    x=np.arange(336); y=np.arange(336)
+    valid=((y>=rect[1])&(y+1<=rect[3]))[:,None]&((x>=rect[0])&(x+1<=rect[2]))[None,:]
+    v=valid.reshape(24,14,24,14).transpose(0,2,1,3)
+    p=pixels.astype(np.float64).reshape(3,24,14,24,14).transpose(1,3,0,2,4)
+    out=np.zeros((24,24))
+    for axis in (2,3):
+        if axis==2:mask=v[:,:,:-1,:]&v[:,:,1:,:]
+        else:mask=v[:,:,:,:-1]&v[:,:,:,1:]
+        diff=np.abs(np.diff(p,axis=axis+1)).mean(axis=2)
+        total=(diff*mask).sum(axis=(2,3)); count=mask.sum(axis=(2,3))
+        out+=np.divide(total,count,out=np.zeros_like(total),where=count>0)
+    return out.reshape(-1)
