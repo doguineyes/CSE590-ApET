@@ -17,3 +17,11 @@ Scientific scope: basis coverage enrichment motivates these tests. It does not y
 ## Pre-run review amendment
 
 Added E→native and native→E no-merge arms before first calibration. Current grid is16 conditions,80 calibration/1600 full predictions. Added composed direct-source lineage, exact native-input shared-state control and observational FPS finite/inf/nan/tie diagnostics (including native reference). Original GQA/grid files unchanged. Native Torch tests exercise all added arms plus deliberate fp16 overflow/RNG immutability. Local verification cannot execute these Torch checks.
+
+## Kaggle prerequisite failure and fix (20:43 UTC)
+
+The actual native fixture failed `Native-drop basis assignment/gather differs`; other prerequisite tests including FPS overflow instrumentation passed. Root cause: `capture_scores` at native decoder return sees `errors_indices` after the original code reassigns it to sorted gather order. The new adapter mistakenly used the last10 entries of that sorted list as basis destinations. Original basis assignment happens earlier using error-ranked order.
+
+Fixed by capturing ranked indices in the identity merge callback before sorting, validating its sorted set against final gather indices, and pairing its last10 destinations with FPS-ordered sources. Saved diagnostics now include `native_ranked_indices_before_sort`. Native execution and numerical policy unchanged; exact expected-output equality remains mandatory. This fixes both validator reconstruction and new native-drop lineage. Earlier native/grid coverage used merge-boundary graph assignment, so this bug does not alter that analysis.
+
+Added a pure CPU regression with deliberately nonmonotonic rank order. Local25 tests passed; two Torch classes skipped. Actual Kaggle27-test zero-skip suite must be rerun before pretrained calibration. Pasted error archived under research/results; full original setup log not provided here. No completed localization experiment needs rerunning, because prerequisites stopped before inference.

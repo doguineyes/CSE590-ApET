@@ -18,6 +18,13 @@ class PolicyTests(unittest.TestCase):
     def test_reject_unknown(self):
         with self.assertRaises(Exception):specification('loc-error-random-s999')
         with self.assertRaises(Exception):conditions('gqa')
+    def test_decoder_basis_uses_presort_ranked_slots(self):
+        from basis_localization_native import decoder_basis_pairs
+        ranked=[31,5,29,2,27,1,25,0,23,4,21,6,19,8,17,10,15,12,13,14,11,16,9,18,7,20,3,22,24,26,28,30]
+        basis=list(range(40,50))
+        pairs=decoder_basis_pairs(ranked,basis)
+        self.assertEqual(pairs,list(zip([9,18,7,20,3,22,24,26,28,30],basis)))
+        self.assertNotEqual(pairs,decoder_basis_pairs(sorted(ranked),basis))
     def test_lineage_composes_replacements(self):
         from basis_localization_native import compose_lineage
         self.assertEqual(compose_lineage([70,11,90,13],[2,0,3]),[90,70,13])

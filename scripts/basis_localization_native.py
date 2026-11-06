@@ -16,6 +16,17 @@ import rq2_staged_native as staged
 OLD_DECODER_SCOPE=staged.decoder_scope
 
 
+def decoder_basis_pairs(ranked_indices, basis_indices):
+    """Native decoder assigns FPS-order sources into the LAST ranked slots.
+
+    The return-time selected_indices has already been sorted by native code and
+    cannot recover this assignment. Pass indices captured at the merge boundary.
+    """
+    require(len(basis_indices)==10 and len(set(ranked_indices))==len(ranked_indices)
+            and len(ranked_indices)>=10,'Invalid native decoder assignment')
+    return list(zip(ranked_indices[-10:],basis_indices))
+
+
 def compose_lineage(input_sources, decoder_source_positions):
     """Map compact layer16 sources through stage1 basis replacement to image patches."""
     require(all(0<=i<len(input_sources) for i in decoder_source_positions),'Invalid source position')
@@ -132,13 +143,17 @@ def grid_scope(model,condition,image_sha,properties,selected_input,*,replay=None
                 from original_diagnostics import trace_returns,capture_scores
                 records=[];merge_calls=[]
                 def identity_merge(features,indices,k,scaling=1):
-                    merge_calls.append(1)
+                    # Capture before native layer_prune reassigns errors_indices
+                    # to ascending order later in the same call.
+                    merge_calls.append(dict(ranked_indices=indices.detach().cpu().tolist(),basis_tokens=int(k)))
                     return features
                 with replaced(module,'token_merging',identity_merge),trace_returns({module.LlamaModel.layer_prune.__code__:lambda local:records.append(capture_scores(local,False))}):
                     output=native_prune(**kwargs)
                 require(len(records)==len(merge_calls)==1,'Missing native-drop selection/merge bypass')
                 rec=records[0];selected=rec['selected_indices_sorted'];e=rec['errors']
-                pairs=list(zip(rec['selected_indices'][-10:],rec['basis_indices']))
+                ranked=merge_calls[0]['ranked_indices']
+                require(merge_calls[0]['basis_tokens']==10 and sorted(ranked)==selected,'Native ranked/gather indices differ')
+                pairs=decoder_basis_pairs(ranked,rec['basis_indices'])
                 basis=torch.tensor(rec['basis_indices'])
                 changed_visual=visual.float().clone()
                 for slot,src in pairs:changed_visual[slot]=visual[src].float()
@@ -163,6 +178,7 @@ def grid_scope(model,condition,image_sha,properties,selected_input,*,replay=None
             obs=dict(method='basis_localization',selector=kind,basis_inserted=kind=='native',fps_numerics=numerical,
                 selected_compact_positions=selected,selected_original_positions=[selected_input[i] for i in selected],
                 direct_source_input_compact_positions=sources,basis_slot_to_source=pairs,
+                native_ranked_indices_before_sort=ranked if kind=='native' else None,
                 errors=e,basis_for_scoring=basis.cpu().tolist() if basis is not None else None,merge=None,
                 source_visual=tensor_fingerprint(visual))
             data['snapshot']=dict(source_visual=visual.unsqueeze(0).detach().clone(),condition=condition,before=before,rng_before=rng_before,
