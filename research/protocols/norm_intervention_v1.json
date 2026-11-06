@@ -1,0 +1,18 @@
+{
+  "version": "norm-intervention-v1",
+  "budget": [
+    96,
+    32
+  ],
+  "boundary": "after block16",
+  "carrier_policy": "Keep parent sorted carrier slots and positions; replace contents only",
+  "seeds": [
+    101,
+    202,
+    303,
+    404,
+    505
+  ],
+  "high_norm": "FP32 norm > 10 times pool median",
+  "attention_capture": false
+}

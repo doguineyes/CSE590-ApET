@@ -1,0 +1,5548 @@
+{
+  "source_archive": "research/results/basis-localization-textvqa-full-v1-20261106T205534587657Z.zip",
+  "cases": {
+    "textvqa:34700": {
+      "loc-native-drop": {
+        "generated_ids": [
+          29871,
+          29896,
+          29900,
+          29901,
+          29896,
+          29900,
+          2
+        ],
+        "response": "10:10",
+        "scoring": {
+          "prediction": "10:10",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-native-error": {
+        "generated_ids": [
+          29871,
+          29896,
+          29900,
+          29901,
+          29896,
+          29900,
+          2
+        ],
+        "response": "10:10",
+        "scoring": {
+          "prediction": "10:10",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-fps-fps": {
+        "generated_ids": [
+          29871,
+          29896,
+          29906,
+          29901,
+          29900,
+          29900,
+          2
+        ],
+        "response": "12:00",
+        "scoring": {
+          "prediction": "12:00",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      }
+    },
+    "textvqa:34759": {
+      "loc-native-drop": {
+        "generated_ids": [
+          4134,
+          936,
+          2
+        ],
+        "response": "Classical",
+        "scoring": {
+          "prediction": "classical",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-native-error": {
+        "generated_ids": [
+          4134,
+          936,
+          2
+        ],
+        "response": "Classical",
+        "scoring": {
+          "prediction": "classical",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-fps-fps": {
+        "generated_ids": [
+          4134,
+          936,
+          2
+        ],
+        "response": "Classical",
+        "scoring": {
+          "prediction": "classical",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      }
+    },
+    "textvqa:34764": {
+      "loc-native-drop": {
+        "generated_ids": [
+          501,
+          3487,
+          2
+        ],
+        "response": "Umd",
+        "scoring": {
+          "prediction": "umd",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": true,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-native-error": {
+        "generated_ids": [
+          612,
+          744,
+          2
+        ],
+        "response": "Yale",
+        "scoring": {
+          "prediction": "yale",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-fps-fps": {
+        "generated_ids": [
+          501,
+          3487,
+          2
+        ],
+        "response": "Umd",
+        "scoring": {
+          "prediction": "umd",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": true,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      }
+    },
+    "textvqa:34775": {
+      "loc-native-drop": {
+        "generated_ids": [
+          1522,
+          261,
+          2
+        ],
+        "response": "Beer",
+        "scoring": {
+          "prediction": "beer",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-native-error": {
+        "generated_ids": [
+          1522,
+          261,
+          2
+        ],
+        "response": "Beer",
+        "scoring": {
+          "prediction": "beer",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-fps-fps": {
+        "generated_ids": [
+          1522,
+          261,
+          2
+        ],
+        "response": "Beer",
+        "scoring": {
+          "prediction": "beer",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      }
+    },
+    "textvqa:34870": {
+      "loc-native-drop": {
+        "generated_ids": [
+          29871,
+          29896,
+          29900,
+          29896,
+          2
+        ],
+        "response": "101",
+        "scoring": {
+          "prediction": "101",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-native-error": {
+        "generated_ids": [
+          29871,
+          29896,
+          29900,
+          29896,
+          2
+        ],
+        "response": "101",
+        "scoring": {
+          "prediction": "101",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-fps-fps": {
+        "generated_ids": [
+          29871,
+          29896,
+          29900,
+          29896,
+          2
+        ],
+        "response": "101",
+        "scoring": {
+          "prediction": "101",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      }
+    },
+    "textvqa:34924": {
+      "loc-native-drop": {
+        "generated_ids": [
+          796,
+          264,
+          2
+        ],
+        "response": "Zen",
+        "scoring": {
+          "prediction": "zen",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-native-error": {
+        "generated_ids": [
+          796,
+          834,
+          264,
+          2
+        ],
+        "response": "Zazen",
+        "scoring": {
+          "prediction": "zazen",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-fps-fps": {
+        "generated_ids": [
+          796,
+          264,
+          2
+        ],
+        "response": "Zen",
+        "scoring": {
+          "prediction": "zen",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      }
+    },
+    "textvqa:35000": {
+      "loc-native-drop": {
+        "generated_ids": [
+          3599,
+          13317,
+          2
+        ],
+        "response": "Recycle",
+        "scoring": {
+          "prediction": "recycle",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": true,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-native-error": {
+        "generated_ids": [
+          13062,
+          2
+        ],
+        "response": "Water",
+        "scoring": {
+          "prediction": "water",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-fps-fps": {
+        "generated_ids": [
+          3599,
+          13317,
+          2
+        ],
+        "response": "Recycle",
+        "scoring": {
+          "prediction": "recycle",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": true,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      }
+    },
+    "textvqa:35093": {
+      "loc-native-drop": {
+        "generated_ids": [
+          4358,
+          721,
+          2
+        ],
+        "response": "Brother",
+        "scoring": {
+          "prediction": "brother",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-native-error": {
+        "generated_ids": [
+          16078,
+          4612,
+          8693,
+          2
+        ],
+        "response": "Brazil cover studio",
+        "scoring": {
+          "prediction": "brazil cover studio",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-fps-fps": {
+        "generated_ids": [
+          4358,
+          721,
+          364,
+          2
+        ],
+        "response": "Brother r",
+        "scoring": {
+          "prediction": "brother r",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      }
+    },
+    "textvqa:35121": {
+      "loc-native-drop": {
+        "generated_ids": [
+          29871,
+          29906,
+          29900,
+          29896,
+          29906,
+          2
+        ],
+        "response": "2012",
+        "scoring": {
+          "prediction": "2012",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-native-error": {
+        "generated_ids": [
+          29871,
+          29906,
+          29900,
+          29896,
+          29906,
+          2
+        ],
+        "response": "2012",
+        "scoring": {
+          "prediction": "2012",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-fps-fps": {
+        "generated_ids": [
+          29871,
+          29906,
+          29900,
+          29896,
+          29906,
+          2
+        ],
+        "response": "2012",
+        "scoring": {
+          "prediction": "2012",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      }
+    },
+    "textvqa:35187": {
+      "loc-native-drop": {
+        "generated_ids": [
+          22303,
+          2
+        ],
+        "response": "Stop",
+        "scoring": {
+          "prediction": "stop",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": true,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-native-error": {
+        "generated_ids": [
+          22303,
+          2
+        ],
+        "response": "Stop",
+        "scoring": {
+          "prediction": "stop",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": true,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-fps-fps": {
+        "generated_ids": [
+          22303,
+          2
+        ],
+        "response": "Stop",
+        "scoring": {
+          "prediction": "stop",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": true,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      }
+    },
+    "textvqa:35241": {
+      "loc-native-drop": {
+        "generated_ids": [
+          6213,
+          2
+        ],
+        "response": "None",
+        "scoring": {
+          "prediction": "0",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-native-error": {
+        "generated_ids": [
+          6213,
+          2
+        ],
+        "response": "None",
+        "scoring": {
+          "prediction": "0",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-fps-fps": {
+        "generated_ids": [
+          6213,
+          2
+        ],
+        "response": "None",
+        "scoring": {
+          "prediction": "0",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      }
+    },
+    "textvqa:35250": {
+      "loc-native-drop": {
+        "generated_ids": [
+          29871,
+          29941,
+          29900,
+          2
+        ],
+        "response": "30",
+        "scoring": {
+          "prediction": "30",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-native-error": {
+        "generated_ids": [
+          29871,
+          29941,
+          29900,
+          2
+        ],
+        "response": "30",
+        "scoring": {
+          "prediction": "30",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-fps-fps": {
+        "generated_ids": [
+          29871,
+          29941,
+          29900,
+          2
+        ],
+        "response": "30",
+        "scoring": {
+          "prediction": "30",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      }
+    },
+    "textvqa:35257": {
+      "loc-native-drop": {
+        "generated_ids": [
+          29871,
+          29906,
+          29900,
+          29896,
+          29955,
+          2
+        ],
+        "response": "2017",
+        "scoring": {
+          "prediction": "2017",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-native-error": {
+        "generated_ids": [
+          29871,
+          29906,
+          29900,
+          29896,
+          29955,
+          2
+        ],
+        "response": "2017",
+        "scoring": {
+          "prediction": "2017",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-fps-fps": {
+        "generated_ids": [
+          29871,
+          29906,
+          29900,
+          29896,
+          29955,
+          2
+        ],
+        "response": "2017",
+        "scoring": {
+          "prediction": "2017",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      }
+    },
+    "textvqa:35259": {
+      "loc-native-drop": {
+        "generated_ids": [
+          341,
+          1691,
+          2
+        ],
+        "response": "Mets",
+        "scoring": {
+          "prediction": "mets",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": true,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-native-error": {
+        "generated_ids": [
+          341,
+          1691,
+          2
+        ],
+        "response": "Mets",
+        "scoring": {
+          "prediction": "mets",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": true,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-fps-fps": {
+        "generated_ids": [
+          341,
+          1691,
+          2
+        ],
+        "response": "Mets",
+        "scoring": {
+          "prediction": "mets",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": true,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      }
+    },
+    "textvqa:35297": {
+      "loc-native-drop": {
+        "generated_ids": [
+          14866,
+          688,
+          914,
+          2
+        ],
+        "response": "Slugger",
+        "scoring": {
+          "prediction": "slugger",
+          "consensus_score": 0.9,
+          "full_credit": false,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-native-error": {
+        "generated_ids": [
+          317,
+          5621,
+          2
+        ],
+        "response": "Singer",
+        "scoring": {
+          "prediction": "singer",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-fps-fps": {
+        "generated_ids": [
+          14866,
+          688,
+          914,
+          2
+        ],
+        "response": "Slugger",
+        "scoring": {
+          "prediction": "slugger",
+          "consensus_score": 0.9,
+          "full_credit": false,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      }
+    },
+    "textvqa:35316": {
+      "loc-native-drop": {
+        "generated_ids": [
+          29871,
+          29906,
+          29900,
+          29896,
+          29900,
+          2
+        ],
+        "response": "2010",
+        "scoring": {
+          "prediction": "2010",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-native-error": {
+        "generated_ids": [
+          29871,
+          29906,
+          29900,
+          29896,
+          29900,
+          2
+        ],
+        "response": "2010",
+        "scoring": {
+          "prediction": "2010",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-fps-fps": {
+        "generated_ids": [
+          29871,
+          29906,
+          29900,
+          29896,
+          29900,
+          2
+        ],
+        "response": "2010",
+        "scoring": {
+          "prediction": "2010",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      }
+    },
+    "textvqa:35356": {
+      "loc-native-drop": {
+        "generated_ids": [
+          3869,
+          2
+        ],
+        "response": "Yes",
+        "scoring": {
+          "prediction": "yes",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": true,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-native-error": {
+        "generated_ids": [
+          3869,
+          2
+        ],
+        "response": "Yes",
+        "scoring": {
+          "prediction": "yes",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": true,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-fps-fps": {
+        "generated_ids": [
+          3869,
+          2
+        ],
+        "response": "Yes",
+        "scoring": {
+          "prediction": "yes",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": true,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      }
+    },
+    "textvqa:35383": {
+      "loc-native-drop": {
+        "generated_ids": [
+          6438,
+          2
+        ],
+        "response": "Fire",
+        "scoring": {
+          "prediction": "fire",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": true,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-native-error": {
+        "generated_ids": [
+          6438,
+          2
+        ],
+        "response": "Fire",
+        "scoring": {
+          "prediction": "fire",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": true,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-fps-fps": {
+        "generated_ids": [
+          6438,
+          2
+        ],
+        "response": "Fire",
+        "scoring": {
+          "prediction": "fire",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": true,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      }
+    },
+    "textvqa:35410": {
+      "loc-native-drop": {
+        "generated_ids": [
+          29871,
+          29906,
+          29900,
+          29900,
+          29941,
+          2
+        ],
+        "response": "2003",
+        "scoring": {
+          "prediction": "2003",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-native-error": {
+        "generated_ids": [
+          29871,
+          29906,
+          29900,
+          29900,
+          29941,
+          2
+        ],
+        "response": "2003",
+        "scoring": {
+          "prediction": "2003",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-fps-fps": {
+        "generated_ids": [
+          29871,
+          29906,
+          29900,
+          29900,
+          29941,
+          2
+        ],
+        "response": "2003",
+        "scoring": {
+          "prediction": "2003",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      }
+    },
+    "textvqa:35415": {
+      "loc-native-drop": {
+        "generated_ids": [
+          751,
+          6949,
+          2
+        ],
+        "response": "Quanta",
+        "scoring": {
+          "prediction": "quanta",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-native-error": {
+        "generated_ids": [
+          6213,
+          2
+        ],
+        "response": "None",
+        "scoring": {
+          "prediction": "0",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-fps-fps": {
+        "generated_ids": [
+          751,
+          6949,
+          510,
+          2
+        ],
+        "response": "Quantacom",
+        "scoring": {
+          "prediction": "quantacom",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      }
+    },
+    "textvqa:35508": {
+      "loc-native-drop": {
+        "generated_ids": [
+          29871,
+          29946,
+          29900,
+          2
+        ],
+        "response": "40",
+        "scoring": {
+          "prediction": "40",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": true,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-native-error": {
+        "generated_ids": [
+          29871,
+          29896,
+          2
+        ],
+        "response": "1",
+        "scoring": {
+          "prediction": "1",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-fps-fps": {
+        "generated_ids": [
+          29871,
+          29946,
+          29900,
+          2
+        ],
+        "response": "40",
+        "scoring": {
+          "prediction": "40",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": true,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      }
+    },
+    "textvqa:35520": {
+      "loc-native-drop": {
+        "generated_ids": [
+          3869,
+          2
+        ],
+        "response": "Yes",
+        "scoring": {
+          "prediction": "yes",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": true,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-native-error": {
+        "generated_ids": [
+          3869,
+          2
+        ],
+        "response": "Yes",
+        "scoring": {
+          "prediction": "yes",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": true,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-fps-fps": {
+        "generated_ids": [
+          3869,
+          2
+        ],
+        "response": "Yes",
+        "scoring": {
+          "prediction": "yes",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": true,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      }
+    },
+    "textvqa:35564": {
+      "loc-native-drop": {
+        "generated_ids": [
+          4116,
+          381,
+          1217,
+          600,
+          2
+        ],
+        "response": "Smirnoff",
+        "scoring": {
+          "prediction": "smirnoff",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-native-error": {
+        "generated_ids": [
+          4116,
+          381,
+          1217,
+          600,
+          2
+        ],
+        "response": "Smirnoff",
+        "scoring": {
+          "prediction": "smirnoff",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-fps-fps": {
+        "generated_ids": [
+          4116,
+          381,
+          1217,
+          600,
+          2
+        ],
+        "response": "Smirnoff",
+        "scoring": {
+          "prediction": "smirnoff",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      }
+    },
+    "textvqa:35653": {
+      "loc-native-drop": {
+        "generated_ids": [
+          323,
+          790,
+          327,
+          2
+        ],
+        "response": "Tissot",
+        "scoring": {
+          "prediction": "tissot",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-native-error": {
+        "generated_ids": [
+          323,
+          790,
+          327,
+          2
+        ],
+        "response": "Tissot",
+        "scoring": {
+          "prediction": "tissot",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-fps-fps": {
+        "generated_ids": [
+          323,
+          790,
+          327,
+          2
+        ],
+        "response": "Tissot",
+        "scoring": {
+          "prediction": "tissot",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      }
+    },
+    "textvqa:35670": {
+      "loc-native-drop": {
+        "generated_ids": [
+          13298,
+          2185,
+          2
+        ],
+        "response": "Dominican",
+        "scoring": {
+          "prediction": "dominican",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-native-error": {
+        "generated_ids": [
+          28017,
+          417,
+          2
+        ],
+        "response": "Apollo",
+        "scoring": {
+          "prediction": "apollo",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-fps-fps": {
+        "generated_ids": [
+          13298,
+          291,
+          2
+        ],
+        "response": "Dominion",
+        "scoring": {
+          "prediction": "dominion",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": true,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      }
+    },
+    "textvqa:35802": {
+      "loc-native-drop": {
+        "generated_ids": [
+          11090,
+          2
+        ],
+        "response": "Tab",
+        "scoring": {
+          "prediction": "tab",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": true,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-native-error": {
+        "generated_ids": [
+          11090,
+          2
+        ],
+        "response": "Tab",
+        "scoring": {
+          "prediction": "tab",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": true,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-fps-fps": {
+        "generated_ids": [
+          11090,
+          2
+        ],
+        "response": "Tab",
+        "scoring": {
+          "prediction": "tab",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": true,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      }
+    },
+    "textvqa:35891": {
+      "loc-native-drop": {
+        "generated_ids": [
+          1939,
+          2
+        ],
+        "response": "No",
+        "scoring": {
+          "prediction": "no",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": true,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-native-error": {
+        "generated_ids": [
+          1939,
+          2
+        ],
+        "response": "No",
+        "scoring": {
+          "prediction": "no",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": true,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-fps-fps": {
+        "generated_ids": [
+          1939,
+          2
+        ],
+        "response": "No",
+        "scoring": {
+          "prediction": "no",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": true,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      }
+    },
+    "textvqa:35925": {
+      "loc-native-drop": {
+        "generated_ids": [
+          29871,
+          29900,
+          2
+        ],
+        "response": "0",
+        "scoring": {
+          "prediction": "0",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-native-error": {
+        "generated_ids": [
+          29871,
+          29900,
+          2
+        ],
+        "response": "0",
+        "scoring": {
+          "prediction": "0",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-fps-fps": {
+        "generated_ids": [
+          29871,
+          29900,
+          2
+        ],
+        "response": "0",
+        "scoring": {
+          "prediction": "0",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      }
+    },
+    "textvqa:35962": {
+      "loc-native-drop": {
+        "generated_ids": [
+          17278,
+          292,
+          3762,
+          2
+        ],
+        "response": "Cooking school",
+        "scoring": {
+          "prediction": "cooking school",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-native-error": {
+        "generated_ids": [
+          315,
+          352,
+          3821,
+          2
+        ],
+        "response": "Culinary",
+        "scoring": {
+          "prediction": "culinary",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-fps-fps": {
+        "generated_ids": [
+          17278,
+          292,
+          3762,
+          2
+        ],
+        "response": "Cooking school",
+        "scoring": {
+          "prediction": "cooking school",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      }
+    },
+    "textvqa:35990": {
+      "loc-native-drop": {
+        "generated_ids": [
+          2087,
+          8817,
+          2
+        ],
+        "response": "Adidas",
+        "scoring": {
+          "prediction": "adidas",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": true,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-native-error": {
+        "generated_ids": [
+          405,
+          9345,
+          2
+        ],
+        "response": "Nike",
+        "scoring": {
+          "prediction": "nike",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-fps-fps": {
+        "generated_ids": [
+          2087,
+          8817,
+          2
+        ],
+        "response": "Adidas",
+        "scoring": {
+          "prediction": "adidas",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": true,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      }
+    },
+    "textvqa:36001": {
+      "loc-native-drop": {
+        "generated_ids": [
+          2921,
+          701,
+          2
+        ],
+        "response": "Go up",
+        "scoring": {
+          "prediction": "go up",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-native-error": {
+        "generated_ids": [
+          2921,
+          2
+        ],
+        "response": "Go",
+        "scoring": {
+          "prediction": "go",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-fps-fps": {
+        "generated_ids": [
+          2921,
+          701,
+          2
+        ],
+        "response": "Go up",
+        "scoring": {
+          "prediction": "go up",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      }
+    },
+    "textvqa:36302": {
+      "loc-native-drop": {
+        "generated_ids": [
+          29871,
+          29896,
+          29906,
+          29901,
+          29900,
+          29900,
+          2
+        ],
+        "response": "12:00",
+        "scoring": {
+          "prediction": "12:00",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-native-error": {
+        "generated_ids": [
+          29871,
+          29896,
+          29906,
+          29901,
+          29900,
+          29900,
+          2
+        ],
+        "response": "12:00",
+        "scoring": {
+          "prediction": "12:00",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-fps-fps": {
+        "generated_ids": [
+          29871,
+          29896,
+          29906,
+          29901,
+          29900,
+          29900,
+          2
+        ],
+        "response": "12:00",
+        "scoring": {
+          "prediction": "12:00",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      }
+    },
+    "textvqa:36332": {
+      "loc-native-drop": {
+        "generated_ids": [
+          360,
+          17979,
+          2
+        ],
+        "response": "Dodge",
+        "scoring": {
+          "prediction": "dodge",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": true,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-native-error": {
+        "generated_ids": [
+          379,
+          14287,
+          2
+        ],
+        "response": "Honda",
+        "scoring": {
+          "prediction": "honda",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-fps-fps": {
+        "generated_ids": [
+          360,
+          17979,
+          2
+        ],
+        "response": "Dodge",
+        "scoring": {
+          "prediction": "dodge",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": true,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      }
+    },
+    "textvqa:36400": {
+      "loc-native-drop": {
+        "generated_ids": [
+          29871,
+          29906,
+          29945,
+          2
+        ],
+        "response": "25",
+        "scoring": {
+          "prediction": "25",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-native-error": {
+        "generated_ids": [
+          29871,
+          29906,
+          29945,
+          2
+        ],
+        "response": "25",
+        "scoring": {
+          "prediction": "25",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-fps-fps": {
+        "generated_ids": [
+          29871,
+          29906,
+          29955,
+          2
+        ],
+        "response": "27",
+        "scoring": {
+          "prediction": "27",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      }
+    },
+    "textvqa:36502": {
+      "loc-native-drop": {
+        "generated_ids": [
+          29871,
+          29955,
+          2
+        ],
+        "response": "7",
+        "scoring": {
+          "prediction": "7",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": true,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-native-error": {
+        "generated_ids": [
+          29871,
+          29896,
+          2
+        ],
+        "response": "1",
+        "scoring": {
+          "prediction": "1",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-fps-fps": {
+        "generated_ids": [
+          29871,
+          29955,
+          2
+        ],
+        "response": "7",
+        "scoring": {
+          "prediction": "7",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": true,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      }
+    },
+    "textvqa:36527": {
+      "loc-native-drop": {
+        "generated_ids": [
+          1763,
+          839,
+          29877,
+          2
+        ],
+        "response": "Toledo",
+        "scoring": {
+          "prediction": "toledo",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-native-error": {
+        "generated_ids": [
+          10059,
+          2
+        ],
+        "response": "Chicago",
+        "scoring": {
+          "prediction": "chicago",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-fps-fps": {
+        "generated_ids": [
+          7236,
+          982,
+          484,
+          2
+        ],
+        "response": "Fort wayne",
+        "scoring": {
+          "prediction": "fort wayne",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": true,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      }
+    },
+    "textvqa:36584": {
+      "loc-native-drop": {
+        "generated_ids": [
+          29871,
+          29955,
+          304,
+          29871,
+          29955,
+          2
+        ],
+        "response": "7 to 7",
+        "scoring": {
+          "prediction": "7 to 7",
+          "consensus_score": 0.8999999999999998,
+          "full_credit": false,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-native-error": {
+        "generated_ids": [
+          29871,
+          29955,
+          29899,
+          29955,
+          2
+        ],
+        "response": "7-7",
+        "scoring": {
+          "prediction": "7 7",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": true,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-fps-fps": {
+        "generated_ids": [
+          29871,
+          29955,
+          304,
+          29871,
+          29900,
+          2
+        ],
+        "response": "7 to 0",
+        "scoring": {
+          "prediction": "7 to 0",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      }
+    },
+    "textvqa:36632": {
+      "loc-native-drop": {
+        "generated_ids": [
+          1522,
+          261,
+          2
+        ],
+        "response": "Beer",
+        "scoring": {
+          "prediction": "beer",
+          "consensus_score": 0.6,
+          "full_credit": false,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-native-error": {
+        "generated_ids": [
+          1522,
+          261,
+          2
+        ],
+        "response": "Beer",
+        "scoring": {
+          "prediction": "beer",
+          "consensus_score": 0.6,
+          "full_credit": false,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-fps-fps": {
+        "generated_ids": [
+          1522,
+          261,
+          2
+        ],
+        "response": "Beer",
+        "scoring": {
+          "prediction": "beer",
+          "consensus_score": 0.6,
+          "full_credit": false,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      }
+    },
+    "textvqa:36730": {
+      "loc-native-drop": {
+        "generated_ids": [
+          399,
+          1615,
+          29880,
+          898,
+          265,
+          5521,
+          417,
+          265,
+          13129,
+          510,
+          2
+        ],
+        "response": "Wwwlondonballoonworkscom",
+        "scoring": {
+          "prediction": "wwwlondonballoonworkscom",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-native-error": {
+        "generated_ids": [
+          399,
+          1615,
+          29880,
+          898,
+          265,
+          2135,
+          13129,
+          1111,
+          2679,
+          2
+        ],
+        "response": "Wwwlondonballworkscouk",
+        "scoring": {
+          "prediction": "wwwlondonballworkscouk",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-fps-fps": {
+        "generated_ids": [
+          399,
+          1615,
+          29880,
+          898,
+          265,
+          5521,
+          417,
+          265,
+          13129,
+          1111,
+          2679,
+          2
+        ],
+        "response": "Wwwlondonballoonworkscouk",
+        "scoring": {
+          "prediction": "wwwlondonballoonworkscouk",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      }
+    },
+    "textvqa:36773": {
+      "loc-native-drop": {
+        "generated_ids": [
+          2191,
+          424,
+          603,
+          2
+        ],
+        "response": "Meantime",
+        "scoring": {
+          "prediction": "meantime",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": true,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-native-error": {
+        "generated_ids": [
+          26412,
+          8080,
+          2
+        ],
+        "response": "Pale ale",
+        "scoring": {
+          "prediction": "pale ale",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-fps-fps": {
+        "generated_ids": [
+          2191,
+          424,
+          603,
+          2
+        ],
+        "response": "Meantime",
+        "scoring": {
+          "prediction": "meantime",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": true,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      }
+    },
+    "textvqa:36780": {
+      "loc-native-drop": {
+        "generated_ids": [
+          10924,
+          432,
+          1036,
+          2
+        ],
+        "response": "Blue jays",
+        "scoring": {
+          "prediction": "blue jays",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": true,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-native-error": {
+        "generated_ids": [
+          9160,
+          19016,
+          2
+        ],
+        "response": "Cardinals",
+        "scoring": {
+          "prediction": "cardinals",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-fps-fps": {
+        "generated_ids": [
+          10924,
+          432,
+          1036,
+          2
+        ],
+        "response": "Blue jays",
+        "scoring": {
+          "prediction": "blue jays",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": true,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      }
+    },
+    "textvqa:36838": {
+      "loc-native-drop": {
+        "generated_ids": [
+          21137,
+          2
+        ],
+        "response": "Colorado",
+        "scoring": {
+          "prediction": "colorado",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": true,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-native-error": {
+        "generated_ids": [
+          21137,
+          2
+        ],
+        "response": "Colorado",
+        "scoring": {
+          "prediction": "colorado",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": true,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-fps-fps": {
+        "generated_ids": [
+          21137,
+          2
+        ],
+        "response": "Colorado",
+        "scoring": {
+          "prediction": "colorado",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": true,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      }
+    },
+    "textvqa:36884": {
+      "loc-native-drop": {
+        "generated_ids": [
+          29871,
+          29929,
+          2
+        ],
+        "response": "9",
+        "scoring": {
+          "prediction": "9",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-native-error": {
+        "generated_ids": [
+          29871,
+          29953,
+          2
+        ],
+        "response": "6",
+        "scoring": {
+          "prediction": "6",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-fps-fps": {
+        "generated_ids": [
+          29871,
+          29929,
+          2
+        ],
+        "response": "9",
+        "scoring": {
+          "prediction": "9",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      }
+    },
+    "textvqa:36995": {
+      "loc-native-drop": {
+        "generated_ids": [
+          29871,
+          29945,
+          2
+        ],
+        "response": "5",
+        "scoring": {
+          "prediction": "5",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": true,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-native-error": {
+        "generated_ids": [
+          29871,
+          29945,
+          2
+        ],
+        "response": "5",
+        "scoring": {
+          "prediction": "5",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": true,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-fps-fps": {
+        "generated_ids": [
+          29871,
+          29945,
+          2
+        ],
+        "response": "5",
+        "scoring": {
+          "prediction": "5",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": true,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      }
+    },
+    "textvqa:37034": {
+      "loc-native-drop": {
+        "generated_ids": [
+          27822,
+          2
+        ],
+        "response": "Monday",
+        "scoring": {
+          "prediction": "monday",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": true,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-native-error": {
+        "generated_ids": [
+          17812,
+          523,
+          2
+        ],
+        "response": "Tonight",
+        "scoring": {
+          "prediction": "tonight",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-fps-fps": {
+        "generated_ids": [
+          27822,
+          4646,
+          2
+        ],
+        "response": "Monday night",
+        "scoring": {
+          "prediction": "monday night",
+          "consensus_score": 0.3,
+          "full_credit": false,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      }
+    },
+    "textvqa:37085": {
+      "loc-native-drop": {
+        "generated_ids": [
+          6991,
+          29885,
+          814,
+          603,
+          29991,
+          2
+        ],
+        "response": "Summertime!",
+        "scoring": {
+          "prediction": "summertime",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-native-error": {
+        "generated_ids": [
+          6991,
+          29885,
+          814,
+          603,
+          29991,
+          2
+        ],
+        "response": "Summertime!",
+        "scoring": {
+          "prediction": "summertime",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-fps-fps": {
+        "generated_ids": [
+          21829,
+          304,
+          1749,
+          7881,
+          2
+        ],
+        "response": "Welcome to our community",
+        "scoring": {
+          "prediction": "welcome to our community",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      }
+    },
+    "textvqa:37109": {
+      "loc-native-drop": {
+        "generated_ids": [
+          10459,
+          2
+        ],
+        "response": "Cat",
+        "scoring": {
+          "prediction": "cat",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-native-error": {
+        "generated_ids": [
+          10517,
+          2
+        ],
+        "response": "Child",
+        "scoring": {
+          "prediction": "child",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": true,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-fps-fps": {
+        "generated_ids": [
+          10459,
+          2
+        ],
+        "response": "Cat",
+        "scoring": {
+          "prediction": "cat",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      }
+    },
+    "textvqa:37127": {
+      "loc-native-drop": {
+        "generated_ids": [
+          5043,
+          2
+        ],
+        "response": "Jose",
+        "scoring": {
+          "prediction": "jose",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-native-error": {
+        "generated_ids": [
+          5043,
+          432,
+          852,
+          2
+        ],
+        "response": "Jose jose",
+        "scoring": {
+          "prediction": "jose jose",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-fps-fps": {
+        "generated_ids": [
+          5043,
+          289,
+          1300,
+          2079,
+          2
+        ],
+        "response": "Jose bautista",
+        "scoring": {
+          "prediction": "jose bautista",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      }
+    },
+    "textvqa:37148": {
+      "loc-native-drop": {
+        "generated_ids": [
+          29871,
+          29953,
+          2
+        ],
+        "response": "6",
+        "scoring": {
+          "prediction": "6",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-native-error": {
+        "generated_ids": [
+          29871,
+          29896,
+          2
+        ],
+        "response": "1",
+        "scoring": {
+          "prediction": "1",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-fps-fps": {
+        "generated_ids": [
+          29871,
+          29953,
+          2
+        ],
+        "response": "6",
+        "scoring": {
+          "prediction": "6",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      }
+    },
+    "textvqa:37272": {
+      "loc-native-drop": {
+        "generated_ids": [
+          29871,
+          29896,
+          29900,
+          29900,
+          2
+        ],
+        "response": "100",
+        "scoring": {
+          "prediction": "100",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-native-error": {
+        "generated_ids": [
+          29871,
+          29896,
+          29947,
+          2
+        ],
+        "response": "18",
+        "scoring": {
+          "prediction": "18",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-fps-fps": {
+        "generated_ids": [
+          29871,
+          29896,
+          29900,
+          29900,
+          2
+        ],
+        "response": "100",
+        "scoring": {
+          "prediction": "100",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      }
+    },
+    "textvqa:37278": {
+      "loc-native-drop": {
+        "generated_ids": [
+          365,
+          29887,
+          2
+        ],
+        "response": "Lg",
+        "scoring": {
+          "prediction": "lg",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": true,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-native-error": {
+        "generated_ids": [
+          7551,
+          10426,
+          2
+        ],
+        "response": "China mobile",
+        "scoring": {
+          "prediction": "china mobile",
+          "consensus_score": 0.3,
+          "full_credit": false,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-fps-fps": {
+        "generated_ids": [
+          365,
+          29887,
+          2
+        ],
+        "response": "Lg",
+        "scoring": {
+          "prediction": "lg",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": true,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      }
+    },
+    "textvqa:37306": {
+      "loc-native-drop": {
+        "generated_ids": [
+          838,
+          561,
+          11625,
+          442,
+          2
+        ],
+        "response": "Alphasmart",
+        "scoring": {
+          "prediction": "alphasmart",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": true,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-native-error": {
+        "generated_ids": [
+          838,
+          561,
+          11625,
+          442,
+          2
+        ],
+        "response": "Alphasmart",
+        "scoring": {
+          "prediction": "alphasmart",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": true,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-fps-fps": {
+        "generated_ids": [
+          319,
+          2265,
+          2
+        ],
+        "response": "Acer",
+        "scoring": {
+          "prediction": "acer",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      }
+    },
+    "textvqa:37455": {
+      "loc-native-drop": {
+        "generated_ids": [
+          1174,
+          20797,
+          434,
+          2
+        ],
+        "response": "En Vogue",
+        "scoring": {
+          "prediction": "en vogue",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-native-error": {
+        "generated_ids": [
+          1174,
+          325,
+          468,
+          434,
+          2
+        ],
+        "response": "En vogue",
+        "scoring": {
+          "prediction": "en vogue",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-fps-fps": {
+        "generated_ids": [
+          1174,
+          20797,
+          434,
+          2
+        ],
+        "response": "En Vogue",
+        "scoring": {
+          "prediction": "en vogue",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      }
+    },
+    "textvqa:37479": {
+      "loc-native-drop": {
+        "generated_ids": [
+          395,
+          29896,
+          29900,
+          29900,
+          29900,
+          2
+        ],
+        "response": "$1000",
+        "scoring": {
+          "prediction": "$1000",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-native-error": {
+        "generated_ids": [
+          395,
+          29896,
+          29900,
+          29900,
+          29900,
+          2
+        ],
+        "response": "$1000",
+        "scoring": {
+          "prediction": "$1000",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-fps-fps": {
+        "generated_ids": [
+          395,
+          29906,
+          29900,
+          29900,
+          2
+        ],
+        "response": "$200",
+        "scoring": {
+          "prediction": "$200",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      }
+    },
+    "textvqa:37481": {
+      "loc-native-drop": {
+        "generated_ids": [
+          8027,
+          8508,
+          2
+        ],
+        "response": "Rockstar",
+        "scoring": {
+          "prediction": "rockstar",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": true,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-native-error": {
+        "generated_ids": [
+          319,
+          2
+        ],
+        "response": "A",
+        "scoring": {
+          "prediction": "",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-fps-fps": {
+        "generated_ids": [
+          8027,
+          8508,
+          2
+        ],
+        "response": "Rockstar",
+        "scoring": {
+          "prediction": "rockstar",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": true,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      }
+    },
+    "textvqa:37511": {
+      "loc-native-drop": {
+        "generated_ids": [
+          22303,
+          2
+        ],
+        "response": "Stop",
+        "scoring": {
+          "prediction": "stop",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": true,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-native-error": {
+        "generated_ids": [
+          22303,
+          2
+        ],
+        "response": "Stop",
+        "scoring": {
+          "prediction": "stop",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": true,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-fps-fps": {
+        "generated_ids": [
+          22303,
+          2
+        ],
+        "response": "Stop",
+        "scoring": {
+          "prediction": "stop",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": true,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      }
+    },
+    "textvqa:37533": {
+      "loc-native-drop": {
+        "generated_ids": [
+          5459,
+          262,
+          4170,
+          2
+        ],
+        "response": "Antinori",
+        "scoring": {
+          "prediction": "antinori",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-native-error": {
+        "generated_ids": [
+          678,
+          403,
+          585,
+          2
+        ],
+        "response": "Chateau",
+        "scoring": {
+          "prediction": "chateau",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-fps-fps": {
+        "generated_ids": [
+          5459,
+          262,
+          4170,
+          2
+        ],
+        "response": "Antinori",
+        "scoring": {
+          "prediction": "antinori",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      }
+    },
+    "textvqa:37534": {
+      "loc-native-drop": {
+        "generated_ids": [
+          2448,
+          284,
+          1886,
+          561,
+          25151,
+          2
+        ],
+        "response": "Neal stephenson",
+        "scoring": {
+          "prediction": "neal stephenson",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-native-error": {
+        "generated_ids": [
+          8622,
+          314,
+          1540,
+          528,
+          29875,
+          798,
+          2
+        ],
+        "response": "Masamune shirow",
+        "scoring": {
+          "prediction": "masamune shirow",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-fps-fps": {
+        "generated_ids": [
+          2448,
+          284,
+          1886,
+          561,
+          25151,
+          2
+        ],
+        "response": "Neal stephenson",
+        "scoring": {
+          "prediction": "neal stephenson",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      }
+    },
+    "textvqa:37566": {
+      "loc-native-drop": {
+        "generated_ids": [
+          29871,
+          29906,
+          2
+        ],
+        "response": "2",
+        "scoring": {
+          "prediction": "2",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-native-error": {
+        "generated_ids": [
+          29871,
+          29906,
+          2
+        ],
+        "response": "2",
+        "scoring": {
+          "prediction": "2",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-fps-fps": {
+        "generated_ids": [
+          29871,
+          29906,
+          2
+        ],
+        "response": "2",
+        "scoring": {
+          "prediction": "2",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      }
+    },
+    "textvqa:37573": {
+      "loc-native-drop": {
+        "generated_ids": [
+          29871,
+          29896,
+          29900,
+          29901,
+          29896,
+          29900,
+          2
+        ],
+        "response": "10:10",
+        "scoring": {
+          "prediction": "10:10",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-native-error": {
+        "generated_ids": [
+          29871,
+          29896,
+          29900,
+          29901,
+          29896,
+          29900,
+          2
+        ],
+        "response": "10:10",
+        "scoring": {
+          "prediction": "10:10",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-fps-fps": {
+        "generated_ids": [
+          29871,
+          29896,
+          29900,
+          29901,
+          29906,
+          29900,
+          2
+        ],
+        "response": "10:20",
+        "scoring": {
+          "prediction": "10:20",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      }
+    },
+    "textvqa:37586": {
+      "loc-native-drop": {
+        "generated_ids": [
+          360,
+          2960,
+          262,
+          1016,
+          8842,
+          2
+        ],
+        "response": "Dunkin donuts",
+        "scoring": {
+          "prediction": "dunkin donuts",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-native-error": {
+        "generated_ids": [
+          349,
+          682,
+          2
+        ],
+        "response": "Pink",
+        "scoring": {
+          "prediction": "pink",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-fps-fps": {
+        "generated_ids": [
+          360,
+          2960,
+          262,
+          1016,
+          8842,
+          2
+        ],
+        "response": "Dunkin donuts",
+        "scoring": {
+          "prediction": "dunkin donuts",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      }
+    },
+    "textvqa:37615": {
+      "loc-native-drop": {
+        "generated_ids": [
+          3444,
+          2
+        ],
+        "response": "France",
+        "scoring": {
+          "prediction": "france",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": true,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-native-error": {
+        "generated_ids": [
+          3444,
+          2
+        ],
+        "response": "France",
+        "scoring": {
+          "prediction": "france",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": true,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-fps-fps": {
+        "generated_ids": [
+          3444,
+          2
+        ],
+        "response": "France",
+        "scoring": {
+          "prediction": "france",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": true,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      }
+    },
+    "textvqa:37680": {
+      "loc-native-drop": {
+        "generated_ids": [
+          8731,
+          1358,
+          2
+        ],
+        "response": "Roller",
+        "scoring": {
+          "prediction": "roller",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-native-error": {
+        "generated_ids": [
+          8731,
+          1358,
+          2
+        ],
+        "response": "Roller",
+        "scoring": {
+          "prediction": "roller",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-fps-fps": {
+        "generated_ids": [
+          624,
+          347,
+          3820,
+          2
+        ],
+        "response": "Stiegl",
+        "scoring": {
+          "prediction": "stiegl",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": true,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      }
+    },
+    "textvqa:37815": {
+      "loc-native-drop": {
+        "generated_ids": [
+          29871,
+          29896,
+          29896,
+          2
+        ],
+        "response": "11",
+        "scoring": {
+          "prediction": "11",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-native-error": {
+        "generated_ids": [
+          29871,
+          29896,
+          29896,
+          2
+        ],
+        "response": "11",
+        "scoring": {
+          "prediction": "11",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-fps-fps": {
+        "generated_ids": [
+          29871,
+          29941,
+          29941,
+          2
+        ],
+        "response": "33",
+        "scoring": {
+          "prediction": "33",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      }
+    },
+    "textvqa:37845": {
+      "loc-native-drop": {
+        "generated_ids": [
+          18620,
+          18326,
+          2
+        ],
+        "response": "Girlfriend",
+        "scoring": {
+          "prediction": "girlfriend",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-native-error": {
+        "generated_ids": [
+          853,
+          5203,
+          2
+        ],
+        "response": "Unknown",
+        "scoring": {
+          "prediction": "unknown",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-fps-fps": {
+        "generated_ids": [
+          349,
+          24990,
+          2
+        ],
+        "response": "Pizza",
+        "scoring": {
+          "prediction": "pizza",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": true,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      }
+    },
+    "textvqa:37899": {
+      "loc-native-drop": {
+        "generated_ids": [
+          6182,
+          528,
+          1808,
+          29891,
+          2
+        ],
+        "response": "Mary shelley",
+        "scoring": {
+          "prediction": "mary shelley",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-native-error": {
+        "generated_ids": [
+          853,
+          5203,
+          2
+        ],
+        "response": "Unknown",
+        "scoring": {
+          "prediction": "unknown",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-fps-fps": {
+        "generated_ids": [
+          22045,
+          2
+        ],
+        "response": "Julia",
+        "scoring": {
+          "prediction": "julia",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      }
+    },
+    "textvqa:37908": {
+      "loc-native-drop": {
+        "generated_ids": [
+          9515,
+          29920,
+          2
+        ],
+        "response": "Heinz",
+        "scoring": {
+          "prediction": "heinz",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": true,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-native-error": {
+        "generated_ids": [
+          9515,
+          29920,
+          2
+        ],
+        "response": "Heinz",
+        "scoring": {
+          "prediction": "heinz",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": true,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-fps-fps": {
+        "generated_ids": [
+          9515,
+          29920,
+          2
+        ],
+        "response": "Heinz",
+        "scoring": {
+          "prediction": "heinz",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": true,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      }
+    },
+    "textvqa:37936": {
+      "loc-native-drop": {
+        "generated_ids": [
+          1570,
+          343,
+          548,
+          2
+        ],
+        "response": "New york",
+        "scoring": {
+          "prediction": "new york",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-native-error": {
+        "generated_ids": [
+          1570,
+          343,
+          548,
+          2
+        ],
+        "response": "New york",
+        "scoring": {
+          "prediction": "new york",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-fps-fps": {
+        "generated_ids": [
+          1570,
+          343,
+          548,
+          2
+        ],
+        "response": "New york",
+        "scoring": {
+          "prediction": "new york",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      }
+    },
+    "textvqa:37945": {
+      "loc-native-drop": {
+        "generated_ids": [
+          3444,
+          2
+        ],
+        "response": "France",
+        "scoring": {
+          "prediction": "france",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": true,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-native-error": {
+        "generated_ids": [
+          3444,
+          2
+        ],
+        "response": "France",
+        "scoring": {
+          "prediction": "france",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": true,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-fps-fps": {
+        "generated_ids": [
+          3444,
+          2
+        ],
+        "response": "France",
+        "scoring": {
+          "prediction": "france",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": true,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      }
+    },
+    "textvqa:37999": {
+      "loc-native-drop": {
+        "generated_ids": [
+          29871,
+          29941,
+          29941,
+          2
+        ],
+        "response": "33",
+        "scoring": {
+          "prediction": "33",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-native-error": {
+        "generated_ids": [
+          29871,
+          29896,
+          29945,
+          2
+        ],
+        "response": "15",
+        "scoring": {
+          "prediction": "15",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-fps-fps": {
+        "generated_ids": [
+          29871,
+          29941,
+          29941,
+          2
+        ],
+        "response": "33",
+        "scoring": {
+          "prediction": "33",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      }
+    },
+    "textvqa:38025": {
+      "loc-native-drop": {
+        "generated_ids": [
+          365,
+          6334,
+          357,
+          2
+        ],
+        "response": "Laughter",
+        "scoring": {
+          "prediction": "laughter",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": true,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-native-error": {
+        "generated_ids": [
+          365,
+          14643,
+          2
+        ],
+        "response": "Lighter",
+        "scoring": {
+          "prediction": "lighter",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-fps-fps": {
+        "generated_ids": [
+          365,
+          6334,
+          357,
+          2
+        ],
+        "response": "Laughter",
+        "scoring": {
+          "prediction": "laughter",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": true,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      }
+    },
+    "textvqa:38104": {
+      "loc-native-drop": {
+        "generated_ids": [
+          22063,
+          2
+        ],
+        "response": "Princess",
+        "scoring": {
+          "prediction": "princess",
+          "consensus_score": 0.9,
+          "full_credit": false,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-native-error": {
+        "generated_ids": [
+          10040,
+          2
+        ],
+        "response": "Lady",
+        "scoring": {
+          "prediction": "lady",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-fps-fps": {
+        "generated_ids": [
+          22063,
+          2
+        ],
+        "response": "Princess",
+        "scoring": {
+          "prediction": "princess",
+          "consensus_score": 0.9,
+          "full_credit": false,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      }
+    },
+    "textvqa:38250": {
+      "loc-native-drop": {
+        "generated_ids": [
+          6298,
+          25339,
+          29915,
+          29879,
+          19133,
+          2
+        ],
+        "response": "Surgeon's museum",
+        "scoring": {
+          "prediction": "surgeon 's museum",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-native-error": {
+        "generated_ids": [
+          317,
+          2007,
+          708,
+          2498,
+          29915,
+          29879,
+          19133,
+          2
+        ],
+        "response": "Surgery general's museum",
+        "scoring": {
+          "prediction": "surgery general 's museum",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-fps-fps": {
+        "generated_ids": [
+          317,
+          2007,
+          25339,
+          29915,
+          29879,
+          8034,
+          2
+        ],
+        "response": "Surggeon's office",
+        "scoring": {
+          "prediction": "surggeon 's office",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      }
+    },
+    "textvqa:38355": {
+      "loc-native-drop": {
+        "generated_ids": [
+          678,
+          403,
+          585,
+          13185,
+          29899,
+          3068,
+          300,
+          2
+        ],
+        "response": "Chateau pont-canet",
+        "scoring": {
+          "prediction": "chateau pont canet",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-native-error": {
+        "generated_ids": [
+          678,
+          403,
+          585,
+          13185,
+          29899,
+          3068,
+          300,
+          2
+        ],
+        "response": "Chateau pont-canet",
+        "scoring": {
+          "prediction": "chateau pont canet",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-fps-fps": {
+        "generated_ids": [
+          678,
+          403,
+          585,
+          13185,
+          29899,
+          3068,
+          300,
+          2
+        ],
+        "response": "Chateau pont-canet",
+        "scoring": {
+          "prediction": "chateau pont canet",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      }
+    },
+    "textvqa:38384": {
+      "loc-native-drop": {
+        "generated_ids": [
+          365,
+          29887,
+          2
+        ],
+        "response": "Lg",
+        "scoring": {
+          "prediction": "lg",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": true,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-native-error": {
+        "generated_ids": [
+          317,
+          28935,
+          2
+        ],
+        "response": "Samsung",
+        "scoring": {
+          "prediction": "samsung",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-fps-fps": {
+        "generated_ids": [
+          365,
+          29887,
+          2
+        ],
+        "response": "Lg",
+        "scoring": {
+          "prediction": "lg",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": true,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      }
+    },
+    "textvqa:38407": {
+      "loc-native-drop": {
+        "generated_ids": [
+          3362,
+          2
+        ],
+        "response": "War",
+        "scoring": {
+          "prediction": "war",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": true,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-native-error": {
+        "generated_ids": [
+          3362,
+          2
+        ],
+        "response": "War",
+        "scoring": {
+          "prediction": "war",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": true,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-fps-fps": {
+        "generated_ids": [
+          3362,
+          2
+        ],
+        "response": "War",
+        "scoring": {
+          "prediction": "war",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": true,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      }
+    },
+    "textvqa:38487": {
+      "loc-native-drop": {
+        "generated_ids": [
+          379,
+          29889,
+          349,
+          29889,
+          8155,
+          17293,
+          2
+        ],
+        "response": "H. P. Lovecraft",
+        "scoring": {
+          "prediction": "h p lovecraft",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-native-error": {
+        "generated_ids": [
+          9586,
+          681,
+          2
+        ],
+        "response": "Various",
+        "scoring": {
+          "prediction": "various",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-fps-fps": {
+        "generated_ids": [
+          382,
+          29889,
+          365,
+          29889,
+          8155,
+          17293,
+          2
+        ],
+        "response": "E. L. Lovecraft",
+        "scoring": {
+          "prediction": "e l lovecraft",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      }
+    },
+    "textvqa:38591": {
+      "loc-native-drop": {
+        "generated_ids": [
+          29871,
+          29945,
+          29896,
+          29896,
+          2
+        ],
+        "response": "511",
+        "scoring": {
+          "prediction": "511",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-native-error": {
+        "generated_ids": [
+          29871,
+          29946,
+          2
+        ],
+        "response": "4",
+        "scoring": {
+          "prediction": "4",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-fps-fps": {
+        "generated_ids": [
+          29871,
+          29945,
+          2
+        ],
+        "response": "5",
+        "scoring": {
+          "prediction": "5",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      }
+    },
+    "textvqa:38665": {
+      "loc-native-drop": {
+        "generated_ids": [
+          3833,
+          29895,
+          2
+        ],
+        "response": "Milk",
+        "scoring": {
+          "prediction": "milk",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-native-error": {
+        "generated_ids": [
+          3833,
+          29895,
+          2
+        ],
+        "response": "Milk",
+        "scoring": {
+          "prediction": "milk",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-fps-fps": {
+        "generated_ids": [
+          383,
+          9216,
+          2
+        ],
+        "response": "Fruit",
+        "scoring": {
+          "prediction": "fruit",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      }
+    },
+    "textvqa:38806": {
+      "loc-native-drop": {
+        "generated_ids": [
+          4581,
+          29899,
+          29880,
+          1682,
+          11942,
+          538,
+          2
+        ],
+        "response": "Jean-luc picard",
+        "scoring": {
+          "prediction": "jean luc picard",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-native-error": {
+        "generated_ids": [
+          11821,
+          4117,
+          2
+        ],
+        "response": "Wildcat",
+        "scoring": {
+          "prediction": "wildcat",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-fps-fps": {
+        "generated_ids": [
+          2994,
+          29890,
+          631,
+          2
+        ],
+        "response": "Corbier",
+        "scoring": {
+          "prediction": "corbier",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      }
+    },
+    "textvqa:38830": {
+      "loc-native-drop": {
+        "generated_ids": [
+          29871,
+          29946,
+          29901,
+          29900,
+          29900,
+          2
+        ],
+        "response": "4:00",
+        "scoring": {
+          "prediction": "4:00",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-native-error": {
+        "generated_ids": [
+          29871,
+          29941,
+          29901,
+          29946,
+          29900,
+          2
+        ],
+        "response": "3:40",
+        "scoring": {
+          "prediction": "3:40",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": true,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-fps-fps": {
+        "generated_ids": [
+          29871,
+          29941,
+          29901,
+          29900,
+          29900,
+          2
+        ],
+        "response": "3:00",
+        "scoring": {
+          "prediction": "3:00",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      }
+    },
+    "textvqa:38925": {
+      "loc-native-drop": {
+        "generated_ids": [
+          997,
+          5152,
+          14987,
+          950,
+          2368,
+          628,
+          21844,
+          2
+        ],
+        "response": "La espiritualidad del trabajo",
+        "scoring": {
+          "prediction": "la espiritualidad del trabajo",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-native-error": {
+        "generated_ids": [
+          997,
+          12868,
+          328,
+          2
+        ],
+        "response": "La verdad",
+        "scoring": {
+          "prediction": "la verdad",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-fps-fps": {
+        "generated_ids": [
+          997,
+          2
+        ],
+        "response": "La",
+        "scoring": {
+          "prediction": "la",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      }
+    },
+    "textvqa:38939": {
+      "loc-native-drop": {
+        "generated_ids": [
+          29871,
+          29896,
+          29929,
+          29953,
+          29945,
+          29899,
+          29896,
+          29929,
+          29953,
+          29929,
+          2
+        ],
+        "response": "1965-1969",
+        "scoring": {
+          "prediction": "1965 1969",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-native-error": {
+        "generated_ids": [
+          29871,
+          29896,
+          29929,
+          29955,
+          29945,
+          29899,
+          29896,
+          29929,
+          29955,
+          29955,
+          2
+        ],
+        "response": "1975-1977",
+        "scoring": {
+          "prediction": "1975 1977",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-fps-fps": {
+        "generated_ids": [
+          29871,
+          29896,
+          29929,
+          29955,
+          29900,
+          29899,
+          29906,
+          29900,
+          29896,
+          29900,
+          2
+        ],
+        "response": "1970-2010",
+        "scoring": {
+          "prediction": "1970 2010",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      }
+    },
+    "textvqa:38986": {
+      "loc-native-drop": {
+        "generated_ids": [
+          379,
+          14246,
+          2
+        ],
+        "response": "Htc",
+        "scoring": {
+          "prediction": "htc",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": true,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-native-error": {
+        "generated_ids": [
+          317,
+          28935,
+          2
+        ],
+        "response": "Samsung",
+        "scoring": {
+          "prediction": "samsung",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-fps-fps": {
+        "generated_ids": [
+          379,
+          14246,
+          2
+        ],
+        "response": "Htc",
+        "scoring": {
+          "prediction": "htc",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": true,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      }
+    },
+    "textvqa:39001": {
+      "loc-native-drop": {
+        "generated_ids": [
+          24323,
+          2
+        ],
+        "response": "Phone",
+        "scoring": {
+          "prediction": "phone",
+          "consensus_score": 0.6,
+          "full_credit": false,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-native-error": {
+        "generated_ids": [
+          3869,
+          2
+        ],
+        "response": "Yes",
+        "scoring": {
+          "prediction": "yes",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-fps-fps": {
+        "generated_ids": [
+          24323,
+          2
+        ],
+        "response": "Phone",
+        "scoring": {
+          "prediction": "phone",
+          "consensus_score": 0.6,
+          "full_credit": false,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      }
+    },
+    "textvqa:39007": {
+      "loc-native-drop": {
+        "generated_ids": [
+          9556,
+          2
+        ],
+        "response": "Germany",
+        "scoring": {
+          "prediction": "germany",
+          "consensus_score": 0.3,
+          "full_credit": false,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-native-error": {
+        "generated_ids": [
+          9556,
+          2
+        ],
+        "response": "Germany",
+        "scoring": {
+          "prediction": "germany",
+          "consensus_score": 0.3,
+          "full_credit": false,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-fps-fps": {
+        "generated_ids": [
+          9556,
+          2
+        ],
+        "response": "Germany",
+        "scoring": {
+          "prediction": "germany",
+          "consensus_score": 0.3,
+          "full_credit": false,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      }
+    },
+    "textvqa:39009": {
+      "loc-native-drop": {
+        "generated_ids": [
+          405,
+          9345,
+          2
+        ],
+        "response": "Nike",
+        "scoring": {
+          "prediction": "nike",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-native-error": {
+        "generated_ids": [
+          405,
+          9345,
+          2
+        ],
+        "response": "Nike",
+        "scoring": {
+          "prediction": "nike",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-fps-fps": {
+        "generated_ids": [
+          1815,
+          29915,
+          29873,
+          2649,
+          2
+        ],
+        "response": "Can't tell",
+        "scoring": {
+          "prediction": "can't tell",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      }
+    },
+    "textvqa:39182": {
+      "loc-native-drop": {
+        "generated_ids": [
+          17880,
+          2
+        ],
+        "response": "Magazine",
+        "scoring": {
+          "prediction": "magazine",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-native-error": {
+        "generated_ids": [
+          17661,
+          2
+        ],
+        "response": "Christmas",
+        "scoring": {
+          "prediction": "christmas",
+          "consensus_score": 0.3,
+          "full_credit": false,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-fps-fps": {
+        "generated_ids": [
+          17880,
+          2
+        ],
+        "response": "Magazine",
+        "scoring": {
+          "prediction": "magazine",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      }
+    },
+    "textvqa:39184": {
+      "loc-native-drop": {
+        "generated_ids": [
+          1939,
+          2
+        ],
+        "response": "No",
+        "scoring": {
+          "prediction": "no",
+          "consensus_score": 0.9,
+          "full_credit": false,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-native-error": {
+        "generated_ids": [
+          1939,
+          2
+        ],
+        "response": "No",
+        "scoring": {
+          "prediction": "no",
+          "consensus_score": 0.9,
+          "full_credit": false,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-fps-fps": {
+        "generated_ids": [
+          1939,
+          2
+        ],
+        "response": "No",
+        "scoring": {
+          "prediction": "no",
+          "consensus_score": 0.9,
+          "full_credit": false,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      }
+    },
+    "textvqa:39215": {
+      "loc-native-drop": {
+        "generated_ids": [
+          1920,
+          29874,
+          2
+        ],
+        "response": "Tea",
+        "scoring": {
+          "prediction": "tea",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": true,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-native-error": {
+        "generated_ids": [
+          4634,
+          2
+        ],
+        "response": "Life",
+        "scoring": {
+          "prediction": "life",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-fps-fps": {
+        "generated_ids": [
+          1920,
+          29874,
+          2
+        ],
+        "response": "Tea",
+        "scoring": {
+          "prediction": "tea",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": true,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      }
+    },
+    "textvqa:39236": {
+      "loc-native-drop": {
+        "generated_ids": [
+          10428,
+          2
+        ],
+        "response": "Right",
+        "scoring": {
+          "prediction": "right",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-native-error": {
+        "generated_ids": [
+          10428,
+          2
+        ],
+        "response": "Right",
+        "scoring": {
+          "prediction": "right",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-fps-fps": {
+        "generated_ids": [
+          4644,
+          2
+        ],
+        "response": "North",
+        "scoring": {
+          "prediction": "north",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      }
+    },
+    "textvqa:39279": {
+      "loc-native-drop": {
+        "generated_ids": [
+          23809,
+          2
+        ],
+        "response": "Mall",
+        "scoring": {
+          "prediction": "mall",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": true,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-native-error": {
+        "generated_ids": [
+          8406,
+          5040,
+          2
+        ],
+        "response": "Bus stop",
+        "scoring": {
+          "prediction": "bus stop",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-fps-fps": {
+        "generated_ids": [
+          23809,
+          2
+        ],
+        "response": "Mall",
+        "scoring": {
+          "prediction": "mall",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": true,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      }
+    },
+    "textvqa:39305": {
+      "loc-native-drop": {
+        "generated_ids": [
+          6813,
+          2
+        ],
+        "response": "America",
+        "scoring": {
+          "prediction": "america",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": true,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-native-error": {
+        "generated_ids": [
+          6813,
+          2
+        ],
+        "response": "America",
+        "scoring": {
+          "prediction": "america",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": true,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-fps-fps": {
+        "generated_ids": [
+          6813,
+          2
+        ],
+        "response": "America",
+        "scoring": {
+          "prediction": "america",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": true,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      }
+    },
+    "textvqa:39308": {
+      "loc-native-drop": {
+        "generated_ids": [
+          399,
+          1615,
+          2252,
+          333,
+          990,
+          2
+        ],
+        "response": "Wwwcdidorg",
+        "scoring": {
+          "prediction": "wwwcdidorg",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-native-error": {
+        "generated_ids": [
+          29871,
+          29900,
+          29941,
+          29900,
+          29900,
+          29871,
+          29906,
+          29900,
+          29900,
+          29871,
+          29906,
+          29900,
+          29900,
+          2
+        ],
+        "response": "0300 200 200",
+        "scoring": {
+          "prediction": "0300 200 200",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-fps-fps": {
+        "generated_ids": [
+          399,
+          1615,
+          2205,
+          990,
+          2
+        ],
+        "response": "Wwwiddorg",
+        "scoring": {
+          "prediction": "wwwiddorg",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      }
+    },
+    "textvqa:39313": {
+      "loc-native-drop": {
+        "generated_ids": [
+          349,
+          24990,
+          2
+        ],
+        "response": "Pizza",
+        "scoring": {
+          "prediction": "pizza",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": true,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-native-error": {
+        "generated_ids": [
+          349,
+          24990,
+          2
+        ],
+        "response": "Pizza",
+        "scoring": {
+          "prediction": "pizza",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": true,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-fps-fps": {
+        "generated_ids": [
+          349,
+          24990,
+          2
+        ],
+        "response": "Pizza",
+        "scoring": {
+          "prediction": "pizza",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": true,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      }
+    },
+    "textvqa:39323": {
+      "loc-native-drop": {
+        "generated_ids": [
+          16572,
+          2
+        ],
+        "response": "Sky",
+        "scoring": {
+          "prediction": "sky",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-native-error": {
+        "generated_ids": [
+          16572,
+          2
+        ],
+        "response": "Sky",
+        "scoring": {
+          "prediction": "sky",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-fps-fps": {
+        "generated_ids": [
+          16572,
+          2
+        ],
+        "response": "Sky",
+        "scoring": {
+          "prediction": "sky",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      }
+    },
+    "textvqa:39327": {
+      "loc-native-drop": {
+        "generated_ids": [
+          315,
+          29895,
+          2
+        ],
+        "response": "Ck",
+        "scoring": {
+          "prediction": "ck",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": true,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-native-error": {
+        "generated_ids": [
+          315,
+          29895,
+          2
+        ],
+        "response": "Ck",
+        "scoring": {
+          "prediction": "ck",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": true,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-fps-fps": {
+        "generated_ids": [
+          3037,
+          3845,
+          24152,
+          2
+        ],
+        "response": "Calvin klein",
+        "scoring": {
+          "prediction": "calvin klein",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      }
+    },
+    "textvqa:39482": {
+      "loc-native-drop": {
+        "generated_ids": [
+          27197,
+          2
+        ],
+        "response": "Glen",
+        "scoring": {
+          "prediction": "glen",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-native-error": {
+        "generated_ids": [
+          16740,
+          286,
+          1997,
+          2
+        ],
+        "response": "Single malt",
+        "scoring": {
+          "prediction": "single malt",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-fps-fps": {
+        "generated_ids": [
+          27197,
+          29888,
+          2205,
+          436,
+          2
+        ],
+        "response": "Glenfiddich",
+        "scoring": {
+          "prediction": "glenfiddich",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      }
+    },
+    "textvqa:39485": {
+      "loc-native-drop": {
+        "generated_ids": [
+          29871,
+          29896,
+          29900,
+          29901,
+          29896,
+          29900,
+          2
+        ],
+        "response": "10:10",
+        "scoring": {
+          "prediction": "10:10",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-native-error": {
+        "generated_ids": [
+          29871,
+          29896,
+          29900,
+          29901,
+          29896,
+          29900,
+          2
+        ],
+        "response": "10:10",
+        "scoring": {
+          "prediction": "10:10",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-fps-fps": {
+        "generated_ids": [
+          29871,
+          29896,
+          29900,
+          29901,
+          29896,
+          29900,
+          2
+        ],
+        "response": "10:10",
+        "scoring": {
+          "prediction": "10:10",
+          "consensus_score": 0.0,
+          "full_credit": false,
+          "positive_credit": false,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": false,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      }
+    },
+    "textvqa:39513": {
+      "loc-native-drop": {
+        "generated_ids": [
+          323,
+          2
+        ],
+        "response": "T",
+        "scoring": {
+          "prediction": "t",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": true,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-native-error": {
+        "generated_ids": [
+          323,
+          2
+        ],
+        "response": "T",
+        "scoring": {
+          "prediction": "t",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": true,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      },
+      "loc-fps-fps": {
+        "generated_ids": [
+          323,
+          2
+        ],
+        "response": "T",
+        "scoring": {
+          "prediction": "t",
+          "consensus_score": 1.0,
+          "full_credit": true,
+          "positive_credit": true,
+          "scoring_version": "native-textvqa-consensus-v1",
+          "correct": true,
+          "correct_definition": "Full ten-annotator consensus credit; partial credit retained separately"
+        }
+      }
+    }
+  }
+}
