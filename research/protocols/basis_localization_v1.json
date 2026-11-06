@@ -1,0 +1,20 @@
+{
+  "version": "basis-localization-v1",
+  "questions": 100,
+  "calibration_questions": 5,
+  "conditions": 14,
+  "input_tokens": 96,
+  "decoder_tokens": 32,
+  "layer": 16,
+  "seeds": [
+    101,
+    202,
+    303,
+    404,
+    505
+  ],
+  "native_drop": "Original basis assignment and ordering; input uses native premerge snapshot projected without averaging; decoder original layer_prune with identity merge.",
+  "fps": "Original FPS in incoming dtype, same per-image case seed; unique96/32 required, fail on degeneracy.",
+  "state_dump": "Save pre-prune layer16 states and norms for all compressed arms; content-hash deduplicated. No answer labels used for selection.",
+  "limits": "Interventions change downstream states; does not isolate additive causal contribution of basis or merging. Calibration/replay first; no superiority claims from point estimates."
+}
