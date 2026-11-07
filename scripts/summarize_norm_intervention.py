@@ -29,7 +29,24 @@ def analyze(path):
                 props=json.loads(z.read('properties/'+q['case']['image_sha256']+'.json'))
                 if bool(props['padding'][patch]==1)==flag:chosen.append(q)
             strata[str(flag)]={'questions':len(chosen),'means':{n:float(np.mean([score(q,n) for q in chosen])) if chosen else None for n in report['conditions']}}
-        return dict(source=str(path),status='passed',images=len(groups),questions=len(qs),paired_image_contrasts=result,top_source_fully_padding=strata,
+        turnover={}
+        for name in report['conditions']:
+            parent=qs[0]['arms'][name].get('decoder') or {}
+            parent=parent.get('parent')
+            if parent is None:continue
+            changed=[];lower=[];higher=[];loss=[];gain=[]
+            for q in qs:
+                a,b=q['arms'][name],q['arms'][parent];cid=q['case']['case_id']
+                if a['generation_tokens']['generated_token_ids']!=b['generation_tokens']['generated_token_ids']:
+                    changed.append(dict(case_id=cid,parent_answer=b['response'],answer=a['response'],
+                        parent_score=score(q,parent),score=score(q,name),replacements=a['decoder']['replacements']))
+                if score(q,name)<score(q,parent):lower.append(cid)
+                if score(q,name)>score(q,parent):higher.append(cid)
+                if b['scoring']['correct'] and not a['scoring']['correct']:loss.append(cid)
+                if a['scoring']['correct'] and not b['scoring']['correct']:gain.append(cid)
+            turnover[name]=dict(parent=parent,changed_answers=changed,score_decreases=lower,score_increases=higher,
+                full_credit_losses=loss,full_credit_gains=gain)
+        return dict(source=str(path),status='passed',images=len(groups),questions=len(qs),paired_image_contrasts=result,top_source_fully_padding=strata,turnover=turnover,
                     limits='Exploratory intervals; no multiplicity adjustment. C2 versus C1 is not count-matched. Padding denotes source position, not context-free content.',historical_changed_ids=report.get('historical_changed_ids'))
 if __name__=='__main__':
     p=argparse.ArgumentParser();p.add_argument('zip',type=Path);p.add_argument('--output',type=Path,required=True);a=p.parse_args()
